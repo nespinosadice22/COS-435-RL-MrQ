@@ -6,8 +6,8 @@ Tentative workflow:
 1. models.py (tentative outline done)
 2. mrq_agent.py (by Tuesday)
 3. utils and env_preprocessing --> utils 
-4. replay_buffer.py 
-5. main.py (by Friday)
+4. replay_buffer.py - can we simplify? 
+5. main.py 
 
 
 Use typer 
