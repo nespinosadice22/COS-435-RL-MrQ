@@ -1,2 +1,2 @@
 # COS-435-RL-MrQ
-test hiii
+Our reimplementation of Mr.Q 
