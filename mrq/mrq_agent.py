@@ -71,13 +71,27 @@ class Hyperparameters:
 
     def __post_init__(self): utils.enforce_dataclass_type(self)
 
-#------------------------------Loss Functions--------------------------------------#
+#------------------------------Helper Functions--------------------------------------#
 
+
+
+#------------------------------Two Hot--------------------------------------#
+
+
+#------------------------------Agent--------------------------------------#
 class MrQAgent: 
-    def __init__(self, 
-        obs_shape, 
-        action_dim, 
-        max_action, 
-        device = torch.device("cuda"), 
-        #hyperparams 
-        )
+    def __init__
+
+    def select_action
+
+    def train on batch 
+
+    def train_rl train_encoder 
+
+    losses
+
+
+    save 
+
+    load 
+
