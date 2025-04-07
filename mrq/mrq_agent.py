@@ -30,20 +30,20 @@ class Agent:
         utils.set_instance_vars(self.hp, self)
         self.device = device
 
-        # Adjust exploration noise if discrete
+        # if discrete, we divide params by 2 
         if discrete:
             self.exploration_noise *= 0.5
             self.noise_clip *= 0.5
             self.target_policy_noise *= 0.5
 
-        # Replay buffer
+        #set up replay buffer
         self.replay_buffer = buffer.ReplayBuffer(
             obs_shape, action_dim, max_action, pixel_obs, self.device,
             history, max(self.enc_horizon, self.Q_horizon), self.buffer_size, self.batch_size,
             self.prioritized, initial_priority=self.min_priority
         )
 
-        # ------------------ Encoder ------------------
+        # ------------------ Encoder ------------------#
         self.encoder = models.Encoder(
             obs_channels_or_dim = obs_shape[0] * history,  # same as old "state_dim"
             action_size         = action_dim, 
@@ -60,7 +60,7 @@ class Agent:
         )
         self.encoder_target = copy.deepcopy(self.encoder)
 
-        # ------------------ Policy ------------------
+        # ------------------ Policy ------------------#
         self.policy = models.Policy(
             output_dim        = action_dim, 
             is_discrete       = discrete, 
@@ -74,9 +74,9 @@ class Agent:
         )
         self.policy_target = copy.deepcopy(self.policy)
 
-        # ------------------ Value ------------------
+        # ------------------ Value ------------------#
         self.value = models.Value(
-            input_dim      = self.zsa_dim,    # We'll feed the (state+action) joint embedding
+            input_dim      = self.zsa_dim,    
             hidden_dim     = self.value_hdim, 
             activation_name= self.value_activ
         ).to(self.device)
@@ -87,6 +87,8 @@ class Agent:
 
         # Used by reward prediction
         self.two_hot = TwoHot(self.device, self.lower, self.upper, self.num_bins)
+        
+        #make this a helper function 
         self.gammas = torch.zeros(1, self.Q_horizon, 1, device=self.device)
         discount = 1
         for t in range(self.Q_horizon):
@@ -101,7 +103,7 @@ class Agent:
         self.action_dim = action_dim
         self.max_action = max_action
 
-        # Bookkeeping
+        # Tracked values 
         self.reward_scale, self.target_reward_scale = 1, 0
         self.training_steps = 0
 
@@ -112,38 +114,38 @@ class Agent:
         """
         # Random action if buffer isn't large enough yet
         if self.replay_buffer.size < self.buffer_size_before_training and use_exploration:
-            return None  # environment will sample random action
+            return None  # environment will sample random action (built into main)
 
         with torch.no_grad():
             state_t = torch.tensor(state, dtype=torch.float, device=self.device)
             state_t = state_t.reshape(-1, *self.state_shape)
-            # Encode observation
+            # encode 
             zs = self.encoder.encode_observation(state_t)
-            # Policy forward
+            # policy
             action = self.policy.select_action(zs)
 
             if use_exploration:
-                # Add Gaussian exploration noise
+                #add exploration noise
                 action += torch.randn_like(action) * self.exploration_noise
 
             if self.discrete:
-                # Argmax for discrete
+                #arg for discrete
                 return int(action.argmax().item())
             else:
-                # Clip to [-1, 1] then scale by max_action for continuous
+                #clip to [-1, 1] then scale by max_action for continuous
                 return action.clamp(-1, 1).cpu().data.numpy().flatten() * self.max_action
 
 
     def train(self):
         """
-        Single training iteration (called periodically).
+        Single training iteration
         """
         if self.replay_buffer.size <= self.buffer_size_before_training:
             return
 
         self.training_steps += 1
 
-        # Periodic target-net updates + "self-supervised" training of the encoder
+
         if (self.training_steps - 1) % self.target_update_freq == 0:
             self.policy_target.load_state_dict(self.policy.state_dict())
             self.value_target.load_state_dict(self.value.state_dict())
@@ -151,7 +153,7 @@ class Agent:
             self.target_reward_scale = self.reward_scale
             self.reward_scale = self.replay_buffer.reward_scale()
 
-            # Train the encoder for 'target_update_freq' steps
+            #train the encoder for 'target_update_freq' steps
             for _ in range(self.target_update_freq):
                 state, action, next_state, reward, not_done = self.replay_buffer.sample(
                     self.enc_horizon, include_intermediate=True
@@ -159,13 +161,13 @@ class Agent:
                 state, next_state = maybe_augment_state(
                     state, next_state, self.pixel_obs, self.pixel_augs
                 )
-                # Train on short subtrajectories
+                #using smaller trajectories? 
                 self.train_encoder(
                     state, action, next_state, reward, not_done, 
                     self.replay_buffer.env_terminates
                 )
 
-        # Regular RL training (Q and policy)
+        # WE KNOW THIS 
         state, action, next_state, reward, not_done = self.replay_buffer.sample(
             self.Q_horizon, include_intermediate=False
         )
@@ -174,13 +176,13 @@ class Agent:
         # Multi-step returns
         reward, not_done = multi_step_reward(reward, not_done, self.gammas)
 
-        # Train the Q and policy
+        #train Q and policy 
         Q, Q_target = self.train_rl(
             state, action, next_state, reward, not_done, 
             self.reward_scale, self.target_reward_scale
         )
 
-        # Update priorities in a prioritized buffer
+        #priotized buffer thing 
         if self.prioritized:
             priority = (Q - Q_target.expand(-1,2)).abs().max(dim=1).values
             priority = priority.clamp(min=self.min_priority).pow(self.alpha)
@@ -195,13 +197,10 @@ class Agent:
                       not_done: torch.Tensor, 
                       env_terminates: bool):
         """
-        Self-supervised training for the transition model:
-          - Predict done, next latent, reward bins
-          - Minimizes MSE for next latent, cross-entropy for reward, etc.
+        Encoder 
         """
         batch_size = state.shape[0]
 
-        # We'll compare to a *target* next-state embedding from encoder_target
         with torch.no_grad():
             # Flatten out horizon dimension
             ns_flat = next_state.reshape(batch_size * self.enc_horizon, *self.state_shape)
@@ -216,10 +215,7 @@ class Agent:
         encoder_loss = 0.0
 
         for i in range(self.enc_horizon):
-            # Predict done, next_zs, reward bins from current pred_zs + action
             done_pred, next_zs_pred, rew_pred = self.encoder.predict_all(pred_zs, action[:, i])
-
-            # MSE of next-latent vs. target-latent, masked by "prev_not_done"
             dyn_loss = masked_mse(next_zs_pred, target_zs[:, i], prev_not_done)
 
             # Reward classification loss
@@ -236,9 +232,7 @@ class Agent:
                              self.reward_weight * rew_loss +
                              self.done_weight * d_loss)
 
-            # We step forward in the sub-trajectory by substituting next_zs_pred
             pred_zs = next_zs_pred
-            # Update mask if we see a done
             prev_not_done = not_done[:, i].reshape(-1,1) * prev_not_done
 
         self.encoder_optimizer.zero_grad(set_to_none=True)
@@ -259,24 +253,18 @@ class Agent:
         """
         # ------------------------ Target computation ------------------------
         with torch.no_grad():
-            # next-state embedding
             next_zs = self.encoder_target.encode_observation(next_state)
 
             noise = (torch.randn_like(action) * self.target_policy_noise).clamp(-self.noise_clip, self.noise_clip)
             noisy_action = self.policy_target.select_action(next_zs) + noise
-            # Realign for discrete or clamp for continuous
             next_action = realign(noisy_action, self.discrete)
 
-            # Merge (next_zs, next_action)
             next_zsa = self.encoder_target.merge_state_action(next_zs, next_action)
-
-            # Min-Q from value_target
             Q_target_val = self.value_target(next_zsa).min(dim=1, keepdim=True).values
 
             # y = r + gamma * Q_target
             Q_target = (reward + not_done * self.discount * Q_target_val * target_reward_scale) / reward_scale
 
-       
             zs = self.encoder.encode_observation(state)
             zsa = self.encoder.merge_state_action(zs, action)
         
@@ -291,7 +279,7 @@ class Agent:
 
         # ------------------------ Policy training ------------------------
         policy_action, pre_activ = self.policy(zs)
-        # Re-encode (z, policy_action)
+        # re-encode (z, policy_action) - why???
         policy_zsa = self.encoder.merge_state_action(zs, policy_action)
         Q_policy = self.value(policy_zsa)
         policy_loss = -Q_policy.mean() + self.pre_activ_weight * pre_activ.pow(2).mean()
@@ -304,7 +292,6 @@ class Agent:
 
 
     def save(self, save_folder: str):
-        # Save model/optimizer weights
         for key in [
             'encoder', 'encoder_target', 'encoder_optimizer',
             'policy', 'policy_target', 'policy_optimizer',
@@ -312,15 +299,12 @@ class Agent:
         ]:
             torch.save(self.__dict__[key].state_dict(), f'{save_folder}/{key}.pt')
 
-        # Save agent metadata
         vars_to_save = ['hp', 'reward_scale', 'target_reward_scale', 'training_steps']
         np.save(f'{save_folder}/agent_var.npy', {k: self.__dict__[k] for k in vars_to_save})
 
-        # Finally, save the replay buffer
         self.replay_buffer.save(save_folder)
 
     def load(self, save_folder: str):
-        # Load model/optimizer weights
         for key in [
             'encoder', 'encoder_target', 'encoder_optimizer',
             'policy', 'policy_target', 'policy_optimizer',
@@ -330,10 +314,8 @@ class Agent:
                 torch.load(f'{save_folder}/{key}.pt', weights_only=True)
             )
 
-        # Load agent metadata
         var_dict = np.load(f'{save_folder}/agent_var.npy', allow_pickle=True).item()
         for k, v in var_dict.items():
             self.__dict__[k] = v
 
-        # Load replay buffer
         self.replay_buffer.load(save_folder)
