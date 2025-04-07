@@ -1,4 +1,6 @@
 #currently exactly the same as mrq - we can think about how to change!! 
+import torch
+import torch.nn.functional as F
 class TwoHotEncoder: 
     """
     Convert scalar reward --> two adjacent bins for classification
@@ -7,7 +9,7 @@ class TwoHotEncoder:
     def __init__(self, lower_bound: float = -10.0, upper_bound: float = 10.0, num_bins: int = 65, device: str = "cuda"): 
         self.num_bins = num_bins 
         self.device = device 
-        self.bins = torch.linspace(lower, upper, num_bins, device=device)
+        self.bins = torch.linspace(lower_bound, upper_bound, num_bins, device=device)
         self.bins = self.bins.sign() * (self.bins.abs().exp() - 1) # symexp
 
     def two_hot_encode(self, scalar_rewards: torch.Tensor) -> torch.Tensor: 

@@ -125,7 +125,7 @@ class Encoder(nn.Module):
             h = self.activation_fn(self.conv3(h))
             h = self.activation_fn(self.conv4(h))
             #flatten needed? 
-            h = h.reshape(state.shape[0], -1)
+            h = h.reshape(obs.shape[0], -1)
             return apply_layernorm_and_activation(self.linear_after_conv(h), self.activation_fn)
         #vector states 
         else: 
