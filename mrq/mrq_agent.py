@@ -173,7 +173,7 @@ class Agent:
         )
         state, next_state = maybe_augment_state(state, next_state, self.pixel_obs, self.pixel_augs)
 
-        # Multi-step returns
+        #multi -step returns
         reward, not_done = multi_step_reward(reward, not_done, self.gammas)
 
         #train Q and policy 
@@ -202,13 +202,12 @@ class Agent:
         batch_size = state.shape[0]
 
         with torch.no_grad():
-            # Flatten out horizon dimension
+            #flatten out horizon dimension
             ns_flat = next_state.reshape(batch_size * self.enc_horizon, *self.state_shape)
             target_zs = self.encoder_target.encode_observation(ns_flat)
             target_zs = target_zs.reshape(batch_size, self.enc_horizon, -1)
 
-        # Our initial predicted embedding:
-        #   state[:, 0] is the first observation in the sub-trajectory
+        # Our initial predicted embedding: state[:, 0] is the first observation in the sub-trajectory
         pred_zs = self.encoder.encode_observation(state[:, 0])
 
         prev_not_done = 1.0  # used to mask out states after termination
