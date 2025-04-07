@@ -16,14 +16,15 @@ from two_hot import TwoHot
 
 class Agent:
     def __init__(self, 
-                 obs_shape: tuple, 
-                 action_dim: int, 
-                 max_action: float, 
-                 pixel_obs: bool, 
-                 discrete: bool,
-                 device: torch.device, 
-                 history: int=1, 
-                 hp: Dict={}):
+        obs_shape: tuple, 
+        action_dim: int, 
+        max_action: float, 
+        pixel_obs: bool, 
+        discrete: bool,
+        device: torch.device, 
+        history: int=1, 
+        hp: Dict={}
+    ):
         self.name = 'MR.Q'
 
         self.hp = Hyperparameters(**hp)
@@ -190,12 +191,13 @@ class Agent:
 
 
     def train_encoder(self, 
-                      state: torch.Tensor, 
-                      action: torch.Tensor, 
-                      next_state: torch.Tensor,
-                      reward: torch.Tensor, 
-                      not_done: torch.Tensor, 
-                      env_terminates: bool):
+        state: torch.Tensor, 
+        action: torch.Tensor, 
+        next_state: torch.Tensor,
+        reward: torch.Tensor, 
+        not_done: torch.Tensor, 
+        env_terminates: bool
+    ):
         """
         Encoder 
         """
