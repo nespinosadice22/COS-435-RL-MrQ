@@ -1,0 +1,1481 @@
+----------------------------------------
+Experiment
+----------------------------------------
+Algorithm:	MRQAgent_Rewritten
+Env:		Gym-Ant-v4
+Seed:		0
+----------------------------------------
+Environment hyperparameters
+----------------------------------------
+Obs shape:		(27,)
+Action dim:		8
+Discrete actions:	False
+Pixel observations:	False
+----------------------------------------
+Agent hyperparameters
+----------------------------------------
+Hyperparameters(batch_size=256,
+                buffer_size=1000000.0,
+                discount=0.99,
+                target_update_freq=250,
+                buffer_size_before_training=10000.0,
+                exploration_noise=0.2,
+                target_policy_noise=0.2,
+                noise_clip=0.3,
+                dyn_weight=1,
+                reward_weight=0.1,
+                done_weight=0.1,
+                prioritized=True,
+                alpha=0.4,
+                min_priority=1,
+                enc_horizon=5,
+                Q_horizon=3,
+                zs_dim=512,
+                zsa_dim=512,
+                za_dim=256,
+                enc_hdim=512,
+                enc_activ='elu',
+                enc_lr=0.0001,
+                enc_wd=0.0001,
+                pixel_augs=True,
+                value_hdim=512,
+                value_activ='elu',
+                value_lr=0.0003,
+                value_wd=0.0001,
+                value_grad_clip=20,
+                policy_hdim=512,
+                policy_activ='relu',
+                policy_lr=0.0003,
+                policy_wd=0.0001,
+                gumbel_tau=10,
+                pre_activ_weight=1e-05,
+                num_bins=65,
+                lower=-10,
+                upper=10)
+----------------------------------------
+----------------------------------------
+Evaluation at 0 time steps
+Average total reward over 10 episodes: -783.924
+Total time passed: 0.02 minutes
+----------------------------------------
+Total T: 146, Episode Num: 2, Episode T: 146, Reward: -42.293
+Total T: 303, Episode Num: 3, Episode T: 157, Reward: -50.935
+Total T: 321, Episode Num: 4, Episode T: 18, Reward: -18.814
+Total T: 363, Episode Num: 5, Episode T: 42, Reward: -30.106
+Total T: 417, Episode Num: 6, Episode T: 54, Reward: -28.019
+Total T: 531, Episode Num: 7, Episode T: 114, Reward: -42.019
+Total T: 774, Episode Num: 8, Episode T: 243, Reward: -181.761
+Total T: 850, Episode Num: 9, Episode T: 76, Reward: -57.751
+Total T: 893, Episode Num: 10, Episode T: 43, Reward: -16.014
+Total T: 1089, Episode Num: 11, Episode T: 196, Reward: -108.606
+Total T: 1226, Episode Num: 12, Episode T: 137, Reward: -76.369
+Total T: 1476, Episode Num: 13, Episode T: 250, Reward: -131.160
+Total T: 1540, Episode Num: 14, Episode T: 64, Reward: -35.654
+Total T: 1553, Episode Num: 15, Episode T: 13, Reward: -6.955
+Total T: 1668, Episode Num: 16, Episode T: 115, Reward: -33.096
+Total T: 1756, Episode Num: 17, Episode T: 88, Reward: -34.299
+Total T: 1856, Episode Num: 18, Episode T: 100, Reward: -41.511
+Total T: 2856, Episode Num: 19, Episode T: 1000, Reward: -277.540
+Total T: 2914, Episode Num: 20, Episode T: 58, Reward: -36.924
+Total T: 2948, Episode Num: 21, Episode T: 34, Reward: -3.282
+Total T: 3120, Episode Num: 22, Episode T: 172, Reward: -29.144
+Total T: 3140, Episode Num: 23, Episode T: 20, Reward: -31.628
+Total T: 4140, Episode Num: 24, Episode T: 1000, Reward: -390.714
+Total T: 4270, Episode Num: 25, Episode T: 130, Reward: -55.336
+Total T: 4370, Episode Num: 26, Episode T: 100, Reward: -60.186
+Total T: 4397, Episode Num: 27, Episode T: 27, Reward: -15.927
+Total T: 4434, Episode Num: 28, Episode T: 37, Reward: -40.626
+Total T: 4487, Episode Num: 29, Episode T: 53, Reward: -31.612
+Total T: 4713, Episode Num: 30, Episode T: 226, Reward: -17.573
+Total T: 4774, Episode Num: 31, Episode T: 61, Reward: -31.870
+Total T: 4805, Episode Num: 32, Episode T: 31, Reward: -23.784
+----------------------------------------
+Evaluation at 5000 time steps
+Average total reward over 10 episodes: -879.830
+Total time passed: 0.06 minutes
+----------------------------------------
+Total T: 5041, Episode Num: 33, Episode T: 236, Reward: -49.601
+Total T: 5084, Episode Num: 34, Episode T: 43, Reward: -22.654
+Total T: 5129, Episode Num: 35, Episode T: 45, Reward: -18.471
+Total T: 5229, Episode Num: 36, Episode T: 100, Reward: -30.378
+Total T: 5260, Episode Num: 37, Episode T: 31, Reward: 6.723
+Total T: 5403, Episode Num: 38, Episode T: 143, Reward: -20.507
+Total T: 5506, Episode Num: 39, Episode T: 103, Reward: -14.429
+Total T: 5536, Episode Num: 40, Episode T: 30, Reward: -3.694
+Total T: 5659, Episode Num: 41, Episode T: 123, Reward: -79.047
+Total T: 5788, Episode Num: 42, Episode T: 129, Reward: -23.599
+Total T: 5842, Episode Num: 43, Episode T: 54, Reward: -9.056
+Total T: 5892, Episode Num: 44, Episode T: 50, Reward: -13.350
+Total T: 6029, Episode Num: 45, Episode T: 137, Reward: -102.074
+Total T: 6237, Episode Num: 46, Episode T: 208, Reward: -27.978
+Total T: 6285, Episode Num: 47, Episode T: 48, Reward: 4.970
+Total T: 6309, Episode Num: 48, Episode T: 24, Reward: -0.097
+Total T: 6502, Episode Num: 49, Episode T: 193, Reward: -45.747
+Total T: 6732, Episode Num: 50, Episode T: 230, Reward: -160.235
+Total T: 6804, Episode Num: 51, Episode T: 72, Reward: -6.314
+Total T: 6927, Episode Num: 52, Episode T: 123, Reward: -1.479
+Total T: 7927, Episode Num: 53, Episode T: 1000, Reward: -310.700
+Total T: 7976, Episode Num: 54, Episode T: 49, Reward: -42.913
+Total T: 8976, Episode Num: 55, Episode T: 1000, Reward: -305.551
+Total T: 9018, Episode Num: 56, Episode T: 42, Reward: -16.352
+Total T: 9089, Episode Num: 57, Episode T: 71, Reward: 13.099
+Total T: 9119, Episode Num: 58, Episode T: 30, Reward: 4.892
+Total T: 9242, Episode Num: 59, Episode T: 123, Reward: -26.052
+----------------------------------------
+Experiment
+----------------------------------------
+Algorithm:	MRQAgent_Rewritten
+Env:		Gym-Ant-v4
+Seed:		0
+----------------------------------------
+Environment hyperparameters
+----------------------------------------
+Obs shape:		(27,)
+Action dim:		8
+Discrete actions:	False
+Pixel observations:	False
+----------------------------------------
+Agent hyperparameters
+----------------------------------------
+Hyperparameters(batch_size=256,
+                buffer_size=1000000.0,
+                discount=0.99,
+                target_update_freq=250,
+                buffer_size_before_training=10000.0,
+                exploration_noise=0.2,
+                target_policy_noise=0.2,
+                noise_clip=0.3,
+                dyn_weight=1,
+                reward_weight=0.1,
+                done_weight=0.1,
+                prioritized=True,
+                alpha=0.4,
+                min_priority=1,
+                enc_horizon=5,
+                Q_horizon=3,
+                zs_dim=512,
+                zsa_dim=512,
+                za_dim=256,
+                enc_hdim=512,
+                enc_activ='elu',
+                enc_lr=0.0001,
+                enc_wd=0.0001,
+                pixel_augs=True,
+                value_hdim=512,
+                value_activ='elu',
+                value_lr=0.0003,
+                value_wd=0.0001,
+                value_grad_clip=20,
+                policy_hdim=512,
+                policy_activ='relu',
+                policy_lr=0.0003,
+                policy_wd=0.0001,
+                gumbel_tau=10,
+                pre_activ_weight=1e-05,
+                num_bins=65,
+                lower=-10,
+                upper=10)
+----------------------------------------
+----------------------------------------
+Evaluation at 0 time steps
+Average total reward over 10 episodes: -783.924
+Total time passed: 0.02 minutes
+----------------------------------------
+Total T: 146, Episode Num: 2, Episode T: 146, Reward: -42.293
+Total T: 303, Episode Num: 3, Episode T: 157, Reward: -50.935
+Total T: 321, Episode Num: 4, Episode T: 18, Reward: -18.814
+Total T: 363, Episode Num: 5, Episode T: 42, Reward: -30.106
+Total T: 417, Episode Num: 6, Episode T: 54, Reward: -28.019
+Total T: 531, Episode Num: 7, Episode T: 114, Reward: -42.019
+Total T: 774, Episode Num: 8, Episode T: 243, Reward: -181.761
+Total T: 850, Episode Num: 9, Episode T: 76, Reward: -57.751
+Total T: 893, Episode Num: 10, Episode T: 43, Reward: -16.014
+Total T: 1089, Episode Num: 11, Episode T: 196, Reward: -108.606
+Total T: 1226, Episode Num: 12, Episode T: 137, Reward: -76.369
+Total T: 1476, Episode Num: 13, Episode T: 250, Reward: -131.160
+Total T: 1540, Episode Num: 14, Episode T: 64, Reward: -35.654
+Total T: 1553, Episode Num: 15, Episode T: 13, Reward: -6.955
+Total T: 1668, Episode Num: 16, Episode T: 115, Reward: -33.096
+Total T: 1756, Episode Num: 17, Episode T: 88, Reward: -34.299
+Total T: 1856, Episode Num: 18, Episode T: 100, Reward: -41.511
+Total T: 2856, Episode Num: 19, Episode T: 1000, Reward: -277.540
+Total T: 2914, Episode Num: 20, Episode T: 58, Reward: -36.924
+Total T: 2948, Episode Num: 21, Episode T: 34, Reward: -3.282
+Total T: 3120, Episode Num: 22, Episode T: 172, Reward: -29.144
+Total T: 3140, Episode Num: 23, Episode T: 20, Reward: -31.628
+Total T: 4140, Episode Num: 24, Episode T: 1000, Reward: -390.714
+Total T: 4270, Episode Num: 25, Episode T: 130, Reward: -55.336
+Total T: 4370, Episode Num: 26, Episode T: 100, Reward: -60.186
+Total T: 4397, Episode Num: 27, Episode T: 27, Reward: -15.927
+Total T: 4434, Episode Num: 28, Episode T: 37, Reward: -40.626
+Total T: 4487, Episode Num: 29, Episode T: 53, Reward: -31.612
+Total T: 4713, Episode Num: 30, Episode T: 226, Reward: -17.573
+Total T: 4774, Episode Num: 31, Episode T: 61, Reward: -31.870
+Total T: 4805, Episode Num: 32, Episode T: 31, Reward: -23.784
+----------------------------------------
+Evaluation at 5000 time steps
+Average total reward over 10 episodes: -879.830
+Total time passed: 0.06 minutes
+----------------------------------------
+Total T: 5041, Episode Num: 33, Episode T: 236, Reward: -49.601
+Total T: 5084, Episode Num: 34, Episode T: 43, Reward: -22.654
+Total T: 5129, Episode Num: 35, Episode T: 45, Reward: -18.471
+Total T: 5229, Episode Num: 36, Episode T: 100, Reward: -30.378
+Total T: 5260, Episode Num: 37, Episode T: 31, Reward: 6.723
+Total T: 5403, Episode Num: 38, Episode T: 143, Reward: -20.507
+Total T: 5506, Episode Num: 39, Episode T: 103, Reward: -14.429
+Total T: 5536, Episode Num: 40, Episode T: 30, Reward: -3.694
+Total T: 5659, Episode Num: 41, Episode T: 123, Reward: -79.047
+Total T: 5788, Episode Num: 42, Episode T: 129, Reward: -23.599
+Total T: 5842, Episode Num: 43, Episode T: 54, Reward: -9.056
+Total T: 5892, Episode Num: 44, Episode T: 50, Reward: -13.350
+Total T: 6029, Episode Num: 45, Episode T: 137, Reward: -102.074
+Total T: 6237, Episode Num: 46, Episode T: 208, Reward: -27.978
+Total T: 6285, Episode Num: 47, Episode T: 48, Reward: 4.970
+Total T: 6309, Episode Num: 48, Episode T: 24, Reward: -0.097
+Total T: 6502, Episode Num: 49, Episode T: 193, Reward: -45.747
+Total T: 6732, Episode Num: 50, Episode T: 230, Reward: -160.235
+Total T: 6804, Episode Num: 51, Episode T: 72, Reward: -6.314
+Total T: 6927, Episode Num: 52, Episode T: 123, Reward: -1.479
+Total T: 7927, Episode Num: 53, Episode T: 1000, Reward: -310.700
+Total T: 7976, Episode Num: 54, Episode T: 49, Reward: -42.913
+Total T: 8976, Episode Num: 55, Episode T: 1000, Reward: -305.551
+Total T: 9018, Episode Num: 56, Episode T: 42, Reward: -16.352
+Total T: 9089, Episode Num: 57, Episode T: 71, Reward: 13.099
+Total T: 9119, Episode Num: 58, Episode T: 30, Reward: 4.892
+Total T: 9242, Episode Num: 59, Episode T: 123, Reward: -26.052
+----------------------------------------
+Experiment
+----------------------------------------
+Algorithm:	MRQAgent_Rewritten
+Env:		Gym-Ant-v4
+Seed:		0
+----------------------------------------
+Environment hyperparameters
+----------------------------------------
+Obs shape:		(27,)
+Action dim:		8
+Discrete actions:	False
+Pixel observations:	False
+----------------------------------------
+Agent hyperparameters
+----------------------------------------
+Hyperparameters(batch_size=256,
+                buffer_size=1000000.0,
+                discount=0.99,
+                target_update_freq=250,
+                buffer_size_before_training=10000.0,
+                exploration_noise=0.2,
+                target_policy_noise=0.2,
+                noise_clip=0.3,
+                dyn_weight=1,
+                reward_weight=0.1,
+                done_weight=0.1,
+                prioritized=True,
+                alpha=0.4,
+                min_priority=1,
+                enc_horizon=5,
+                Q_horizon=3,
+                zs_dim=512,
+                zsa_dim=512,
+                za_dim=256,
+                enc_hdim=512,
+                enc_activ='elu',
+                enc_lr=0.0001,
+                enc_wd=0.0001,
+                pixel_augs=True,
+                value_hdim=512,
+                value_activ='elu',
+                value_lr=0.0003,
+                value_wd=0.0001,
+                value_grad_clip=20,
+                policy_hdim=512,
+                policy_activ='relu',
+                policy_lr=0.0003,
+                policy_wd=0.0001,
+                gumbel_tau=10,
+                pre_activ_weight=1e-05,
+                num_bins=65,
+                lower=-10,
+                upper=10)
+----------------------------------------
+----------------------------------------
+Evaluation at 0 time steps
+Average total reward over 10 episodes: -783.924
+Total time passed: 0.02 minutes
+----------------------------------------
+Total T: 146, Episode Num: 2, Episode T: 146, Reward: -42.293
+Total T: 303, Episode Num: 3, Episode T: 157, Reward: -50.935
+Total T: 321, Episode Num: 4, Episode T: 18, Reward: -18.814
+Total T: 363, Episode Num: 5, Episode T: 42, Reward: -30.106
+Total T: 417, Episode Num: 6, Episode T: 54, Reward: -28.019
+Total T: 531, Episode Num: 7, Episode T: 114, Reward: -42.019
+Total T: 774, Episode Num: 8, Episode T: 243, Reward: -181.761
+Total T: 850, Episode Num: 9, Episode T: 76, Reward: -57.751
+Total T: 893, Episode Num: 10, Episode T: 43, Reward: -16.014
+Total T: 1089, Episode Num: 11, Episode T: 196, Reward: -108.606
+Total T: 1226, Episode Num: 12, Episode T: 137, Reward: -76.369
+Total T: 1476, Episode Num: 13, Episode T: 250, Reward: -131.160
+Total T: 1540, Episode Num: 14, Episode T: 64, Reward: -35.654
+Total T: 1553, Episode Num: 15, Episode T: 13, Reward: -6.955
+Total T: 1668, Episode Num: 16, Episode T: 115, Reward: -33.096
+Total T: 1756, Episode Num: 17, Episode T: 88, Reward: -34.299
+Total T: 1856, Episode Num: 18, Episode T: 100, Reward: -41.511
+Total T: 2856, Episode Num: 19, Episode T: 1000, Reward: -277.540
+Total T: 2914, Episode Num: 20, Episode T: 58, Reward: -36.924
+Total T: 2948, Episode Num: 21, Episode T: 34, Reward: -3.282
+Total T: 3120, Episode Num: 22, Episode T: 172, Reward: -29.144
+Total T: 3140, Episode Num: 23, Episode T: 20, Reward: -31.628
+Total T: 4140, Episode Num: 24, Episode T: 1000, Reward: -390.714
+Total T: 4270, Episode Num: 25, Episode T: 130, Reward: -55.336
+Total T: 4370, Episode Num: 26, Episode T: 100, Reward: -60.186
+Total T: 4397, Episode Num: 27, Episode T: 27, Reward: -15.927
+Total T: 4434, Episode Num: 28, Episode T: 37, Reward: -40.626
+Total T: 4487, Episode Num: 29, Episode T: 53, Reward: -31.612
+Total T: 4713, Episode Num: 30, Episode T: 226, Reward: -17.573
+Total T: 4774, Episode Num: 31, Episode T: 61, Reward: -31.870
+Total T: 4805, Episode Num: 32, Episode T: 31, Reward: -23.784
+----------------------------------------
+Evaluation at 5000 time steps
+Average total reward over 10 episodes: -879.830
+Total time passed: 0.06 minutes
+----------------------------------------
+Total T: 5041, Episode Num: 33, Episode T: 236, Reward: -49.601
+Total T: 5084, Episode Num: 34, Episode T: 43, Reward: -22.654
+Total T: 5129, Episode Num: 35, Episode T: 45, Reward: -18.471
+Total T: 5229, Episode Num: 36, Episode T: 100, Reward: -30.378
+Total T: 5260, Episode Num: 37, Episode T: 31, Reward: 6.723
+Total T: 5403, Episode Num: 38, Episode T: 143, Reward: -20.507
+Total T: 5506, Episode Num: 39, Episode T: 103, Reward: -14.429
+Total T: 5536, Episode Num: 40, Episode T: 30, Reward: -3.694
+Total T: 5659, Episode Num: 41, Episode T: 123, Reward: -79.047
+Total T: 5788, Episode Num: 42, Episode T: 129, Reward: -23.599
+Total T: 5842, Episode Num: 43, Episode T: 54, Reward: -9.056
+Total T: 5892, Episode Num: 44, Episode T: 50, Reward: -13.350
+Total T: 6029, Episode Num: 45, Episode T: 137, Reward: -102.074
+Total T: 6237, Episode Num: 46, Episode T: 208, Reward: -27.978
+Total T: 6285, Episode Num: 47, Episode T: 48, Reward: 4.970
+Total T: 6309, Episode Num: 48, Episode T: 24, Reward: -0.097
+Total T: 6502, Episode Num: 49, Episode T: 193, Reward: -45.747
+Total T: 6732, Episode Num: 50, Episode T: 230, Reward: -160.235
+Total T: 6804, Episode Num: 51, Episode T: 72, Reward: -6.314
+Total T: 6927, Episode Num: 52, Episode T: 123, Reward: -1.479
+Total T: 7927, Episode Num: 53, Episode T: 1000, Reward: -310.700
+Total T: 7976, Episode Num: 54, Episode T: 49, Reward: -42.913
+Total T: 8976, Episode Num: 55, Episode T: 1000, Reward: -305.551
+Total T: 9018, Episode Num: 56, Episode T: 42, Reward: -16.352
+Total T: 9089, Episode Num: 57, Episode T: 71, Reward: 13.099
+Total T: 9119, Episode Num: 58, Episode T: 30, Reward: 4.892
+Total T: 9242, Episode Num: 59, Episode T: 123, Reward: -26.052
+----------------------------------------
+Experiment
+----------------------------------------
+Algorithm:	MRQAgent_Rewritten
+Env:		Gym-Ant-v4
+Seed:		0
+----------------------------------------
+Environment hyperparameters
+----------------------------------------
+Obs shape:		(27,)
+Action dim:		8
+Discrete actions:	False
+Pixel observations:	False
+----------------------------------------
+Agent hyperparameters
+----------------------------------------
+Hyperparameters(batch_size=256,
+                buffer_size=1000000.0,
+                discount=0.99,
+                target_update_freq=250,
+                buffer_size_before_training=10000.0,
+                exploration_noise=0.2,
+                target_policy_noise=0.2,
+                noise_clip=0.3,
+                dyn_weight=1,
+                reward_weight=0.1,
+                done_weight=0.1,
+                prioritized=True,
+                alpha=0.4,
+                min_priority=1,
+                enc_horizon=5,
+                Q_horizon=3,
+                zs_dim=512,
+                zsa_dim=512,
+                za_dim=256,
+                enc_hdim=512,
+                enc_activ='elu',
+                enc_lr=0.0001,
+                enc_wd=0.0001,
+                pixel_augs=True,
+                value_hdim=512,
+                value_activ='elu',
+                value_lr=0.0003,
+                value_wd=0.0001,
+                value_grad_clip=20,
+                policy_hdim=512,
+                policy_activ='relu',
+                policy_lr=0.0003,
+                policy_wd=0.0001,
+                gumbel_tau=10,
+                pre_activ_weight=1e-05,
+                num_bins=65,
+                lower=-10,
+                upper=10)
+----------------------------------------
+----------------------------------------
+Evaluation at 0 time steps
+Average total reward over 10 episodes: -783.924
+Total time passed: 0.02 minutes
+----------------------------------------
+Total T: 146, Episode Num: 2, Episode T: 146, Reward: -42.293
+Total T: 303, Episode Num: 3, Episode T: 157, Reward: -50.935
+Total T: 321, Episode Num: 4, Episode T: 18, Reward: -18.814
+Total T: 363, Episode Num: 5, Episode T: 42, Reward: -30.106
+Total T: 417, Episode Num: 6, Episode T: 54, Reward: -28.019
+Total T: 531, Episode Num: 7, Episode T: 114, Reward: -42.019
+Total T: 774, Episode Num: 8, Episode T: 243, Reward: -181.761
+Total T: 850, Episode Num: 9, Episode T: 76, Reward: -57.751
+Total T: 893, Episode Num: 10, Episode T: 43, Reward: -16.014
+Total T: 1089, Episode Num: 11, Episode T: 196, Reward: -108.606
+Total T: 1226, Episode Num: 12, Episode T: 137, Reward: -76.369
+Total T: 1476, Episode Num: 13, Episode T: 250, Reward: -131.160
+Total T: 1540, Episode Num: 14, Episode T: 64, Reward: -35.654
+Total T: 1553, Episode Num: 15, Episode T: 13, Reward: -6.955
+Total T: 1668, Episode Num: 16, Episode T: 115, Reward: -33.096
+Total T: 1756, Episode Num: 17, Episode T: 88, Reward: -34.299
+Total T: 1856, Episode Num: 18, Episode T: 100, Reward: -41.511
+Total T: 2856, Episode Num: 19, Episode T: 1000, Reward: -277.540
+Total T: 2914, Episode Num: 20, Episode T: 58, Reward: -36.924
+Total T: 2948, Episode Num: 21, Episode T: 34, Reward: -3.282
+Total T: 3120, Episode Num: 22, Episode T: 172, Reward: -29.144
+Total T: 3140, Episode Num: 23, Episode T: 20, Reward: -31.628
+Total T: 4140, Episode Num: 24, Episode T: 1000, Reward: -390.714
+Total T: 4270, Episode Num: 25, Episode T: 130, Reward: -55.336
+Total T: 4370, Episode Num: 26, Episode T: 100, Reward: -60.186
+Total T: 4397, Episode Num: 27, Episode T: 27, Reward: -15.927
+Total T: 4434, Episode Num: 28, Episode T: 37, Reward: -40.626
+Total T: 4487, Episode Num: 29, Episode T: 53, Reward: -31.612
+Total T: 4713, Episode Num: 30, Episode T: 226, Reward: -17.573
+Total T: 4774, Episode Num: 31, Episode T: 61, Reward: -31.870
+Total T: 4805, Episode Num: 32, Episode T: 31, Reward: -23.784
+----------------------------------------
+Evaluation at 5000 time steps
+Average total reward over 10 episodes: -879.830
+Total time passed: 0.06 minutes
+----------------------------------------
+Total T: 5041, Episode Num: 33, Episode T: 236, Reward: -49.601
+Total T: 5084, Episode Num: 34, Episode T: 43, Reward: -22.654
+Total T: 5129, Episode Num: 35, Episode T: 45, Reward: -18.471
+Total T: 5229, Episode Num: 36, Episode T: 100, Reward: -30.378
+Total T: 5260, Episode Num: 37, Episode T: 31, Reward: 6.723
+Total T: 5403, Episode Num: 38, Episode T: 143, Reward: -20.507
+Total T: 5506, Episode Num: 39, Episode T: 103, Reward: -14.429
+Total T: 5536, Episode Num: 40, Episode T: 30, Reward: -3.694
+Total T: 5659, Episode Num: 41, Episode T: 123, Reward: -79.047
+Total T: 5788, Episode Num: 42, Episode T: 129, Reward: -23.599
+Total T: 5842, Episode Num: 43, Episode T: 54, Reward: -9.056
+Total T: 5892, Episode Num: 44, Episode T: 50, Reward: -13.350
+Total T: 6029, Episode Num: 45, Episode T: 137, Reward: -102.074
+Total T: 6237, Episode Num: 46, Episode T: 208, Reward: -27.978
+Total T: 6285, Episode Num: 47, Episode T: 48, Reward: 4.970
+Total T: 6309, Episode Num: 48, Episode T: 24, Reward: -0.097
+Total T: 6502, Episode Num: 49, Episode T: 193, Reward: -45.747
+Total T: 6732, Episode Num: 50, Episode T: 230, Reward: -160.235
+Total T: 6804, Episode Num: 51, Episode T: 72, Reward: -6.314
+Total T: 6927, Episode Num: 52, Episode T: 123, Reward: -1.479
+Total T: 7927, Episode Num: 53, Episode T: 1000, Reward: -310.700
+Total T: 7976, Episode Num: 54, Episode T: 49, Reward: -42.913
+Total T: 8976, Episode Num: 55, Episode T: 1000, Reward: -305.551
+Total T: 9018, Episode Num: 56, Episode T: 42, Reward: -16.352
+Total T: 9089, Episode Num: 57, Episode T: 71, Reward: 13.099
+Total T: 9119, Episode Num: 58, Episode T: 30, Reward: 4.892
+Total T: 9242, Episode Num: 59, Episode T: 123, Reward: -26.052
+----------------------------------------
+Experiment
+----------------------------------------
+Algorithm:	MRQAgent_Rewritten
+Env:		Gym-Ant-v4
+Seed:		0
+----------------------------------------
+Environment hyperparameters
+----------------------------------------
+Obs shape:		(27,)
+Action dim:		8
+Discrete actions:	False
+Pixel observations:	False
+----------------------------------------
+Agent hyperparameters
+----------------------------------------
+Hyperparameters(batch_size=256,
+                buffer_size=1000000.0,
+                discount=0.99,
+                target_update_freq=250,
+                buffer_size_before_training=10000.0,
+                exploration_noise=0.2,
+                target_policy_noise=0.2,
+                noise_clip=0.3,
+                dyn_weight=1,
+                reward_weight=0.1,
+                done_weight=0.1,
+                prioritized=True,
+                alpha=0.4,
+                min_priority=1,
+                enc_horizon=5,
+                Q_horizon=3,
+                zs_dim=512,
+                zsa_dim=512,
+                za_dim=256,
+                enc_hdim=512,
+                enc_activ='elu',
+                enc_lr=0.0001,
+                enc_wd=0.0001,
+                pixel_augs=True,
+                value_hdim=512,
+                value_activ='elu',
+                value_lr=0.0003,
+                value_wd=0.0001,
+                value_grad_clip=20,
+                policy_hdim=512,
+                policy_activ='relu',
+                policy_lr=0.0003,
+                policy_wd=0.0001,
+                gumbel_tau=10,
+                pre_activ_weight=1e-05,
+                num_bins=65,
+                lower=-10,
+                upper=10)
+----------------------------------------
+----------------------------------------
+Evaluation at 0 time steps
+Average total reward over 10 episodes: -783.924
+Total time passed: 0.02 minutes
+----------------------------------------
+Total T: 146, Episode Num: 2, Episode T: 146, Reward: -42.293
+Total T: 303, Episode Num: 3, Episode T: 157, Reward: -50.935
+Total T: 321, Episode Num: 4, Episode T: 18, Reward: -18.814
+Total T: 363, Episode Num: 5, Episode T: 42, Reward: -30.106
+Total T: 417, Episode Num: 6, Episode T: 54, Reward: -28.019
+Total T: 531, Episode Num: 7, Episode T: 114, Reward: -42.019
+Total T: 774, Episode Num: 8, Episode T: 243, Reward: -181.761
+Total T: 850, Episode Num: 9, Episode T: 76, Reward: -57.751
+Total T: 893, Episode Num: 10, Episode T: 43, Reward: -16.014
+Total T: 1089, Episode Num: 11, Episode T: 196, Reward: -108.606
+Total T: 1226, Episode Num: 12, Episode T: 137, Reward: -76.369
+Total T: 1476, Episode Num: 13, Episode T: 250, Reward: -131.160
+Total T: 1540, Episode Num: 14, Episode T: 64, Reward: -35.654
+Total T: 1553, Episode Num: 15, Episode T: 13, Reward: -6.955
+Total T: 1668, Episode Num: 16, Episode T: 115, Reward: -33.096
+Total T: 1756, Episode Num: 17, Episode T: 88, Reward: -34.299
+Total T: 1856, Episode Num: 18, Episode T: 100, Reward: -41.511
+Total T: 2856, Episode Num: 19, Episode T: 1000, Reward: -277.540
+Total T: 2914, Episode Num: 20, Episode T: 58, Reward: -36.924
+Total T: 2948, Episode Num: 21, Episode T: 34, Reward: -3.282
+Total T: 3120, Episode Num: 22, Episode T: 172, Reward: -29.144
+Total T: 3140, Episode Num: 23, Episode T: 20, Reward: -31.628
+Total T: 4140, Episode Num: 24, Episode T: 1000, Reward: -390.714
+Total T: 4270, Episode Num: 25, Episode T: 130, Reward: -55.336
+Total T: 4370, Episode Num: 26, Episode T: 100, Reward: -60.186
+Total T: 4397, Episode Num: 27, Episode T: 27, Reward: -15.927
+Total T: 4434, Episode Num: 28, Episode T: 37, Reward: -40.626
+Total T: 4487, Episode Num: 29, Episode T: 53, Reward: -31.612
+Total T: 4713, Episode Num: 30, Episode T: 226, Reward: -17.573
+Total T: 4774, Episode Num: 31, Episode T: 61, Reward: -31.870
+Total T: 4805, Episode Num: 32, Episode T: 31, Reward: -23.784
+----------------------------------------
+Evaluation at 5000 time steps
+Average total reward over 10 episodes: -879.830
+Total time passed: 0.06 minutes
+----------------------------------------
+Total T: 5041, Episode Num: 33, Episode T: 236, Reward: -49.601
+Total T: 5084, Episode Num: 34, Episode T: 43, Reward: -22.654
+Total T: 5129, Episode Num: 35, Episode T: 45, Reward: -18.471
+Total T: 5229, Episode Num: 36, Episode T: 100, Reward: -30.378
+Total T: 5260, Episode Num: 37, Episode T: 31, Reward: 6.723
+Total T: 5403, Episode Num: 38, Episode T: 143, Reward: -20.507
+Total T: 5506, Episode Num: 39, Episode T: 103, Reward: -14.429
+Total T: 5536, Episode Num: 40, Episode T: 30, Reward: -3.694
+Total T: 5659, Episode Num: 41, Episode T: 123, Reward: -79.047
+Total T: 5788, Episode Num: 42, Episode T: 129, Reward: -23.599
+Total T: 5842, Episode Num: 43, Episode T: 54, Reward: -9.056
+Total T: 5892, Episode Num: 44, Episode T: 50, Reward: -13.350
+Total T: 6029, Episode Num: 45, Episode T: 137, Reward: -102.074
+Total T: 6237, Episode Num: 46, Episode T: 208, Reward: -27.978
+Total T: 6285, Episode Num: 47, Episode T: 48, Reward: 4.970
+Total T: 6309, Episode Num: 48, Episode T: 24, Reward: -0.097
+Total T: 6502, Episode Num: 49, Episode T: 193, Reward: -45.747
+Total T: 6732, Episode Num: 50, Episode T: 230, Reward: -160.235
+Total T: 6804, Episode Num: 51, Episode T: 72, Reward: -6.314
+Total T: 6927, Episode Num: 52, Episode T: 123, Reward: -1.479
+Total T: 7927, Episode Num: 53, Episode T: 1000, Reward: -310.700
+Total T: 7976, Episode Num: 54, Episode T: 49, Reward: -42.913
+Total T: 8976, Episode Num: 55, Episode T: 1000, Reward: -305.551
+Total T: 9018, Episode Num: 56, Episode T: 42, Reward: -16.352
+Total T: 9089, Episode Num: 57, Episode T: 71, Reward: 13.099
+Total T: 9119, Episode Num: 58, Episode T: 30, Reward: 4.892
+Total T: 9242, Episode Num: 59, Episode T: 123, Reward: -26.052
+----------------------------------------
+Experiment
+----------------------------------------
+Algorithm:	MRQAgent_Rewritten
+Env:		Gym-Ant-v4
+Seed:		0
+----------------------------------------
+Environment hyperparameters
+----------------------------------------
+Obs shape:		(27,)
+Action dim:		8
+Discrete actions:	False
+Pixel observations:	False
+----------------------------------------
+Agent hyperparameters
+----------------------------------------
+Hyperparameters(batch_size=256,
+                buffer_size=1000000.0,
+                discount=0.99,
+                target_update_freq=250,
+                buffer_size_before_training=10000.0,
+                exploration_noise=0.2,
+                target_policy_noise=0.2,
+                noise_clip=0.3,
+                dyn_weight=1,
+                reward_weight=0.1,
+                done_weight=0.1,
+                prioritized=True,
+                alpha=0.4,
+                min_priority=1,
+                enc_horizon=5,
+                Q_horizon=3,
+                zs_dim=512,
+                zsa_dim=512,
+                za_dim=256,
+                enc_hdim=512,
+                enc_activ='elu',
+                enc_lr=0.0001,
+                enc_wd=0.0001,
+                pixel_augs=True,
+                value_hdim=512,
+                value_activ='elu',
+                value_lr=0.0003,
+                value_wd=0.0001,
+                value_grad_clip=20,
+                policy_hdim=512,
+                policy_activ='relu',
+                policy_lr=0.0003,
+                policy_wd=0.0001,
+                gumbel_tau=10,
+                pre_activ_weight=1e-05,
+                num_bins=65,
+                lower=-10,
+                upper=10)
+----------------------------------------
+----------------------------------------
+Evaluation at 0 time steps
+Average total reward over 10 episodes: -783.924
+Total time passed: 0.02 minutes
+----------------------------------------
+Total T: 146, Episode Num: 2, Episode T: 146, Reward: -42.293
+Total T: 303, Episode Num: 3, Episode T: 157, Reward: -50.935
+Total T: 321, Episode Num: 4, Episode T: 18, Reward: -18.814
+Total T: 363, Episode Num: 5, Episode T: 42, Reward: -30.106
+Total T: 417, Episode Num: 6, Episode T: 54, Reward: -28.019
+Total T: 531, Episode Num: 7, Episode T: 114, Reward: -42.019
+Total T: 774, Episode Num: 8, Episode T: 243, Reward: -181.761
+Total T: 850, Episode Num: 9, Episode T: 76, Reward: -57.751
+Total T: 893, Episode Num: 10, Episode T: 43, Reward: -16.014
+Total T: 1089, Episode Num: 11, Episode T: 196, Reward: -108.606
+Total T: 1226, Episode Num: 12, Episode T: 137, Reward: -76.369
+Total T: 1476, Episode Num: 13, Episode T: 250, Reward: -131.160
+Total T: 1540, Episode Num: 14, Episode T: 64, Reward: -35.654
+Total T: 1553, Episode Num: 15, Episode T: 13, Reward: -6.955
+Total T: 1668, Episode Num: 16, Episode T: 115, Reward: -33.096
+Total T: 1756, Episode Num: 17, Episode T: 88, Reward: -34.299
+Total T: 1856, Episode Num: 18, Episode T: 100, Reward: -41.511
+Total T: 2856, Episode Num: 19, Episode T: 1000, Reward: -277.540
+Total T: 2914, Episode Num: 20, Episode T: 58, Reward: -36.924
+Total T: 2948, Episode Num: 21, Episode T: 34, Reward: -3.282
+Total T: 3120, Episode Num: 22, Episode T: 172, Reward: -29.144
+Total T: 3140, Episode Num: 23, Episode T: 20, Reward: -31.628
+Total T: 4140, Episode Num: 24, Episode T: 1000, Reward: -390.714
+Total T: 4270, Episode Num: 25, Episode T: 130, Reward: -55.336
+Total T: 4370, Episode Num: 26, Episode T: 100, Reward: -60.186
+Total T: 4397, Episode Num: 27, Episode T: 27, Reward: -15.927
+Total T: 4434, Episode Num: 28, Episode T: 37, Reward: -40.626
+Total T: 4487, Episode Num: 29, Episode T: 53, Reward: -31.612
+Total T: 4713, Episode Num: 30, Episode T: 226, Reward: -17.573
+Total T: 4774, Episode Num: 31, Episode T: 61, Reward: -31.870
+Total T: 4805, Episode Num: 32, Episode T: 31, Reward: -23.784
+----------------------------------------
+Evaluation at 5000 time steps
+Average total reward over 10 episodes: -879.830
+Total time passed: 0.06 minutes
+----------------------------------------
+Total T: 5041, Episode Num: 33, Episode T: 236, Reward: -49.601
+Total T: 5084, Episode Num: 34, Episode T: 43, Reward: -22.654
+Total T: 5129, Episode Num: 35, Episode T: 45, Reward: -18.471
+Total T: 5229, Episode Num: 36, Episode T: 100, Reward: -30.378
+Total T: 5260, Episode Num: 37, Episode T: 31, Reward: 6.723
+Total T: 5403, Episode Num: 38, Episode T: 143, Reward: -20.507
+Total T: 5506, Episode Num: 39, Episode T: 103, Reward: -14.429
+Total T: 5536, Episode Num: 40, Episode T: 30, Reward: -3.694
+Total T: 5659, Episode Num: 41, Episode T: 123, Reward: -79.047
+Total T: 5788, Episode Num: 42, Episode T: 129, Reward: -23.599
+Total T: 5842, Episode Num: 43, Episode T: 54, Reward: -9.056
+Total T: 5892, Episode Num: 44, Episode T: 50, Reward: -13.350
+Total T: 6029, Episode Num: 45, Episode T: 137, Reward: -102.074
+Total T: 6237, Episode Num: 46, Episode T: 208, Reward: -27.978
+Total T: 6285, Episode Num: 47, Episode T: 48, Reward: 4.970
+Total T: 6309, Episode Num: 48, Episode T: 24, Reward: -0.097
+Total T: 6502, Episode Num: 49, Episode T: 193, Reward: -45.747
+Total T: 6732, Episode Num: 50, Episode T: 230, Reward: -160.235
+Total T: 6804, Episode Num: 51, Episode T: 72, Reward: -6.314
+Total T: 6927, Episode Num: 52, Episode T: 123, Reward: -1.479
+Total T: 7927, Episode Num: 53, Episode T: 1000, Reward: -310.700
+Total T: 7976, Episode Num: 54, Episode T: 49, Reward: -42.913
+Total T: 8976, Episode Num: 55, Episode T: 1000, Reward: -305.551
+Total T: 9018, Episode Num: 56, Episode T: 42, Reward: -16.352
+Total T: 9089, Episode Num: 57, Episode T: 71, Reward: 13.099
+Total T: 9119, Episode Num: 58, Episode T: 30, Reward: 4.892
+Total T: 9242, Episode Num: 59, Episode T: 123, Reward: -26.052
+----------------------------------------
+Experiment
+----------------------------------------
+Algorithm:	MRQAgent_Rewritten
+Env:		Gym-Ant-v4
+Seed:		0
+----------------------------------------
+Environment hyperparameters
+----------------------------------------
+Obs shape:		(27,)
+Action dim:		8
+Discrete actions:	False
+Pixel observations:	False
+----------------------------------------
+Agent hyperparameters
+----------------------------------------
+Hyperparameters(batch_size=256,
+                buffer_size=1000000.0,
+                discount=0.99,
+                target_update_freq=250,
+                buffer_size_before_training=10000.0,
+                exploration_noise=0.2,
+                target_policy_noise=0.2,
+                noise_clip=0.3,
+                dyn_weight=1,
+                reward_weight=0.1,
+                done_weight=0.1,
+                prioritized=True,
+                alpha=0.4,
+                min_priority=1,
+                enc_horizon=5,
+                Q_horizon=3,
+                zs_dim=512,
+                zsa_dim=512,
+                za_dim=256,
+                enc_hdim=512,
+                enc_activ='elu',
+                enc_lr=0.0001,
+                enc_wd=0.0001,
+                pixel_augs=True,
+                value_hdim=512,
+                value_activ='elu',
+                value_lr=0.0003,
+                value_wd=0.0001,
+                value_grad_clip=20,
+                policy_hdim=512,
+                policy_activ='relu',
+                policy_lr=0.0003,
+                policy_wd=0.0001,
+                gumbel_tau=10,
+                pre_activ_weight=1e-05,
+                num_bins=65,
+                lower=-10,
+                upper=10)
+----------------------------------------
+----------------------------------------
+Evaluation at 0 time steps
+Average total reward over 10 episodes: -783.924
+Total time passed: 0.02 minutes
+----------------------------------------
+Total T: 146, Episode Num: 2, Episode T: 146, Reward: -42.293
+Total T: 303, Episode Num: 3, Episode T: 157, Reward: -50.935
+Total T: 321, Episode Num: 4, Episode T: 18, Reward: -18.814
+Total T: 363, Episode Num: 5, Episode T: 42, Reward: -30.106
+Total T: 417, Episode Num: 6, Episode T: 54, Reward: -28.019
+Total T: 531, Episode Num: 7, Episode T: 114, Reward: -42.019
+Total T: 774, Episode Num: 8, Episode T: 243, Reward: -181.761
+Total T: 850, Episode Num: 9, Episode T: 76, Reward: -57.751
+Total T: 893, Episode Num: 10, Episode T: 43, Reward: -16.014
+Total T: 1089, Episode Num: 11, Episode T: 196, Reward: -108.606
+Total T: 1226, Episode Num: 12, Episode T: 137, Reward: -76.369
+Total T: 1476, Episode Num: 13, Episode T: 250, Reward: -131.160
+Total T: 1540, Episode Num: 14, Episode T: 64, Reward: -35.654
+Total T: 1553, Episode Num: 15, Episode T: 13, Reward: -6.955
+Total T: 1668, Episode Num: 16, Episode T: 115, Reward: -33.096
+Total T: 1756, Episode Num: 17, Episode T: 88, Reward: -34.299
+Total T: 1856, Episode Num: 18, Episode T: 100, Reward: -41.511
+Total T: 2856, Episode Num: 19, Episode T: 1000, Reward: -277.540
+Total T: 2914, Episode Num: 20, Episode T: 58, Reward: -36.924
+Total T: 2948, Episode Num: 21, Episode T: 34, Reward: -3.282
+Total T: 3120, Episode Num: 22, Episode T: 172, Reward: -29.144
+Total T: 3140, Episode Num: 23, Episode T: 20, Reward: -31.628
+Total T: 4140, Episode Num: 24, Episode T: 1000, Reward: -390.714
+Total T: 4270, Episode Num: 25, Episode T: 130, Reward: -55.336
+Total T: 4370, Episode Num: 26, Episode T: 100, Reward: -60.186
+Total T: 4397, Episode Num: 27, Episode T: 27, Reward: -15.927
+Total T: 4434, Episode Num: 28, Episode T: 37, Reward: -40.626
+Total T: 4487, Episode Num: 29, Episode T: 53, Reward: -31.612
+Total T: 4713, Episode Num: 30, Episode T: 226, Reward: -17.573
+Total T: 4774, Episode Num: 31, Episode T: 61, Reward: -31.870
+Total T: 4805, Episode Num: 32, Episode T: 31, Reward: -23.784
+----------------------------------------
+Evaluation at 5000 time steps
+Average total reward over 10 episodes: -879.830
+Total time passed: 0.06 minutes
+----------------------------------------
+Total T: 5041, Episode Num: 33, Episode T: 236, Reward: -49.601
+Total T: 5084, Episode Num: 34, Episode T: 43, Reward: -22.654
+Total T: 5129, Episode Num: 35, Episode T: 45, Reward: -18.471
+Total T: 5229, Episode Num: 36, Episode T: 100, Reward: -30.378
+Total T: 5260, Episode Num: 37, Episode T: 31, Reward: 6.723
+Total T: 5403, Episode Num: 38, Episode T: 143, Reward: -20.507
+Total T: 5506, Episode Num: 39, Episode T: 103, Reward: -14.429
+Total T: 5536, Episode Num: 40, Episode T: 30, Reward: -3.694
+Total T: 5659, Episode Num: 41, Episode T: 123, Reward: -79.047
+Total T: 5788, Episode Num: 42, Episode T: 129, Reward: -23.599
+Total T: 5842, Episode Num: 43, Episode T: 54, Reward: -9.056
+Total T: 5892, Episode Num: 44, Episode T: 50, Reward: -13.350
+Total T: 6029, Episode Num: 45, Episode T: 137, Reward: -102.074
+Total T: 6237, Episode Num: 46, Episode T: 208, Reward: -27.978
+Total T: 6285, Episode Num: 47, Episode T: 48, Reward: 4.970
+Total T: 6309, Episode Num: 48, Episode T: 24, Reward: -0.097
+Total T: 6502, Episode Num: 49, Episode T: 193, Reward: -45.747
+Total T: 6732, Episode Num: 50, Episode T: 230, Reward: -160.235
+Total T: 6804, Episode Num: 51, Episode T: 72, Reward: -6.314
+Total T: 6927, Episode Num: 52, Episode T: 123, Reward: -1.479
+Total T: 7927, Episode Num: 53, Episode T: 1000, Reward: -310.700
+Total T: 7976, Episode Num: 54, Episode T: 49, Reward: -42.913
+Total T: 8976, Episode Num: 55, Episode T: 1000, Reward: -305.551
+Total T: 9018, Episode Num: 56, Episode T: 42, Reward: -16.352
+Total T: 9089, Episode Num: 57, Episode T: 71, Reward: 13.099
+Total T: 9119, Episode Num: 58, Episode T: 30, Reward: 4.892
+Total T: 9242, Episode Num: 59, Episode T: 123, Reward: -26.052
+----------------------------------------
+Experiment
+----------------------------------------
+Algorithm:	MRQAgent_Rewritten
+Env:		Gym-Ant-v4
+Seed:		0
+----------------------------------------
+Environment hyperparameters
+----------------------------------------
+Obs shape:		(27,)
+Action dim:		8
+Discrete actions:	False
+Pixel observations:	False
+----------------------------------------
+Agent hyperparameters
+----------------------------------------
+Hyperparameters(batch_size=256,
+                buffer_size=1000000.0,
+                discount=0.99,
+                target_update_freq=250,
+                buffer_size_before_training=10000.0,
+                exploration_noise=0.2,
+                target_policy_noise=0.2,
+                noise_clip=0.3,
+                dyn_weight=1,
+                reward_weight=0.1,
+                done_weight=0.1,
+                prioritized=True,
+                alpha=0.4,
+                min_priority=1,
+                enc_horizon=5,
+                Q_horizon=3,
+                zs_dim=512,
+                zsa_dim=512,
+                za_dim=256,
+                enc_hdim=512,
+                enc_activ='elu',
+                enc_lr=0.0001,
+                enc_wd=0.0001,
+                pixel_augs=True,
+                value_hdim=512,
+                value_activ='elu',
+                value_lr=0.0003,
+                value_wd=0.0001,
+                value_grad_clip=20,
+                policy_hdim=512,
+                policy_activ='relu',
+                policy_lr=0.0003,
+                policy_wd=0.0001,
+                gumbel_tau=10,
+                pre_activ_weight=1e-05,
+                num_bins=65,
+                lower=-10,
+                upper=10)
+----------------------------------------
+----------------------------------------
+Evaluation at 0 time steps
+Average total reward over 10 episodes: -783.924
+Total time passed: 0.02 minutes
+----------------------------------------
+Total T: 146, Episode Num: 2, Episode T: 146, Reward: -42.293
+Total T: 303, Episode Num: 3, Episode T: 157, Reward: -50.935
+Total T: 321, Episode Num: 4, Episode T: 18, Reward: -18.814
+Total T: 363, Episode Num: 5, Episode T: 42, Reward: -30.106
+Total T: 417, Episode Num: 6, Episode T: 54, Reward: -28.019
+Total T: 531, Episode Num: 7, Episode T: 114, Reward: -42.019
+Total T: 774, Episode Num: 8, Episode T: 243, Reward: -181.761
+Total T: 850, Episode Num: 9, Episode T: 76, Reward: -57.751
+Total T: 893, Episode Num: 10, Episode T: 43, Reward: -16.014
+Total T: 1089, Episode Num: 11, Episode T: 196, Reward: -108.606
+Total T: 1226, Episode Num: 12, Episode T: 137, Reward: -76.369
+Total T: 1476, Episode Num: 13, Episode T: 250, Reward: -131.160
+Total T: 1540, Episode Num: 14, Episode T: 64, Reward: -35.654
+Total T: 1553, Episode Num: 15, Episode T: 13, Reward: -6.955
+Total T: 1668, Episode Num: 16, Episode T: 115, Reward: -33.096
+Total T: 1756, Episode Num: 17, Episode T: 88, Reward: -34.299
+Total T: 1856, Episode Num: 18, Episode T: 100, Reward: -41.511
+Total T: 2856, Episode Num: 19, Episode T: 1000, Reward: -277.540
+Total T: 2914, Episode Num: 20, Episode T: 58, Reward: -36.924
+Total T: 2948, Episode Num: 21, Episode T: 34, Reward: -3.282
+Total T: 3120, Episode Num: 22, Episode T: 172, Reward: -29.144
+Total T: 3140, Episode Num: 23, Episode T: 20, Reward: -31.628
+Total T: 4140, Episode Num: 24, Episode T: 1000, Reward: -390.714
+Total T: 4270, Episode Num: 25, Episode T: 130, Reward: -55.336
+Total T: 4370, Episode Num: 26, Episode T: 100, Reward: -60.186
+Total T: 4397, Episode Num: 27, Episode T: 27, Reward: -15.927
+Total T: 4434, Episode Num: 28, Episode T: 37, Reward: -40.626
+Total T: 4487, Episode Num: 29, Episode T: 53, Reward: -31.612
+Total T: 4713, Episode Num: 30, Episode T: 226, Reward: -17.573
+Total T: 4774, Episode Num: 31, Episode T: 61, Reward: -31.870
+Total T: 4805, Episode Num: 32, Episode T: 31, Reward: -23.784
+----------------------------------------
+Evaluation at 5000 time steps
+Average total reward over 10 episodes: -879.830
+Total time passed: 0.06 minutes
+----------------------------------------
+Total T: 5041, Episode Num: 33, Episode T: 236, Reward: -49.601
+Total T: 5084, Episode Num: 34, Episode T: 43, Reward: -22.654
+Total T: 5129, Episode Num: 35, Episode T: 45, Reward: -18.471
+Total T: 5229, Episode Num: 36, Episode T: 100, Reward: -30.378
+Total T: 5260, Episode Num: 37, Episode T: 31, Reward: 6.723
+Total T: 5403, Episode Num: 38, Episode T: 143, Reward: -20.507
+Total T: 5506, Episode Num: 39, Episode T: 103, Reward: -14.429
+Total T: 5536, Episode Num: 40, Episode T: 30, Reward: -3.694
+Total T: 5659, Episode Num: 41, Episode T: 123, Reward: -79.047
+Total T: 5788, Episode Num: 42, Episode T: 129, Reward: -23.599
+Total T: 5842, Episode Num: 43, Episode T: 54, Reward: -9.056
+Total T: 5892, Episode Num: 44, Episode T: 50, Reward: -13.350
+Total T: 6029, Episode Num: 45, Episode T: 137, Reward: -102.074
+Total T: 6237, Episode Num: 46, Episode T: 208, Reward: -27.978
+Total T: 6285, Episode Num: 47, Episode T: 48, Reward: 4.970
+Total T: 6309, Episode Num: 48, Episode T: 24, Reward: -0.097
+Total T: 6502, Episode Num: 49, Episode T: 193, Reward: -45.747
+Total T: 6732, Episode Num: 50, Episode T: 230, Reward: -160.235
+Total T: 6804, Episode Num: 51, Episode T: 72, Reward: -6.314
+Total T: 6927, Episode Num: 52, Episode T: 123, Reward: -1.479
+Total T: 7927, Episode Num: 53, Episode T: 1000, Reward: -310.700
+Total T: 7976, Episode Num: 54, Episode T: 49, Reward: -42.913
+Total T: 8976, Episode Num: 55, Episode T: 1000, Reward: -305.551
+Total T: 9018, Episode Num: 56, Episode T: 42, Reward: -16.352
+Total T: 9089, Episode Num: 57, Episode T: 71, Reward: 13.099
+Total T: 9119, Episode Num: 58, Episode T: 30, Reward: 4.892
+Total T: 9242, Episode Num: 59, Episode T: 123, Reward: -26.052
+----------------------------------------
+Experiment
+----------------------------------------
+Algorithm:	MRQAgent_Rewritten
+Env:		Gym-Ant-v4
+Seed:		0
+----------------------------------------
+Environment hyperparameters
+----------------------------------------
+Obs shape:		(27,)
+Action dim:		8
+Discrete actions:	False
+Pixel observations:	False
+----------------------------------------
+Agent hyperparameters
+----------------------------------------
+Hyperparameters(batch_size=256,
+                buffer_size=1000000.0,
+                discount=0.99,
+                target_update_freq=250,
+                buffer_size_before_training=10000.0,
+                exploration_noise=0.2,
+                target_policy_noise=0.2,
+                noise_clip=0.3,
+                dyn_weight=1,
+                reward_weight=0.1,
+                done_weight=0.1,
+                prioritized=True,
+                alpha=0.4,
+                min_priority=1,
+                enc_horizon=5,
+                Q_horizon=3,
+                zs_dim=512,
+                zsa_dim=512,
+                za_dim=256,
+                enc_hdim=512,
+                enc_activ='elu',
+                enc_lr=0.0001,
+                enc_wd=0.0001,
+                pixel_augs=True,
+                value_hdim=512,
+                value_activ='elu',
+                value_lr=0.0003,
+                value_wd=0.0001,
+                value_grad_clip=20,
+                policy_hdim=512,
+                policy_activ='relu',
+                policy_lr=0.0003,
+                policy_wd=0.0001,
+                gumbel_tau=10,
+                pre_activ_weight=1e-05,
+                num_bins=65,
+                lower=-10,
+                upper=10)
+----------------------------------------
+----------------------------------------
+Evaluation at 0 time steps
+Average total reward over 10 episodes: -783.924
+Total time passed: 0.02 minutes
+----------------------------------------
+Total T: 146, Episode Num: 2, Episode T: 146, Reward: -42.293
+Total T: 303, Episode Num: 3, Episode T: 157, Reward: -50.935
+Total T: 321, Episode Num: 4, Episode T: 18, Reward: -18.814
+Total T: 363, Episode Num: 5, Episode T: 42, Reward: -30.106
+Total T: 417, Episode Num: 6, Episode T: 54, Reward: -28.019
+Total T: 531, Episode Num: 7, Episode T: 114, Reward: -42.019
+Total T: 774, Episode Num: 8, Episode T: 243, Reward: -181.761
+Total T: 850, Episode Num: 9, Episode T: 76, Reward: -57.751
+Total T: 893, Episode Num: 10, Episode T: 43, Reward: -16.014
+Total T: 1089, Episode Num: 11, Episode T: 196, Reward: -108.606
+Total T: 1226, Episode Num: 12, Episode T: 137, Reward: -76.369
+Total T: 1476, Episode Num: 13, Episode T: 250, Reward: -131.160
+Total T: 1540, Episode Num: 14, Episode T: 64, Reward: -35.654
+Total T: 1553, Episode Num: 15, Episode T: 13, Reward: -6.955
+Total T: 1668, Episode Num: 16, Episode T: 115, Reward: -33.096
+Total T: 1756, Episode Num: 17, Episode T: 88, Reward: -34.299
+Total T: 1856, Episode Num: 18, Episode T: 100, Reward: -41.511
+Total T: 2856, Episode Num: 19, Episode T: 1000, Reward: -277.540
+Total T: 2914, Episode Num: 20, Episode T: 58, Reward: -36.924
+Total T: 2948, Episode Num: 21, Episode T: 34, Reward: -3.282
+Total T: 3120, Episode Num: 22, Episode T: 172, Reward: -29.144
+Total T: 3140, Episode Num: 23, Episode T: 20, Reward: -31.628
+Total T: 4140, Episode Num: 24, Episode T: 1000, Reward: -390.714
+Total T: 4270, Episode Num: 25, Episode T: 130, Reward: -55.336
+Total T: 4370, Episode Num: 26, Episode T: 100, Reward: -60.186
+Total T: 4397, Episode Num: 27, Episode T: 27, Reward: -15.927
+Total T: 4434, Episode Num: 28, Episode T: 37, Reward: -40.626
+Total T: 4487, Episode Num: 29, Episode T: 53, Reward: -31.612
+Total T: 4713, Episode Num: 30, Episode T: 226, Reward: -17.573
+Total T: 4774, Episode Num: 31, Episode T: 61, Reward: -31.870
+Total T: 4805, Episode Num: 32, Episode T: 31, Reward: -23.784
+----------------------------------------
+Evaluation at 5000 time steps
+Average total reward over 10 episodes: -879.830
+Total time passed: 0.06 minutes
+----------------------------------------
+Total T: 5041, Episode Num: 33, Episode T: 236, Reward: -49.601
+Total T: 5084, Episode Num: 34, Episode T: 43, Reward: -22.654
+Total T: 5129, Episode Num: 35, Episode T: 45, Reward: -18.471
+Total T: 5229, Episode Num: 36, Episode T: 100, Reward: -30.378
+Total T: 5260, Episode Num: 37, Episode T: 31, Reward: 6.723
+Total T: 5403, Episode Num: 38, Episode T: 143, Reward: -20.507
+Total T: 5506, Episode Num: 39, Episode T: 103, Reward: -14.429
+Total T: 5536, Episode Num: 40, Episode T: 30, Reward: -3.694
+Total T: 5659, Episode Num: 41, Episode T: 123, Reward: -79.047
+Total T: 5788, Episode Num: 42, Episode T: 129, Reward: -23.599
+Total T: 5842, Episode Num: 43, Episode T: 54, Reward: -9.056
+Total T: 5892, Episode Num: 44, Episode T: 50, Reward: -13.350
+Total T: 6029, Episode Num: 45, Episode T: 137, Reward: -102.074
+Total T: 6237, Episode Num: 46, Episode T: 208, Reward: -27.978
+Total T: 6285, Episode Num: 47, Episode T: 48, Reward: 4.970
+Total T: 6309, Episode Num: 48, Episode T: 24, Reward: -0.097
+Total T: 6502, Episode Num: 49, Episode T: 193, Reward: -45.747
+Total T: 6732, Episode Num: 50, Episode T: 230, Reward: -160.235
+Total T: 6804, Episode Num: 51, Episode T: 72, Reward: -6.314
+Total T: 6927, Episode Num: 52, Episode T: 123, Reward: -1.479
+Total T: 7927, Episode Num: 53, Episode T: 1000, Reward: -310.700
+Total T: 7976, Episode Num: 54, Episode T: 49, Reward: -42.913
+Total T: 8976, Episode Num: 55, Episode T: 1000, Reward: -305.551
+Total T: 9018, Episode Num: 56, Episode T: 42, Reward: -16.352
+Total T: 9089, Episode Num: 57, Episode T: 71, Reward: 13.099
+Total T: 9119, Episode Num: 58, Episode T: 30, Reward: 4.892
+Total T: 9242, Episode Num: 59, Episode T: 123, Reward: -26.052
+----------------------------------------
+Experiment
+----------------------------------------
+Algorithm:	MR.Q
+Env:		Gym-Ant-v4
+Seed:		0
+----------------------------------------
+Environment hyperparameters
+----------------------------------------
+Obs shape:		(27,)
+Action dim:		8
+Discrete actions:	False
+Pixel observations:	False
+----------------------------------------
+Agent hyperparameters
+----------------------------------------
+Hyperparameters(batch_size=256,
+                buffer_size=1000000.0,
+                discount=0.99,
+                target_update_freq=250,
+                buffer_size_before_training=10000.0,
+                exploration_noise=0.2,
+                target_policy_noise=0.2,
+                noise_clip=0.3,
+                dyn_weight=1,
+                reward_weight=0.1,
+                done_weight=0.1,
+                prioritized=True,
+                alpha=0.4,
+                min_priority=1,
+                enc_horizon=5,
+                Q_horizon=3,
+                zs_dim=512,
+                zsa_dim=512,
+                za_dim=256,
+                enc_hdim=512,
+                enc_activ='elu',
+                enc_lr=0.0001,
+                enc_wd=0.0001,
+                pixel_augs=True,
+                value_hdim=512,
+                value_activ='elu',
+                value_lr=0.0003,
+                value_wd=0.0001,
+                value_grad_clip=20,
+                policy_hdim=512,
+                policy_activ='relu',
+                policy_lr=0.0003,
+                policy_wd=0.0001,
+                gumbel_tau=10,
+                pre_activ_weight=1e-05,
+                num_bins=65,
+                lower=-10,
+                upper=10)
+----------------------------------------
+----------------------------------------
+Evaluation at 0 time steps
+Average total reward over 10 episodes: -783.924
+Total time passed: 0.02 minutes
+----------------------------------------
+Total T: 146, Episode Num: 2, Episode T: 146, Reward: -42.293
+Total T: 303, Episode Num: 3, Episode T: 157, Reward: -50.935
+Total T: 321, Episode Num: 4, Episode T: 18, Reward: -18.814
+Total T: 363, Episode Num: 5, Episode T: 42, Reward: -30.106
+Total T: 417, Episode Num: 6, Episode T: 54, Reward: -28.019
+Total T: 531, Episode Num: 7, Episode T: 114, Reward: -42.019
+Total T: 774, Episode Num: 8, Episode T: 243, Reward: -181.761
+Total T: 850, Episode Num: 9, Episode T: 76, Reward: -57.751
+Total T: 893, Episode Num: 10, Episode T: 43, Reward: -16.014
+Total T: 1089, Episode Num: 11, Episode T: 196, Reward: -108.606
+Total T: 1226, Episode Num: 12, Episode T: 137, Reward: -76.369
+Total T: 1476, Episode Num: 13, Episode T: 250, Reward: -131.160
+Total T: 1540, Episode Num: 14, Episode T: 64, Reward: -35.654
+Total T: 1553, Episode Num: 15, Episode T: 13, Reward: -6.955
+Total T: 1668, Episode Num: 16, Episode T: 115, Reward: -33.096
+Total T: 1756, Episode Num: 17, Episode T: 88, Reward: -34.299
+Total T: 1856, Episode Num: 18, Episode T: 100, Reward: -41.511
+Total T: 2856, Episode Num: 19, Episode T: 1000, Reward: -277.540
+Total T: 2914, Episode Num: 20, Episode T: 58, Reward: -36.924
+Total T: 2948, Episode Num: 21, Episode T: 34, Reward: -3.282
+Total T: 3120, Episode Num: 22, Episode T: 172, Reward: -29.144
+Total T: 3140, Episode Num: 23, Episode T: 20, Reward: -31.628
+Total T: 4140, Episode Num: 24, Episode T: 1000, Reward: -390.714
+Total T: 4270, Episode Num: 25, Episode T: 130, Reward: -55.336
+Total T: 4370, Episode Num: 26, Episode T: 100, Reward: -60.186
+Total T: 4397, Episode Num: 27, Episode T: 27, Reward: -15.927
+Total T: 4434, Episode Num: 28, Episode T: 37, Reward: -40.626
+Total T: 4487, Episode Num: 29, Episode T: 53, Reward: -31.612
+Total T: 4713, Episode Num: 30, Episode T: 226, Reward: -17.573
+Total T: 4774, Episode Num: 31, Episode T: 61, Reward: -31.870
+Total T: 4805, Episode Num: 32, Episode T: 31, Reward: -23.784
+----------------------------------------
+Evaluation at 5000 time steps
+Average total reward over 10 episodes: -879.830
+Total time passed: 0.06 minutes
+----------------------------------------
+Total T: 5041, Episode Num: 33, Episode T: 236, Reward: -49.601
+Total T: 5084, Episode Num: 34, Episode T: 43, Reward: -22.654
+Total T: 5129, Episode Num: 35, Episode T: 45, Reward: -18.471
+Total T: 5229, Episode Num: 36, Episode T: 100, Reward: -30.378
+Total T: 5260, Episode Num: 37, Episode T: 31, Reward: 6.723
+Total T: 5403, Episode Num: 38, Episode T: 143, Reward: -20.507
+Total T: 5506, Episode Num: 39, Episode T: 103, Reward: -14.429
+Total T: 5536, Episode Num: 40, Episode T: 30, Reward: -3.694
+Total T: 5659, Episode Num: 41, Episode T: 123, Reward: -79.047
+Total T: 5788, Episode Num: 42, Episode T: 129, Reward: -23.599
+Total T: 5842, Episode Num: 43, Episode T: 54, Reward: -9.056
+Total T: 5892, Episode Num: 44, Episode T: 50, Reward: -13.350
+Total T: 6029, Episode Num: 45, Episode T: 137, Reward: -102.074
+Total T: 6237, Episode Num: 46, Episode T: 208, Reward: -27.978
+Total T: 6285, Episode Num: 47, Episode T: 48, Reward: 4.970
+Total T: 6309, Episode Num: 48, Episode T: 24, Reward: -0.097
+Total T: 6502, Episode Num: 49, Episode T: 193, Reward: -45.747
+Total T: 6732, Episode Num: 50, Episode T: 230, Reward: -160.235
+Total T: 6804, Episode Num: 51, Episode T: 72, Reward: -6.314
+Total T: 6927, Episode Num: 52, Episode T: 123, Reward: -1.479
+Total T: 7927, Episode Num: 53, Episode T: 1000, Reward: -310.700
+Total T: 7976, Episode Num: 54, Episode T: 49, Reward: -42.913
+Total T: 8976, Episode Num: 55, Episode T: 1000, Reward: -305.551
+Total T: 9018, Episode Num: 56, Episode T: 42, Reward: -16.352
+Total T: 9089, Episode Num: 57, Episode T: 71, Reward: 13.099
+Total T: 9119, Episode Num: 58, Episode T: 30, Reward: 4.892
+Total T: 9242, Episode Num: 59, Episode T: 123, Reward: -26.052
+----------------------------------------
+Experiment
+----------------------------------------
+Algorithm:	MR.Q
+Env:		Gym-Ant-v4
+Seed:		0
+----------------------------------------
+Environment hyperparameters
+----------------------------------------
+Obs shape:		(27,)
+Action dim:		8
+Discrete actions:	False
+Pixel observations:	False
+----------------------------------------
+Agent hyperparameters
+----------------------------------------
+Hyperparameters(batch_size=256,
+                buffer_size=1000000.0,
+                discount=0.99,
+                target_update_freq=250,
+                buffer_size_before_training=10000.0,
+                exploration_noise=0.2,
+                target_policy_noise=0.2,
+                noise_clip=0.3,
+                dyn_weight=1,
+                reward_weight=0.1,
+                done_weight=0.1,
+                prioritized=True,
+                alpha=0.4,
+                min_priority=1,
+                enc_horizon=5,
+                Q_horizon=3,
+                zs_dim=512,
+                zsa_dim=512,
+                za_dim=256,
+                enc_hdim=512,
+                enc_activ='elu',
+                enc_lr=0.0001,
+                enc_wd=0.0001,
+                pixel_augs=True,
+                value_hdim=512,
+                value_activ='elu',
+                value_lr=0.0003,
+                value_wd=0.0001,
+                value_grad_clip=20,
+                policy_hdim=512,
+                policy_activ='relu',
+                policy_lr=0.0003,
+                policy_wd=0.0001,
+                gumbel_tau=10,
+                pre_activ_weight=1e-05,
+                num_bins=65,
+                lower=-10,
+                upper=10)
+----------------------------------------
+----------------------------------------
+Evaluation at 0 time steps
+Average total reward over 10 episodes: -783.924
+Total time passed: 0.02 minutes
+----------------------------------------
+Total T: 146, Episode Num: 2, Episode T: 146, Reward: -42.293
+Total T: 303, Episode Num: 3, Episode T: 157, Reward: -50.935
+Total T: 321, Episode Num: 4, Episode T: 18, Reward: -18.814
+Total T: 363, Episode Num: 5, Episode T: 42, Reward: -30.106
+Total T: 417, Episode Num: 6, Episode T: 54, Reward: -28.019
+Total T: 531, Episode Num: 7, Episode T: 114, Reward: -42.019
+Total T: 774, Episode Num: 8, Episode T: 243, Reward: -181.761
+Total T: 850, Episode Num: 9, Episode T: 76, Reward: -57.751
+Total T: 893, Episode Num: 10, Episode T: 43, Reward: -16.014
+Total T: 1089, Episode Num: 11, Episode T: 196, Reward: -108.606
+Total T: 1226, Episode Num: 12, Episode T: 137, Reward: -76.369
+Total T: 1476, Episode Num: 13, Episode T: 250, Reward: -131.160
+Total T: 1540, Episode Num: 14, Episode T: 64, Reward: -35.654
+Total T: 1553, Episode Num: 15, Episode T: 13, Reward: -6.955
+Total T: 1668, Episode Num: 16, Episode T: 115, Reward: -33.096
+Total T: 1756, Episode Num: 17, Episode T: 88, Reward: -34.299
+Total T: 1856, Episode Num: 18, Episode T: 100, Reward: -41.511
+Total T: 2856, Episode Num: 19, Episode T: 1000, Reward: -277.540
+Total T: 2914, Episode Num: 20, Episode T: 58, Reward: -36.924
+Total T: 2948, Episode Num: 21, Episode T: 34, Reward: -3.282
+Total T: 3120, Episode Num: 22, Episode T: 172, Reward: -29.144
+Total T: 3140, Episode Num: 23, Episode T: 20, Reward: -31.628
+Total T: 4140, Episode Num: 24, Episode T: 1000, Reward: -390.714
+Total T: 4270, Episode Num: 25, Episode T: 130, Reward: -55.336
+Total T: 4370, Episode Num: 26, Episode T: 100, Reward: -60.186
+Total T: 4397, Episode Num: 27, Episode T: 27, Reward: -15.927
+Total T: 4434, Episode Num: 28, Episode T: 37, Reward: -40.626
+Total T: 4487, Episode Num: 29, Episode T: 53, Reward: -31.612
+Total T: 4713, Episode Num: 30, Episode T: 226, Reward: -17.573
+Total T: 4774, Episode Num: 31, Episode T: 61, Reward: -31.870
+Total T: 4805, Episode Num: 32, Episode T: 31, Reward: -23.784
+----------------------------------------
+Evaluation at 5000 time steps
+Average total reward over 10 episodes: -879.830
+Total time passed: 0.06 minutes
+----------------------------------------
+Total T: 5041, Episode Num: 33, Episode T: 236, Reward: -49.601
+Total T: 5084, Episode Num: 34, Episode T: 43, Reward: -22.654
+Total T: 5129, Episode Num: 35, Episode T: 45, Reward: -18.471
+Total T: 5229, Episode Num: 36, Episode T: 100, Reward: -30.378
+Total T: 5260, Episode Num: 37, Episode T: 31, Reward: 6.723
+Total T: 5403, Episode Num: 38, Episode T: 143, Reward: -20.507
+Total T: 5506, Episode Num: 39, Episode T: 103, Reward: -14.429
+Total T: 5536, Episode Num: 40, Episode T: 30, Reward: -3.694
+Total T: 5659, Episode Num: 41, Episode T: 123, Reward: -79.047
+Total T: 5788, Episode Num: 42, Episode T: 129, Reward: -23.599
+Total T: 5842, Episode Num: 43, Episode T: 54, Reward: -9.056
+Total T: 5892, Episode Num: 44, Episode T: 50, Reward: -13.350
+Total T: 6029, Episode Num: 45, Episode T: 137, Reward: -102.074
+Total T: 6237, Episode Num: 46, Episode T: 208, Reward: -27.978
+Total T: 6285, Episode Num: 47, Episode T: 48, Reward: 4.970
+Total T: 6309, Episode Num: 48, Episode T: 24, Reward: -0.097
+Total T: 6502, Episode Num: 49, Episode T: 193, Reward: -45.747
+Total T: 6732, Episode Num: 50, Episode T: 230, Reward: -160.235
+Total T: 6804, Episode Num: 51, Episode T: 72, Reward: -6.314
+Total T: 6927, Episode Num: 52, Episode T: 123, Reward: -1.479
+Total T: 7927, Episode Num: 53, Episode T: 1000, Reward: -310.700
+Total T: 7976, Episode Num: 54, Episode T: 49, Reward: -42.913
+Total T: 8976, Episode Num: 55, Episode T: 1000, Reward: -305.551
+Total T: 9018, Episode Num: 56, Episode T: 42, Reward: -16.352
+Total T: 9089, Episode Num: 57, Episode T: 71, Reward: 13.099
+Total T: 9119, Episode Num: 58, Episode T: 30, Reward: 4.892
+Total T: 9242, Episode Num: 59, Episode T: 123, Reward: -26.052
+----------------------------------------
+Experiment
+----------------------------------------
+Algorithm:	MR.Q
+Env:		Gym-Ant-v4
+Seed:		0
+----------------------------------------
+Environment hyperparameters
+----------------------------------------
+Obs shape:		(27,)
+Action dim:		8
+Discrete actions:	False
+Pixel observations:	False
+----------------------------------------
+Agent hyperparameters
+----------------------------------------
+Hyperparameters(batch_size=256,
+                buffer_size=1000000.0,
+                discount=0.99,
+                target_update_freq=250,
+                buffer_size_before_training=10000.0,
+                exploration_noise=0.2,
+                target_policy_noise=0.2,
+                noise_clip=0.3,
+                dyn_weight=1,
+                reward_weight=0.1,
+                done_weight=0.1,
+                prioritized=True,
+                alpha=0.4,
+                min_priority=1,
+                enc_horizon=5,
+                Q_horizon=3,
+                zs_dim=512,
+                zsa_dim=512,
+                za_dim=256,
+                enc_hdim=512,
+                enc_activ='elu',
+                enc_lr=0.0001,
+                enc_wd=0.0001,
+                pixel_augs=True,
+                value_hdim=512,
+                value_activ='elu',
+                value_lr=0.0003,
+                value_wd=0.0001,
+                value_grad_clip=20,
+                policy_hdim=512,
+                policy_activ='relu',
+                policy_lr=0.0003,
+                policy_wd=0.0001,
+                gumbel_tau=10,
+                pre_activ_weight=1e-05,
+                num_bins=65,
+                lower=-10,
+                upper=10)
+----------------------------------------
+----------------------------------------
+Evaluation at 0 time steps
+Average total reward over 10 episodes: -783.924
+Total time passed: 0.02 minutes
+----------------------------------------
+Total T: 146, Episode Num: 2, Episode T: 146, Reward: -42.293
+Total T: 303, Episode Num: 3, Episode T: 157, Reward: -50.935
+Total T: 321, Episode Num: 4, Episode T: 18, Reward: -18.814
+Total T: 363, Episode Num: 5, Episode T: 42, Reward: -30.106
+Total T: 417, Episode Num: 6, Episode T: 54, Reward: -28.019
+Total T: 531, Episode Num: 7, Episode T: 114, Reward: -42.019
+Total T: 774, Episode Num: 8, Episode T: 243, Reward: -181.761
+Total T: 850, Episode Num: 9, Episode T: 76, Reward: -57.751
+Total T: 893, Episode Num: 10, Episode T: 43, Reward: -16.014
+Total T: 1089, Episode Num: 11, Episode T: 196, Reward: -108.606
+Total T: 1226, Episode Num: 12, Episode T: 137, Reward: -76.369
+Total T: 1476, Episode Num: 13, Episode T: 250, Reward: -131.160
+Total T: 1540, Episode Num: 14, Episode T: 64, Reward: -35.654
+Total T: 1553, Episode Num: 15, Episode T: 13, Reward: -6.955
+Total T: 1668, Episode Num: 16, Episode T: 115, Reward: -33.096
+Total T: 1756, Episode Num: 17, Episode T: 88, Reward: -34.299
+Total T: 1856, Episode Num: 18, Episode T: 100, Reward: -41.511
+Total T: 2856, Episode Num: 19, Episode T: 1000, Reward: -277.540
+Total T: 2914, Episode Num: 20, Episode T: 58, Reward: -36.924
+Total T: 2948, Episode Num: 21, Episode T: 34, Reward: -3.282
+Total T: 3120, Episode Num: 22, Episode T: 172, Reward: -29.144
+Total T: 3140, Episode Num: 23, Episode T: 20, Reward: -31.628
+Total T: 4140, Episode Num: 24, Episode T: 1000, Reward: -390.714
+Total T: 4270, Episode Num: 25, Episode T: 130, Reward: -55.336
+Total T: 4370, Episode Num: 26, Episode T: 100, Reward: -60.186
+Total T: 4397, Episode Num: 27, Episode T: 27, Reward: -15.927
+Total T: 4434, Episode Num: 28, Episode T: 37, Reward: -40.626
+Total T: 4487, Episode Num: 29, Episode T: 53, Reward: -31.612
+Total T: 4713, Episode Num: 30, Episode T: 226, Reward: -17.573
+Total T: 4774, Episode Num: 31, Episode T: 61, Reward: -31.870
+Total T: 4805, Episode Num: 32, Episode T: 31, Reward: -23.784
+----------------------------------------
+Evaluation at 5000 time steps
+Average total reward over 10 episodes: -879.830
+Total time passed: 0.06 minutes
+----------------------------------------
+Total T: 5041, Episode Num: 33, Episode T: 236, Reward: -49.601
+Total T: 5084, Episode Num: 34, Episode T: 43, Reward: -22.654
+Total T: 5129, Episode Num: 35, Episode T: 45, Reward: -18.471
+Total T: 5229, Episode Num: 36, Episode T: 100, Reward: -30.378
+Total T: 5260, Episode Num: 37, Episode T: 31, Reward: 6.723
+Total T: 5403, Episode Num: 38, Episode T: 143, Reward: -20.507
+Total T: 5506, Episode Num: 39, Episode T: 103, Reward: -14.429
+Total T: 5536, Episode Num: 40, Episode T: 30, Reward: -3.694
+Total T: 5659, Episode Num: 41, Episode T: 123, Reward: -79.047
+Total T: 5788, Episode Num: 42, Episode T: 129, Reward: -23.599
+Total T: 5842, Episode Num: 43, Episode T: 54, Reward: -9.056
+Total T: 5892, Episode Num: 44, Episode T: 50, Reward: -13.350
+Total T: 6029, Episode Num: 45, Episode T: 137, Reward: -102.074
+Total T: 6237, Episode Num: 46, Episode T: 208, Reward: -27.978
+Total T: 6285, Episode Num: 47, Episode T: 48, Reward: 4.970
+Total T: 6309, Episode Num: 48, Episode T: 24, Reward: -0.097
+Total T: 6502, Episode Num: 49, Episode T: 193, Reward: -45.747
+Total T: 6732, Episode Num: 50, Episode T: 230, Reward: -160.235
+Total T: 6804, Episode Num: 51, Episode T: 72, Reward: -6.314
+Total T: 6927, Episode Num: 52, Episode T: 123, Reward: -1.479
+Total T: 7927, Episode Num: 53, Episode T: 1000, Reward: -310.700
+Total T: 7976, Episode Num: 54, Episode T: 49, Reward: -42.913
+Total T: 8976, Episode Num: 55, Episode T: 1000, Reward: -305.551
+Total T: 9018, Episode Num: 56, Episode T: 42, Reward: -16.352
+Total T: 9089, Episode Num: 57, Episode T: 71, Reward: 13.099
+Total T: 9119, Episode Num: 58, Episode T: 30, Reward: 4.892
+Total T: 9242, Episode Num: 59, Episode T: 123, Reward: -26.052
+----------------------------------------
+Evaluation at 10000 time steps
+Average total reward over 10 episodes: -2995.595
+Total time passed: 0.48 minutes
+----------------------------------------

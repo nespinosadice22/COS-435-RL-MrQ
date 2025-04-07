@@ -1,12 +1,12 @@
 #currently exactly the same as mrq - we can think about how to change!! 
 import torch
 import torch.nn.functional as F
-class TwoHotEncoder: 
+class TwoHot: 
     """
     Convert scalar reward --> two adjacent bins for classification
     Cross-entropy loss  
     """
-    def __init__(self, lower_bound: float = -10.0, upper_bound: float = 10.0, num_bins: int = 65, device: str = "cuda"): 
+    def __init__(self, device: str = "cuda", lower_bound: float = -10.0, upper_bound: float = 10.0, num_bins: int = 65): 
         self.num_bins = num_bins 
         self.device = device 
         self.bins = torch.linspace(lower_bound, upper_bound, num_bins, device=device)
