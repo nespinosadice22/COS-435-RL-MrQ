@@ -58,6 +58,3 @@ class Hyperparameters:
     num_bins: int = 65
     lower: float = -10
     upper: float = 10
-
-    #idk if we need
-    #def __post_init__(self): utils.enforce_dataclass_type(self)
