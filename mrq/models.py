@@ -9,11 +9,9 @@ from typing import Callable
 
 
 def initialize_weights(layer: torch.nn.modules):
-    """
-    Initializes weights for convlutional or linear layers using a relu gain factor. 
-    Zeros out bias. 
-    This is their helper method, just rewritten for clarity 
-    """
+    # Initializes weights for convlutional or linear layers using a relu gain factor 
+    # Zeros out bias 
+    # This is their helper method, just rewritten for clarity 
     if isinstance(layer, (nn.Linear, nn.Conv2d)):
         gain_factor = nn.init.calculate_gain('relu')
         nn.init.xavier_uniform_(layer.weight.data, gain_factor)
@@ -22,27 +20,14 @@ def initialize_weights(layer: torch.nn.modules):
 
 
 def apply_layernorm_and_activation(x: torch.Tensor, activation_fn: Callable) -> torch.Tensor: 
-    """
-    Applies layer normalization to the last dimension of inputs. 
-    Then applies the given activation function.
-    This is their helper method, just rewritten for clarity 
-    """
+    #Applies layer normalization to the last dimension of inputs, then applies the given activation function
+    #This is their helper method, just rewritten for clarity 
     normed_x = F.layer_norm(x, (x.shape[-1],))
     return activation_fn(normed_x)
 
 #---------------------------------------------------------------------------#
 class MLPBlock(nn.Module): 
-    """
-    A small multilayer perceptron. 
-    Layer normalization and activation in between layers 
-    Their code but rewritten for clarity 
-    """
-    def __init__(self, 
-        in_features: int, 
-        out_features: int, 
-        hidden_dim: int,
-        activation_name: str = "elu"
-    ):
+    def __init__(self, in_features: int, out_features: int, hidden_dim: int, activation_name: str = "elu"):
         super().__init__() 
         self.layer1 = nn.Linear(in_features, hidden_dim)
         self.layer2 = nn.Linear(hidden_dim, hidden_dim)
@@ -57,20 +42,10 @@ class MLPBlock(nn.Module):
         return self.layer3(x) 
 #---------------------------------------------------------------------------#
 class Encoder(nn.Module): 
-    """
-    Encoders pixel observations or low-D states into a latent state. 
-    Then predicts next state embedding, reward (using categorical bins) and the termination signal 
-    """
-    def __init__(self, 
-        obs_channels_or_dim: int, 
-        action_size: int, 
-        pixel_based: bool, 
-        bins_for_reward: int = 65, 
-        latent_dim_state: int = 512, 
-        latent_dim_action: int = 256, 
-        latent_dim_joint:int = 512, 
-        hidden_dim: int = 512, 
-        activation_name: str = "elu"
+    #Encoder pixel observations or low-D states into a latent state. 
+    #Then predicts next state embedding, reward (using categorical bins) and the termination signal 
+    def __init__(self, obs_channels_or_dim: int, action_size: int, pixel_based: bool, bins_for_reward: int = 65, 
+        latent_dim_state: int = 512, latent_dim_action: int = 256, latent_dim_joint:int = 512, hidden_dim: int = 512, activation_name: str = "elu"
     ): 
         super().__init__() 
 
@@ -108,15 +83,11 @@ class Encoder(nn.Module):
 
         #Output head: next-latent, reward-bins and done-scalar 
         self.predictor_head = nn.Linear(latent_dim_joint, bins_for_reward + latent_dim_state + 1)
-
         self.apply(initialize_weights)
     
     def encode_observation(self, obs: torch.Tensor) -> torch.Tensor: 
-        """
-        Convert raw observation into latent state (zs) 
-        For pixels, we pass through the CNN. For other states (vectors), use MLP 
-        This combines cnn_zs and mlp_zs from original code
-        """
+        #raw obs to zs via cnn or mlp 
+        #this combines cnn_zs and mlp_zs from original code 
         #pixels 
         if self.pixel_based: 
             normalized = (obs / 255.0) - 0.5
@@ -132,29 +103,20 @@ class Encoder(nn.Module):
             return apply_layernorm_and_activation(self.state_mlp(obs), self.activation_fn) 
     
     def merge_state_action(self, encoded_state: torch.Tensor, action: torch.Tensor) -> torch.Tensor: 
-        """
-        Takes the latent/encoded state zs and the raw action 
-        Produces a joint embedding that we will use for predictions 
-        """
+       #zs + raw action = zsa
         action_latent = self.activation_fn(self.action_encoder(action))
         merged_zsa_input = torch.cat([encoded_state, action_latent], dim=1)
         return self.joint_mlp(merged_zsa_input)
     
     def forward(self, encoded_state: torch.Tensor, action: torch.Tensor): 
-        """
-        Merges the latent state + action, then returns the big output
-        from the predictor_head. This can be dissected as needed.
-        """
+        #prediction 
         joint_zsa_encoding = self.merge_state_action(encoded_state, action)
         prediction = self.predictor_head(joint_zsa_encoding)
-        # The output shape is [batch_size, bins_for_reward + latent_dim_state + 1]
+        # output shape is [batch_size, bins_for_reward + latent_dim_state + 1]
         return prediction
     
     def predict_all(self, encoded_state: torch.Tensor, action: torch.Tensor): 
-        """
-        Returns (done_logits, next_latent, reward_logits).
-        Done-scalar, next state embedding and reward bins 
-        """
+        #returns done_logits, next_latent, reward_logits
         prediction = self.forward(encoded_state, action)
         done_pred = prediction[:, 0:1]
         next_state_pred = prediction[:, 1 : 1 + self.latent_dim_state]
@@ -163,13 +125,9 @@ class Encoder(nn.Module):
 
 #---------------------------------------------------------------------------#
 class Policy(nn.Module): 
-    """
-    Maps a latent state (zs) to the next action. 
-    Discrete: uses "gumbel-softmax"
-    Continous: tanh 
-    returns (actions, pre_activation)
-    """
-
+    #zs to next a. gumbel-softmax for discrete, continuous for tanh 
+    #returns (actions, pre_activation)
+   
     def __init__(self, output_dim: int, is_discrete: bool, gumbel_temperature: float = 10.0, latent_dim_state: int = 512, hidden_dim: int = 512, activation_name: str = "relu"): 
         super().__init__()
 
@@ -182,26 +140,19 @@ class Policy(nn.Module):
             self.action_activation = torch.tanh 
         
     def forward(self, encoded_state: torch.Tensor): 
-        """
-        Produces an action from the latent state, plus the raw pre-activation
-        """
+        #action + raw pre activation 
         pre_activation = self.policy_mlp(encoded_state)
         action_out = self.action_activation(pre_activation)
         return action_out, pre_activation
     
     def select_action(self, encoded_state: torch.Tensor): 
-        """
-        Action only 
-        """
+        #action 
         action, _ = self.forward(encoded_state)
         return action 
 
 #---------------------------------------------------------------------------#
 class Value(nn.Module): 
-    """
-    Q network x2, where each is an MLP 
-    Returns Q1 and Q2 
-    """
+    #x2 Q networks, each an MLP. 
     def __init__(self, input_dim: int = 512, hidden_dim: int = 512, activation_name: str = "elu"): 
         super().__init__() 
 
@@ -222,14 +173,12 @@ class Value(nn.Module):
         self.q2 = ValueNetwork(input_dim, 1, hidden_dim, activation_name)
     
     def forward(self, joint_encoding: torch.Tensor) -> torch.Tensor:
-        """
-        Returns a 2D tensor: [batch_size, 2] representing Q1 and Q2 
-        """
+        # Returns a 2D tensor: [batch_size, 2] representing Q1 and Q2 
         q1_val = self.q1(joint_encoding)
         q2_val = self.q2(joint_encoding)
         return torch.cat([q1_val, q2_val], dim=1)
 
-
+    
 
  
 

@@ -46,14 +46,12 @@ def compute_encoder_loss(enc_horizon, pred_zs, target_zs, action,
 
     for i in range(enc_horizon): 
         done_pred, next_zs_pred, rew_pred = encoder.predict_all(pred_zs, action[:,i])
-        
         #loss terms 
         dynamic_loss = compute_dynamic_loss(next_zs_pred, target_zs[:,i], prev_not_done, dyn_weight)
         reward_loss = compute_reward_loss(rew_pred, reward[:,i], prev_not_done, two_hot, reward_weight)
         done_loss = compute_done_loss(done_pred, not_done, prev_not_done, i, env_terminates, done_weight)
-
+        
         encoder_loss += dynamic_loss + reward_loss + done_loss 
-
         pred_zs = next_zs_pred 
         prev_not_done = not_done[:,i].reshape(-1,1)*prev_not_done
     
