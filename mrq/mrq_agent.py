@@ -13,21 +13,13 @@ import models
 from utils import maybe_augment_state, realign, masked_mse, multi_step_reward, shift_aug
 import utils
 from two_hot import TwoHot
-from losses import compute_encoder_loss
+from losses import compute_encoder_loss, compute_value_loss, compute_policy_loss
 
 class Agent:
-    def __init__(self, 
-        obs_shape: tuple, 
-        action_dim: int, 
-        max_action: float, 
-        pixel_obs: bool, 
-        discrete: bool,
-        device: torch.device, 
-        history: int=1, 
-        hp: Dict={}
+    def __init__(self, obs_shape: tuple, action_dim: int, max_action: float, pixel_obs: bool, 
+        discrete: bool, device: torch.device, history: int=1, hp: Dict={}
     ):
         self.name = 'MR.Q'
-
         self.hp = Hyperparameters(**hp)
         utils.set_instance_vars(self.hp, self)
         self.device = device
@@ -125,65 +117,40 @@ class Agent:
             zs = self.encoder.encode_observation(state_t)
             # policy
             action = self.policy.select_action(zs)
-
+            #add exploration noise
             if use_exploration:
-                #add exploration noise
                 action += torch.randn_like(action) * self.exploration_noise
-
+            #arg for discrete or clip to [-1,1]* max_action for continuous 
             if self.discrete:
-                #arg for discrete
                 return int(action.argmax().item())
             else:
-                #clip to [-1, 1] then scale by max_action for continuous
                 return action.clamp(-1, 1).cpu().data.numpy().flatten() * self.max_action
 
 
     def train(self):
-        """
-        Single training iteration
-        """
         if self.replay_buffer.size <= self.buffer_size_before_training:
             return
-
         self.training_steps += 1
-
-
         if (self.training_steps - 1) % self.target_update_freq == 0:
             self.policy_target.load_state_dict(self.policy.state_dict())
             self.value_target.load_state_dict(self.value.state_dict())
             self.encoder_target.load_state_dict(self.encoder.state_dict())
             self.target_reward_scale = self.reward_scale
             self.reward_scale = self.replay_buffer.reward_scale()
-
             #train the encoder for 'target_update_freq' steps
             for _ in range(self.target_update_freq):
-                state, action, next_state, reward, not_done = self.replay_buffer.sample(
-                    self.enc_horizon, include_intermediate=True
-                )
-                state, next_state = maybe_augment_state(
-                    state, next_state, self.pixel_obs, self.pixel_augs
-                )
+                state, action, next_state, reward, not_done = self.replay_buffer.sample( self.enc_horizon, include_intermediate=True)
+                state, next_state = maybe_augment_state(state, next_state, self.pixel_obs, self.pixel_augs)
                 #using smaller trajectories? 
-                self.train_encoder(
-                    state, action, next_state, reward, not_done, 
-                    self.replay_buffer.env_terminates
-                )
+                self.train_encoder(state, action, next_state, reward, not_done, self.replay_buffer.env_terminates)
 
         # WE KNOW THIS 
-        state, action, next_state, reward, not_done = self.replay_buffer.sample(
-            self.Q_horizon, include_intermediate=False
-        )
+        state, action, next_state, reward, not_done = self.replay_buffer.sample(self.Q_horizon, include_intermediate=False)
         state, next_state = maybe_augment_state(state, next_state, self.pixel_obs, self.pixel_augs)
-
         #multi -step returns
         reward, not_done = multi_step_reward(reward, not_done, self.gammas)
-
         #train Q and policy 
-        Q, Q_target = self.train_rl(
-            state, action, next_state, reward, not_done, 
-            self.reward_scale, self.target_reward_scale
-        )
-
+        Q, Q_target = self.train_rl(state, action, next_state, reward, not_done, self.reward_scale, self.target_reward_scale)
         #priotized buffer thing 
         if self.prioritized:
             priority = (Q - Q_target.expand(-1,2)).abs().max(dim=1).values
@@ -191,83 +158,67 @@ class Agent:
             self.replay_buffer.update_priority(priority)
 
 
-    def train_encoder(self, 
-        state: torch.Tensor, 
-        action: torch.Tensor, 
-        next_state: torch.Tensor,
-        reward: torch.Tensor, 
-        not_done: torch.Tensor, 
-        env_terminates: bool
+    def train_encoder(self, state: torch.Tensor, action: torch.Tensor, next_state: torch.Tensor,
+        reward: torch.Tensor, not_done: torch.Tensor, env_terminates: bool
     ):
-        """
-        Encoder 
-        """
         batch_size = state.shape[0]
-
         with torch.no_grad():
             #flatten out horizon dimension
             ns_flat = next_state.reshape(batch_size * self.enc_horizon, *self.state_shape)
             target_zs = self.encoder_target.encode_observation(ns_flat)
             target_zs = target_zs.reshape(batch_size, self.enc_horizon, -1)
 
-        # Our initial predicted embedding: state[:, 0] is the first observation in the sub-trajectory
+        # our initial predicted embedding: state[:, 0] is the first observation in the sub-trajectory
         pred_zs = self.encoder.encode_observation(state[:, 0])
-
         #compute loss 
         encoder_loss = compute_encoder_loss(self.enc_horizon, pred_zs, target_zs, 
             action, reward, self.encoder, self.two_hot, env_terminates, not_done, self.dyn_weight, 
             self.reward_weight, self.done_weight )
-        
         #update 
         self.encoder_optimizer.zero_grad(set_to_none=True)
         encoder_loss.backward()
         self.encoder_optimizer.step()
 
+    def get_next_action(self, action, target_policy_noise, noise_clip, next_zs, policy_target, discrete): 
+        noise = (torch.randn_like(action)*target_policy_noise).clamp(-noise_clip, noise_clip)
+        next_action = (self.policy_target.select_action(next_zs) + noise)
+        if discrete: 
+            return F.one_hot(next_action.argmax(1), next_action.shape[1]).float()
+        else: 
+            return next_action.clamp(-1, 1)
 
-    def train_rl(self, 
-                 state: torch.Tensor, 
-                 action: torch.Tensor, 
-                 next_state: torch.Tensor,
-                 reward: torch.Tensor, 
-                 not_done: torch.Tensor,
-                 reward_scale: float, 
-                 target_reward_scale: float):
+    def compute_targets(self, state: torch.Tensor, action: torch.Tensor, next_state: torch.Tensor,
+        reward: torch.Tensor, not_done: torch.Tensor, reward_scale: float, target_reward_scale: float, 
+    ): 
+        with torch.no_grad(): 
+            next_zs = self.encoder_target.encode_observation(next_state)
+            next_action = self.get_next_action(action, self.target_policy_noise, self.noise_clip, next_zs, self.policy_target, self.discrete)
+            next_zsa = self.encoder_target.merge_state_action(next_zs, next_action)
+            Q_target_value = self.value_target(next_zsa).min(dim=1, keepdim=True).values
+            Q_target = (reward + not_done * self.discount * Q_target_value * target_reward_scale) / reward_scale
+            zs = self.encoder.encode_observation(state)
+            zsa = self.encoder.merge_state_action(zs, action)
+            return Q_target, zs, zsa 
+
+    def train_rl(self, state: torch.Tensor, action: torch.Tensor, next_state: torch.Tensor, reward: torch.Tensor, 
+                 not_done: torch.Tensor, reward_scale: float, target_reward_scale: float):
         """
         Training the Q-value networks and the policy (TD3 style).
         """
-        # ------------------------ Target computation ------------------------
-        with torch.no_grad():
-            next_zs = self.encoder_target.encode_observation(next_state)
-
-            noise = (torch.randn_like(action) * self.target_policy_noise).clamp(-self.noise_clip, self.noise_clip)
-            noisy_action = self.policy_target.select_action(next_zs) + noise
-            next_action = realign(noisy_action, self.discrete)
-
-            next_zsa = self.encoder_target.merge_state_action(next_zs, next_action)
-            Q_target_val = self.value_target(next_zsa).min(dim=1, keepdim=True).values
-
-            # y = r + gamma * Q_target
-            Q_target = (reward + not_done * self.discount * Q_target_val * target_reward_scale) / reward_scale
-
-            zs = self.encoder.encode_observation(state)
-            zsa = self.encoder.merge_state_action(zs, action)
-        
+        # ------------------------ Target computation -----------------------
+        Q_target, zs, zsa = self.compute_targets(state, action, next_state, reward, not_done, reward_scale, target_reward_scale)
         # ------------------------ Current Q training ------------------------
         Q_current = self.value(zsa)
-        value_loss = F.smooth_l1_loss(Q_current, Q_target.expand(-1,2))
-
+        value_loss = compute_value_loss(Q_current, Q_target)
         self.value_optimizer.zero_grad(set_to_none=True)
         value_loss.backward()
         torch.nn.utils.clip_grad_norm_(self.value.parameters(), self.value_grad_clip)
         self.value_optimizer.step()
-
         # ------------------------ Policy training ------------------------
         policy_action, pre_activ = self.policy(zs)
-        # re-encode (z, policy_action) - why???
         policy_zsa = self.encoder.merge_state_action(zs, policy_action)
         Q_policy = self.value(policy_zsa)
-        policy_loss = -Q_policy.mean() + self.pre_activ_weight * pre_activ.pow(2).mean()
-
+        policy_loss = compute_policy_loss(Q_policy, self.pre_activ_weight, pre_activ) 
         self.policy_optimizer.zero_grad(set_to_none=True)
         policy_loss.backward()
         self.policy_optimizer.step()
@@ -275,6 +226,7 @@ class Agent:
         return Q_current, Q_target
 
 
+    #same for now 
     def save(self, save_folder: str):
         for key in [
             'encoder', 'encoder_target', 'encoder_optimizer',

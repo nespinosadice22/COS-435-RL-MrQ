@@ -22,6 +22,7 @@ def compute_dynamic_loss(next_zs_pred, target_zs, prev_not_done, dyn_weight):
 
 def compute_reward_loss(reward_pred, reward, prev_not_done, two_hot, reward_weight): 
     reward_pred = F.log_softmax(reward_pred, dim=-1)
+    #check okay to do this 
     target = two_hot.two_hot_encode(reward)
     reward_loss = -(target*reward_pred).sum(-1, keepdim=True)
     reward_loss = (reward_loss * prev_not_done).mean() 
@@ -58,3 +59,18 @@ def compute_encoder_loss(enc_horizon, pred_zs, target_zs, action,
     
     return encoder_loss
 
+def compute_value_loss(Q_current, Q_target): 
+    Q_target = Q_target.expand(-1,2)
+    #manual implementation of smooth_l1_loss 
+    diff = Q_current - Q_target 
+    abs_diff = (diff).abs() 
+    mask = (abs_diff < 1.0).float() 
+    value_loss = mask * 0.5 * (diff**2) + (1-mask)* (abs_diff - 0.5)
+    value_loss = value_loss.mean() 
+    return value_loss 
+
+def compute_policy_loss(Q_policy, pre_activ_weight, pre_activ): 
+    policy_loss = -Q_policy.mean() + pre_activ_weight * pre_activ.pow(2).mean() 
+    return policy_loss 
+
+    
