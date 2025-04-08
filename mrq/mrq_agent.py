@@ -103,13 +103,9 @@ class Agent:
 
 
     def select_action(self, state: np.array, use_exploration: bool=True):
-        """
-        Called by your environment loop to pick an action given the current state.
-        """
         # Random action if buffer isn't large enough yet
         if self.replay_buffer.size < self.buffer_size_before_training and use_exploration:
             return None  # environment will sample random action (built into main)
-
         with torch.no_grad():
             state_t = torch.tensor(state, dtype=torch.float, device=self.device)
             state_t = state_t.reshape(-1, *self.state_shape)
@@ -126,7 +122,6 @@ class Agent:
             else:
                 return action.clamp(-1, 1).cpu().data.numpy().flatten() * self.max_action
 
-
     def train(self):
         if self.replay_buffer.size <= self.buffer_size_before_training:
             return
@@ -141,7 +136,6 @@ class Agent:
             for _ in range(self.target_update_freq):
                 state, action, next_state, reward, not_done = self.replay_buffer.sample( self.enc_horizon, include_intermediate=True)
                 state, next_state = maybe_augment_state(state, next_state, self.pixel_obs, self.pixel_augs)
-                #using smaller trajectories? 
                 self.train_encoder(state, action, next_state, reward, not_done, self.replay_buffer.env_terminates)
 
         # WE KNOW THIS 
@@ -149,14 +143,19 @@ class Agent:
         state, next_state = maybe_augment_state(state, next_state, self.pixel_obs, self.pixel_augs)
         #multi -step returns
         reward, not_done = multi_step_reward(reward, not_done, self.gammas)
-        #train Q and policy 
-        Q, Q_target = self.train_rl(state, action, next_state, reward, not_done, self.reward_scale, self.target_reward_scale)
+        #PRETTY MUCH TD3 FROM HERE ON OUT 
+        #compute targets 
+        Q_target, zs, zsa = self.compute_targets(state, action, next_state, reward, not_done, self.reward_scale, self.target_reward_scale)
+        #update value 
+        Q_current, value_loss = self.train_value(zsa, Q_target)
+        #update policy 
+        Q_policy, policy_loss = self.train_policy(zs)
+        
         #priotized buffer thing 
         if self.prioritized:
-            priority = (Q - Q_target.expand(-1,2)).abs().max(dim=1).values
+            priority = (Q_current - Q_target.expand(-1,2)).abs().max(dim=1).values
             priority = priority.clamp(min=self.min_priority).pow(self.alpha)
             self.replay_buffer.update_priority(priority)
-
 
     def train_encoder(self, state: torch.Tensor, action: torch.Tensor, next_state: torch.Tensor,
         reward: torch.Tensor, not_done: torch.Tensor, env_terminates: bool
@@ -200,21 +199,16 @@ class Agent:
             zsa = self.encoder.merge_state_action(zs, action)
             return Q_target, zs, zsa 
 
-    def train_rl(self, state: torch.Tensor, action: torch.Tensor, next_state: torch.Tensor, reward: torch.Tensor, 
-                 not_done: torch.Tensor, reward_scale: float, target_reward_scale: float):
-        """
-        Training the Q-value networks and the policy (TD3 style).
-        """
-        # ------------------------ Target computation -----------------------
-        Q_target, zs, zsa = self.compute_targets(state, action, next_state, reward, not_done, reward_scale, target_reward_scale)
-        # ------------------------ Current Q training ------------------------
+    def train_value(self, zsa, Q_target): 
         Q_current = self.value(zsa)
         value_loss = compute_value_loss(Q_current, Q_target)
         self.value_optimizer.zero_grad(set_to_none=True)
         value_loss.backward()
         torch.nn.utils.clip_grad_norm_(self.value.parameters(), self.value_grad_clip)
         self.value_optimizer.step()
-        # ------------------------ Policy training ------------------------
+        return Q_current, value_loss
+    
+    def train_policy(self, zs): 
         policy_action, pre_activ = self.policy(zs)
         policy_zsa = self.encoder.merge_state_action(zs, policy_action)
         Q_policy = self.value(policy_zsa)
@@ -222,11 +216,9 @@ class Agent:
         self.policy_optimizer.zero_grad(set_to_none=True)
         policy_loss.backward()
         self.policy_optimizer.step()
+        return Q_policy, policy_loss
 
-        return Q_current, Q_target
-
-
-    #same for now 
+    #---------------------------------same for now---------------------------------#
     def save(self, save_folder: str):
         for key in [
             'encoder', 'encoder_target', 'encoder_optimizer',
