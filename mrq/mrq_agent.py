@@ -31,55 +31,26 @@ class Agent:
             self.target_policy_noise *= 0.5
 
         #set up replay buffer
-        self.replay_buffer = buffer.ReplayBuffer(
-            obs_shape, action_dim, max_action, pixel_obs, self.device,
-            history, max(self.enc_horizon, self.Q_horizon), self.buffer_size, self.batch_size,
-            self.prioritized, initial_priority=self.min_priority
-        )
+        self.replay_buffer = buffer.ReplayBuffer(obs_shape, action_dim, max_action, pixel_obs, self.device,
+            history, max(self.enc_horizon, self.Q_horizon), self.buffer_size, self.batch_size, self.prioritized, initial_priority=self.min_priority)
 
-        # ------------------ Encoder ------------------#
-        self.encoder = models.Encoder(
-            obs_channels_or_dim = obs_shape[0] * history,  # same as old "state_dim"
-            action_size         = action_dim, 
-            pixel_based         = pixel_obs, 
-            bins_for_reward     = self.num_bins, 
-            latent_dim_state    = self.zs_dim, 
-            latent_dim_action   = self.za_dim, 
-            latent_dim_joint    = self.zsa_dim, 
-            hidden_dim          = self.enc_hdim, 
-            activation_name     = self.enc_activ
-        ).to(self.device)
-        self.encoder_optimizer = torch.optim.AdamW(
-            self.encoder.parameters(), lr=self.enc_lr, weight_decay=self.enc_wd
-        )
+        # ------------------ encoder ------------------#
+        self.encoder = models.Encoder(obs_channels_or_dim = obs_shape[0] * history, action_size = action_dim, 
+            pixel_based = pixel_obs, bins_for_reward = self.num_bins, latent_dim_state = self.zs_dim, latent_dim_action = self.za_dim, 
+            latent_dim_joint = self.zsa_dim, hidden_dim = self.enc_hdim, activation_name = self.enc_activ).to(self.device)
+        self.encoder_optimizer = torch.optim.AdamW(self.encoder.parameters(), lr=self.enc_lr, weight_decay=self.enc_wd)
         self.encoder_target = copy.deepcopy(self.encoder)
-
-        # ------------------ Policy ------------------#
-        self.policy = models.Policy(
-            output_dim        = action_dim, 
-            is_discrete       = discrete, 
-            gumbel_temperature= self.gumbel_tau, 
-            latent_dim_state  = self.zs_dim, 
-            hidden_dim        = self.policy_hdim, 
-            activation_name   = self.policy_activ
-        ).to(self.device)
-        self.policy_optimizer = torch.optim.AdamW(
-            self.policy.parameters(), lr=self.policy_lr, weight_decay=self.policy_wd
-        )
+        # ------------------ policy ------------------#
+        self.policy = models.Policy(output_dim = action_dim, is_discrete = discrete, gumbel_temperature= self.gumbel_tau, 
+            latent_dim_state  = self.zs_dim, hidden_dim = self.policy_hdim, activation_name = self.policy_activ).to(self.device)
+        self.policy_optimizer = torch.optim.AdamW(self.policy.parameters(), lr=self.policy_lr, weight_decay=self.policy_wd)
         self.policy_target = copy.deepcopy(self.policy)
-
-        # ------------------ Value ------------------#
-        self.value = models.Value(
-            input_dim      = self.zsa_dim,    
-            hidden_dim     = self.value_hdim, 
-            activation_name= self.value_activ
-        ).to(self.device)
-        self.value_optimizer = torch.optim.AdamW(
-            self.value.parameters(), lr=self.value_lr, weight_decay=self.value_wd
-        )
+        # ------------------ value ------------------#
+        self.value = models.Value(input_dim = self.zsa_dim, hidden_dim = self.value_hdim, activation_name= self.value_activ).to(self.device)
+        self.value_optimizer = torch.optim.AdamW(self.value.parameters(), lr=self.value_lr, weight_decay=self.value_wd)
         self.value_target = copy.deepcopy(self.value)
 
-        # Used by reward prediction
+        # used by reward prediction
         self.two_hot = TwoHot(self.device, self.lower, self.upper, self.num_bins)
         
         #make this a helper function 
@@ -90,7 +61,7 @@ class Agent:
             discount *= self.discount
         self.discount = discount
 
-        # Environment properties
+        # Environment properties 
         self.pixel_obs = pixel_obs
         self.state_shape = self.replay_buffer.state_shape
         self.discrete = discrete
@@ -103,17 +74,17 @@ class Agent:
 
 
     def select_action(self, state: np.array, use_exploration: bool=True):
-        # Random action if buffer isn't large enough yet
+        # Random action if buffer isn't large enough yet --> random action (done in main)
         if self.replay_buffer.size < self.buffer_size_before_training and use_exploration:
-            return None  # environment will sample random action (built into main)
+            return None 
         with torch.no_grad():
             state_t = torch.tensor(state, dtype=torch.float, device=self.device)
             state_t = state_t.reshape(-1, *self.state_shape)
             # encode 
             zs = self.encoder.encode_observation(state_t)
-            # policy
+            # a from policy
             action = self.policy.select_action(zs)
-            #add exploration noise
+            #if exploration noise
             if use_exploration:
                 action += torch.randn_like(action) * self.exploration_noise
             #arg for discrete or clip to [-1,1]* max_action for continuous 
@@ -143,6 +114,7 @@ class Agent:
         state, next_state = maybe_augment_state(state, next_state, self.pixel_obs, self.pixel_augs)
         #multi -step returns
         reward, not_done = multi_step_reward(reward, not_done, self.gammas)
+        
         #PRETTY MUCH TD3 FROM HERE ON OUT 
         #compute targets 
         Q_target, zs, zsa = self.compute_targets(state, action, next_state, reward, not_done, self.reward_scale, self.target_reward_scale)
@@ -167,12 +139,11 @@ class Agent:
             target_zs = self.encoder_target.encode_observation(ns_flat)
             target_zs = target_zs.reshape(batch_size, self.enc_horizon, -1)
 
-        # our initial predicted embedding: state[:, 0] is the first observation in the sub-trajectory
+        # our initial predicted embedding: state[:, 0] is the first obs 
         pred_zs = self.encoder.encode_observation(state[:, 0])
         #compute loss 
-        encoder_loss = compute_encoder_loss(self.enc_horizon, pred_zs, target_zs, 
-            action, reward, self.encoder, self.two_hot, env_terminates, not_done, self.dyn_weight, 
-            self.reward_weight, self.done_weight )
+        encoder_loss = compute_encoder_loss(self.enc_horizon, pred_zs, target_zs, action, reward, self.encoder, self.two_hot, env_terminates, not_done, self.dyn_weight, 
+            self.reward_weight, self.done_weight)
         #update 
         self.encoder_optimizer.zero_grad(set_to_none=True)
         encoder_loss.backward()
