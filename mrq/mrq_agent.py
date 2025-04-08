@@ -13,6 +13,7 @@ import models
 from utils import maybe_augment_state, realign, masked_mse, multi_step_reward, shift_aug
 import utils
 from two_hot import TwoHot
+from losses import compute_encoder_loss
 
 class Agent:
     def __init__(self, 
@@ -212,30 +213,12 @@ class Agent:
         # Our initial predicted embedding: state[:, 0] is the first observation in the sub-trajectory
         pred_zs = self.encoder.encode_observation(state[:, 0])
 
-        prev_not_done = 1.0  # used to mask out states after termination
-        encoder_loss = 0.0
-
-        for i in range(self.enc_horizon):
-            done_pred, next_zs_pred, rew_pred = self.encoder.predict_all(pred_zs, action[:, i])
-            dyn_loss = masked_mse(next_zs_pred, target_zs[:, i], prev_not_done)
-
-            # Reward classification loss
-            rew_loss = self.two_hot.cross_entropy_loss(rew_pred, reward[:, i])
-            rew_loss = (rew_loss * prev_not_done).mean()
-
-            # Done signal: MSE with "1 - not_done" if environment has real terminations
-            if env_terminates:
-                d_loss = masked_mse(done_pred, 1.0 - not_done[:, i].reshape(-1,1), prev_not_done)
-            else:
-                d_loss = 0.0
-
-            encoder_loss += (self.dyn_weight * dyn_loss +
-                             self.reward_weight * rew_loss +
-                             self.done_weight * d_loss)
-
-            pred_zs = next_zs_pred
-            prev_not_done = not_done[:, i].reshape(-1,1) * prev_not_done
-
+        #compute loss 
+        encoder_loss = compute_encoder_loss(self.enc_horizon, pred_zs, target_zs, 
+            action, reward, self.encoder, self.two_hot, env_terminates, not_done, self.dyn_weight, 
+            self.reward_weight, self.done_weight )
+        
+        #update 
         self.encoder_optimizer.zero_grad(set_to_none=True)
         encoder_loss.backward()
         self.encoder_optimizer.step()
