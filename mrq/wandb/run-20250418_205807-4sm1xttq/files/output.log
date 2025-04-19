@@ -1,0 +1,84 @@
+/opt/anaconda3/envs/mrq/lib/python3.12/site-packages/gymnasium/envs/registration.py:519: DeprecationWarning: [33mWARN: The environment Ant-v4 is out of date. You should consider upgrading to version `v5`.[0m
+  logger.deprecation(
+/opt/anaconda3/envs/mrq/lib/python3.12/site-packages/gymnasium/envs/registration.py:519: DeprecationWarning: [33mWARN: The environment Ant-v4 is out of date. You should consider upgrading to version `v5`.[0m
+  logger.deprecation(
+Traceback (most recent call last):
+  File "/Users/avakrocheski-meyer/Downloads/COS435 Final Project/COS-435-RL-MrQ/mrq/new_main.py", line 142, in <module>
+    app()
+  File "/opt/anaconda3/envs/mrq/lib/python3.12/site-packages/typer/main.py", line 339, in __call__
+    raise e
+  File "/opt/anaconda3/envs/mrq/lib/python3.12/site-packages/typer/main.py", line 322, in __call__
+    return get_command(self)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/envs/mrq/lib/python3.12/site-packages/click/core.py", line 1161, in __call__
+    return self.main(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/envs/mrq/lib/python3.12/site-packages/typer/core.py", line 677, in main
+    return _main(
+           ^^^^^^
+  File "/opt/anaconda3/envs/mrq/lib/python3.12/site-packages/typer/core.py", line 195, in _main
+    rv = self.invoke(ctx)
+         ^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/envs/mrq/lib/python3.12/site-packages/click/core.py", line 1443, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/envs/mrq/lib/python3.12/site-packages/click/core.py", line 788, in invoke
+    return __callback(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/envs/mrq/lib/python3.12/site-packages/typer/main.py", line 697, in wrapper
+    return callback(**use_params)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/avakrocheski-meyer/Downloads/COS435 Final Project/COS-435-RL-MrQ/mrq/new_main.py", line 120, in main
+    exp.logger.title("Experiment")
+    ^^^^^^^^^^
+AttributeError: 'OnlineExperiment' object has no attribute 'logger'
+[31m╭─[0m[31m────────[0m[31m [0m[1;31mTraceback [0m[1;2;31m(most recent call last)[0m[31m [0m[31m────────[0m[31m─╮[0m
+[31m│[0m [2m/Users/avakrocheski-meyer/Downloads/COS435 Final [0m   [31m│[0m
+[31m│[0m [2mProject/COS-435-RL-MrQ/mrq/[0m[1mnew_main.py[0m:120 in main  [31m│[0m
+[31m│[0m                                                     [31m│[0m
+[31m│[0m   [2m117 [0m[2m│   │   │   [0msave_folder=save_folder,          [31m│[0m
+[31m│[0m   [2m118 [0m[2m│   │   [0m)                                     [31m│[0m
+[31m│[0m   [2m119 [0m[2m│   [0m                                          [31m│[0m
+[31m│[0m [31m❱ [0m120 [2m│   [0m[1;4mexp.logger[0m.title([33m"[0m[33mExperiment[0m[33m"[0m)            [31m│[0m
+[31m│[0m   [2m121 [0m[2m│   [0mexp.logger.log_print([33mf[0m[33m"[0m[33mAlgorithm:[0m[33m\t[0m[33m{[0mexp.a [31m│[0m
+[31m│[0m   [2m122 [0m[2m│   [0mexp.logger.log_print([33mf[0m[33m"[0m[33mEnv:[0m[33m\t[0m[33m\t[0m[33m{[0mexp.env.e [31m│[0m
+[31m│[0m   [2m123 [0m[2m│   [0mexp.logger.log_print([33mf[0m[33m"[0m[33mSeed:[0m[33m\t[0m[33m\t[0m[33m{[0mexp.env. [31m│[0m
+[31m│[0m                                                     [31m│[0m
+[31m│[0m [34m╭─[0m[34m───────────────────[0m[34m locals [0m[34m────────────────────[0m[34m─╮[0m [31m│[0m
+[31m│[0m [34m│[0m           [3;33magent[0m[31m =[0m [1m<[0m[1;95mmrq_agent.Agent[0m[39m object at [0m   [34m│[0m [31m│[0m
+[31m│[0m [34m│[0m                   [1;36m0x124c26ea0[0m[1m>[0m                  [34m│[0m [31m│[0m
+[31m│[0m [34m│[0m          [3;33mconfig[0m[31m =[0m [1;35mDefaults[0m[1m([0m                     [34m│[0m [31m│[0m
+[31m│[0m [34m│[0m                   [2;32m│   [0m                          [34m│[0m [31m│[0m
+[31m│[0m [34m│[0m                   [33mAtari_tot_timesteps[0m=[1;36m2500000[0m,  [34m│[0m [31m│[0m
+[31m│[0m [34m│[0m                   [2;32m│   [0m                          [34m│[0m [31m│[0m
+[31m│[0m [34m│[0m                   [33mAtari_eval_frequency[0m=[1;36m100000[0m,  [34m│[0m [31m│[0m
+[31m│[0m [34m│[0m                   [2;32m│   [0m[33mDmc_tot_timesteps[0m=[1;36m500000[0m, [34m│[0m [31m│[0m
+[31m│[0m [34m│[0m                   [2;32m│   [0m[33mDmc_eval_frequency[0m=[1;36m5000[0m,  [34m│[0m [31m│[0m
+[31m│[0m [34m│[0m                   [2;32m│   [0m                          [34m│[0m [31m│[0m
+[31m│[0m [34m│[0m                   [33mGym_tot_timesteps[0m=[1;36m1000000[0m,    [34m│[0m [31m│[0m
+[31m│[0m [34m│[0m                   [2;32m│   [0m[33mGym_eval_frequency[0m=[1;36m5000[0m   [34m│[0m [31m│[0m
+[31m│[0m [34m│[0m                   [1m)[0m                             [34m│[0m [31m│[0m
+[31m│[0m [34m│[0m          [3;33mdevice[0m[31m =[0m [1;35mdevice[0m[1m([0m[33mtype[0m=[32m'cpu'[0m[1m)[0m            [34m│[0m [31m│[0m
+[31m│[0m [34m│[0m             [3;33menv[0m[31m =[0m [1m<[0m[1;95menv_preprocessing.Env[0m[39m object[0m [34m│[0m [31m│[0m
+[31m│[0m [34m│[0m                   [39mat [0m[1;36m0x1252e2120[0m[1m>[0m               [34m│[0m [31m│[0m
+[31m│[0m [34m│[0m        [3;33menv_type[0m[31m =[0m [32m'Gym'[0m                         [34m│[0m [31m│[0m
+[31m│[0m [34m│[0m        [3;33meval_env[0m[31m =[0m [1m<[0m[1;95menv_preprocessing.Env[0m[39m object[0m [34m│[0m [31m│[0m
+[31m│[0m [34m│[0m                   [39mat [0m[1;36m0x1251c6870[0m[1m>[0m               [34m│[0m [31m│[0m
+[31m│[0m [34m│[0m        [3;33meval_eps[0m[31m =[0m [1;36m10[0m                            [34m│[0m [31m│[0m
+[31m│[0m [34m│[0m     [3;33meval_folder[0m[31m =[0m [32m'./evals'[0m                     [34m│[0m [31m│[0m
+[31m│[0m [34m│[0m  [3;33meval_frequency[0m[31m =[0m [1;36m5000[0m                          [34m│[0m [31m│[0m
+[31m│[0m [34m│[0m             [3;33mexp[0m[31m =[0m [1m<[0m[1;95mexperiment.OnlineExperiment[0m[39m [0m [34m│[0m [31m│[0m
+[31m│[0m [34m│[0m                   [39mobject at [0m[1;36m0x169bebe30[0m[1m>[0m        [34m│[0m [31m│[0m
+[31m│[0m [34m│[0m [3;33mload_experiment[0m[31m =[0m [3;91mFalse[0m                         [34m│[0m [31m│[0m
+[31m│[0m [34m│[0m    [3;33mproject_name[0m[31m =[0m [32m'MRQ+Gym-Ant-v4+0'[0m            [34m│[0m [31m│[0m
+[31m│[0m [34m│[0m             [3;33mrun[0m[31m =[0m [1m<[0m[1;95mwandb.sdk.wandb_run.Run[0m[39m [0m     [34m│[0m [31m│[0m
+[31m│[0m [34m│[0m                   [39mobject at [0m[1;36m0x125d2dd30[0m[1m>[0m        [34m│[0m [31m│[0m
+[31m│[0m [34m│[0m [3;33msave_experiment[0m[31m =[0m [3;91mFalse[0m                         [34m│[0m [31m│[0m
+[31m│[0m [34m│[0m     [3;33msave_folder[0m[31m =[0m [32m'./checkpoint'[0m                [34m│[0m [31m│[0m
+[31m│[0m [34m│[0m       [3;33msave_freq[0m[31m =[0m [1;36m100000[0m                        [34m│[0m [31m│[0m
+[31m│[0m [34m│[0m            [3;33mseed[0m[31m =[0m [1;36m0[0m                             [34m│[0m [31m│[0m
+[31m│[0m [34m│[0m   [3;33mtot_timesteps[0m[31m =[0m [1;36m20000[0m                         [34m│[0m [31m│[0m
+[31m│[0m [34m╰─────────────────────────────────────────────────╯[0m [31m│[0m
+[31m╰─────────────────────────────────────────────────────╯[0m
+[1;91mAttributeError: [0m[32m'OnlineExperiment'[0m object has no
+attribute [32m'logger'[0m

@@ -1,30 +1,42 @@
-'''
+"""
 currently the same - we should change!
-'''
+"""
+
 # utils.py
 import torch
 import torch.nn.functional as F
 
 
 def realign(x, discrete: bool):
-    return F.one_hot(x.argmax(1), x.shape[1]).float() if discrete else x.clamp(-1,1)
+    return F.one_hot(x.argmax(1), x.shape[1]).float() if discrete else x.clamp(-1, 1)
 
 
 def masked_mse(x: torch.Tensor, y: torch.Tensor, mask: torch.Tensor):
-    return (F.mse_loss(x, y, reduction='none') * mask).mean()
+    return (F.mse_loss(x, y, reduction="none") * mask).mean()
 
 
-def multi_step_reward(reward: torch.Tensor, not_done: torch.Tensor, gammas: torch.Tensor):
+def multi_step_reward(
+    reward: torch.Tensor, not_done: torch.Tensor, gammas: torch.Tensor
+):
     return (reward * not_done * gammas).sum(1), not_done.prod(1)
 
 
-def maybe_augment_state(state: torch.Tensor, next_state: torch.Tensor, pixel_obs: bool, use_augs: bool):
+def maybe_augment_state(
+    state: torch.Tensor, next_state: torch.Tensor, pixel_obs: bool, use_augs: bool
+):
     if pixel_obs and use_augs:
-        if len(state.shape) != 5: state = state.unsqueeze(1)
+        if len(state.shape) != 5:
+            state = state.unsqueeze(1)
         batch_size, horizon, history, height, width = state.shape
 
         # Group states before augmenting.
-        both_state = torch.concatenate([state.reshape(-1, history, height, width), next_state.reshape(-1, history, height, width)], 0)
+        both_state = torch.concatenate(
+            [
+                state.reshape(-1, history, height, width),
+                next_state.reshape(-1, history, height, width),
+            ],
+            0,
+        )
         both_state = shift_aug(both_state)
 
         state, next_state = torch.chunk(both_state, 2, 0)
@@ -38,22 +50,33 @@ def maybe_augment_state(state: torch.Tensor, next_state: torch.Tensor, pixel_obs
 
 
 # Random shift.
-def shift_aug(image: torch.Tensor, pad: int=4):
+def shift_aug(image: torch.Tensor, pad: int = 4):
     batch_size, _, height, width = image.size()
-    image = F.pad(image, (pad, pad, pad, pad), 'replicate')
+    image = F.pad(image, (pad, pad, pad, pad), "replicate")
     eps = 1.0 / (height + 2 * pad)
 
-    arange = torch.linspace(-1.0 + eps, 1.0 - eps, height + 2 * pad, device=image.device, dtype=torch.float)[:height]
+    arange = torch.linspace(
+        -1.0 + eps, 1.0 - eps, height + 2 * pad, device=image.device, dtype=torch.float
+    )[:height]
     arange = arange.unsqueeze(0).repeat(height, 1).unsqueeze(2)
 
     base_grid = torch.cat([arange, arange.transpose(1, 0)], dim=2)
     base_grid = base_grid.unsqueeze(0).repeat(batch_size, 1, 1, 1)
 
-    shift = torch.randint(0, 2 * pad + 1, size=(batch_size, 1, 1, 2), device=image.device, dtype=torch.float)
+    shift = torch.randint(
+        0,
+        2 * pad + 1,
+        size=(batch_size, 1, 1, 2),
+        device=image.device,
+        dtype=torch.float,
+    )
     shift *= 2.0 / (height + 2 * pad)
-    return F.grid_sample(image, base_grid + shift, padding_mode='zeros', align_corners=False)
+    return F.grid_sample(
+        image, base_grid + shift, padding_mode="zeros", align_corners=False
+    )
 
-#--------------------
+
+# --------------------
 # Copyright (c) Meta Platforms, Inc. and affiliates.
 # All rights reserved.
 
@@ -81,40 +104,38 @@ class Logger:
     def __init__(self, log_file: str):
         self.log_file = log_file
 
-
     def log_print(self, x: str | object):
-        with open(self.log_file, 'a') as f:
+        with open(self.log_file, "a") as f:
             if isinstance(x, str):
                 print(x)
-                f.write(x+'\n')
+                f.write(x + "\n")
             else:
                 pprint.pprint(x)
                 pprint.pprint(x, f)
 
-
     def title(self, text: str):
-        self.log_print('-'*40)
+        self.log_print("-" * 40)
         self.log_print(text)
-        self.log_print('-'*40)
+        self.log_print("-" * 40)
 
 
 # Takes the formatted results and returns a dictionary of env -> (timesteps, seed).
-def results_to_numpy(file: str='../results/gym_results.txt'):
+def results_to_numpy(file: str = "../results/gym_results.txt"):
     results = {}
 
     for line in open(file):
-        if '----' in line:
+        if "----" in line:
             continue
-        if 'Timestep' in line:
+        if "Timestep" in line:
             continue
-        if 'Env:' in line:
-            env = line.split(' ')[1][:-1]
+        if "Env:" in line:
+            env = line.split(" ")[1][:-1]
             results[env] = []
         else:
             timestep = []
-            for seed in line.split('\t')[1:]:
-                if seed != '':
-                    seed = seed.replace('\n', '')
+            for seed in line.split("\t")[1:]:
+                if seed != "":
+                    seed = seed.replace("\n", "")
                     timestep.append(float(seed))
             results[env].append(timestep)
 
@@ -126,132 +147,132 @@ def results_to_numpy(file: str='../results/gym_results.txt'):
 
 
 gym = [
-    'Gym-HalfCheetah-v4',
-    'Gym-Hopper-v4',
-    'Gym-Walker2d-v4',
-    'Gym-Ant-v4',
-    'Gym-Humanoid-v4',
+    "Gym-HalfCheetah-v4",
+    "Gym-Hopper-v4",
+    "Gym-Walker2d-v4",
+    "Gym-Ant-v4",
+    "Gym-Humanoid-v4",
 ]
 
 
 dmc = [
-    'Dmc-acrobot-swingup',
-    'Dmc-ball_in_cup-catch',
-    'Dmc-cartpole-balance',
-    'Dmc-cartpole-balance_sparse',
-    'Dmc-cartpole-swingup',
-    'Dmc-cartpole-swingup_sparse',
-    'Dmc-cheetah-run',
-    'Dmc-dog-stand',
-    'Dmc-dog-walk',
-    'Dmc-dog-trot',
-    'Dmc-dog-run',
-    'Dmc-finger-spin',
-    'Dmc-finger-turn_easy',
-    'Dmc-finger-turn_hard',
-    'Dmc-fish-swim',
-    'Dmc-hopper-stand',
-    'Dmc-hopper-hop',
-    'Dmc-humanoid-stand',
-    'Dmc-humanoid-walk',
-    'Dmc-humanoid-run',
-    'Dmc-pendulum-swingup',
-    'Dmc-quadruped-walk',
-    'Dmc-quadruped-run',
-    'Dmc-reacher-easy',
-    'Dmc-reacher-hard',
-    'Dmc-walker-stand',
-    'Dmc-walker-walk',
-    'Dmc-walker-run'
+    "Dmc-acrobot-swingup",
+    "Dmc-ball_in_cup-catch",
+    "Dmc-cartpole-balance",
+    "Dmc-cartpole-balance_sparse",
+    "Dmc-cartpole-swingup",
+    "Dmc-cartpole-swingup_sparse",
+    "Dmc-cheetah-run",
+    "Dmc-dog-stand",
+    "Dmc-dog-walk",
+    "Dmc-dog-trot",
+    "Dmc-dog-run",
+    "Dmc-finger-spin",
+    "Dmc-finger-turn_easy",
+    "Dmc-finger-turn_hard",
+    "Dmc-fish-swim",
+    "Dmc-hopper-stand",
+    "Dmc-hopper-hop",
+    "Dmc-humanoid-stand",
+    "Dmc-humanoid-walk",
+    "Dmc-humanoid-run",
+    "Dmc-pendulum-swingup",
+    "Dmc-quadruped-walk",
+    "Dmc-quadruped-run",
+    "Dmc-reacher-easy",
+    "Dmc-reacher-hard",
+    "Dmc-walker-stand",
+    "Dmc-walker-walk",
+    "Dmc-walker-run",
 ]
 
 
 dmc_visual = [
-    'Dmc-visual-acrobot-swingup',
-    'Dmc-visual-ball_in_cup-catch',
-    'Dmc-visual-cartpole-balance',
-    'Dmc-visual-cartpole-balance_sparse',
-    'Dmc-visual-cartpole-swingup',
-    'Dmc-visual-cartpole-swingup_sparse',
-    'Dmc-visual-cheetah-run',
-    'Dmc-visual-dog-stand',
-    'Dmc-visual-dog-walk',
-    'Dmc-visual-dog-trot',
-    'Dmc-visual-dog-run',
-    'Dmc-visual-finger-spin',
-    'Dmc-visual-finger-turn_easy',
-    'Dmc-visual-finger-turn_hard',
-    'Dmc-visual-fish-swim',
-    'Dmc-visual-hopper-stand',
-    'Dmc-visual-hopper-hop',
-    'Dmc-visual-humanoid-stand',
-    'Dmc-visual-humanoid-walk',
-    'Dmc-visual-humanoid-run',
-    'Dmc-visual-pendulum-swingup',
-    'Dmc-visual-quadruped-walk',
-    'Dmc-visual-quadruped-run',
-    'Dmc-visual-reacher-easy',
-    'Dmc-visual-reacher-hard',
-    'Dmc-visual-walker-stand',
-    'Dmc-visual-walker-walk',
-    'Dmc-visual-walker-run'
+    "Dmc-visual-acrobot-swingup",
+    "Dmc-visual-ball_in_cup-catch",
+    "Dmc-visual-cartpole-balance",
+    "Dmc-visual-cartpole-balance_sparse",
+    "Dmc-visual-cartpole-swingup",
+    "Dmc-visual-cartpole-swingup_sparse",
+    "Dmc-visual-cheetah-run",
+    "Dmc-visual-dog-stand",
+    "Dmc-visual-dog-walk",
+    "Dmc-visual-dog-trot",
+    "Dmc-visual-dog-run",
+    "Dmc-visual-finger-spin",
+    "Dmc-visual-finger-turn_easy",
+    "Dmc-visual-finger-turn_hard",
+    "Dmc-visual-fish-swim",
+    "Dmc-visual-hopper-stand",
+    "Dmc-visual-hopper-hop",
+    "Dmc-visual-humanoid-stand",
+    "Dmc-visual-humanoid-walk",
+    "Dmc-visual-humanoid-run",
+    "Dmc-visual-pendulum-swingup",
+    "Dmc-visual-quadruped-walk",
+    "Dmc-visual-quadruped-run",
+    "Dmc-visual-reacher-easy",
+    "Dmc-visual-reacher-hard",
+    "Dmc-visual-walker-stand",
+    "Dmc-visual-walker-walk",
+    "Dmc-visual-walker-run",
 ]
 
 
 atari = [
-    'Atari-Alien-v5',
-    'Atari-Amidar-v5',
-    'Atari-Assault-v5',
-    'Atari-Asterix-v5',
-    'Atari-Asteroids-v5',
-    'Atari-Atlantis-v5',
-    'Atari-BankHeist-v5',
-    'Atari-BattleZone-v5',
-    'Atari-BeamRider-v5',
-    'Atari-Berzerk-v5',
-    'Atari-Bowling-v5',
-    'Atari-Boxing-v5',
-    'Atari-Breakout-v5',
-    'Atari-Centipede-v5',
-    'Atari-ChopperCommand-v5',
-    'Atari-CrazyClimber-v5',
-    'Atari-DemonAttack-v5',
-    'Atari-DoubleDunk-v5',
-    'Atari-Enduro-v5',
-    'Atari-FishingDerby-v5',
-    'Atari-Freeway-v5',
-    'Atari-Frostbite-v5',
-    'Atari-Gopher-v5',
-    'Atari-Gravitar-v5',
-    'Atari-Hero-v5',
-    'Atari-IceHockey-v5',
-    'Atari-Jamesbond-v5',
-    'Atari-Kangaroo-v5',
-    'Atari-Krull-v5',
-    'Atari-KungFuMaster-v5',
-    'Atari-MontezumaRevenge-v5',
-    'Atari-MsPacman-v5',
-    'Atari-NameThisGame-v5',
-    'Atari-Phoenix-v5',
-    'Atari-Pitfall-v5',
-    'Atari-Pong-v5',
-    'Atari-PrivateEye-v5',
-    'Atari-Qbert-v5',
-    'Atari-Riverraid-v5',
-    'Atari-RoadRunner-v5',
-    'Atari-Robotank-v5',
-    'Atari-Seaquest-v5',
-    'Atari-Skiing-v5',
-    'Atari-Solaris-v5',
-    'Atari-SpaceInvaders-v5',
-    'Atari-StarGunner-v5',
-    'Atari-Tennis-v5',
-    'Atari-TimePilot-v5',
-    'Atari-Tutankham-v5',
-    'Atari-UpNDown-v5',
-    'Atari-Venture-v5',
-    'Atari-VideoPinball-v5',
-    'Atari-WizardOfWor-v5',
-    'Atari-YarsRevenge-v5',
-    'Atari-Zaxxon-v5',
+    "Atari-Alien-v5",
+    "Atari-Amidar-v5",
+    "Atari-Assault-v5",
+    "Atari-Asterix-v5",
+    "Atari-Asteroids-v5",
+    "Atari-Atlantis-v5",
+    "Atari-BankHeist-v5",
+    "Atari-BattleZone-v5",
+    "Atari-BeamRider-v5",
+    "Atari-Berzerk-v5",
+    "Atari-Bowling-v5",
+    "Atari-Boxing-v5",
+    "Atari-Breakout-v5",
+    "Atari-Centipede-v5",
+    "Atari-ChopperCommand-v5",
+    "Atari-CrazyClimber-v5",
+    "Atari-DemonAttack-v5",
+    "Atari-DoubleDunk-v5",
+    "Atari-Enduro-v5",
+    "Atari-FishingDerby-v5",
+    "Atari-Freeway-v5",
+    "Atari-Frostbite-v5",
+    "Atari-Gopher-v5",
+    "Atari-Gravitar-v5",
+    "Atari-Hero-v5",
+    "Atari-IceHockey-v5",
+    "Atari-Jamesbond-v5",
+    "Atari-Kangaroo-v5",
+    "Atari-Krull-v5",
+    "Atari-KungFuMaster-v5",
+    "Atari-MontezumaRevenge-v5",
+    "Atari-MsPacman-v5",
+    "Atari-NameThisGame-v5",
+    "Atari-Phoenix-v5",
+    "Atari-Pitfall-v5",
+    "Atari-Pong-v5",
+    "Atari-PrivateEye-v5",
+    "Atari-Qbert-v5",
+    "Atari-Riverraid-v5",
+    "Atari-RoadRunner-v5",
+    "Atari-Robotank-v5",
+    "Atari-Seaquest-v5",
+    "Atari-Skiing-v5",
+    "Atari-Solaris-v5",
+    "Atari-SpaceInvaders-v5",
+    "Atari-StarGunner-v5",
+    "Atari-Tennis-v5",
+    "Atari-TimePilot-v5",
+    "Atari-Tutankham-v5",
+    "Atari-UpNDown-v5",
+    "Atari-Venture-v5",
+    "Atari-VideoPinball-v5",
+    "Atari-WizardOfWor-v5",
+    "Atari-YarsRevenge-v5",
+    "Atari-Zaxxon-v5",
 ]
