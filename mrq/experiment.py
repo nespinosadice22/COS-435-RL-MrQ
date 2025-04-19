@@ -192,6 +192,7 @@ def load_experiment(
     save_experiment,
     save_freq,
     eval_folder,
+    log_folder
 ):
     # Load experiment settings
     exp_dict = np.load(
@@ -227,8 +228,13 @@ def load_experiment(
         {"status": "resumed", "resumed_step": exp_dict["t"]}, step=int(exp_dict["t"])
     )
 
-    logger = utils.Logger(f"{args.log_folder}/{args.project_name}.txt")
-    logger.title("Loaded experiment\n" f'Starting from: {exp_dict["t"]} time steps.')
+    os.makedirs(log_folder, exist_ok=True)
+
+    logger = utils.Logger(os.path.join(log_folder, f"{project_name}.txt"))
+    logger.title(
+        "Loaded experiment\n"
+        f"Starting from: {exp_dict['t']} time steps."
+    )
 
     return OnlineExperiment(
         agent,

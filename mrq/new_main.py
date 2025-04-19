@@ -8,7 +8,7 @@ import typer
 import env_preprocessing
 import utils
 import wandb
-from experiment import OnlineExperiment, load_experiment
+from experiment import OnlineExperiment, load_experiment as load_exp
 from mrq_agent import Agent
 
 # not sure why a dataclass is used, but didn't want to change in case
@@ -63,6 +63,7 @@ def main(
     torch.manual_seed(seed)
 
     # logger prints to
+    os.makedirs(log_folder, exist_ok=True)
     logger = utils.Logger(f"{log_folder}/{project_name}.txt")
 
     # set up GPU if requested
@@ -71,16 +72,19 @@ def main(
     )
 
     # start weights & biases tracking
+    wandb_settings = wandb.Settings(mode="offline")
     run = wandb.init(
         name=f"run_seed{seed}_{int(time.time())}",
-        project="MRQ-Runs",
+        project="MRQ-Runs-4-19",
+        mode="offline", 
         entity="ak5005-princeton-university",
         config=locals(),
+        dir=log_folder
     )
 
     # either load or create experiment
     if load_experiment:
-        exp = load_experiment(
+        exp = load_exp(
             save_folder,
             project_name,
             device,
@@ -90,6 +94,7 @@ def main(
             save_experiment,
             save_freq,
             eval_folder,
+            log_folder
         )
     else:
         env = env_preprocessing.Env(env, seed, eval_env=False)
