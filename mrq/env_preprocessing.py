@@ -72,7 +72,7 @@ class Env:
         state, info = self.env.reset()
         return state if self.remove_info else (state, info)
 
-    def step(self, action: int | float):
+    def step(self, action):
         next_state, reward, terminated, truncated, info = self.env.step(action)
 
         self.ep_total_reward += reward
@@ -97,7 +97,7 @@ class GymPreprocessing:
         self.max_ep_timesteps = self.env.spec.max_episode_steps
         self.action_space = self.env.action_space
 
-    def step(self, action: int | float):
+    def step(self, action):
         return self.env.step(action)
 
     def reset(self):
