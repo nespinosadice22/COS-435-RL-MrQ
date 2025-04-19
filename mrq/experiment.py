@@ -56,7 +56,7 @@ class OnlineExperiment:
         while self.t <= self.total_timesteps:
             # evaluate when the modulo and the “not just-loaded” guard both pass
             if self.t % self.eval_frequency == 0 and not (self.t == 0 and self.init_timestep):
-            self.maybe_evaluate()
+                self.maybe_evaluate()
 
             if (
                 self.save_full

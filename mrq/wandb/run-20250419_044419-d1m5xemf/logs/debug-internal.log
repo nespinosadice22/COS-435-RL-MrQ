@@ -1,0 +1,7 @@
+{"time":"2025-04-19T04:44:19.83872-05:00","level":"INFO","msg":"stream: starting","core version":"0.19.9","symlink path":"/Users/avakrocheski-meyer/Downloads/COS435 Final Project/COS-435-RL-MrQ/mrq/wandb/run-20250419_044419-d1m5xemf/logs/debug-core.log"}
+{"time":"2025-04-19T04:44:20.03825-05:00","level":"INFO","msg":"created new stream","id":"d1m5xemf"}
+{"time":"2025-04-19T04:44:20.03828-05:00","level":"INFO","msg":"stream: started","id":"d1m5xemf"}
+{"time":"2025-04-19T04:44:20.038289-05:00","level":"INFO","msg":"writer: Do: started","stream_id":"d1m5xemf"}
+{"time":"2025-04-19T04:44:20.038302-05:00","level":"INFO","msg":"handler: started","stream_id":"d1m5xemf"}
+{"time":"2025-04-19T04:44:20.038312-05:00","level":"INFO","msg":"sender: started","stream_id":"d1m5xemf"}
+{"time":"2025-04-19T04:44:20.171638-05:00","level":"INFO","msg":"Starting system monitor"}
