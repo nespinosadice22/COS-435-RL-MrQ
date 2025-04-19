@@ -7,12 +7,14 @@ import torch
 import torch.nn.functional as F
 
 import buffer
-from hyperparams import Hyperparameters
 import models
-from utils import maybe_augment_state, realign, masked_mse, multi_step_reward, shift_aug
 import utils
+from hyperparams import Hyperparameters
+from losses import (compute_encoder_loss, compute_policy_loss,
+                    compute_value_loss)
 from two_hot import TwoHot
-from losses import compute_encoder_loss, compute_value_loss, compute_policy_loss
+from utils import (masked_mse, maybe_augment_state, multi_step_reward, realign,
+                   shift_aug)
 
 
 class Agent:

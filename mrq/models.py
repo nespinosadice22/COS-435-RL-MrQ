@@ -2,11 +2,12 @@
 Define neural net archs AND losses! Defining losses is different than MrQ implementationo
 """
 
+from functools import partial
+from typing import Callable
+
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-from functools import partial
-from typing import Callable
 
 
 def initialize_weights(layer: torch.nn.modules):

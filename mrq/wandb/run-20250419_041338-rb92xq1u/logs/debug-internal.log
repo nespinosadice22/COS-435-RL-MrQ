@@ -1,0 +1,15 @@
+{"time":"2025-04-19T04:13:38.400974-05:00","level":"INFO","msg":"stream: starting","core version":"0.19.9","symlink path":"/Users/avakrocheski-meyer/Downloads/COS435 Final Project/COS-435-RL-MrQ/mrq/wandb/run-20250419_041338-rb92xq1u/logs/debug-core.log"}
+{"time":"2025-04-19T04:13:38.609938-05:00","level":"INFO","msg":"created new stream","id":"rb92xq1u"}
+{"time":"2025-04-19T04:13:38.610153-05:00","level":"INFO","msg":"stream: started","id":"rb92xq1u"}
+{"time":"2025-04-19T04:13:38.610163-05:00","level":"INFO","msg":"writer: Do: started","stream_id":"rb92xq1u"}
+{"time":"2025-04-19T04:13:38.610184-05:00","level":"INFO","msg":"handler: started","stream_id":"rb92xq1u"}
+{"time":"2025-04-19T04:13:38.610411-05:00","level":"INFO","msg":"sender: started","stream_id":"rb92xq1u"}
+{"time":"2025-04-19T04:13:38.731822-05:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-04-19T04:23:44.097128-05:00","level":"INFO","msg":"stream: closing","id":"rb92xq1u"}
+{"time":"2025-04-19T04:23:44.097344-05:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-04-19T04:23:44.097394-05:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-04-19T04:23:44.544548-05:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-04-19T04:23:44.685221-05:00","level":"INFO","msg":"handler: closed","stream_id":"rb92xq1u"}
+{"time":"2025-04-19T04:23:44.685345-05:00","level":"INFO","msg":"sender: closed","stream_id":"rb92xq1u"}
+{"time":"2025-04-19T04:23:44.685638-05:00","level":"INFO","msg":"writer: Close: closed","stream_id":"rb92xq1u"}
+{"time":"2025-04-19T04:23:44.685692-05:00","level":"INFO","msg":"stream: closed","id":"rb92xq1u"}

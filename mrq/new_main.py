@@ -1,26 +1,26 @@
 import dataclasses
-import typer
-import wandb
 import time
 
 import numpy as np
 import torch
+import typer
 
 import env_preprocessing
+import utils
+import wandb
 from experiment import OnlineExperiment, load_experiment
 from mrq_agent import Agent
-import utils
 
-
+# not sure why a dataclass is used, but didn't want to change in case
 @dataclasses.dataclass
 class Defaults:
-    Atari_tot_timesteps: int = 25e5
+    Atari_total_timesteps: int = 25e5
     Atari_eval_frequency: int = 1e5
 
-    Dmc_tot_timesteps: int = 5e5
+    Dmc_total_timesteps: int = 5e5
     Dmc_eval_frequency: int = 5e3
 
-    Gym_tot_timesteps: int = 1e6
+    Gym_total_timesteps: int = 1e6
     Gym_eval_frequency: int = 5e3
 
     def __post_init__(self):
@@ -35,7 +35,7 @@ app = typer.Typer()
 def main(
     env: str = "Gym-HalfCheetah-v4",
     seed: int = 0,
-    tot_timesteps: int = -1,
+    total_timesteps: int = typer.Option(-1, "--total_timesteps"),
     device: str = "cuda",
     eval_frequency: int = -1,
     eval_eps: int = 10,
@@ -49,20 +49,20 @@ def main(
 ):
     config = Defaults()
 
-    # override based on CLU args
+    # override based on CLU args (same as original main)
     env_type = env.split("-", 1)[0]
-    if tot_timesteps == -1:
-        tot_timesteps = config.__dict__[f"{env_type}_tot_timesteps"]
+    if total_timesteps == -1:
+        total_timesteps = config.__dict__[f"{env_type}_total_timesteps"]
     if eval_frequency == -1:
         eval_frequency = config.__dict__[f"{env_type}_eval_frequency"]
 
+    # project name & seed (same as original main)
     if project_name == "":
-        project_name = f"MRQ+{env}+{seed}"
-
-    # project name & seed
+        project_name = f"MRQ+{env}+{seed}" # random seed for unnamed proj
     np.random.seed(seed)
     torch.manual_seed(seed)
 
+    # logger prints to
     logger = utils.Logger(f"{log_folder}/{project_name}.txt")
 
     # set up GPU if requested
@@ -70,6 +70,7 @@ def main(
         "cuda" if torch.cuda.is_available() and device == "cuda" else "cpu"
     )
 
+    # start weights & biases tracking
     run = wandb.init(
         name=f"run_seed{seed}_{int(time.time())}",
         project="MRQ-Runs",
@@ -77,12 +78,13 @@ def main(
         config=locals(),
     )
 
+    # either load or create experiment
     if load_experiment:
         exp = load_experiment(
             save_folder,
             project_name,
             device,
-            tot_timesteps,
+            total_timesteps,
             eval_frequency,
             eval_eps,
             save_experiment,
@@ -109,7 +111,7 @@ def main(
             evals=[],
             t=0,
             logger = logger,
-            tot_timesteps=tot_timesteps,
+            total_timesteps=total_timesteps,
             time_passed=0.0,
             eval_frequency=eval_frequency,
             eval_eps=eval_eps,
@@ -120,6 +122,7 @@ def main(
             save_folder=save_folder,
         )
 
+    # kept all the logger logic for now (same as original)
     exp.logger.title("Experiment")
     exp.logger.log_print(f"Algorithm:\t{exp.agent.name}")
     exp.logger.log_print(f"Env:\t\t{exp.env.env_name}")

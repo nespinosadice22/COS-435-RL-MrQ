@@ -7,9 +7,9 @@ import torch
 import torch.nn.functional as F
 
 import buffer
-from hyperparams import Hyperparameters
 import models
 import utils
+from hyperparams import Hyperparameters
 from two_hot import TwoHot
 
 

@@ -2,6 +2,7 @@
 currently the same - we should change!
 """
 
+import argparse
 # import argparse
 import dataclasses
 import os
@@ -10,11 +11,10 @@ import time
 
 import numpy as np
 import torch
-import argparse
 
 import env_preprocessing
-from mrq_agent import Agent
 import utils
+from mrq_agent import Agent
 
 
 # stores parameters for the three diff envs

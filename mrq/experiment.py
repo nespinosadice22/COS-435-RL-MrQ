@@ -1,15 +1,13 @@
 import dataclasses
+import os
 import pickle
 import time
-import wandb
-import os
 
 import numpy as np
 import torch
 
-import env_preprocessing
+import wandb
 from mrq_agent import Agent
-import utils
 
 
 class OnlineExperiment:
@@ -21,7 +19,7 @@ class OnlineExperiment:
         logger: object,
         evals: list,
         t: int,
-        tot_timesteps: int,
+        total_timesteps: int,
         time_passed: float,
         eval_frequency: int,
         eval_eps: int,
@@ -41,7 +39,7 @@ class OnlineExperiment:
         self.time_passed = time_passed
         self.start_time = time.time()
 
-        self.tot_timesteps = tot_timesteps
+        self.total_timesteps = total_timesteps
         self.eval_frequency = eval_frequency
         self.eval_eps = eval_eps
 
@@ -55,8 +53,11 @@ class OnlineExperiment:
 
     def run(self):
         state = self.env.reset()
-        while self.t <= self.tot_timesteps:
+        while self.t <= self.total_timesteps:
+            # evaluate when the modulo and the “not just-loaded” guard both pass
+            if self.t % self.eval_frequency == 0 and not (self.t == 0 and self.init_timestep):
             self.maybe_evaluate()
+
             if (
                 self.save_full
                 and self.t % self.save_freq == 0
@@ -101,13 +102,6 @@ class OnlineExperiment:
 
     # evaluation happens only a certain frequency
     def maybe_evaluate(self):
-        if self.t % self.eval_frequency != 0:
-            return
-
-        # We save after evaluating, this avoids re-evaluating immediately after loading an experiment.
-        if self.t != 0 and self.init_timestep:
-            return
-
         total_reward = np.zeros(self.eval_eps)
         for ep in range(self.eval_eps):
             state, terminated, truncated = self.eval_env.reset(), False, False
@@ -144,8 +138,8 @@ class OnlineExperiment:
 
         self.init_timestep = False  # AKM: i think we need this here too, NOT CERTAIN
 
+    # minor tidying from original, core logic the same
     def save_experiment(self):
-        # Save experiment settings
         self.time_passed += time.time() - self.start_time
 
         var_dict = {
@@ -187,12 +181,12 @@ class OnlineExperiment:
 
         exp.logger.title("Saved experiment")
 
-
+# load experiment is the same as original, wandb added
 def load_experiment(
     save_folder: str,
     project_name: str,
     device: torch.device,
-    tot_timesteps,
+    total_timesteps,
     eval_frequency,
     eval_eps,
     save_experiment,
@@ -243,7 +237,7 @@ def load_experiment(
         logger,
         evals,
         exp_dict["t"],
-        tot_timesteps,
+        total_timesteps,
         exp_dict["time_passed"],
         exp_dict["eval_frequency"],
         exp_dict["eval_eps"],

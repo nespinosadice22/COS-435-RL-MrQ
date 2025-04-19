@@ -2,8 +2,8 @@
 currently the same - we should change!
 """
 
-from collections import deque
 import dataclasses
+from collections import deque
 from functools import partial
 from typing import Dict
 
