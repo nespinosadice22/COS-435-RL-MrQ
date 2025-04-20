@@ -1,0 +1,126 @@
+wandb_version: 1
+
+_wandb:
+  desc: null
+  value:
+    python_version: 3.9.21
+    cli_version: 0.19.9
+    framework: torch
+    is_jupyter_run: false
+    is_kaggle_kernel: false
+    start_time: 1745121743
+    t:
+      1:
+      - 1
+      - 55
+      3:
+      - 4
+      - 13
+      - 16
+      - 23
+      - 42
+      - 55
+      4: 3.9.21
+      5: 0.19.9
+      8:
+      - 5
+      13: linux-x86_64
+env:
+  desc: null
+  value: Gym-HalfCheetah-v4
+seed:
+  desc: null
+  value: 0
+total_timesteps:
+  desc: null
+  value: 1000000
+device:
+  desc: null
+  value: cuda
+eval_frequency:
+  desc: null
+  value: 5000
+eval_eps:
+  desc: null
+  value: 10
+project_name:
+  desc: null
+  value: ''
+eval_folder:
+  desc: null
+  value: ./evals
+log_folder:
+  desc: null
+  value: ./logs/Gym-HalfCheetah-v4_seed_0_logs
+save_folder:
+  desc: null
+  value: ./checkpoint
+save_experiment:
+  desc: null
+  value: false
+save_freq:
+  desc: null
+  value: 100000
+load_experiment:
+  desc: null
+  value: false
+config:
+  desc: null
+  value:
+    Atari_total_timesteps: 2500000
+    Atari_eval_frequency: 100000
+    Dmc_total_timesteps: 500000
+    Dmc_eval_frequency: 5000
+    Gym_total_timesteps: 1000000
+    Gym_eval_frequency: 5000
+env_type:
+  desc: null
+  value: Gym
+logger:
+  desc: null
+  value: <utils.Logger object at 0x1464d572f250>
+wandb_settings:
+  desc: null
+  value: allow_offline_artifacts=True allow_val_change=False anonymous=None api_key=None
+    azure_account_url_to_access_key=None base_url='https://api.wandb.ai' code_dir=None
+    config_paths=None console='wrap' console_multipart=False credentials_file='/home/ne3496/.config/wandb/credentials.json'
+    disable_code=False disable_git=False disable_job_creation=True docker=None email=None
+    entity=None organization=None force=False fork_from=None git_commit=None git_remote='origin'
+    git_remote_url=None git_root=None heartbeat_seconds=30 host=None http_proxy=None
+    https_proxy=None identity_token_file=None ignore_globs=() init_timeout=90.0 insecure_disable_ssl=False
+    job_name=None job_source=None label_disable=False launch=False launch_config_path=None
+    login_timeout=None mode='offline' notebook_name=None program=None program_abspath=None
+    program_relpath=None project=None quiet=False reinit='default' relogin=False resume=None
+    resume_from=None resumed=False root_dir='/home/ne3496/COS-435-RL-MrQ/mrq' run_group=None
+    run_id=None run_job_type=None run_name=None run_notes=None run_tags=None sagemaker_disable=False
+    save_code=None settings_system='/home/ne3496/.config/wandb/settings' show_colors=None
+    show_emoji=None show_errors=True show_info=True show_warnings=True silent=False
+    start_method=None strict=None summary_timeout=60 summary_warnings=5 sweep_id=None
+    sweep_param_path=None symlink=True sync_tensorboard=None table_raise_on_max_row_limit_exceeded=False
+    username=None x_cli_only_mode=False x_disable_meta=False x_disable_service=False
+    x_disable_setproctitle=False x_disable_stats=False x_disable_viewer=False x_disable_machine_info=False
+    x_executable=None x_extra_http_headers=None x_file_stream_max_bytes=None x_file_stream_max_line_bytes=None
+    x_file_stream_transmit_interval=None x_file_stream_retry_max=None x_file_stream_retry_wait_min_seconds=None
+    x_file_stream_retry_wait_max_seconds=None x_file_stream_timeout_seconds=None x_file_transfer_retry_max=None
+    x_file_transfer_retry_wait_min_seconds=None x_file_transfer_retry_wait_max_seconds=None
+    x_file_transfer_timeout_seconds=None x_files_dir=None x_flow_control_custom=None
+    x_flow_control_disabled=None x_graphql_retry_max=None x_graphql_retry_wait_min_seconds=None
+    x_graphql_retry_wait_max_seconds=None x_graphql_timeout_seconds=None x_internal_check_process=8.0
+    x_jupyter_name=None x_jupyter_path=None x_jupyter_root=None x_label=None x_live_policy_rate_limit=None
+    x_live_policy_wait_time=None x_log_level=20 x_network_buffer=None x_primary=True
+    x_proxies=None x_runqueue_item_id=None x_require_legacy_service=False x_save_requirements=True
+    x_server_side_derived_summary=False x_service_transport=None x_service_wait=30.0
+    x_start_time=None x_stats_pid=3297490 x_stats_sampling_interval=15.0 x_stats_neuron_monitor_config_path=None
+    x_stats_dcgm_exporter=None x_stats_open_metrics_endpoints=None x_stats_open_metrics_filters=None
+    x_stats_open_metrics_http_headers=None x_stats_disk_paths=('/',) x_stats_gpu_device_ids=None
+    x_stats_buffer_size=0 x_sync=False x_update_finish_state=True colab_url=None deployment='cloud'
+    files_dir='/home/ne3496/COS-435-RL-MrQ/mrq/wandb/offline-run--None/files' is_local=False
+    log_dir='/home/ne3496/COS-435-RL-MrQ/mrq/wandb/offline-run--None/logs' log_internal='/home/ne3496/COS-435-RL-MrQ/mrq/wandb/offline-run--None/logs/debug-internal.log'
+    log_symlink_internal='/home/ne3496/COS-435-RL-MrQ/mrq/wandb/debug-internal.log'
+    log_symlink_user='/home/ne3496/COS-435-RL-MrQ/mrq/wandb/debug.log' log_user='/home/ne3496/COS-435-RL-MrQ/mrq/wandb/offline-run--None/logs/debug.log'
+    project_url='' resume_fname='/home/ne3496/COS-435-RL-MrQ/mrq/wandb/wandb-resume.json'
+    run_mode='offline-run' run_url='' settings_workspace='/home/ne3496/COS-435-RL-MrQ/mrq/wandb/settings'
+    sweep_url='' sync_dir='/home/ne3496/COS-435-RL-MrQ/mrq/wandb/offline-run--None'
+    sync_file='/home/ne3496/COS-435-RL-MrQ/mrq/wandb/offline-run--None/run-None.wandb'
+    sync_symlink_latest='/home/ne3496/COS-435-RL-MrQ/mrq/wandb/latest-run' timespec=''
+    wandb_dir='/home/ne3496/COS-435-RL-MrQ/mrq/wandb/'
