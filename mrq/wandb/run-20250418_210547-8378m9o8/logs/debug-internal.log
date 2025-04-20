@@ -1,9 +1,0 @@
-{"time":"2025-04-18T21:05:48.008462-05:00","level":"INFO","msg":"stream: starting","core version":"0.19.9","symlink path":"/Users/avakrocheski-meyer/Downloads/COS435 Final Project/COS-435-RL-MrQ/mrq/wandb/run-20250418_210547-8378m9o8/logs/debug-core.log"}
-{"time":"2025-04-18T21:05:48.270571-05:00","level":"INFO","msg":"created new stream","id":"8378m9o8"}
-{"time":"2025-04-18T21:05:48.270598-05:00","level":"INFO","msg":"stream: started","id":"8378m9o8"}
-{"time":"2025-04-18T21:05:48.270625-05:00","level":"INFO","msg":"sender: started","stream_id":"8378m9o8"}
-{"time":"2025-04-18T21:05:48.270632-05:00","level":"INFO","msg":"writer: Do: started","stream_id":"8378m9o8"}
-{"time":"2025-04-18T21:05:48.270697-05:00","level":"INFO","msg":"handler: started","stream_id":"8378m9o8"}
-{"time":"2025-04-18T21:05:48.429264-05:00","level":"INFO","msg":"Starting system monitor"}
-{"time":"2025-04-18T23:36:40.301771-05:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/ak5005-princeton-university/MRQ-Runs/8378m9o8/file_stream\": read tcp 192.168.86.242:52077->35.186.228.49:443: read: connection reset by peer"}
-{"time":"2025-04-19T02:13:43.646874-05:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/ak5005-princeton-university/MRQ-Runs/8378m9o8/file_stream\": read tcp 192.168.86.242:54215->35.186.228.49:443: read: connection reset by peer"}

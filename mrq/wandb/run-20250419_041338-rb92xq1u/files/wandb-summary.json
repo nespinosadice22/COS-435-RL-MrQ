@@ -1,1 +1,0 @@
-{"eval/elapsed_min":10.060302448272704,"_wandb":{"runtime":605},"_step":20000,"train/episode_length":14,"eval/step":20000,"train/step":19554,"_timestamp":1.745054623134768e+09,"_runtime":605.698841,"train/episode":78,"eval/avg_reward":750.7744158018642,"train/episode_reward":6.0637608386825255}
