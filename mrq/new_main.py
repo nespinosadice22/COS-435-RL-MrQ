@@ -42,7 +42,7 @@ def main(
     eval_eps: int = 10,
     project_name: str = "",
     eval_folder: str = "./evals",
-    log_folder: str = f"./logs/{env}_seed_{seed}_logs",
+    log_folder: str = "./logs",
     save_folder: str = "./checkpoint",
     save_experiment: bool = False,
     save_freq: int = 100_000,
@@ -61,6 +61,7 @@ def main(
     torch.manual_seed(seed)
 
     # logger prints to
+    log_folder = f"./logs/{env}_seed_{seed}_logs"
     os.makedirs(log_folder, exist_ok=True)
     logger = utils.Logger(f"{log_folder}/{project_name}.txt")
 
