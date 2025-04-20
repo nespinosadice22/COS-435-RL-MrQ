@@ -42,7 +42,7 @@ def main(
     eval_eps: int = 10,
     project_name: str = "",
     eval_folder: str = "./evals",
-    log_folder: str = "./logs",
+    log_folder: str = f"./{env}_seed_{seed}_logs",
     save_folder: str = "./checkpoint",
     save_experiment: bool = False,
     save_freq: int = 100_000,
@@ -57,9 +57,6 @@ def main(
     if eval_frequency == -1:
         eval_frequency = config.__dict__[f"{env_type}_eval_frequency"]
 
-    # project name & seed (same as original main)
-    if project_name == "":
-        project_name = f"MRQ+{env}+{seed}" # random seed for unnamed proj
     np.random.seed(seed)
     torch.manual_seed(seed)
 
@@ -75,8 +72,9 @@ def main(
     # start weights & biases tracking
     wandb_settings = wandb.Settings(mode="offline")
     run = wandb.init(
-        name=f"run_seed{seed}_{int(time.time())}",
+        name=f"run_seed_{seed}_timesteps_{total_timesteps}",
         project="MRQ-Runs-4-19",
+        group = f"{env}"
         mode="offline", 
         entity="ak5005-princeton-university",
         config=locals(),
