@@ -42,7 +42,7 @@ def main(
     eval_eps: int = 10,
     project_name: str = "",
     eval_folder: str = "./evals",
-    log_folder: str = f"./{env}_seed_{seed}_logs",
+    log_folder: str = f"./logs/{env}_seed_{seed}_logs",
     save_folder: str = "./checkpoint",
     save_experiment: bool = False,
     save_freq: int = 100_000,
