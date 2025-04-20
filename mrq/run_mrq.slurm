@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --job-name=our_mrq
+#SBATCH --job-name=our_mrq_walk
 #SBATCH --partition=gpu            
 #SBATCH --qos=gpu-medium           
 #SBATCH --nodes=1
@@ -27,4 +27,4 @@ export WANDB_MODE=offline
 #python -c "import torch; print(torch.cuda.is_available(), torch.cuda.get_device_name(0))"
 #print("Using device:", torch.cuda.get_device_name(0) if torch.cuda.is_available() else "CPU")
 
-python new_main.py --env Gym-Humanoid-v4 --seed 0 --total_timesteps 1000000 --device cuda
+python new_main.py --env Gym-Walker2d-v4 --seed 0 --total_timesteps 1000000 --device cuda
