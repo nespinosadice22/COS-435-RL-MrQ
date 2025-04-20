@@ -50,6 +50,9 @@ Running right now for 4/24 deadline:
 GYM: 
      - Gym-Ant-v4_seed_0_logs (done) 
      - Gym-HalfCheetah-v4_seed_0_logs (done) 
-     - Gym-Hopper-v4_seed_0_logs (in progress, slurm 2431100) 
-     - Gym-Humanoid-v4_seed_0_logs (in progress, slurm 2431104)
-     - Walker (pending once others finish, slurm 2431105)
+     - Gym-Hopper-v4_seed_0_logs (done, slurm 2431100) 
+     - Gym-Humanoid-v4_seed_0_logs (done, slurm 2431104)
+     - Walker (in progress, slurm 2431105)
+
+ATARI: 
+    -Atari-Alien-v5 seed 0 (in progress 2431241) 
