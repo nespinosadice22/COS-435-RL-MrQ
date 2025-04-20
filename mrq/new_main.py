@@ -74,7 +74,7 @@ def main(
     run = wandb.init(
         name=f"run_seed_{seed}_timesteps_{total_timesteps}",
         project="MRQ-Runs-4-19",
-        group = f"{env}"
+        group = f"{env}",
         mode="offline", 
         entity="ak5005-princeton-university",
         config=locals(),
