@@ -1,0 +1,90 @@
+{
+  "os": "Linux-4.18.0-553.34.1.el8_10.x86_64-x86_64-with-glibc2.28",
+  "python": "CPython 3.9.21",
+  "startedAt": "2025-04-20T13:35:14.843215Z",
+  "args": [
+    "--env",
+    "Gym-Humanoid-v4",
+    "--seed",
+    "0",
+    "--total_timesteps",
+    "1000000",
+    "--device",
+    "cuda"
+  ],
+  "program": "/home/ne3496/COS-435-RL-MrQ/mrq/new_main.py",
+  "codePath": "mrq/new_main.py",
+  "git": {
+    "remote": "https://nespinosadice22:@github.com/nespinosadice22/COS-435-RL-MrQ.git",
+    "commit": "4fe5a6d592f8ee3139e876cffffe6f0a620c22d5"
+  },
+  "root": "./logs/Gym-Humanoid-v4_seed_0_logs",
+  "host": "adroit-h11g3",
+  "executable": "/home/ne3496/.conda/envs/mrq_gpu/bin/python",
+  "codePathLocal": "new_main.py",
+  "cpu_count": 56,
+  "cpu_count_logical": 56,
+  "gpu": "Tesla V100-PCIE-32GB",
+  "gpu_count": 1,
+  "disk": {
+    "/": {
+      "total": "169744269312",
+      "used": "92446998528"
+    }
+  },
+  "memory": {
+    "total": "809446375424"
+  },
+  "cpu": {
+    "count": 56,
+    "countLogical": 56
+  },
+  "gpu_nvidia": [
+    {
+      "name": "Tesla V100-PCIE-32GB",
+      "memoryTotal": "34359738368",
+      "cudaCores": 5120,
+      "architecture": "Volta"
+    }
+  ],
+  "slurm": {
+    "cluster_name": "adroit",
+    "conf": "/etc/slurm/slurm.conf",
+    "cpus_on_node": "8",
+    "cpus_per_task": "8",
+    "gpus_on_node": "1",
+    "gtids": "0",
+    "job_account": "student",
+    "job_cpus_per_node": "8",
+    "job_end_time": "1745242510",
+    "job_gid": "1035",
+    "job_gpus": "2",
+    "job_id": "2431104",
+    "job_name": "our_mrq",
+    "job_nodelist": "adroit-h11g3",
+    "job_num_nodes": "1",
+    "job_partition": "gpu",
+    "job_qos": "gpu-medium",
+    "job_start_time": "1745156110",
+    "job_uid": "338962",
+    "job_user": "ne3496",
+    "jobid": "2431104",
+    "localid": "0",
+    "mem_per_node": "16384",
+    "nnodes": "1",
+    "nodeid": "0",
+    "nodelist": "adroit-h11g3",
+    "nprocs": "1",
+    "ntasks": "1",
+    "oom_kill_step": "0",
+    "procid": "0",
+    "submit_dir": "/home/ne3496/COS-435-RL-MrQ/mrq",
+    "submit_host": "adroit5",
+    "task_pid": "3313661",
+    "tasks_per_node": "1",
+    "topology_addr": "adroit-h11g3",
+    "topology_addr_pattern": "node",
+    "tres_per_task": "cpu=8"
+  },
+  "cudaVersion": "12.6"
+}

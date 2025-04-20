@@ -1,0 +1,15 @@
+{"time":"2025-04-20T09:35:14.858760933-04:00","level":"INFO","msg":"stream: starting","core version":"0.19.9","symlink path":"logs/Gym-Humanoid-v4_seed_0_logs/wandb/offline-run-20250420_093514-xxfyj4t4/logs/debug-core.log"}
+{"time":"2025-04-20T09:35:14.97191402-04:00","level":"WARN","msg":"GraphQL client is nil, skipping feature loading"}
+{"time":"2025-04-20T09:35:14.972355592-04:00","level":"INFO","msg":"created new stream","id":"xxfyj4t4"}
+{"time":"2025-04-20T09:35:14.972377205-04:00","level":"INFO","msg":"stream: started","id":"xxfyj4t4"}
+{"time":"2025-04-20T09:35:14.972443958-04:00","level":"INFO","msg":"writer: Do: started","stream_id":"xxfyj4t4"}
+{"time":"2025-04-20T09:35:14.972543244-04:00","level":"INFO","msg":"sender: started","stream_id":"xxfyj4t4"}
+{"time":"2025-04-20T09:35:14.972561465-04:00","level":"INFO","msg":"handler: started","stream_id":"xxfyj4t4"}
+{"time":"2025-04-20T09:35:14.97619799-04:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-04-20T15:11:30.355839714-04:00","level":"INFO","msg":"stream: closing","id":"xxfyj4t4"}
+{"time":"2025-04-20T15:11:30.355872678-04:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-04-20T15:11:30.356025468-04:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-04-20T15:11:30.35610688-04:00","level":"INFO","msg":"handler: closed","stream_id":"xxfyj4t4"}
+{"time":"2025-04-20T15:11:30.356116741-04:00","level":"INFO","msg":"writer: Close: closed","stream_id":"xxfyj4t4"}
+{"time":"2025-04-20T15:11:30.356146653-04:00","level":"INFO","msg":"sender: closed","stream_id":"xxfyj4t4"}
+{"time":"2025-04-20T15:11:30.356336957-04:00","level":"INFO","msg":"stream: closed","id":"xxfyj4t4"}
