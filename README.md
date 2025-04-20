@@ -40,3 +40,15 @@ pip install wandb typer
 sbatch run_mrq.slurm
 
 To check status: squeue -u netid
+
+After it finishes, cd to folder and run wandb sync --sync-all
+
+-------
+Running right now for 4/24 deadline: 
+
+GYM: 
+     - Gym-Ant-v4_seed_0_logs (done) 
+     - Gym-HalfCheetah-v4_seed_0_logs (done) 
+     - Gym-Hopper-v4_seed_0_logs (in progress, slurm 2431100) 
+     - Gym-Humanoid-v4_seed_0_logs (in progress, slurm 2431104)
+     - Walker (pending once others finish, slurm 2431105)
