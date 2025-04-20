@@ -56,7 +56,8 @@ def main(
         total_timesteps = config.__dict__[f"{env_type}_total_timesteps"]
     if eval_frequency == -1:
         eval_frequency = config.__dict__[f"{env_type}_eval_frequency"]
-
+    if project_name == "": 
+        project_name = f"{env}"
     np.random.seed(seed)
     torch.manual_seed(seed)
 
