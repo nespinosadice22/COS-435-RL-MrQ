@@ -20,6 +20,8 @@ source ~/.bashrc
 # activate environment (have to make on adroit first)
 conda activate mrq_gpu 
 
+export MUJOCO_GL=osmesa
+unset DISPLAY
 
 export WANDB_API_KEY=028b65afa7cbbb082902c650f03bfd3801495a70
 export WANDB_MODE=offline
