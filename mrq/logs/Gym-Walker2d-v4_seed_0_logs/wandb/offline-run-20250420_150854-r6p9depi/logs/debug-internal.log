@@ -1,0 +1,15 @@
+{"time":"2025-04-20T15:08:54.970576509-04:00","level":"INFO","msg":"stream: starting","core version":"0.19.9","symlink path":"logs/Gym-Walker2d-v4_seed_0_logs/wandb/offline-run-20250420_150854-r6p9depi/logs/debug-core.log"}
+{"time":"2025-04-20T15:08:55.083037766-04:00","level":"WARN","msg":"GraphQL client is nil, skipping feature loading"}
+{"time":"2025-04-20T15:08:55.083353958-04:00","level":"INFO","msg":"created new stream","id":"r6p9depi"}
+{"time":"2025-04-20T15:08:55.083382345-04:00","level":"INFO","msg":"stream: started","id":"r6p9depi"}
+{"time":"2025-04-20T15:08:55.083393548-04:00","level":"INFO","msg":"handler: started","stream_id":"r6p9depi"}
+{"time":"2025-04-20T15:08:55.083393565-04:00","level":"INFO","msg":"sender: started","stream_id":"r6p9depi"}
+{"time":"2025-04-20T15:08:55.083428506-04:00","level":"INFO","msg":"writer: Do: started","stream_id":"r6p9depi"}
+{"time":"2025-04-20T15:08:55.086908223-04:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-04-20T20:40:37.839641524-04:00","level":"INFO","msg":"stream: closing","id":"r6p9depi"}
+{"time":"2025-04-20T20:40:37.839736798-04:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-04-20T20:40:37.839800685-04:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-04-20T20:40:37.83988369-04:00","level":"INFO","msg":"handler: closed","stream_id":"r6p9depi"}
+{"time":"2025-04-20T20:40:37.839890153-04:00","level":"INFO","msg":"writer: Close: closed","stream_id":"r6p9depi"}
+{"time":"2025-04-20T20:40:37.839901682-04:00","level":"INFO","msg":"sender: closed","stream_id":"r6p9depi"}
+{"time":"2025-04-20T20:40:37.840057394-04:00","level":"INFO","msg":"stream: closed","id":"r6p9depi"}
