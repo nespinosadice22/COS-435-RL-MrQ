@@ -20,8 +20,8 @@ source ~/.bashrc
 # activate environment (have to make on adroit first)
 conda activate mrq_gpu 
 
-export MUJOCO_GL=osmesa
-unset DISPLAY
+#export MUJOCO_GL=osmesa
+#unset DISPLAY
 
 export WANDB_API_KEY=028b65afa7cbbb082902c650f03bfd3801495a70
 export WANDB_MODE=offline
@@ -29,4 +29,4 @@ export WANDB_MODE=offline
 #python -c "import torch; print(torch.cuda.is_available(), torch.cuda.get_device_name(0))"
 #print("Using device:", torch.cuda.get_device_name(0) if torch.cuda.is_available() else "CPU")
 
-python new_main.py --env Dmc-acrobot-swingup --seed 0 --total_timesteps 1000000 --device cuda
+python new_main.py --env Atari-Alien-v5 --seed 0 --total_timesteps 2500000 --device cuda
