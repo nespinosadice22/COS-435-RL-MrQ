@@ -33,7 +33,7 @@ class MLPBlock(nn.Module):
         self.layer2 = nn.Linear(hidden_dim, hidden_dim)
         self.layer3 = nn.Linear(hidden_dim, out_features)
 
-        self.activation_fn = getattr(F, activation_name, F.elu)
+        self.activation_fn = getattr(F, activation_name)
         self.apply(initialize_weights)
 
     def forward(self, inputs: torch.Tensor) -> torch.Tensor: 
@@ -52,7 +52,7 @@ class Encoder(nn.Module):
         self.pixel_based = pixel_based
         self.latent_dim_state = latent_dim_state
         self.bins_for_reward = bins_for_reward 
-        self.activation_fn = getattr(F, activation_name, F.elu)
+        self.activation_fn = getattr(F, activation_name)
 
         #if pixel-based, we use CNNs
         if self.pixel_based: 
@@ -161,7 +161,7 @@ class Value(nn.Module):
                 super().__init__()
                 self.q_mlp = MLPBlock(inp_dim, hid, hid, activ)
                 self.q_final = nn.Linear(hid, out_dim)
-                self.act_fn = getattr(F, activ, F.elu)
+                self.act_fn = getattr(F, activ)
                 self.apply(initialize_weights)
 
             def forward(self, x: torch.Tensor) -> torch.Tensor:
