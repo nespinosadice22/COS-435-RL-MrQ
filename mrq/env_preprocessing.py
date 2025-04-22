@@ -253,7 +253,7 @@ class AtariPreprocessing:
 
         self.pool_queue = deque(maxlen=2)
         self.history_queue = deque(maxlen=self.history)
-        self.eval = eval
+        self.eval = eval_env
 
     def get_obs(self):
         if self.action_repeat > 1 and self.pool_frames:
