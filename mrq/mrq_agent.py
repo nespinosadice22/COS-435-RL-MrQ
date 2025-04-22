@@ -119,10 +119,7 @@ class Agent:
 
     def select_action(self, state: np.array, use_exploration: bool = True):
         # Random action if buffer isn't large enough yet --> random action (done in main)
-        if (
-            self.replay_buffer.size < self.buffer_size_before_training
-            and use_exploration
-        ):
+        if (self.replay_buffer.size < self.buffer_size_before_training and use_exploration):
             return None
         with torch.no_grad():
             state_t = torch.tensor(state, dtype=torch.float, device=self.device)
@@ -136,7 +133,7 @@ class Agent:
                 action += torch.randn_like(action) * self.exploration_noise
             # arg for discrete or clip to [-1,1]* max_action for continuous
             if self.discrete:
-                return int(action.argmax().item())
+                return int(action.argmax()) #changed
             else:
                 return (
                     action.clamp(-1, 1).cpu().data.numpy().flatten() * self.max_action

@@ -62,7 +62,7 @@ def main(
     torch.manual_seed(seed)
 
     # logger prints to
-    log_folder = f"./logs/{env}_seed_{seed}_MODELFIXED_logs"
+    log_folder = f"./logs/{env}_seed_{seed}_4227pm_logs"
     os.makedirs(log_folder, exist_ok=True)
     logger = utils.Logger(f"{log_folder}/{project_name}.txt")
 
