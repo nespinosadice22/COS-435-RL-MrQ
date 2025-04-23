@@ -1,0 +1,15 @@
+{"time":"2025-04-22T18:55:00.276413322-04:00","level":"INFO","msg":"stream: starting","core version":"0.19.9","symlink path":"logs/Atari-Alien-v5_seed_0_4227pm_logs/wandb/offline-run-20250422_185459-ap04jrcb/logs/debug-core.log"}
+{"time":"2025-04-22T18:55:00.382407328-04:00","level":"WARN","msg":"GraphQL client is nil, skipping feature loading"}
+{"time":"2025-04-22T18:55:00.383329714-04:00","level":"INFO","msg":"created new stream","id":"ap04jrcb"}
+{"time":"2025-04-22T18:55:00.383347323-04:00","level":"INFO","msg":"stream: started","id":"ap04jrcb"}
+{"time":"2025-04-22T18:55:00.383423177-04:00","level":"INFO","msg":"writer: Do: started","stream_id":"ap04jrcb"}
+{"time":"2025-04-22T18:55:00.383429881-04:00","level":"INFO","msg":"handler: started","stream_id":"ap04jrcb"}
+{"time":"2025-04-22T18:55:00.383455524-04:00","level":"INFO","msg":"sender: started","stream_id":"ap04jrcb"}
+{"time":"2025-04-22T18:55:00.387363861-04:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-04-23T04:45:11.122952933-04:00","level":"INFO","msg":"stream: closing","id":"ap04jrcb"}
+{"time":"2025-04-23T04:45:11.123101071-04:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-04-23T04:45:11.123403741-04:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-04-23T04:45:11.123480832-04:00","level":"INFO","msg":"handler: closed","stream_id":"ap04jrcb"}
+{"time":"2025-04-23T04:45:11.123486379-04:00","level":"INFO","msg":"writer: Close: closed","stream_id":"ap04jrcb"}
+{"time":"2025-04-23T04:45:11.123496202-04:00","level":"INFO","msg":"sender: closed","stream_id":"ap04jrcb"}
+{"time":"2025-04-23T04:45:11.124084204-04:00","level":"INFO","msg":"stream: closed","id":"ap04jrcb"}
