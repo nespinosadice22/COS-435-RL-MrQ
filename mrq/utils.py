@@ -90,10 +90,13 @@ import pprint
 import numpy as np
 
 
-def enforce_dataclass_type(dataclass: dataclasses.dataclass):
-    for field in dataclasses.fields(dataclass):
-        setattr(dataclass, field.name, field.type(getattr(dataclass, field.name)))
-
+def enforce_types(obj):
+    for name, val in vars(obj).items():
+        if isinstance(val, (int, float, bool, str)):
+            try:
+                setattr(obj, name, type(val)(val))
+            except Exception:
+                pass
 
 def set_instance_vars(hp: dataclasses.dataclass, c: object):
     for field in dataclasses.fields(hp):

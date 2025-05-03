@@ -9,7 +9,6 @@ from typing import Dict
 
 import gymnasium as gym
 import numpy as np
-
 import utils
 
 # Used by Atari
@@ -203,7 +202,9 @@ class DmcPreprocessing:
 @dataclasses.dataclass
 class AtariHyperparameters:
     history: int = 4
-    training_reward_clipping: bool = False  # Only applied during training / not on eval environment.
+    training_reward_clipping: bool = (
+        False  # Only applied during training / not on eval environment.
+    )
     max_ep_frames: int = 108e3
     max_noops: int = 0
     action_repeat: int = 4
@@ -211,7 +212,7 @@ class AtariHyperparameters:
     image_size: int = 84
     pool_frames: bool = True
     grayscale: bool = True
-    sticky_actions: bool = True ##
+    sticky_actions: bool = True  ##
     eval_eps: float = 1e-3
 
     def __post_init__(self):

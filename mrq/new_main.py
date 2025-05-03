@@ -1,32 +1,27 @@
-import dataclasses
+from pathlib import Path
 import time
 
-import os 
+import env_preprocessing
 import numpy as np
 import torch
 import typer
-
-import env_preprocessing
 import utils
 import wandb
-from experiment import OnlineExperiment, load_experiment as load_exp
+from experiment import OnlineExperiment
+from experiment import load_experiment as load_exp
 from mrq_agent import Agent
 
+
 # not sure why a dataclass is used, but didn't want to change in case
-@dataclasses.dataclass
 class Defaults:
-    Atari_total_timesteps: int = 25e5
-    Atari_eval_frequency: int = 1e5
-
-    Dmc_total_timesteps: int = 5e5
-    Dmc_eval_frequency: int = 5e3
-
-    Gym_total_timesteps: int = 1e6
-    Gym_eval_frequency: int = 5e3
-
-    def __post_init__(self):
-        utils.enforce_dataclass_type(self)
-
+    def __init__(self):
+        self.Atari_total_timesteps = 25e5
+        self.Atari_eval_frequency = 1e5
+        self.Dmc_total_timesteps = 5e5
+        self.Dmc_eval_frequency = 5e3
+        self.Gym_total_timesteps = 1e6
+        self.Gym_eval_frequency = 5e3
+        utils.enforce_types(self) 
 
 app = typer.Typer()
 
@@ -41,9 +36,9 @@ def main(
     eval_frequency: int = -1,
     eval_eps: int = 10,
     project_name: str = "",
-    eval_folder: str = "./evals",
-    log_folder: str = "./logs",
-    save_folder: str = "./checkpoint",
+    eval_folder: Path = Path("./evals"),
+    log_folder: Path  = Path("./logs"),
+    save_folder: Path = Path("./checkpoint"),
     save_experiment: bool = False,
     save_freq: int = 100_000,
     load_experiment: bool = False,
@@ -56,15 +51,19 @@ def main(
         total_timesteps = config.__dict__[f"{env_type}_total_timesteps"]
     if eval_frequency == -1:
         eval_frequency = config.__dict__[f"{env_type}_eval_frequency"]
-    if project_name == "": 
+    if project_name == "":
         project_name = f"{env}"
     np.random.seed(seed)
     torch.manual_seed(seed)
 
+    # save folders as paths
+    eval_folder = Path(eval_folder)
+    save_folder = Path(save_folder)
+
     # logger prints to
-    log_folder = f"./logs/{env}_seed_{seed}_4227pm_logs"
-    os.makedirs(log_folder, exist_ok=True)
-    logger = utils.Logger(f"{log_folder}/{project_name}.txt")
+    log_folder = Path("./logs") / f"{env}_seed_{seed}_4227pm_logs"
+    log_folder.mkdir(parents=True, exist_ok=True)
+    logger = utils.Logger(log_folder / f"{project_name}.txt")
 
     # set up GPU if requested
     device = torch.device(
@@ -76,11 +75,11 @@ def main(
     run = wandb.init(
         name=f"run_seed_{seed}_timesteps_{total_timesteps}",
         project="MRQ-Runs-4-19",
-        group = f"{env}",
-        mode="offline", 
+        group=f"{env}",
+        mode="offline",
         entity="ak5005-princeton-university",
         config=locals(),
-        dir=log_folder
+        dir=log_folder,
     )
 
     # either load or create experiment
@@ -90,16 +89,15 @@ def main(
             project_name,
             device,
             total_timesteps,
-            eval_frequency,
-            eval_eps,
             save_experiment,
             save_freq,
             eval_folder,
-            log_folder
+            log_folder,
         )
     else:
         env = env_preprocessing.Env(env, seed, eval_env=False)
-        eval_env = env_preprocessing.Env(env.env_name, seed + 100, eval_env=True)
+        new_seed = seed + 100
+        eval_env = env_preprocessing.Env(env.env_name, new_seed, eval_env=True)
         agent = Agent(
             env.obs_shape,
             env.action_dim,
@@ -110,13 +108,14 @@ def main(
             env.history,
         )
 
+        # create experiment object
         exp = OnlineExperiment(
             agent=agent,
             env=env,
             eval_env=eval_env,
             evals=[],
             t=0,
-            logger = logger,
+            logger=logger,
             total_timesteps=total_timesteps,
             time_passed=0.0,
             eval_frequency=eval_frequency,
@@ -145,7 +144,6 @@ def main(
     exp.logger.title("Agent hyperparameters")
     exp.logger.log_print(exp.agent.hp)
     exp.logger.log_print("-" * 40)
-
 
     exp.run()
 
