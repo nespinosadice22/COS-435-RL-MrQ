@@ -2,11 +2,12 @@ import copy
 import dataclasses
 from typing import Dict
 
-import buffer
-import models
 import numpy as np
 import torch
 import torch.nn.functional as F
+
+import buffer
+import models
 import utils
 from hyperparams import Hyperparameters
 from losses import compute_encoder_loss, compute_policy_loss, compute_value_loss

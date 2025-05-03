@@ -1,10 +1,11 @@
-from pathlib import Path
 import time
+from pathlib import Path
 
-import env_preprocessing
 import numpy as np
 import torch
 import typer
+
+import env_preprocessing
 import utils
 import wandb
 from experiment import OnlineExperiment
@@ -23,6 +24,7 @@ class Defaults:
         self.Gym_eval_frequency = 5e3
         utils.enforce_types(self)
 
+
 app = typer.Typer()
 
 
@@ -37,14 +39,20 @@ def main(
     eval_eps: int = 10,
     project_name: str = "",
     eval_folder: Path = Path("./evals"),
-    log_folder: Path  = Path("./logs"),
+    log_folder: Path = Path("./logs"),
     save_folder: Path = Path("./checkpoint"),
     save_experiment: bool = False,
     save_freq: int = 100_000,
     load_experiment: bool = False,
-    zs_dim: int = typer.Option(512, "--zs-dim", help="Dimensionality of the state embedding"),
-    za_dim: int = typer.Option(256, "--za-dim", help="Dimensionality of the action embedding"),
-    zsa_dim: int = typer.Option(512, "--zsa-dim", help="Dimensionality of the joint embedding"),
+    zs_dim: int = typer.Option(
+        512, "--zs-dim", help="Dimensionality of the state embedding"
+    ),
+    za_dim: int = typer.Option(
+        256, "--za-dim", help="Dimensionality of the action embedding"
+    ),
+    zsa_dim: int = typer.Option(
+        512, "--zsa-dim", help="Dimensionality of the joint embedding"
+    ),
 ):
     config = Defaults()
 

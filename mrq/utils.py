@@ -98,6 +98,7 @@ def enforce_types(obj):
             except Exception:
                 pass
 
+
 def set_instance_vars(hp: dataclasses.dataclass, c: object):
     for field in dataclasses.fields(hp):
         c.__dict__[field.name] = getattr(hp, field.name)

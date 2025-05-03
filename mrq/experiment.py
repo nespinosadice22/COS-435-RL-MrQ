@@ -5,10 +5,10 @@ from pathlib import Path
 
 import numpy as np
 import torch
-import wandb
-from mrq_agent import Agent
 
 import utils
+import wandb
+from mrq_agent import Agent
 
 
 class OnlineExperiment:
@@ -134,7 +134,6 @@ class OnlineExperiment:
         )
         self.evals.append(total_reward.mean())
 
-
         eval_dir = self.eval_folder / self.project_name
         eval_dir.mkdir(parents=True, exist_ok=True)
         eval_file = eval_dir / "evals.txt"
@@ -163,7 +162,7 @@ class OnlineExperiment:
         np.savetxt(save_dir / "evals.txt", self.evals, fmt="%.14f")
 
         # Save environments
-        pickle.dump(self.env,      save_dir.joinpath("env.pickle").open("wb"))
+        pickle.dump(self.env, save_dir.joinpath("env.pickle").open("wb"))
         pickle.dump(self.eval_env, save_dir.joinpath("eval_env.pickle").open("wb"))
 
         # Save agent
@@ -181,6 +180,7 @@ class OnlineExperiment:
 
         self.logger.title("Saved experiment")
 
+
 # load experiment is the same as original, wandb added
 def load_experiment(
     save_folder: Path,
@@ -194,10 +194,8 @@ def load_experiment(
 ):
     # Load experiment settings
     exp_file = save_folder / project_name / "exp_var.npy"
-    exp_dict = np.load(
-        exp_file, allow_pickle=True
-    ).item()
-    
+    exp_dict = np.load(exp_file, allow_pickle=True).item()
+
     # This is not sufficient to guarantee the experiment will run exactly the same,
     # however, it does mean the original seed is not reused.
     np.random.set_state(exp_dict["np_seed"])
@@ -208,11 +206,11 @@ def load_experiment(
     # Load envs
     env_path = save_folder / project_name / "env.pickle"
     eval_env_path = save_folder / project_name / "eval_env.pickle"
-    env      = pickle.load(env_path.open("rb"))
-    eval_env = pickle.load(eval_env_path.open("rb"))    # Load agent
+    env = pickle.load(env_path.open("rb"))
+    eval_env = pickle.load(eval_env_path.open("rb"))  # Load agent
 
     agent_var_file = save_folder / project_name / "agent_var.npy"
-    agent_dict      = np.load(agent_var_file, allow_pickle=True).item()
+    agent_dict = np.load(agent_var_file, allow_pickle=True).item()
 
     agent = Agent(
         env.obs_shape,

@@ -10,9 +10,10 @@ import os
 import pickle
 import time
 
-import env_preprocessing
 import numpy as np
 import torch
+
+import env_preprocessing
 import utils
 from mrq_agent import Agent
 

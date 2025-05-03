@@ -9,6 +9,7 @@ from typing import Dict
 
 import gymnasium as gym
 import numpy as np
+
 import utils
 
 # Used by Atari
