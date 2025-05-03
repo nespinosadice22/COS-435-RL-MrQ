@@ -21,7 +21,7 @@ class Defaults:
         self.Dmc_eval_frequency = 5e3
         self.Gym_total_timesteps = 1e6
         self.Gym_eval_frequency = 5e3
-        utils.enforce_types(self) 
+        utils.enforce_types(self)
 
 app = typer.Typer()
 
@@ -42,6 +42,9 @@ def main(
     save_experiment: bool = False,
     save_freq: int = 100_000,
     load_experiment: bool = False,
+    zs_dim: int = typer.Option(512, "--zs-dim", help="Dimensionality of the state embedding"),
+    za_dim: int = typer.Option(256, "--za-dim", help="Dimensionality of the action embedding"),
+    zsa_dim: int = typer.Option(512, "--zsa-dim", help="Dimensionality of the joint embedding"),
 ):
     config = Defaults()
 
@@ -106,6 +109,11 @@ def main(
             env.discrete,
             device,
             env.history,
+            hp={
+                "zs_dim": zs_dim,
+                "za_dim": za_dim,
+                "zsa_dim": zsa_dim,
+            },
         )
 
         # create experiment object

@@ -1,0 +1,16 @@
+# command: wandb sweep embeddings_sweep.yaml --offline
+program: new_main.py
+method: grid
+metric:
+  name: eval/avg_reward
+  goal: maximize
+
+parameters:
+  zs_dim:
+    values: [64, 128, 256, 512]
+  za_dim:
+    values: [64, 128, 256]
+  zsa_dim:
+    values: [64, 256, 512]
+  seed:
+    values: [0, 1, 2]     # 3 different seeds per setting
