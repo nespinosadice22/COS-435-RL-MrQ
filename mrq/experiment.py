@@ -1,3 +1,7 @@
+"""
+fairly different
+"""
+
 import dataclasses
 import pickle
 import time
@@ -11,7 +15,7 @@ import wandb
 from mrq_agent import Agent
 
 
-class OnlineExperiment:
+class Experiment:
     def __init__(
         self,
         agent: object,
@@ -25,10 +29,10 @@ class OnlineExperiment:
         eval_frequency: int,
         eval_eps: int,
         eval_folder: Path,
+        save_folder: Path,
         project_name: str,
         save_full: bool = False,
         save_freq: int = 1e5,
-        save_folder: Path = Path("./checkpoint"),
     ):
         self.agent = agent
         self.env = env
@@ -51,6 +55,75 @@ class OnlineExperiment:
         self.save_folder = save_folder
 
         self.init_timestep = True
+
+    # load experiment is the same as original, wandb added
+    @classmethod
+    def load_experiment(
+        cls,
+        exp_dir: Path,
+        device: torch.device,
+        eval_folder: Path,
+        log_folder: Path,
+    ) -> "Experiment":
+        # Load experiment settings
+        exp_dict = np.load(exp_dir / "exp_var.npy", allow_pickle=True).item()
+        # This is not sufficient to guarantee the experiment will run exactly the same,
+        # however, it does mean the original seed is not reused.
+        np.random.set_state(exp_dict["np_seed"])
+        torch.set_rng_state(exp_dict["torch_seed"])
+
+        # Load previous evals
+        evals = np.loadtxt(exp_dir / "evals.txt").tolist()
+
+        # Reload envs
+        env = pickle.load((exp_dir / "env.pickle").open("rb"))
+        eval_env = pickle.load((exp_dir / "eval_env.pickle").open("rb"))
+
+        # Reconstruct agent
+        agent_dict = np.load(exp_dir / "agent_var.npy", allow_pickle=True).item()
+        agent = Agent(
+            env.obs_shape,
+            env.action_dim,
+            env.max_action,
+            env.pixel_obs,
+            env.discrete,
+            device,
+            env.history,
+            agent_dict["hp"],
+        )
+        agent.load(str(exp_dir))
+
+        # Log
+        wandb.run.summary["resumed_from_step"] = int(exp_dict["t"])
+        wandb.log(
+            {"status": "resumed", "resumed_step": exp_dict["t"]},
+            step=int(exp_dict["t"]),
+        )
+
+        # Logger
+        log_folder.mkdir(parents=True, exist_ok=True)
+        logger = utils.Logger(log_folder / f"{exp_dict['project_name']}.txt")
+        logger.title(
+            "Loaded experiment\n" f"Starting from: {exp_dict['t']} time steps."
+        )
+
+        return cls(
+            agent,
+            env,
+            eval_env,
+            logger,
+            evals,
+            exp_dict["t"],
+            exp_dict["total_timesteps"],
+            exp_dict["time_passed"],
+            exp_dict["eval_frequency"],
+            exp_dict["eval_eps"],
+            eval_folder,
+            exp_dir,
+            exp_dict["project_name"],
+            exp_dict["save_full"],
+            exp_dict["save_freq"],
+        )
 
     def run(self):
         state = self.env.reset()
@@ -151,6 +224,10 @@ class OnlineExperiment:
             "time_passed": self.time_passed,
             "np_seed": np.random.get_state(),
             "torch_seed": torch.get_rng_state(),
+            "total_timesteps": self.total_timesteps,
+            "save_full": self.save_full,
+            "save_freq": self.save_freq,
+            "project_name": self.project_name,
         }
 
         # Make sure target folder exists
@@ -167,8 +244,6 @@ class OnlineExperiment:
 
         # Save agent
         self.agent.save(save_dir)
-        hp_dict = {"hp": dataclasses.asdict(self.agent.hp)}
-        np.save(save_dir / "agent_var.npy", hp_dict)
 
         wandb.log(
             {
@@ -179,75 +254,3 @@ class OnlineExperiment:
         )
 
         self.logger.title("Saved experiment")
-
-
-# load experiment is the same as original, wandb added
-def load_experiment(
-    save_folder: Path,
-    project_name: str,
-    device: torch.device,
-    total_timesteps,
-    save_experiment,
-    save_freq,
-    eval_folder: Path,
-    log_folder: Path,
-):
-    # Load experiment settings
-    exp_file = save_folder / project_name / "exp_var.npy"
-    exp_dict = np.load(exp_file, allow_pickle=True).item()
-
-    # This is not sufficient to guarantee the experiment will run exactly the same,
-    # however, it does mean the original seed is not reused.
-    np.random.set_state(exp_dict["np_seed"])
-    torch.set_rng_state(exp_dict["torch_seed"])
-    # Load eval
-    evals_file = save_folder / project_name / "evals.txt"
-    evals = np.loadtxt(evals_file).tolist()
-    # Load envs
-    env_path = save_folder / project_name / "env.pickle"
-    eval_env_path = save_folder / project_name / "eval_env.pickle"
-    env = pickle.load(env_path.open("rb"))
-    eval_env = pickle.load(eval_env_path.open("rb"))  # Load agent
-
-    agent_var_file = save_folder / project_name / "agent_var.npy"
-    agent_dict = np.load(agent_var_file, allow_pickle=True).item()
-
-    agent = Agent(
-        env.obs_shape,
-        env.action_dim,
-        env.max_action,
-        env.pixel_obs,
-        env.discrete,
-        device,
-        env.history,
-        agent_dict["hp"],
-    )
-    agent.load(save_folder / project_name)
-
-    wandb.run.summary["resumed_from_step"] = int(exp_dict["t"])
-    wandb.log(
-        {"status": "resumed", "resumed_step": exp_dict["t"]}, step=int(exp_dict["t"])
-    )
-
-    log_folder.mkdir(parents=True, exist_ok=True)
-
-    logger = utils.Logger(log_folder / f"{project_name}.txt")
-    logger.title("Loaded experiment\n" f"Starting from: {exp_dict['t']} time steps.")
-
-    return OnlineExperiment(
-        agent,
-        env,
-        eval_env,
-        logger,
-        evals,
-        exp_dict["t"],
-        total_timesteps,
-        exp_dict["time_passed"],
-        exp_dict["eval_frequency"],
-        exp_dict["eval_eps"],
-        eval_folder,
-        project_name,
-        save_experiment,
-        save_freq,
-        save_folder,
-    )

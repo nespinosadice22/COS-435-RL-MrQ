@@ -1,4 +1,7 @@
-import time
+"""
+fairly different
+"""
+
 from pathlib import Path
 
 import numpy as np
@@ -8,8 +11,7 @@ import typer
 import env_preprocessing
 import utils
 import wandb
-from experiment import OnlineExperiment
-from experiment import load_experiment as load_exp
+from experiment import Experiment
 from mrq_agent import Agent
 
 
@@ -95,13 +97,10 @@ def main(
 
     # either load or create experiment
     if load_experiment:
-        exp = load_exp(
-            save_folder,
-            project_name,
+        exp_dir = save_folder / project_name
+        exp = Experiment.load_experiment(
+            exp_dir,
             device,
-            total_timesteps,
-            save_experiment,
-            save_freq,
             eval_folder,
             log_folder,
         )
@@ -125,7 +124,7 @@ def main(
         )
 
         # create experiment object
-        exp = OnlineExperiment(
+        exp = Experiment(
             agent=agent,
             env=env,
             eval_env=eval_env,
@@ -137,10 +136,10 @@ def main(
             eval_frequency=eval_frequency,
             eval_eps=eval_eps,
             eval_folder=eval_folder,
+            save_folder=save_folder,
             project_name=project_name,
             save_full=save_experiment,
             save_freq=save_freq,
-            save_folder=save_folder,
         )
 
     # kept all the logger logic for now (same as original)

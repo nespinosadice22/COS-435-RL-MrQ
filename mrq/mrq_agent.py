@@ -10,9 +10,11 @@ import buffer
 import models
 import utils
 from hyperparams import Hyperparameters
-from losses import compute_encoder_loss, compute_policy_loss, compute_value_loss
+from losses import (compute_encoder_loss, compute_policy_loss,
+                    compute_value_loss)
 from two_hot import TwoHot
-from utils import masked_mse, maybe_augment_state, multi_step_reward, realign, shift_aug
+from utils import (masked_mse, maybe_augment_state, multi_step_reward, realign,
+                   shift_aug)
 
 
 class Agent:
@@ -28,7 +30,9 @@ class Agent:
         hp: Dict = {},
     ):
         self.name = "MR.Q"
-        self.hp = Hyperparameters(**hp)
+        self.hp = Hyperparameters(
+            **hp
+        )  # override only those defaults for which you provided values
         utils.set_instance_vars(self.hp, self)
         self.device = device
 
@@ -314,10 +318,13 @@ class Agent:
         ]:
             torch.save(self.__dict__[key].state_dict(), f"{save_folder}/{key}.pt")
 
-        vars_to_save = ["hp", "reward_scale", "target_reward_scale", "training_steps"]
-        np.save(
-            f"{save_folder}/agent_var.npy", {k: self.__dict__[k] for k in vars_to_save}
-        )
+        vars_to_save = {
+            "hp": dataclasses.asdict(self.hp),
+            "reward_scale": self.reward_scale,
+            "target_reward_scale": self.target_reward_scale,
+            "training_steps": self.training_steps,
+        }
+        np.save(f"{save_folder}/agent_var.npy", vars_to_save)
 
         self.replay_buffer.save(save_folder)
 
