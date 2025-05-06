@@ -74,7 +74,7 @@ def main(
     save_folder = Path(save_folder)
 
     # logger prints to
-    log_folder = Path("./logs/embeddings") / f"{env}_seed_{seed}_zs{zs_dim}_za{za_dim}_zsa{zsa_dim}_timesteps{timesteps}"
+    log_folder = Path("./logs/embeddings") / f"{env}_seed_{seed}_zs{zs_dim}_za{za_dim}_zsa{zsa_dim}_timesteps{total_timesteps}"
     log_folder.mkdir(parents=True, exist_ok=True)
     logger = utils.Logger(log_folder / f"{project_name}.txt")
 
