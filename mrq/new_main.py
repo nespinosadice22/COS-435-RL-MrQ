@@ -13,7 +13,7 @@ import utils
 import wandb
 from experiment import Experiment
 from mrq_agent import Agent
-
+import time 
 
 # not sure why a dataclass is used, but didn't want to change in case
 class Defaults:
@@ -74,7 +74,7 @@ def main(
     save_folder = Path(save_folder)
 
     # logger prints to
-    log_folder = Path("./logs") / f"{env}_seed_{seed}_4227pm_logs"
+    log_folder = Path("./logs/embeddings") / f"{env}_seed_{seed}_zs{zs_dim}_za{za_dim}_zsa{zsa_dim}_timesteps{timesteps}"
     log_folder.mkdir(parents=True, exist_ok=True)
     logger = utils.Logger(log_folder / f"{project_name}.txt")
 
@@ -85,15 +85,29 @@ def main(
 
     # start weights & biases tracking
     wandb_settings = wandb.Settings(mode="offline")
+
+    run_config = { 
+        "env": env, 
+        "seed": seed, 
+        "total_timesteps": total_timesteps, 
+        "device": device, 
+        "eval_freq": eval_frequency, 
+        "eval_eps": eval_eps, 
+        "path": log_folder, 
+        "zs_dim": zs_dim, 
+        "za_dim": za_dim, 
+        "zsa_dim": zsa_dim, 
+    }
     run = wandb.init(
         name=f"run_seed_{seed}_timesteps_{total_timesteps}",
         project="MRQ-Runs-4-19",
         group=f"{env}",
         mode="offline",
         entity="ak5005-princeton-university",
-        config=locals(),
+        config=run_config,
         dir=log_folder,
     )
+   
 
     # either load or create experiment
     if load_experiment:
@@ -159,8 +173,15 @@ def main(
     exp.logger.title("Agent hyperparameters")
     exp.logger.log_print(exp.agent.hp)
     exp.logger.log_print("-" * 40)
-
+    
+    
+    start_time = time.time()  
     exp.run()
+    duration = time.time() - start_time
+    wandb.log({"trial_duration_seconds": duration})
+    print(f" (wandb timing) Trial took {duration / 60:.2f} minutes.")
+    run.finish() 
+   
 
 
 if __name__ == "__main__":
