@@ -57,7 +57,7 @@ echo "SEED: $SEED"
 python new_main.py \
     --env Atari-Alien-v5 \
     --seed "${SEED}" \
-    --total_timesteps 2500000 \
+    --total_timesteps 1000000 \
     --device cpu \
     --zs-dim "${ZS}" \
     --zsa-dim "${ZSA}" \
