@@ -44,6 +44,12 @@ To check output/error: cat slurm-{slurm job id}.out or  cat slurm-{slurm job id}
 
 After it finishes, cd to folder and run wandb sync --sync-all
 
+-----
+Debugging for dm_control: (should work after this)
+pip uninstall dm-control mujoco
+pip install --upgrade pip
+pip install mujoco==2.3.7
+pip install dm-control
 -------
 Running right now for 4/24 deadline: 
 
@@ -57,10 +63,13 @@ GYM:
 
      - Gym-Humanoid-v4_seed_0_logs (done, slurm 2431104)
 
-     - Walker (in progress, slurm 2431105)
-
+     - Walker (done, slurm 2431105)
 
 ATARI: 
+    - Atari-Alien-v5 seed 0 (done, slurm 2438320) 
 
-    -Atari-Alien-v5 seed 0 (in progress 2431241) 
-    
+DMC_CONTROL: 
+    -Dmc-acrobot-swingup seed 0 500K (done 2433346)
+
+----------Embedding Ablations------
+Running base set on Gym Ant now (2456894 - cpu) (started 10PM 5/5)
