@@ -19,7 +19,6 @@ conda activate mrq_gpu
 export WANDB_API_KEY=028b65afa7cbbb082902c650f03bfd3801495a70
 export WANDB_MODE=offline
 
-
 ZS_ZSA_ZA_LIST=(
   "512|512|256"
   "256|256|128"
@@ -29,9 +28,9 @@ ZS_ZSA_ZA_LIST=(
   "16|16|8"
 )
 
-SEEDS = (0 1 2 3 4)
+SEEDS=(0 1 2 3 4)
 
-COMBOS = () 
+COMBOS=() 
 
 for combo in "${ZS_ZSA_ZA_LIST[@]}"; do
   IFS='|' read -r ZS ZSA ZA <<< "$combo"
@@ -40,12 +39,12 @@ for combo in "${ZS_ZSA_ZA_LIST[@]}"; do
   done
 done
 
-IDX = $SLURM_ARRAY_TASK_ID
+IDX=$SLURM_ARRAY_TASK_ID
 
 #-----sanity checks-------
 echo "Number of combos: ${#COMBOS[@]}" 
-echo "IDX": $IDX" 
-ECHO "combo: ${COMBOS[$IDX]}"
+echo "IDX: $IDX" 
+echo "combo: ${COMBOS[$IDX]}"
 
 IFS='|' read -r ZS ZSA ZA SEED  <<< "${COMBOS[$IDX]}"
 
@@ -57,10 +56,10 @@ echo "SEED: $SEED"
 
 python new_main.py \ 
     --env Gym-Ant-v4 \ 
-    --seed "$SEED" \ 
-    --total_timesteps 1000000
-    --device cpu 
-    --zs-dim "$ZS" 
-    --zsa-dim "$ZSA"
-    --za-dim "$ZA" 
+    --seed "${SEED}" \ 
+    --total_timesteps 1000000 \ 
+    --device cpu \
+    --zs-dim "${ZS}" \
+    --zsa-dim "${ZSA}" \
+    --za-dim "${ZA}" 
  
