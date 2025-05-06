@@ -1,6 +1,6 @@
 #!/bin/bash 
 #SBATCH --job-name=embed_ant
-#SBATCH --array=0-49%50  # Total tasks % the max number you want to run simultaneously 
+#SBATCH --array=0-29%8  # Total tasks % the max number you want to run simultaneously 
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=8
@@ -19,10 +19,6 @@ conda activate mrq_gpu
 export WANDB_API_KEY=028b65afa7cbbb082902c650f03bfd3801495a70
 export WANDB_MODE=offline
 
-
-ZS_LIST = ("16" "32" "64" "128" "256" "512") #these are the same, so we're just going to iterate over one 
-ZSA_LIST = ("16" "32" "64" "128" "256" "512")
-ZA_LIST = ("8" "16" "32" "64" "128" "256")
 
 ZS_ZSA_ZA_LIST=(
   "512|512|256"
@@ -64,7 +60,7 @@ python new_main.py \
     --seed "$SEED" \ 
     --total_timesteps 1000000
     --device cpu 
-    --zs_dim "$ZS" 
-    --zsa_dim "$ZSA"
-    --za_dim "$ZA" 
+    --zs-dim "$ZS" 
+    --zsa-dim "$ZSA"
+    --za-dim "$ZA" 
  
