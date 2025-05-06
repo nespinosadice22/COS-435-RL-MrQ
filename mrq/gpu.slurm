@@ -30,5 +30,5 @@ export WANDB_MODE=offline
 #python -c "import torch; print(torch.cuda.is_available(), torch.cuda.get_device_name(0))"
 #print("Using device:", torch.cuda.get_device_name(0) if torch.cuda.is_available() else "CPU")
 
-python new_main.py --env Atari-Alien-v5 --seed 0 --total_timesteps 1000000 --device cuda &
-python new_main.py --env Atari-Alien-v5 --seed 1 --total_timesteps 1000000 --device cuda
+python new_main.py --env Gym-Ant-v4 --seed 0 --total_timesteps 1000000 --device cuda &
+python new_main.py --env Gym-Ant-v4 --seed 1 --total_timesteps 1000000 --device cuda
