@@ -100,7 +100,7 @@ def main(
     }
     run = wandb.init(
         name=f"run_{env}_seed_{seed}_zs{zs_dim}_za{za_dim}_zsa{zsa_dim}_timesteps{total_timesteps}",
-        project="MRQ-Runs-4-19",
+        project="MRQ-Embeddings-Only",
         group=f"{env}-embeddings",
         mode="offline",
         entity="ak5005-princeton-university",
