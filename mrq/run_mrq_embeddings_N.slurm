@@ -54,12 +54,12 @@ echo "ZA: $ZA"
 echo "SEED: $SEED"
 
 
-python new_main.py \ 
-    --env Gym-Ant-v4 \ 
-    --seed "${SEED}" \ 
-    --total_timesteps 1000000 \ 
+python new_main.py \
+    --env Gym-Ant-v4 \
+    --seed "${SEED}" \
+    --total_timesteps 1000000 \
     --device cpu \
     --zs-dim "${ZS}" \
     --zsa-dim "${ZSA}" \
-    --za-dim "${ZA}" 
+    --za-dim "${ZA}"
  
