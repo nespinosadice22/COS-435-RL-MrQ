@@ -5,6 +5,7 @@ currently the same - we should change!
 # utils.py
 import torch
 import torch.nn.functional as F
+import dataclasses 
 
 def enforce_dataclass_type(dataclass: dataclasses.dataclass):
     for field in dataclasses.fields(dataclass):
