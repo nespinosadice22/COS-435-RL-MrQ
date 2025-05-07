@@ -201,10 +201,11 @@ class Agent:
             #get zsa embedding based on that a_next
             zsa_next = self.encoder.merge_state_action(zs_next, a_next)
             #i think without a gradient??
-            with torch.no_grad(): 
+            #with torch.no_grad(): 
                 #here we're calculating the term E(Q(s', a'))
-                Q_expectation = self.value(zsa_next) 
+            Q_expectation = self.value(zsa_next) 
             #Now we can approximate it as r + gamma * (not done) * E[Q(s', a')] 
+            #just use single discount right?? 
             Q_pi = scaled_reward_pred + self.plan_discount * not_done_pred * Q_expectation 
 
         #get policy loss and do backward update the same
