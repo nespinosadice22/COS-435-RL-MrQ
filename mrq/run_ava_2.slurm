@@ -1,12 +1,12 @@
 #!/bin/bash
 #SBATCH --job-name=R-Alien-2
-#SBATCH --partition=gpu            
-#SBATCH --qos=gpu-medium           
+#SBATCH --partition=gpu
+#SBATCH --qos=gpu-medium
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
-#SBATCH --gres=gpu:1               
-#SBATCH --cpus-per-task=8 # increase 
-#SBATCH --mem=32G # increase 
+#SBATCH --gres=gpu:1
+#SBATCH --cpus-per-task=8 # increase
+#SBATCH --mem=32G # increase
 #SBATCH --time=23:59:59
 #SBATCH --output=slurm_logs/repVSplan/slurm-%j.out
 #SBATCH --error=slurm_logs/repVSplan/slurm-%j.err
@@ -18,7 +18,7 @@ conda init bash
 source ~/.bashrc
 
 # activate environment (have to make on adroit first)
-conda activate mrq_gpu 
+conda activate /scratch/network/ak5005/envs/mrq_gpu
 
 #export MUJOCO_GL=osmesa
 #unset DISPLAY
@@ -30,4 +30,4 @@ export WANDB_MODE=offline
 #python -c "import torch; print(torch.cuda.is_available(), torch.cuda.get_device_name(0))"
 #print("Using device:", torch.cuda.get_device_name(0) if torch.cuda.is_available() else "CPU")
 
-python new_new_main.py --env Atari-Alien-v5 --seed 2  --kind repVSplan --total_timesteps 2000000 --device cuda 
+python new_new_main.py --env Atari-Alien-v5 --seed 2  --kind repVSplan --total_timesteps 2000000 --device cuda
