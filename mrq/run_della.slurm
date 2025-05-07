@@ -5,7 +5,7 @@
 #SBATCH --gres=gpu:1               
 #SBATCH --cpus-per-task=8 # increase 
 #SBATCH --mem=16G # increase 
-#SBATCH --time=23:59:59
+#SBATCH --time=11:59:59
 #SBATCH --output=slurm_logs/repVSplan/slurm-%j.out
 #SBATCH --error=slurm_logs/repVSplan/slurm-%j.err
 
