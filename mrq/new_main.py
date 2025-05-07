@@ -34,7 +34,7 @@ app = typer.Typer()
 @app.command()
 def main(
     env: str = "Gym-HalfCheetah-v4",
-    seed: int = 0,
+    seed: int = typer.Option(0, "--seed"),
     total_timesteps: int = typer.Option(-1, "--total_timesteps"),
     device: str = "cuda",
     eval_frequency: int = -1,
@@ -55,6 +55,7 @@ def main(
     zsa_dim: int = typer.Option(
         512, "--zsa-dim", help="Dimensionality of the joint embedding"
     ),
+    use_planning: bool = typer.Option(False, "--use_planning"), 
 ):
     config = Defaults()
 
@@ -64,6 +65,7 @@ def main(
         total_timesteps = config.__dict__[f"{env_type}_total_timesteps"]
     if eval_frequency == -1:
         eval_frequency = config.__dict__[f"{env_type}_eval_frequency"]
+    
     if project_name == "":
         project_name = f"{env}"
     np.random.seed(seed)
@@ -97,6 +99,7 @@ def main(
         "zs_dim": zs_dim, 
         "za_dim": za_dim, 
         "zsa_dim": zsa_dim, 
+        "use_planning": use_planning, 
     }
     run = wandb.init(
         name=f"run_{env}_seed_{seed}_zs{zs_dim}_za{za_dim}_zsa{zsa_dim}_timesteps{total_timesteps}",
@@ -134,6 +137,7 @@ def main(
                 "zs_dim": zs_dim,
                 "za_dim": za_dim,
                 "zsa_dim": zsa_dim,
+                "use_planning": use_planning, 
             },
         )
 

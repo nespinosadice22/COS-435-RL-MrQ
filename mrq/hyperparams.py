@@ -59,3 +59,8 @@ class Hyperparameters:
     num_bins: int = 65
     lower: float = -10
     upper: float = 10
+
+    #planning ablation
+    use_planning : bool = False 
+    plan_discount : float = 0.99  
+
