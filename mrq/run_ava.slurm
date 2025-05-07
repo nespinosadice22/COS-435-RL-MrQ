@@ -1,12 +1,12 @@
 #!/bin/bash
 #SBATCH --job-name=R-Alien-1
-#SBATCH --partition=gpu            
-#SBATCH --qos=gpu-medium           
+#SBATCH --partition=gpu
+#SBATCH --qos=gpu-medium
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
-#SBATCH --gres=gpu:1               
-#SBATCH --cpus-per-task=8 # increase 
-#SBATCH --mem=32G # increase 
+#SBATCH --gres=gpu:1
+#SBATCH --cpus-per-task=8 # increase
+#SBATCH --mem=32G # increase
 #SBATCH --time=23:59:59
 #SBATCH --output=slurm_logs/repVSplan/slurm-%j.out
 #SBATCH --error=slurm_logs/repVSplan/slurm-%j.err
@@ -18,7 +18,7 @@ conda init bash
 source ~/.bashrc
 
 # activate environment (have to make on adroit first)
-conda activate mrq_gpu 
+conda activate /scratch/network/ak5005/envs/mrq_gpu
 
 #export MUJOCO_GL=osmesa
 #unset DISPLAY
