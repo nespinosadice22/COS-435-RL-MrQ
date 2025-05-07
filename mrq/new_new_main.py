@@ -57,8 +57,8 @@ def main(
     else: 
         project_name = "MRQ-Rep-VS-Plan-Only"
         if use_planning: 
-            run_name = f"run_{env}_PLAN_seed_{seed}_timesteps{total_timesteps}"
-            run_dir = f"runs/repVSplan/{env}_seed{seed}_plan_timesteps{total_timesteps}"
+            run_name = f"run_{env}_PLAN_seed_{seed}_timesteps{total_timesteps}_Pdiscount"
+            run_dir = f"runs/repVSplan/{env}_seed{seed}_plan_timesteps{total_timesteps}_Pdiscount"
         else: 
             run_name = f"run_{env}_REP_seed_{seed}_timesteps{total_timesteps}"
             run_dir = f"runs/repVSplan/{env}_seed{seed}_rep_timesteps{total_timesteps}"
