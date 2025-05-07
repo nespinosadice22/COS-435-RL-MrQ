@@ -1,0 +1,2795 @@
+/home/ne3496/.conda/envs/mrq_gpu/lib/python3.9/site-packages/gymnasium/envs/registration.py:519: DeprecationWarning: [33mWARN: The environment Ant-v4 is out of date. You should consider upgrading to version `v5`.
+  logger.deprecation(
+----------------------------------------
+Experiment
+----------------------------------------
+Algorithm:	MR.Q
+Env:		Gym-Ant-v4
+Seed:		0
+----------------------------------------
+Environment hyperparameters
+----------------------------------------
+Obs shape:		(27,)
+Action dim:		8
+Discrete actions:	False
+Pixel observations:	False
+----------------------------------------
+Agent hyperparameters
+----------------------------------------
+Hyperparameters(batch_size=256, buffer_size=1000000.0, discount=0.99, target_update_freq=250, buffer_size_before_training=10000.0, exploration_noise=0.2, target_policy_noise=0.2, noise_clip=0.3, dyn_weight=1, reward_weight=0.1, done_weight=0.1, prioritized=True, alpha=0.4, min_priority=1, enc_horizon=5, Q_horizon=3, zs_dim=512, zsa_dim=512, za_dim=256, enc_hdim=512, enc_activ='elu', enc_lr=0.0001, enc_wd=0.0001, pixel_augs=True, value_hdim=512, value_activ='elu', value_lr=0.0003, value_wd=0.0001, value_grad_clip=20, policy_hdim=512, policy_activ='relu', policy_lr=0.0003, policy_wd=0.0001, gumbel_tau=10, pre_activ_weight=1e-05, num_bins=65, lower=-10, upper=10)
+----------------------------------------
+Total T: 140, Episode Num: 2, Episode T: 140, Reward: -37.300
+Total T: 175, Episode Num: 3, Episode T: 35, Reward: -29.581
+Total T: 299, Episode Num: 4, Episode T: 124, Reward: -69.128
+Total T: 397, Episode Num: 5, Episode T: 98, Reward: -37.995
+Total T: 431, Episode Num: 6, Episode T: 34, Reward: -16.084
+Total T: 552, Episode Num: 7, Episode T: 121, Reward: 42.404
+Total T: 603, Episode Num: 8, Episode T: 51, Reward: 7.977
+Total T: 767, Episode Num: 9, Episode T: 164, Reward: -43.600
+Total T: 786, Episode Num: 10, Episode T: 19, Reward: -13.222
+Total T: 807, Episode Num: 11, Episode T: 21, Reward: 0.068
+Total T: 894, Episode Num: 12, Episode T: 87, Reward: -24.459
+Total T: 963, Episode Num: 13, Episode T: 69, Reward: 3.617
+Total T: 1121, Episode Num: 14, Episode T: 158, Reward: -44.277
+Total T: 1194, Episode Num: 15, Episode T: 73, Reward: -59.021
+Total T: 2194, Episode Num: 16, Episode T: 1000, Reward: -309.388
+Total T: 2212, Episode Num: 17, Episode T: 18, Reward: -23.932
+Total T: 2363, Episode Num: 18, Episode T: 151, Reward: -17.222
+Total T: 2438, Episode Num: 19, Episode T: 75, Reward: -30.769
+Total T: 2479, Episode Num: 20, Episode T: 41, Reward: -4.682
+Total T: 2713, Episode Num: 21, Episode T: 234, Reward: -112.995
+Total T: 2827, Episode Num: 22, Episode T: 114, Reward: -7.639
+Total T: 2867, Episode Num: 23, Episode T: 40, Reward: -12.857
+Total T: 2908, Episode Num: 24, Episode T: 41, Reward: -8.910
+Total T: 2974, Episode Num: 25, Episode T: 66, Reward: -30.165
+Total T: 3009, Episode Num: 26, Episode T: 35, Reward: -21.067
+Total T: 3072, Episode Num: 27, Episode T: 63, Reward: -45.490
+Total T: 3097, Episode Num: 28, Episode T: 25, Reward: 2.461
+Total T: 3118, Episode Num: 29, Episode T: 21, Reward: -17.209
+Total T: 3443, Episode Num: 30, Episode T: 325, Reward: -132.946
+Total T: 3479, Episode Num: 31, Episode T: 36, Reward: -23.209
+Total T: 3509, Episode Num: 32, Episode T: 30, Reward: -3.930
+Total T: 3642, Episode Num: 33, Episode T: 133, Reward: -44.906
+Total T: 3669, Episode Num: 34, Episode T: 27, Reward: 3.026
+Total T: 3883, Episode Num: 35, Episode T: 214, Reward: -80.762
+Total T: 4001, Episode Num: 36, Episode T: 118, Reward: 9.701
+Total T: 4040, Episode Num: 37, Episode T: 39, Reward: 6.498
+Total T: 4147, Episode Num: 38, Episode T: 107, Reward: -21.454
+Total T: 4202, Episode Num: 39, Episode T: 55, Reward: -2.732
+Total T: 4370, Episode Num: 40, Episode T: 168, Reward: -64.957
+Total T: 4397, Episode Num: 41, Episode T: 27, Reward: -17.751
+Total T: 4551, Episode Num: 42, Episode T: 154, Reward: -18.288
+Total T: 4690, Episode Num: 43, Episode T: 139, Reward: -88.819
+Total T: 4727, Episode Num: 44, Episode T: 37, Reward: -6.214
+Total T: 4781, Episode Num: 45, Episode T: 54, Reward: -39.035
+Total T: 4843, Episode Num: 46, Episode T: 62, Reward: -51.232
+----------------------------------------
+Evaluation at 5000 time steps
+Average total reward over 10 episodes: -485.059
+Total time passed: 0.07 minutes
+----------------------------------------
+Total T: 5843, Episode Num: 47, Episode T: 1000, Reward: -281.881
+Total T: 5950, Episode Num: 48, Episode T: 107, Reward: -43.604
+Total T: 6950, Episode Num: 49, Episode T: 1000, Reward: -365.708
+Total T: 7004, Episode Num: 50, Episode T: 54, Reward: -69.076
+Total T: 7059, Episode Num: 51, Episode T: 55, Reward: -4.327
+Total T: 7094, Episode Num: 52, Episode T: 35, Reward: -14.002
+Total T: 7107, Episode Num: 53, Episode T: 13, Reward: -4.368
+Total T: 7355, Episode Num: 54, Episode T: 248, Reward: -48.123
+Total T: 7387, Episode Num: 55, Episode T: 32, Reward: -8.870
+Total T: 8387, Episode Num: 56, Episode T: 1000, Reward: -314.262
+Total T: 8448, Episode Num: 57, Episode T: 61, Reward: -43.445
+Total T: 8603, Episode Num: 58, Episode T: 155, Reward: -58.184
+Total T: 8752, Episode Num: 59, Episode T: 149, Reward: -4.929
+Total T: 8821, Episode Num: 60, Episode T: 69, Reward: -44.027
+Total T: 8997, Episode Num: 61, Episode T: 176, Reward: -11.722
+Total T: 9039, Episode Num: 62, Episode T: 42, Reward: -24.958
+Total T: 9094, Episode Num: 63, Episode T: 55, Reward: -20.481
+Total T: 9495, Episode Num: 64, Episode T: 401, Reward: -136.794
+Total T: 9563, Episode Num: 65, Episode T: 68, Reward: -31.767
+Total T: 9598, Episode Num: 66, Episode T: 35, Reward: 7.425
+Total T: 9666, Episode Num: 67, Episode T: 68, Reward: -36.128
+Total T: 9684, Episode Num: 68, Episode T: 18, Reward: 2.737
+Total T: 9703, Episode Num: 69, Episode T: 19, Reward: -0.804
+Total T: 9801, Episode Num: 70, Episode T: 98, Reward: -62.387
+----------------------------------------
+Evaluation at 10000 time steps
+Average total reward over 10 episodes: -2995.523
+Total time passed: 0.43 minutes
+----------------------------------------
+Total T: 10801, Episode Num: 71, Episode T: 1000, Reward: -2002.306
+Total T: 11801, Episode Num: 72, Episode T: 1000, Reward: -609.995
+Total T: 11862, Episode Num: 73, Episode T: 61, Reward: 25.258
+Total T: 12171, Episode Num: 74, Episode T: 309, Reward: 144.195
+Total T: 12392, Episode Num: 75, Episode T: 221, Reward: 94.360
+Total T: 13392, Episode Num: 76, Episode T: 1000, Reward: 357.756
+Total T: 13913, Episode Num: 77, Episode T: 521, Reward: 333.819
+Total T: 14913, Episode Num: 78, Episode T: 1000, Reward: 621.387
+----------------------------------------
+Evaluation at 15000 time steps
+Average total reward over 10 episodes: 294.004
+Total time passed: 7.07 minutes
+----------------------------------------
+Total T: 15913, Episode Num: 79, Episode T: 1000, Reward: 747.435
+Total T: 16159, Episode Num: 80, Episode T: 246, Reward: 124.985
+Total T: 17159, Episode Num: 81, Episode T: 1000, Reward: 507.363
+Total T: 18159, Episode Num: 82, Episode T: 1000, Reward: 676.200
+Total T: 19159, Episode Num: 83, Episode T: 1000, Reward: 655.512
+Total T: 19222, Episode Num: 84, Episode T: 63, Reward: 44.937
+Total T: 19255, Episode Num: 85, Episode T: 33, Reward: 21.351
+----------------------------------------
+Evaluation at 20000 time steps
+Average total reward over 10 episodes: 596.890
+Total time passed: 13.71 minutes
+----------------------------------------
+Total T: 20255, Episode Num: 86, Episode T: 1000, Reward: 715.561
+Total T: 21255, Episode Num: 87, Episode T: 1000, Reward: 703.621
+Total T: 22255, Episode Num: 88, Episode T: 1000, Reward: 737.263
+Total T: 22386, Episode Num: 89, Episode T: 131, Reward: 38.780
+Total T: 22417, Episode Num: 90, Episode T: 31, Reward: 17.179
+Total T: 22518, Episode Num: 91, Episode T: 101, Reward: 50.150
+Total T: 22535, Episode Num: 92, Episode T: 17, Reward: 11.945
+Total T: 23535, Episode Num: 93, Episode T: 1000, Reward: 710.461
+Total T: 24535, Episode Num: 94, Episode T: 1000, Reward: 764.132
+----------------------------------------
+Evaluation at 25000 time steps
+Average total reward over 10 episodes: 508.542
+Total time passed: 19.86 minutes
+----------------------------------------
+Total T: 25535, Episode Num: 95, Episode T: 1000, Reward: 788.916
+Total T: 26491, Episode Num: 96, Episode T: 956, Reward: 543.848
+Total T: 27491, Episode Num: 97, Episode T: 1000, Reward: 774.896
+Total T: 27504, Episode Num: 98, Episode T: 13, Reward: 3.502
+Total T: 27913, Episode Num: 99, Episode T: 409, Reward: 263.995
+Total T: 28913, Episode Num: 100, Episode T: 1000, Reward: 813.915
+Total T: 28941, Episode Num: 101, Episode T: 28, Reward: 32.086
+Total T: 28998, Episode Num: 102, Episode T: 57, Reward: 50.077
+Total T: 29998, Episode Num: 103, Episode T: 1000, Reward: 675.074
+----------------------------------------
+Evaluation at 30000 time steps
+Average total reward over 10 episodes: 699.377
+Total time passed: 25.96 minutes
+----------------------------------------
+Total T: 30998, Episode Num: 104, Episode T: 1000, Reward: 769.440
+Total T: 31336, Episode Num: 105, Episode T: 338, Reward: 242.383
+Total T: 32336, Episode Num: 106, Episode T: 1000, Reward: 758.414
+Total T: 32573, Episode Num: 107, Episode T: 237, Reward: 127.190
+Total T: 32621, Episode Num: 108, Episode T: 48, Reward: 67.699
+Total T: 32646, Episode Num: 109, Episode T: 25, Reward: 21.878
+Total T: 33407, Episode Num: 110, Episode T: 761, Reward: 591.361
+Total T: 33713, Episode Num: 111, Episode T: 306, Reward: 185.437
+Total T: 34713, Episode Num: 112, Episode T: 1000, Reward: 784.984
+Total T: 34775, Episode Num: 113, Episode T: 62, Reward: 66.583
+Total T: 34814, Episode Num: 114, Episode T: 39, Reward: 44.919
+----------------------------------------
+Evaluation at 35000 time steps
+Average total reward over 10 episodes: 582.463
+Total time passed: 32.36 minutes
+----------------------------------------
+Total T: 35272, Episode Num: 115, Episode T: 458, Reward: 369.354
+Total T: 36272, Episode Num: 116, Episode T: 1000, Reward: 904.969
+Total T: 36753, Episode Num: 117, Episode T: 481, Reward: 441.675
+Total T: 37753, Episode Num: 118, Episode T: 1000, Reward: 837.727
+Total T: 38753, Episode Num: 119, Episode T: 1000, Reward: 868.734
+Total T: 38879, Episode Num: 120, Episode T: 126, Reward: 116.078
+Total T: 39879, Episode Num: 121, Episode T: 1000, Reward: 936.476
+----------------------------------------
+Evaluation at 40000 time steps
+Average total reward over 10 episodes: 1091.969
+Total time passed: 39.03 minutes
+----------------------------------------
+Total T: 40879, Episode Num: 122, Episode T: 1000, Reward: 837.232
+Total T: 40909, Episode Num: 123, Episode T: 30, Reward: 27.611
+Total T: 41909, Episode Num: 124, Episode T: 1000, Reward: 820.195
+Total T: 42909, Episode Num: 125, Episode T: 1000, Reward: 939.055
+Total T: 43016, Episode Num: 126, Episode T: 107, Reward: 141.203
+Total T: 44016, Episode Num: 127, Episode T: 1000, Reward: 789.086
+Total T: 44055, Episode Num: 128, Episode T: 39, Reward: 31.232
+----------------------------------------
+Evaluation at 45000 time steps
+Average total reward over 10 episodes: 950.211
+Total time passed: 45.68 minutes
+----------------------------------------
+Total T: 45055, Episode Num: 129, Episode T: 1000, Reward: 814.120
+Total T: 46055, Episode Num: 130, Episode T: 1000, Reward: 880.765
+Total T: 46432, Episode Num: 131, Episode T: 377, Reward: 419.584
+Total T: 46641, Episode Num: 132, Episode T: 209, Reward: 269.187
+Total T: 46720, Episode Num: 133, Episode T: 79, Reward: 113.444
+Total T: 46747, Episode Num: 134, Episode T: 27, Reward: 28.234
+Total T: 46934, Episode Num: 135, Episode T: 187, Reward: 292.233
+Total T: 47934, Episode Num: 136, Episode T: 1000, Reward: 801.656
+Total T: 48934, Episode Num: 137, Episode T: 1000, Reward: 873.714
+Total T: 49934, Episode Num: 138, Episode T: 1000, Reward: 1235.391
+Total T: 49975, Episode Num: 139, Episode T: 41, Reward: 57.414
+----------------------------------------
+Evaluation at 50000 time steps
+Average total reward over 10 episodes: 698.506
+Total time passed: 52.21 minutes
+----------------------------------------
+Total T: 50975, Episode Num: 140, Episode T: 1000, Reward: 1239.058
+Total T: 51975, Episode Num: 141, Episode T: 1000, Reward: 1374.005
+Total T: 52142, Episode Num: 142, Episode T: 167, Reward: 272.445
+Total T: 53142, Episode Num: 143, Episode T: 1000, Reward: 1528.936
+Total T: 54101, Episode Num: 144, Episode T: 959, Reward: 1519.017
+Total T: 54357, Episode Num: 145, Episode T: 256, Reward: 348.727
+Total T: 54449, Episode Num: 146, Episode T: 92, Reward: 156.796
+----------------------------------------
+Evaluation at 55000 time steps
+Average total reward over 10 episodes: 1670.023
+Total time passed: 58.33 minutes
+----------------------------------------
+Total T: 55449, Episode Num: 147, Episode T: 1000, Reward: 1519.848
+Total T: 56053, Episode Num: 148, Episode T: 604, Reward: 809.255
+Total T: 57053, Episode Num: 149, Episode T: 1000, Reward: 794.740
+Total T: 58053, Episode Num: 150, Episode T: 1000, Reward: 1632.870
+Total T: 59023, Episode Num: 151, Episode T: 970, Reward: 1727.332
+----------------------------------------
+Evaluation at 60000 time steps
+Average total reward over 10 episodes: 1855.009
+Total time passed: 64.13 minutes
+----------------------------------------
+Total T: 60023, Episode Num: 152, Episode T: 1000, Reward: 1154.474
+Total T: 61023, Episode Num: 153, Episode T: 1000, Reward: 779.449
+Total T: 61361, Episode Num: 154, Episode T: 338, Reward: 523.414
+Total T: 62361, Episode Num: 155, Episode T: 1000, Reward: 1796.393
+Total T: 63361, Episode Num: 156, Episode T: 1000, Reward: 878.659
+Total T: 63824, Episode Num: 157, Episode T: 463, Reward: 780.747
+Total T: 64824, Episode Num: 158, Episode T: 1000, Reward: 1038.072
+----------------------------------------
+Evaluation at 65000 time steps
+Average total reward over 10 episodes: 663.180
+Total time passed: 70.26 minutes
+----------------------------------------
+Total T: 65211, Episode Num: 159, Episode T: 387, Reward: 784.525
+Total T: 66211, Episode Num: 160, Episode T: 1000, Reward: 1351.195
+Total T: 67211, Episode Num: 161, Episode T: 1000, Reward: 1118.792
+Total T: 67220, Episode Num: 162, Episode T: 9, Reward: 5.198
+Total T: 67385, Episode Num: 163, Episode T: 165, Reward: 352.025
+Total T: 68385, Episode Num: 164, Episode T: 1000, Reward: 916.053
+Total T: 69385, Episode Num: 165, Episode T: 1000, Reward: 1931.134
+----------------------------------------
+Evaluation at 70000 time steps
+Average total reward over 10 episodes: 1549.131
+Total time passed: 76.86 minutes
+----------------------------------------
+Total T: 70385, Episode Num: 166, Episode T: 1000, Reward: 954.118
+Total T: 70751, Episode Num: 167, Episode T: 366, Reward: 670.214
+Total T: 71113, Episode Num: 168, Episode T: 362, Reward: 763.044
+Total T: 72113, Episode Num: 169, Episode T: 1000, Reward: 770.913
+Total T: 72408, Episode Num: 170, Episode T: 295, Reward: 599.033
+Total T: 72763, Episode Num: 171, Episode T: 355, Reward: 748.027
+Total T: 73589, Episode Num: 172, Episode T: 826, Reward: 1667.798
+Total T: 74139, Episode Num: 173, Episode T: 550, Reward: 1097.241
+Total T: 74201, Episode Num: 174, Episode T: 62, Reward: 116.973
+Total T: 74287, Episode Num: 175, Episode T: 86, Reward: 94.176
+Total T: 74367, Episode Num: 176, Episode T: 80, Reward: 142.697
+----------------------------------------
+Evaluation at 75000 time steps
+Average total reward over 10 episodes: 2389.554
+Total time passed: 83.32 minutes
+----------------------------------------
+Total T: 75367, Episode Num: 177, Episode T: 1000, Reward: 1424.091
+Total T: 76367, Episode Num: 178, Episode T: 1000, Reward: 783.348
+Total T: 77367, Episode Num: 179, Episode T: 1000, Reward: 2147.304
+Total T: 77794, Episode Num: 180, Episode T: 427, Reward: 986.399
+Total T: 78794, Episode Num: 181, Episode T: 1000, Reward: 2018.165
+Total T: 79794, Episode Num: 182, Episode T: 1000, Reward: 2489.988
+Total T: 79815, Episode Num: 183, Episode T: 21, Reward: 31.062
+----------------------------------------
+Evaluation at 80000 time steps
+Average total reward over 10 episodes: 2602.734
+Total time passed: 89.14 minutes
+----------------------------------------
+Total T: 80815, Episode Num: 184, Episode T: 1000, Reward: 2427.575
+Total T: 81815, Episode Num: 185, Episode T: 1000, Reward: 2279.813
+Total T: 82815, Episode Num: 186, Episode T: 1000, Reward: 2277.316
+Total T: 83815, Episode Num: 187, Episode T: 1000, Reward: 1310.848
+Total T: 84815, Episode Num: 188, Episode T: 1000, Reward: 1058.059
+----------------------------------------
+Evaluation at 85000 time steps
+Average total reward over 10 episodes: 2011.520
+Total time passed: 94.91 minutes
+----------------------------------------
+Total T: 85815, Episode Num: 189, Episode T: 1000, Reward: 1529.991
+Total T: 86815, Episode Num: 190, Episode T: 1000, Reward: 2488.874
+Total T: 87815, Episode Num: 191, Episode T: 1000, Reward: 1533.404
+Total T: 87960, Episode Num: 192, Episode T: 145, Reward: 374.899
+Total T: 88051, Episode Num: 193, Episode T: 91, Reward: 195.084
+Total T: 89051, Episode Num: 194, Episode T: 1000, Reward: 2522.464
+----------------------------------------
+Evaluation at 90000 time steps
+Average total reward over 10 episodes: 2096.388
+Total time passed: 101.35 minutes
+----------------------------------------
+Total T: 90051, Episode Num: 195, Episode T: 1000, Reward: 1133.595
+Total T: 90326, Episode Num: 196, Episode T: 275, Reward: 739.313
+Total T: 90637, Episode Num: 197, Episode T: 311, Reward: 798.330
+Total T: 91637, Episode Num: 198, Episode T: 1000, Reward: 2411.400
+Total T: 92134, Episode Num: 199, Episode T: 497, Reward: 1343.831
+Total T: 92784, Episode Num: 200, Episode T: 650, Reward: 1545.900
+Total T: 93084, Episode Num: 201, Episode T: 300, Reward: 626.095
+Total T: 94084, Episode Num: 202, Episode T: 1000, Reward: 796.874
+Total T: 94587, Episode Num: 203, Episode T: 503, Reward: 1368.285
+Total T: 94657, Episode Num: 204, Episode T: 70, Reward: 126.530
+----------------------------------------
+Evaluation at 95000 time steps
+Average total reward over 10 episodes: 2511.902
+Total time passed: 107.88 minutes
+----------------------------------------
+Total T: 95565, Episode Num: 205, Episode T: 908, Reward: 2472.063
+Total T: 96565, Episode Num: 206, Episode T: 1000, Reward: 870.496
+Total T: 96676, Episode Num: 207, Episode T: 111, Reward: 233.607
+Total T: 96776, Episode Num: 208, Episode T: 100, Reward: 282.101
+Total T: 97707, Episode Num: 209, Episode T: 931, Reward: 2406.192
+Total T: 98707, Episode Num: 210, Episode T: 1000, Reward: 1470.927
+Total T: 99707, Episode Num: 211, Episode T: 1000, Reward: 2821.427
+----------------------------------------
+Evaluation at 100000 time steps
+Average total reward over 10 episodes: 2160.777
+Total time passed: 113.69 minutes
+----------------------------------------
+Total T: 100707, Episode Num: 212, Episode T: 1000, Reward: 1318.346
+Total T: 101707, Episode Num: 213, Episode T: 1000, Reward: 1033.614
+Total T: 102388, Episode Num: 214, Episode T: 681, Reward: 1880.266
+Total T: 103388, Episode Num: 215, Episode T: 1000, Reward: 2710.221
+Total T: 103905, Episode Num: 216, Episode T: 517, Reward: 1492.841
+Total T: 104905, Episode Num: 217, Episode T: 1000, Reward: 1437.389
+----------------------------------------
+Evaluation at 105000 time steps
+Average total reward over 10 episodes: 3016.026
+Total time passed: 119.39 minutes
+----------------------------------------
+Total T: 105905, Episode Num: 218, Episode T: 1000, Reward: 2907.400
+Total T: 106905, Episode Num: 219, Episode T: 1000, Reward: 855.944
+Total T: 107013, Episode Num: 220, Episode T: 108, Reward: 262.417
+Total T: 107399, Episode Num: 221, Episode T: 386, Reward: 1001.894
+Total T: 108399, Episode Num: 222, Episode T: 1000, Reward: 2267.549
+Total T: 109323, Episode Num: 223, Episode T: 924, Reward: 2675.262
+Total T: 109370, Episode Num: 224, Episode T: 47, Reward: 154.075
+Total T: 109516, Episode Num: 225, Episode T: 146, Reward: 420.593
+----------------------------------------
+Evaluation at 110000 time steps
+Average total reward over 10 episodes: 1789.302
+Total time passed: 125.64 minutes
+----------------------------------------
+Total T: 110057, Episode Num: 226, Episode T: 541, Reward: 1543.262
+Total T: 111057, Episode Num: 227, Episode T: 1000, Reward: 3014.303
+Total T: 111549, Episode Num: 228, Episode T: 492, Reward: 1587.003
+Total T: 111652, Episode Num: 229, Episode T: 103, Reward: 204.237
+Total T: 112652, Episode Num: 230, Episode T: 1000, Reward: 1197.284
+Total T: 112806, Episode Num: 231, Episode T: 154, Reward: 457.862
+Total T: 113115, Episode Num: 232, Episode T: 309, Reward: 929.799
+Total T: 114115, Episode Num: 233, Episode T: 1000, Reward: 1015.655
+----------------------------------------
+Evaluation at 115000 time steps
+Average total reward over 10 episodes: 3278.588
+Total time passed: 132.01 minutes
+----------------------------------------
+Total T: 115115, Episode Num: 234, Episode T: 1000, Reward: 1861.698
+Total T: 115176, Episode Num: 235, Episode T: 61, Reward: 152.662
+Total T: 116176, Episode Num: 236, Episode T: 1000, Reward: 2871.618
+Total T: 117176, Episode Num: 237, Episode T: 1000, Reward: 2663.287
+Total T: 118176, Episode Num: 238, Episode T: 1000, Reward: 1837.208
+Total T: 118600, Episode Num: 239, Episode T: 424, Reward: 1205.187
+Total T: 119600, Episode Num: 240, Episode T: 1000, Reward: 3033.595
+----------------------------------------
+Evaluation at 120000 time steps
+Average total reward over 10 episodes: 3107.426
+Total time passed: 137.99 minutes
+----------------------------------------
+Total T: 120332, Episode Num: 241, Episode T: 732, Reward: 2356.411
+Total T: 120978, Episode Num: 242, Episode T: 646, Reward: 1861.810
+Total T: 121421, Episode Num: 243, Episode T: 443, Reward: 1309.899
+Total T: 122191, Episode Num: 244, Episode T: 770, Reward: 2472.778
+Total T: 123191, Episode Num: 245, Episode T: 1000, Reward: 865.305
+Total T: 124191, Episode Num: 246, Episode T: 1000, Reward: 1996.853
+Total T: 124445, Episode Num: 247, Episode T: 254, Reward: 823.216
+----------------------------------------
+Evaluation at 125000 time steps
+Average total reward over 10 episodes: 2015.995
+Total time passed: 144.74 minutes
+----------------------------------------
+Total T: 125445, Episode Num: 248, Episode T: 1000, Reward: 904.207
+Total T: 126445, Episode Num: 249, Episode T: 1000, Reward: 3275.953
+Total T: 126504, Episode Num: 250, Episode T: 59, Reward: 124.050
+Total T: 127504, Episode Num: 251, Episode T: 1000, Reward: 794.859
+Total T: 127818, Episode Num: 252, Episode T: 314, Reward: 1130.962
+Total T: 128313, Episode Num: 253, Episode T: 495, Reward: 1672.225
+Total T: 129313, Episode Num: 254, Episode T: 1000, Reward: 1202.749
+----------------------------------------
+Evaluation at 130000 time steps
+Average total reward over 10 episodes: 2432.918
+Total time passed: 151.03 minutes
+----------------------------------------
+Total T: 130287, Episode Num: 255, Episode T: 974, Reward: 3355.624
+Total T: 130631, Episode Num: 256, Episode T: 344, Reward: 1079.380
+Total T: 131631, Episode Num: 257, Episode T: 1000, Reward: 2086.112
+Total T: 131701, Episode Num: 258, Episode T: 70, Reward: 182.864
+Total T: 132082, Episode Num: 259, Episode T: 381, Reward: 1341.830
+Total T: 132688, Episode Num: 260, Episode T: 606, Reward: 1985.587
+Total T: 133072, Episode Num: 261, Episode T: 384, Reward: 1367.116
+Total T: 134072, Episode Num: 262, Episode T: 1000, Reward: 3285.595
+----------------------------------------
+Evaluation at 135000 time steps
+Average total reward over 10 episodes: 1394.641
+Total time passed: 157.08 minutes
+----------------------------------------
+Total T: 135072, Episode Num: 263, Episode T: 1000, Reward: 1836.057
+Total T: 136072, Episode Num: 264, Episode T: 1000, Reward: 1743.050
+Total T: 137072, Episode Num: 265, Episode T: 1000, Reward: 2251.320
+Total T: 137172, Episode Num: 266, Episode T: 100, Reward: 223.342
+Total T: 137376, Episode Num: 267, Episode T: 204, Reward: 544.991
+Total T: 137574, Episode Num: 268, Episode T: 198, Reward: 686.468
+Total T: 138574, Episode Num: 269, Episode T: 1000, Reward: 1407.620
+Total T: 138853, Episode Num: 270, Episode T: 279, Reward: 918.748
+Total T: 138937, Episode Num: 271, Episode T: 84, Reward: 263.010
+Total T: 139040, Episode Num: 272, Episode T: 103, Reward: 329.480
+Total T: 139058, Episode Num: 273, Episode T: 18, Reward: 23.648
+Total T: 139433, Episode Num: 274, Episode T: 375, Reward: 1177.810
+Total T: 139485, Episode Num: 275, Episode T: 52, Reward: 164.430
+Total T: 139680, Episode Num: 276, Episode T: 195, Reward: 677.248
+----------------------------------------
+Evaluation at 140000 time steps
+Average total reward over 10 episodes: 2710.761
+Total time passed: 163.22 minutes
+----------------------------------------
+Total T: 140680, Episode Num: 277, Episode T: 1000, Reward: 904.926
+Total T: 140887, Episode Num: 278, Episode T: 207, Reward: 536.754
+Total T: 141029, Episode Num: 279, Episode T: 142, Reward: 383.267
+Total T: 142029, Episode Num: 280, Episode T: 1000, Reward: 1113.696
+Total T: 142050, Episode Num: 281, Episode T: 21, Reward: 45.144
+Total T: 143050, Episode Num: 282, Episode T: 1000, Reward: 3147.913
+Total T: 143466, Episode Num: 283, Episode T: 416, Reward: 1413.349
+Total T: 143745, Episode Num: 284, Episode T: 279, Reward: 1064.732
+Total T: 144745, Episode Num: 285, Episode T: 1000, Reward: 875.577
+----------------------------------------
+Evaluation at 145000 time steps
+Average total reward over 10 episodes: 1666.450
+Total time passed: 169.53 minutes
+----------------------------------------
+Total T: 145028, Episode Num: 286, Episode T: 283, Reward: 919.371
+Total T: 146028, Episode Num: 287, Episode T: 1000, Reward: 1350.148
+Total T: 146283, Episode Num: 288, Episode T: 255, Reward: 895.275
+Total T: 146577, Episode Num: 289, Episode T: 294, Reward: 1008.889
+Total T: 147577, Episode Num: 290, Episode T: 1000, Reward: 1372.630
+Total T: 148577, Episode Num: 291, Episode T: 1000, Reward: 956.546
+Total T: 148611, Episode Num: 292, Episode T: 34, Reward: 84.631
+Total T: 149204, Episode Num: 293, Episode T: 593, Reward: 2122.366
+Total T: 149287, Episode Num: 294, Episode T: 83, Reward: 277.164
+Total T: 149311, Episode Num: 295, Episode T: 24, Reward: 64.349
+----------------------------------------
+Evaluation at 150000 time steps
+Average total reward over 10 episodes: 2444.323
+Total time passed: 175.61 minutes
+----------------------------------------
+Total T: 150311, Episode Num: 296, Episode T: 1000, Reward: 1131.077
+Total T: 151311, Episode Num: 297, Episode T: 1000, Reward: 1396.803
+Total T: 151669, Episode Num: 298, Episode T: 358, Reward: 1398.187
+Total T: 152163, Episode Num: 299, Episode T: 494, Reward: 1754.749
+Total T: 153163, Episode Num: 300, Episode T: 1000, Reward: 3877.428
+Total T: 154163, Episode Num: 301, Episode T: 1000, Reward: 1889.958
+Total T: 154215, Episode Num: 302, Episode T: 52, Reward: 142.182
+----------------------------------------
+Evaluation at 155000 time steps
+Average total reward over 10 episodes: 1372.318
+Total time passed: 181.81 minutes
+----------------------------------------
+Total T: 155215, Episode Num: 303, Episode T: 1000, Reward: 1048.057
+Total T: 156215, Episode Num: 304, Episode T: 1000, Reward: 1586.640
+Total T: 156604, Episode Num: 305, Episode T: 389, Reward: 1526.286
+Total T: 156891, Episode Num: 306, Episode T: 287, Reward: 1127.507
+Total T: 157891, Episode Num: 307, Episode T: 1000, Reward: 2152.631
+Total T: 158555, Episode Num: 308, Episode T: 664, Reward: 2387.377
+Total T: 158731, Episode Num: 309, Episode T: 176, Reward: 596.035
+Total T: 158787, Episode Num: 310, Episode T: 56, Reward: 166.817
+Total T: 158973, Episode Num: 311, Episode T: 186, Reward: 757.228
+Total T: 159876, Episode Num: 312, Episode T: 903, Reward: 3599.393
+Total T: 159961, Episode Num: 313, Episode T: 85, Reward: 355.398
+----------------------------------------
+Evaluation at 160000 time steps
+Average total reward over 10 episodes: 3344.969
+Total time passed: 188.13 minutes
+----------------------------------------
+Total T: 160200, Episode Num: 314, Episode T: 239, Reward: 715.911
+Total T: 161200, Episode Num: 315, Episode T: 1000, Reward: 2738.867
+Total T: 161506, Episode Num: 316, Episode T: 306, Reward: 1249.183
+Total T: 161777, Episode Num: 317, Episode T: 271, Reward: 1066.736
+Total T: 162096, Episode Num: 318, Episode T: 319, Reward: 1199.195
+Total T: 163096, Episode Num: 319, Episode T: 1000, Reward: 3601.480
+Total T: 163120, Episode Num: 320, Episode T: 24, Reward: 44.437
+Total T: 163318, Episode Num: 321, Episode T: 198, Reward: 663.057
+Total T: 164318, Episode Num: 322, Episode T: 1000, Reward: 3840.309
+Total T: 164960, Episode Num: 323, Episode T: 642, Reward: 2580.835
+----------------------------------------
+Evaluation at 165000 time steps
+Average total reward over 10 episodes: 3001.375
+Total time passed: 194.19 minutes
+----------------------------------------
+Total T: 165564, Episode Num: 324, Episode T: 604, Reward: 2049.758
+Total T: 165576, Episode Num: 325, Episode T: 12, Reward: -4.220
+Total T: 166576, Episode Num: 326, Episode T: 1000, Reward: 1060.315
+Total T: 166819, Episode Num: 327, Episode T: 243, Reward: 887.515
+Total T: 166937, Episode Num: 328, Episode T: 118, Reward: 454.983
+Total T: 167937, Episode Num: 329, Episode T: 1000, Reward: 1717.853
+Total T: 168937, Episode Num: 330, Episode T: 1000, Reward: 1543.517
+Total T: 169012, Episode Num: 331, Episode T: 75, Reward: 233.539
+----------------------------------------
+Evaluation at 170000 time steps
+Average total reward over 10 episodes: 3852.227
+Total time passed: 200.46 minutes
+----------------------------------------
+Total T: 170012, Episode Num: 332, Episode T: 1000, Reward: 3563.265
+Total T: 170042, Episode Num: 333, Episode T: 30, Reward: 56.710
+Total T: 170129, Episode Num: 334, Episode T: 87, Reward: 283.297
+Total T: 170359, Episode Num: 335, Episode T: 230, Reward: 1001.939
+Total T: 171359, Episode Num: 336, Episode T: 1000, Reward: 3841.927
+Total T: 171385, Episode Num: 337, Episode T: 26, Reward: 54.418
+Total T: 171421, Episode Num: 338, Episode T: 36, Reward: 42.159
+Total T: 172421, Episode Num: 339, Episode T: 1000, Reward: 3833.190
+Total T: 172795, Episode Num: 340, Episode T: 374, Reward: 1565.913
+Total T: 173568, Episode Num: 341, Episode T: 773, Reward: 2912.976
+Total T: 174549, Episode Num: 342, Episode T: 981, Reward: 3848.912
+----------------------------------------
+Evaluation at 175000 time steps
+Average total reward over 10 episodes: 3209.570
+Total time passed: 206.76 minutes
+----------------------------------------
+Total T: 175549, Episode Num: 343, Episode T: 1000, Reward: 1217.545
+Total T: 175893, Episode Num: 344, Episode T: 344, Reward: 1051.165
+Total T: 175937, Episode Num: 345, Episode T: 44, Reward: 147.502
+Total T: 176937, Episode Num: 346, Episode T: 1000, Reward: 1127.395
+Total T: 177937, Episode Num: 347, Episode T: 1000, Reward: 3812.992
+Total T: 177982, Episode Num: 348, Episode T: 45, Reward: 154.553
+Total T: 178452, Episode Num: 349, Episode T: 470, Reward: 1827.435
+Total T: 179084, Episode Num: 350, Episode T: 632, Reward: 2592.768
+Total T: 179284, Episode Num: 351, Episode T: 200, Reward: 731.898
+Total T: 179519, Episode Num: 352, Episode T: 235, Reward: 940.782
+Total T: 179594, Episode Num: 353, Episode T: 75, Reward: 241.640
+----------------------------------------
+Evaluation at 180000 time steps
+Average total reward over 10 episodes: 2767.772
+Total time passed: 212.85 minutes
+----------------------------------------
+Total T: 180594, Episode Num: 354, Episode T: 1000, Reward: 2202.164
+Total T: 180718, Episode Num: 355, Episode T: 124, Reward: 419.339
+Total T: 181718, Episode Num: 356, Episode T: 1000, Reward: 1070.286
+Total T: 181785, Episode Num: 357, Episode T: 67, Reward: 274.451
+Total T: 182785, Episode Num: 358, Episode T: 1000, Reward: 1637.054
+Total T: 183680, Episode Num: 359, Episode T: 895, Reward: 3501.214
+Total T: 184157, Episode Num: 360, Episode T: 477, Reward: 1894.215
+Total T: 184822, Episode Num: 361, Episode T: 665, Reward: 2791.246
+----------------------------------------
+Evaluation at 185000 time steps
+Average total reward over 10 episodes: 2841.939
+Total time passed: 219.03 minutes
+----------------------------------------
+Total T: 185822, Episode Num: 362, Episode T: 1000, Reward: 1043.500
+Total T: 186822, Episode Num: 363, Episode T: 1000, Reward: 1127.820
+Total T: 187822, Episode Num: 364, Episode T: 1000, Reward: 1895.064
+Total T: 188209, Episode Num: 365, Episode T: 387, Reward: 1576.119
+Total T: 188521, Episode Num: 366, Episode T: 312, Reward: 1243.329
+Total T: 189521, Episode Num: 367, Episode T: 1000, Reward: 4136.424
+----------------------------------------
+Evaluation at 190000 time steps
+Average total reward over 10 episodes: 2584.470
+Total time passed: 225.19 minutes
+----------------------------------------
+Total T: 190400, Episode Num: 368, Episode T: 879, Reward: 3620.333
+Total T: 191074, Episode Num: 369, Episode T: 674, Reward: 2493.925
+Total T: 192074, Episode Num: 370, Episode T: 1000, Reward: 790.549
+Total T: 192404, Episode Num: 371, Episode T: 330, Reward: 1330.070
+Total T: 192597, Episode Num: 372, Episode T: 193, Reward: 763.844
+Total T: 192908, Episode Num: 373, Episode T: 311, Reward: 1217.085
+Total T: 193908, Episode Num: 374, Episode T: 1000, Reward: 4046.254
+Total T: 194117, Episode Num: 375, Episode T: 209, Reward: 733.685
+Total T: 194386, Episode Num: 376, Episode T: 269, Reward: 970.454
+Total T: 194695, Episode Num: 377, Episode T: 309, Reward: 1305.596
+----------------------------------------
+Evaluation at 195000 time steps
+Average total reward over 10 episodes: 3715.248
+Total time passed: 231.3 minutes
+----------------------------------------
+Total T: 195695, Episode Num: 378, Episode T: 1000, Reward: 2451.196
+Total T: 196203, Episode Num: 379, Episode T: 508, Reward: 1932.380
+Total T: 196426, Episode Num: 380, Episode T: 223, Reward: 735.558
+Total T: 196752, Episode Num: 381, Episode T: 326, Reward: 1312.432
+Total T: 197752, Episode Num: 382, Episode T: 1000, Reward: 1633.076
+Total T: 197808, Episode Num: 383, Episode T: 56, Reward: 165.065
+Total T: 198035, Episode Num: 384, Episode T: 227, Reward: 905.754
+Total T: 198114, Episode Num: 385, Episode T: 79, Reward: 278.413
+Total T: 199114, Episode Num: 386, Episode T: 1000, Reward: 1345.623
+----------------------------------------
+Evaluation at 200000 time steps
+Average total reward over 10 episodes: 4871.034
+Total time passed: 237.64 minutes
+----------------------------------------
+Total T: 200114, Episode Num: 387, Episode T: 1000, Reward: 1647.345
+Total T: 201114, Episode Num: 388, Episode T: 1000, Reward: 1880.121
+Total T: 201250, Episode Num: 389, Episode T: 136, Reward: 518.058
+Total T: 202250, Episode Num: 390, Episode T: 1000, Reward: 1145.969
+Total T: 202835, Episode Num: 391, Episode T: 585, Reward: 2566.121
+Total T: 203209, Episode Num: 392, Episode T: 374, Reward: 1509.048
+Total T: 203295, Episode Num: 393, Episode T: 86, Reward: 342.759
+Total T: 204295, Episode Num: 394, Episode T: 1000, Reward: 2275.771
+Total T: 204454, Episode Num: 395, Episode T: 159, Reward: 606.363
+----------------------------------------
+Evaluation at 205000 time steps
+Average total reward over 10 episodes: 1751.196
+Total time passed: 243.65 minutes
+----------------------------------------
+Total T: 205454, Episode Num: 396, Episode T: 1000, Reward: 1314.840
+Total T: 205525, Episode Num: 397, Episode T: 71, Reward: 288.350
+Total T: 205581, Episode Num: 398, Episode T: 56, Reward: 209.898
+Total T: 206581, Episode Num: 399, Episode T: 1000, Reward: 1519.883
+Total T: 207427, Episode Num: 400, Episode T: 846, Reward: 3707.331
+Total T: 208427, Episode Num: 401, Episode T: 1000, Reward: 2713.374
+Total T: 208752, Episode Num: 402, Episode T: 325, Reward: 1577.151
+Total T: 209100, Episode Num: 403, Episode T: 348, Reward: 1510.484
+Total T: 209620, Episode Num: 404, Episode T: 520, Reward: 2245.703
+----------------------------------------
+Evaluation at 210000 time steps
+Average total reward over 10 episodes: 3766.650
+Total time passed: 249.92 minutes
+----------------------------------------
+Total T: 210620, Episode Num: 405, Episode T: 1000, Reward: 912.451
+Total T: 211620, Episode Num: 406, Episode T: 1000, Reward: 4461.047
+Total T: 211689, Episode Num: 407, Episode T: 69, Reward: 300.817
+Total T: 212689, Episode Num: 408, Episode T: 1000, Reward: 1770.044
+Total T: 213611, Episode Num: 409, Episode T: 922, Reward: 3760.738
+Total T: 214279, Episode Num: 410, Episode T: 668, Reward: 3053.688
+Total T: 214579, Episode Num: 411, Episode T: 300, Reward: 1251.476
+Total T: 214628, Episode Num: 412, Episode T: 49, Reward: 192.024
+Total T: 214854, Episode Num: 413, Episode T: 226, Reward: 839.160
+----------------------------------------
+Evaluation at 215000 time steps
+Average total reward over 10 episodes: 4049.360
+Total time passed: 256.41 minutes
+----------------------------------------
+Total T: 215854, Episode Num: 414, Episode T: 1000, Reward: 4239.562
+Total T: 216578, Episode Num: 415, Episode T: 724, Reward: 3236.957
+Total T: 217578, Episode Num: 416, Episode T: 1000, Reward: 1237.977
+Total T: 218578, Episode Num: 417, Episode T: 1000, Reward: 4499.647
+Total T: 218926, Episode Num: 418, Episode T: 348, Reward: 1510.732
+Total T: 219005, Episode Num: 419, Episode T: 79, Reward: 292.393
+----------------------------------------
+Evaluation at 220000 time steps
+Average total reward over 10 episodes: 4675.427
+Total time passed: 262.48 minutes
+----------------------------------------
+Total T: 220005, Episode Num: 420, Episode T: 1000, Reward: 4392.854
+Total T: 220164, Episode Num: 421, Episode T: 159, Reward: 594.926
+Total T: 220354, Episode Num: 422, Episode T: 190, Reward: 824.056
+Total T: 221354, Episode Num: 423, Episode T: 1000, Reward: 2603.205
+Total T: 221481, Episode Num: 424, Episode T: 127, Reward: 520.046
+Total T: 221754, Episode Num: 425, Episode T: 273, Reward: 1273.999
+Total T: 221934, Episode Num: 426, Episode T: 180, Reward: 729.753
+Total T: 222934, Episode Num: 427, Episode T: 1000, Reward: 845.090
+Total T: 222983, Episode Num: 428, Episode T: 49, Reward: 143.379
+Total T: 223422, Episode Num: 429, Episode T: 439, Reward: 1966.169
+Total T: 223560, Episode Num: 430, Episode T: 138, Reward: 647.507
+Total T: 223587, Episode Num: 431, Episode T: 27, Reward: 73.924
+Total T: 223757, Episode Num: 432, Episode T: 170, Reward: 617.759
+Total T: 224518, Episode Num: 433, Episode T: 761, Reward: 3186.225
+Total T: 224547, Episode Num: 434, Episode T: 29, Reward: 113.994
+Total T: 224918, Episode Num: 435, Episode T: 371, Reward: 1558.196
+----------------------------------------
+Evaluation at 225000 time steps
+Average total reward over 10 episodes: 4726.828
+Total time passed: 268.25 minutes
+----------------------------------------
+Total T: 225918, Episode Num: 436, Episode T: 1000, Reward: 1033.091
+Total T: 226918, Episode Num: 437, Episode T: 1000, Reward: 4111.303
+Total T: 227406, Episode Num: 438, Episode T: 488, Reward: 2108.276
+Total T: 227898, Episode Num: 439, Episode T: 492, Reward: 2280.179
+Total T: 228898, Episode Num: 440, Episode T: 1000, Reward: 1449.472
+Total T: 229121, Episode Num: 441, Episode T: 223, Reward: 908.048
+Total T: 229267, Episode Num: 442, Episode T: 146, Reward: 611.890
+----------------------------------------
+Evaluation at 230000 time steps
+Average total reward over 10 episodes: 3124.771
+Total time passed: 273.93 minutes
+----------------------------------------
+Total T: 230006, Episode Num: 443, Episode T: 739, Reward: 3364.653
+Total T: 231006, Episode Num: 444, Episode T: 1000, Reward: 4555.775
+Total T: 231391, Episode Num: 445, Episode T: 385, Reward: 1341.980
+Total T: 231617, Episode Num: 446, Episode T: 226, Reward: 931.284
+Total T: 232617, Episode Num: 447, Episode T: 1000, Reward: 1217.327
+Total T: 233617, Episode Num: 448, Episode T: 1000, Reward: 4349.821
+Total T: 233738, Episode Num: 449, Episode T: 121, Reward: 448.911
+Total T: 234509, Episode Num: 450, Episode T: 771, Reward: 3348.885
+----------------------------------------
+Evaluation at 235000 time steps
+Average total reward over 10 episodes: 5004.737
+Total time passed: 280.02 minutes
+----------------------------------------
+Total T: 235509, Episode Num: 451, Episode T: 1000, Reward: 999.237
+Total T: 236509, Episode Num: 452, Episode T: 1000, Reward: 1268.126
+Total T: 236740, Episode Num: 453, Episode T: 231, Reward: 996.950
+Total T: 237740, Episode Num: 454, Episode T: 1000, Reward: 4409.962
+Total T: 237958, Episode Num: 455, Episode T: 218, Reward: 1046.756
+Total T: 238958, Episode Num: 456, Episode T: 1000, Reward: 2413.487
+Total T: 239411, Episode Num: 457, Episode T: 453, Reward: 1932.304
+----------------------------------------
+Evaluation at 240000 time steps
+Average total reward over 10 episodes: 4854.596
+Total time passed: 286.1 minutes
+----------------------------------------
+Total T: 240304, Episode Num: 458, Episode T: 893, Reward: 4043.271
+Total T: 240865, Episode Num: 459, Episode T: 561, Reward: 2528.343
+Total T: 241071, Episode Num: 460, Episode T: 206, Reward: 775.262
+Total T: 242071, Episode Num: 461, Episode T: 1000, Reward: 4562.701
+Total T: 243071, Episode Num: 462, Episode T: 1000, Reward: 1611.424
+Total T: 243399, Episode Num: 463, Episode T: 328, Reward: 1442.199
+Total T: 244083, Episode Num: 464, Episode T: 684, Reward: 3163.090
+----------------------------------------
+Evaluation at 245000 time steps
+Average total reward over 10 episodes: 3520.800
+Total time passed: 292.35 minutes
+----------------------------------------
+Total T: 245083, Episode Num: 465, Episode T: 1000, Reward: 841.445
+Total T: 245365, Episode Num: 466, Episode T: 282, Reward: 1148.415
+Total T: 245384, Episode Num: 467, Episode T: 19, Reward: 19.552
+Total T: 245480, Episode Num: 468, Episode T: 96, Reward: 412.388
+Total T: 246480, Episode Num: 469, Episode T: 1000, Reward: 4549.346
+Total T: 246824, Episode Num: 470, Episode T: 344, Reward: 1584.142
+Total T: 246834, Episode Num: 471, Episode T: 10, Reward: 11.230
+Total T: 247372, Episode Num: 472, Episode T: 538, Reward: 2510.056
+Total T: 248372, Episode Num: 473, Episode T: 1000, Reward: 2903.271
+Total T: 249024, Episode Num: 474, Episode T: 652, Reward: 2872.592
+Total T: 249035, Episode Num: 475, Episode T: 11, Reward: 13.499
+----------------------------------------
+Evaluation at 250000 time steps
+Average total reward over 10 episodes: 5040.296
+Total time passed: 298.49 minutes
+----------------------------------------
+Total T: 250035, Episode Num: 476, Episode T: 1000, Reward: 1157.318
+Total T: 250290, Episode Num: 477, Episode T: 255, Reward: 1201.681
+Total T: 250810, Episode Num: 478, Episode T: 520, Reward: 2286.794
+Total T: 251121, Episode Num: 479, Episode T: 311, Reward: 1379.676
+Total T: 251195, Episode Num: 480, Episode T: 74, Reward: 310.289
+Total T: 251369, Episode Num: 481, Episode T: 174, Reward: 779.593
+Total T: 252369, Episode Num: 482, Episode T: 1000, Reward: 4691.309
+Total T: 253369, Episode Num: 483, Episode T: 1000, Reward: 984.325
+Total T: 253684, Episode Num: 484, Episode T: 315, Reward: 1447.232
+Total T: 254684, Episode Num: 485, Episode T: 1000, Reward: 4546.096
+----------------------------------------
+Evaluation at 255000 time steps
+Average total reward over 10 episodes: 3330.723
+Total time passed: 304.49 minutes
+----------------------------------------
+Total T: 255116, Episode Num: 486, Episode T: 432, Reward: 1957.336
+Total T: 256116, Episode Num: 487, Episode T: 1000, Reward: 4776.312
+Total T: 256459, Episode Num: 488, Episode T: 343, Reward: 1627.794
+Total T: 257459, Episode Num: 489, Episode T: 1000, Reward: 4765.963
+Total T: 257578, Episode Num: 490, Episode T: 119, Reward: 477.391
+Total T: 257602, Episode Num: 491, Episode T: 24, Reward: 72.314
+Total T: 258602, Episode Num: 492, Episode T: 1000, Reward: 4785.526
+Total T: 258654, Episode Num: 493, Episode T: 52, Reward: 228.637
+Total T: 259052, Episode Num: 494, Episode T: 398, Reward: 1767.755
+Total T: 259286, Episode Num: 495, Episode T: 234, Reward: 1097.114
+Total T: 259974, Episode Num: 496, Episode T: 688, Reward: 3367.596
+----------------------------------------
+Evaluation at 260000 time steps
+Average total reward over 10 episodes: 5599.919
+Total time passed: 310.61 minutes
+----------------------------------------
+Total T: 260974, Episode Num: 497, Episode T: 1000, Reward: 1725.854
+Total T: 261417, Episode Num: 498, Episode T: 443, Reward: 2000.546
+Total T: 261835, Episode Num: 499, Episode T: 418, Reward: 1830.187
+Total T: 262017, Episode Num: 500, Episode T: 182, Reward: 768.249
+Total T: 263017, Episode Num: 501, Episode T: 1000, Reward: 2674.796
+Total T: 263933, Episode Num: 502, Episode T: 916, Reward: 4250.672
+Total T: 264933, Episode Num: 503, Episode T: 1000, Reward: 2573.081
+----------------------------------------
+Evaluation at 265000 time steps
+Average total reward over 10 episodes: 5181.747
+Total time passed: 316.54 minutes
+----------------------------------------
+Total T: 265382, Episode Num: 504, Episode T: 449, Reward: 2093.606
+Total T: 266382, Episode Num: 505, Episode T: 1000, Reward: 2180.272
+Total T: 266751, Episode Num: 506, Episode T: 369, Reward: 1625.315
+Total T: 267208, Episode Num: 507, Episode T: 457, Reward: 2137.308
+Total T: 267864, Episode Num: 508, Episode T: 656, Reward: 3009.371
+Total T: 268846, Episode Num: 509, Episode T: 982, Reward: 4742.228
+Total T: 268882, Episode Num: 510, Episode T: 36, Reward: 77.247
+Total T: 269882, Episode Num: 511, Episode T: 1000, Reward: 4749.706
+----------------------------------------
+Evaluation at 270000 time steps
+Average total reward over 10 episodes: 5310.624
+Total time passed: 322.64 minutes
+----------------------------------------
+Total T: 270228, Episode Num: 512, Episode T: 346, Reward: 1652.736
+Total T: 270350, Episode Num: 513, Episode T: 122, Reward: 522.009
+Total T: 270803, Episode Num: 514, Episode T: 453, Reward: 2169.681
+Total T: 270899, Episode Num: 515, Episode T: 96, Reward: 354.893
+Total T: 271052, Episode Num: 516, Episode T: 153, Reward: 598.237
+Total T: 271649, Episode Num: 517, Episode T: 597, Reward: 2964.273
+Total T: 272649, Episode Num: 518, Episode T: 1000, Reward: 1357.303
+Total T: 273649, Episode Num: 519, Episode T: 1000, Reward: 1678.198
+Total T: 274649, Episode Num: 520, Episode T: 1000, Reward: 3488.227
+----------------------------------------
+Evaluation at 275000 time steps
+Average total reward over 10 episodes: 4365.291
+Total time passed: 328.54 minutes
+----------------------------------------
+Total T: 275211, Episode Num: 521, Episode T: 562, Reward: 2765.948
+Total T: 275345, Episode Num: 522, Episode T: 134, Reward: 540.182
+Total T: 276345, Episode Num: 523, Episode T: 1000, Reward: 4806.410
+Total T: 276628, Episode Num: 524, Episode T: 283, Reward: 1166.380
+Total T: 276751, Episode Num: 525, Episode T: 123, Reward: 527.119
+Total T: 277716, Episode Num: 526, Episode T: 965, Reward: 4683.067
+Total T: 278716, Episode Num: 527, Episode T: 1000, Reward: 4784.610
+Total T: 279716, Episode Num: 528, Episode T: 1000, Reward: 1833.176
+Total T: 279825, Episode Num: 529, Episode T: 109, Reward: 481.546
+Total T: 279863, Episode Num: 530, Episode T: 38, Reward: 120.297
+----------------------------------------
+Evaluation at 280000 time steps
+Average total reward over 10 episodes: 4435.641
+Total time passed: 334.52 minutes
+----------------------------------------
+Total T: 280054, Episode Num: 531, Episode T: 191, Reward: 916.918
+Total T: 280171, Episode Num: 532, Episode T: 117, Reward: 516.794
+Total T: 280370, Episode Num: 533, Episode T: 199, Reward: 1008.178
+Total T: 281370, Episode Num: 534, Episode T: 1000, Reward: 1132.876
+Total T: 281432, Episode Num: 535, Episode T: 62, Reward: 263.842
+Total T: 281481, Episode Num: 536, Episode T: 49, Reward: 175.456
+Total T: 281817, Episode Num: 537, Episode T: 336, Reward: 1349.484
+Total T: 282817, Episode Num: 538, Episode T: 1000, Reward: 829.253
+Total T: 283817, Episode Num: 539, Episode T: 1000, Reward: 4938.502
+Total T: 284143, Episode Num: 540, Episode T: 326, Reward: 1555.143
+Total T: 284530, Episode Num: 541, Episode T: 387, Reward: 1854.194
+----------------------------------------
+Evaluation at 285000 time steps
+Average total reward over 10 episodes: 4244.439
+Total time passed: 340.53 minutes
+----------------------------------------
+Total T: 285530, Episode Num: 542, Episode T: 1000, Reward: 1010.040
+Total T: 286530, Episode Num: 543, Episode T: 1000, Reward: 4751.440
+Total T: 286834, Episode Num: 544, Episode T: 304, Reward: 1370.889
+Total T: 287040, Episode Num: 545, Episode T: 206, Reward: 902.283
+Total T: 287228, Episode Num: 546, Episode T: 188, Reward: 831.883
+Total T: 288228, Episode Num: 547, Episode T: 1000, Reward: 4672.797
+Total T: 288486, Episode Num: 548, Episode T: 258, Reward: 1265.857
+Total T: 288748, Episode Num: 549, Episode T: 262, Reward: 1255.540
+Total T: 289748, Episode Num: 550, Episode T: 1000, Reward: 936.577
+Total T: 289789, Episode Num: 551, Episode T: 41, Reward: 146.520
+----------------------------------------
+Evaluation at 290000 time steps
+Average total reward over 10 episodes: 3292.083
+Total time passed: 346.44 minutes
+----------------------------------------
+Total T: 290789, Episode Num: 552, Episode T: 1000, Reward: 2684.743
+Total T: 290833, Episode Num: 553, Episode T: 44, Reward: 174.047
+Total T: 291833, Episode Num: 554, Episode T: 1000, Reward: 4879.099
+Total T: 292109, Episode Num: 555, Episode T: 276, Reward: 1363.860
+Total T: 292497, Episode Num: 556, Episode T: 388, Reward: 1727.333
+Total T: 292507, Episode Num: 557, Episode T: 10, Reward: 9.289
+Total T: 293466, Episode Num: 558, Episode T: 959, Reward: 4829.193
+Total T: 293787, Episode Num: 559, Episode T: 321, Reward: 1624.456
+Total T: 294295, Episode Num: 560, Episode T: 508, Reward: 2393.680
+----------------------------------------
+Evaluation at 295000 time steps
+Average total reward over 10 episodes: 3320.382
+Total time passed: 352.53 minutes
+----------------------------------------
+Total T: 295295, Episode Num: 561, Episode T: 1000, Reward: 1566.878
+Total T: 295492, Episode Num: 562, Episode T: 197, Reward: 855.865
+Total T: 295553, Episode Num: 563, Episode T: 61, Reward: 278.178
+Total T: 296553, Episode Num: 564, Episode T: 1000, Reward: 5216.916
+Total T: 297553, Episode Num: 565, Episode T: 1000, Reward: 4794.834
+Total T: 297819, Episode Num: 566, Episode T: 266, Reward: 1266.703
+Total T: 298243, Episode Num: 567, Episode T: 424, Reward: 2104.400
+Total T: 299243, Episode Num: 568, Episode T: 1000, Reward: 1684.312
+Total T: 299278, Episode Num: 569, Episode T: 35, Reward: 85.465
+Total T: 299531, Episode Num: 570, Episode T: 253, Reward: 1237.318
+----------------------------------------
+Evaluation at 300000 time steps
+Average total reward over 10 episodes: 2419.182
+Total time passed: 358.44 minutes
+----------------------------------------
+Total T: 300531, Episode Num: 571, Episode T: 1000, Reward: 1420.135
+Total T: 300728, Episode Num: 572, Episode T: 197, Reward: 949.966
+Total T: 301728, Episode Num: 573, Episode T: 1000, Reward: 1560.105
+Total T: 302728, Episode Num: 574, Episode T: 1000, Reward: 1264.272
+Total T: 303728, Episode Num: 575, Episode T: 1000, Reward: 1073.294
+Total T: 303918, Episode Num: 576, Episode T: 190, Reward: 882.312
+Total T: 304190, Episode Num: 577, Episode T: 272, Reward: 1384.698
+Total T: 304312, Episode Num: 578, Episode T: 122, Reward: 552.973
+Total T: 304360, Episode Num: 579, Episode T: 48, Reward: 179.807
+Total T: 304405, Episode Num: 580, Episode T: 45, Reward: 179.758
+Total T: 304476, Episode Num: 581, Episode T: 71, Reward: 303.814
+Total T: 304503, Episode Num: 582, Episode T: 27, Reward: 79.783
+Total T: 304576, Episode Num: 583, Episode T: 73, Reward: 340.520
+----------------------------------------
+Evaluation at 305000 time steps
+Average total reward over 10 episodes: 4692.330
+Total time passed: 364.48 minutes
+----------------------------------------
+Total T: 305576, Episode Num: 584, Episode T: 1000, Reward: 2124.689
+Total T: 306529, Episode Num: 585, Episode T: 953, Reward: 4823.249
+Total T: 306714, Episode Num: 586, Episode T: 185, Reward: 868.018
+Total T: 306742, Episode Num: 587, Episode T: 28, Reward: 59.205
+Total T: 307742, Episode Num: 588, Episode T: 1000, Reward: 3047.369
+Total T: 307772, Episode Num: 589, Episode T: 30, Reward: 90.940
+Total T: 307904, Episode Num: 590, Episode T: 132, Reward: 604.231
+Total T: 308904, Episode Num: 591, Episode T: 1000, Reward: 3090.090
+Total T: 309904, Episode Num: 592, Episode T: 1000, Reward: 4531.018
+----------------------------------------
+Evaluation at 310000 time steps
+Average total reward over 10 episodes: 2494.926
+Total time passed: 370.36 minutes
+----------------------------------------
+Total T: 310065, Episode Num: 593, Episode T: 161, Reward: 789.496
+Total T: 311065, Episode Num: 594, Episode T: 1000, Reward: 3084.217
+Total T: 311317, Episode Num: 595, Episode T: 252, Reward: 1168.833
+Total T: 312065, Episode Num: 596, Episode T: 748, Reward: 3738.847
+Total T: 312130, Episode Num: 597, Episode T: 65, Reward: 318.398
+Total T: 313130, Episode Num: 598, Episode T: 1000, Reward: 4502.688
+Total T: 313456, Episode Num: 599, Episode T: 326, Reward: 1561.980
+Total T: 313837, Episode Num: 600, Episode T: 381, Reward: 1913.569
+Total T: 313989, Episode Num: 601, Episode T: 152, Reward: 658.642
+Total T: 314302, Episode Num: 602, Episode T: 313, Reward: 1641.722
+----------------------------------------
+Evaluation at 315000 time steps
+Average total reward over 10 episodes: 3147.448
+Total time passed: 376.3 minutes
+----------------------------------------
+Total T: 315302, Episode Num: 603, Episode T: 1000, Reward: 2048.810
+Total T: 316302, Episode Num: 604, Episode T: 1000, Reward: 3756.202
+Total T: 317302, Episode Num: 605, Episode T: 1000, Reward: 899.588
+Total T: 318302, Episode Num: 606, Episode T: 1000, Reward: 1169.922
+Total T: 319302, Episode Num: 607, Episode T: 1000, Reward: 1768.429
+Total T: 319433, Episode Num: 608, Episode T: 131, Reward: 642.982
+Total T: 319725, Episode Num: 609, Episode T: 292, Reward: 502.732
+----------------------------------------
+Evaluation at 320000 time steps
+Average total reward over 10 episodes: 4225.970
+Total time passed: 382.26 minutes
+----------------------------------------
+Total T: 320666, Episode Num: 610, Episode T: 941, Reward: 4777.018
+Total T: 321666, Episode Num: 611, Episode T: 1000, Reward: 2130.301
+Total T: 322666, Episode Num: 612, Episode T: 1000, Reward: 826.501
+Total T: 323098, Episode Num: 613, Episode T: 432, Reward: 2276.869
+Total T: 324013, Episode Num: 614, Episode T: 915, Reward: 4591.209
+----------------------------------------
+Evaluation at 325000 time steps
+Average total reward over 10 episodes: 4447.300
+Total time passed: 388.18 minutes
+----------------------------------------
+Total T: 325013, Episode Num: 615, Episode T: 1000, Reward: 5228.726
+Total T: 325112, Episode Num: 616, Episode T: 99, Reward: 264.272
+Total T: 325586, Episode Num: 617, Episode T: 474, Reward: 2390.813
+Total T: 326586, Episode Num: 618, Episode T: 1000, Reward: 4426.390
+Total T: 327586, Episode Num: 619, Episode T: 1000, Reward: 4649.451
+Total T: 328586, Episode Num: 620, Episode T: 1000, Reward: 2934.034
+Total T: 329068, Episode Num: 621, Episode T: 482, Reward: 2665.719
+----------------------------------------
+Evaluation at 330000 time steps
+Average total reward over 10 episodes: 4728.656
+Total time passed: 394.16 minutes
+----------------------------------------
+Total T: 330068, Episode Num: 622, Episode T: 1000, Reward: 1041.964
+Total T: 330257, Episode Num: 623, Episode T: 189, Reward: 878.545
+Total T: 330729, Episode Num: 624, Episode T: 472, Reward: 2531.810
+Total T: 331179, Episode Num: 625, Episode T: 450, Reward: 2055.839
+Total T: 331686, Episode Num: 626, Episode T: 507, Reward: 1734.625
+Total T: 332686, Episode Num: 627, Episode T: 1000, Reward: 1029.997
+Total T: 332815, Episode Num: 628, Episode T: 129, Reward: 650.375
+Total T: 333815, Episode Num: 629, Episode T: 1000, Reward: 4962.948
+Total T: 334092, Episode Num: 630, Episode T: 277, Reward: 1382.327
+Total T: 334835, Episode Num: 631, Episode T: 743, Reward: 3926.425
+Total T: 334957, Episode Num: 632, Episode T: 122, Reward: 605.610
+----------------------------------------
+Evaluation at 335000 time steps
+Average total reward over 10 episodes: 3891.123
+Total time passed: 400.01 minutes
+----------------------------------------
+Total T: 335018, Episode Num: 633, Episode T: 61, Reward: 270.879
+Total T: 336018, Episode Num: 634, Episode T: 1000, Reward: 4712.411
+Total T: 337018, Episode Num: 635, Episode T: 1000, Reward: 1049.689
+Total T: 338018, Episode Num: 636, Episode T: 1000, Reward: 1726.465
+Total T: 338269, Episode Num: 637, Episode T: 251, Reward: 1285.986
+Total T: 338373, Episode Num: 638, Episode T: 104, Reward: 410.205
+Total T: 339373, Episode Num: 639, Episode T: 1000, Reward: 2921.738
+Total T: 339424, Episode Num: 640, Episode T: 51, Reward: 190.585
+Total T: 339525, Episode Num: 641, Episode T: 101, Reward: 421.778
+----------------------------------------
+Evaluation at 340000 time steps
+Average total reward over 10 episodes: 1323.178
+Total time passed: 405.91 minutes
+----------------------------------------
+Total T: 340525, Episode Num: 642, Episode T: 1000, Reward: 2409.790
+Total T: 341525, Episode Num: 643, Episode T: 1000, Reward: 4970.442
+Total T: 341592, Episode Num: 644, Episode T: 67, Reward: 287.989
+Total T: 341820, Episode Num: 645, Episode T: 228, Reward: 1091.741
+Total T: 342326, Episode Num: 646, Episode T: 506, Reward: 2531.479
+Total T: 342395, Episode Num: 647, Episode T: 69, Reward: 329.282
+Total T: 342639, Episode Num: 648, Episode T: 244, Reward: 1141.981
+Total T: 342757, Episode Num: 649, Episode T: 118, Reward: 560.217
+Total T: 343757, Episode Num: 650, Episode T: 1000, Reward: 2158.986
+Total T: 344757, Episode Num: 651, Episode T: 1000, Reward: 1502.793
+----------------------------------------
+Evaluation at 345000 time steps
+Average total reward over 10 episodes: 4015.847
+Total time passed: 411.72 minutes
+----------------------------------------
+Total T: 345146, Episode Num: 652, Episode T: 389, Reward: 1952.680
+Total T: 345347, Episode Num: 653, Episode T: 201, Reward: 905.170
+Total T: 345680, Episode Num: 654, Episode T: 333, Reward: 1705.116
+Total T: 345775, Episode Num: 655, Episode T: 95, Reward: 316.428
+Total T: 346775, Episode Num: 656, Episode T: 1000, Reward: 927.051
+Total T: 347775, Episode Num: 657, Episode T: 1000, Reward: 1724.549
+Total T: 347874, Episode Num: 658, Episode T: 99, Reward: 433.381
+Total T: 348841, Episode Num: 659, Episode T: 967, Reward: 4811.653
+Total T: 349841, Episode Num: 660, Episode T: 1000, Reward: 5286.180
+----------------------------------------
+Evaluation at 350000 time steps
+Average total reward over 10 episodes: 4181.743
+Total time passed: 417.64 minutes
+----------------------------------------
+Total T: 350187, Episode Num: 661, Episode T: 346, Reward: 1593.374
+Total T: 351187, Episode Num: 662, Episode T: 1000, Reward: 1604.264
+Total T: 351227, Episode Num: 663, Episode T: 40, Reward: 171.254
+Total T: 351252, Episode Num: 664, Episode T: 25, Reward: 37.902
+Total T: 351920, Episode Num: 665, Episode T: 668, Reward: 3360.892
+Total T: 352638, Episode Num: 666, Episode T: 718, Reward: 3799.085
+Total T: 352696, Episode Num: 667, Episode T: 58, Reward: 279.533
+Total T: 353008, Episode Num: 668, Episode T: 312, Reward: 1603.936
+Total T: 353198, Episode Num: 669, Episode T: 190, Reward: 963.045
+Total T: 353371, Episode Num: 670, Episode T: 173, Reward: 796.852
+Total T: 353613, Episode Num: 671, Episode T: 242, Reward: 1201.629
+Total T: 353695, Episode Num: 672, Episode T: 82, Reward: 410.207
+Total T: 354221, Episode Num: 673, Episode T: 526, Reward: 2733.584
+Total T: 354617, Episode Num: 674, Episode T: 396, Reward: 2005.732
+Total T: 354677, Episode Num: 675, Episode T: 60, Reward: 257.032
+Total T: 354770, Episode Num: 676, Episode T: 93, Reward: 461.953
+Total T: 354855, Episode Num: 677, Episode T: 85, Reward: 366.737
+Total T: 354963, Episode Num: 678, Episode T: 108, Reward: 497.343
+----------------------------------------
+Evaluation at 355000 time steps
+Average total reward over 10 episodes: 4606.612
+Total time passed: 423.5 minutes
+----------------------------------------
+Total T: 355519, Episode Num: 679, Episode T: 556, Reward: 2924.688
+Total T: 356110, Episode Num: 680, Episode T: 591, Reward: 3213.304
+Total T: 356663, Episode Num: 681, Episode T: 553, Reward: 2720.914
+Total T: 357305, Episode Num: 682, Episode T: 642, Reward: 3296.860
+Total T: 357422, Episode Num: 683, Episode T: 117, Reward: 470.584
+Total T: 357970, Episode Num: 684, Episode T: 548, Reward: 2543.574
+Total T: 358332, Episode Num: 685, Episode T: 362, Reward: 2074.886
+Total T: 358400, Episode Num: 686, Episode T: 68, Reward: 310.196
+Total T: 359074, Episode Num: 687, Episode T: 674, Reward: 3095.738
+Total T: 359270, Episode Num: 688, Episode T: 196, Reward: 911.680
+----------------------------------------
+Evaluation at 360000 time steps
+Average total reward over 10 episodes: 3270.362
+Total time passed: 429.35 minutes
+----------------------------------------
+Total T: 360270, Episode Num: 689, Episode T: 1000, Reward: 1432.129
+Total T: 361270, Episode Num: 690, Episode T: 1000, Reward: 895.525
+Total T: 361590, Episode Num: 691, Episode T: 320, Reward: 1554.929
+Total T: 361678, Episode Num: 692, Episode T: 88, Reward: 365.538
+Total T: 362486, Episode Num: 693, Episode T: 808, Reward: 4389.481
+Total T: 362876, Episode Num: 694, Episode T: 390, Reward: 1885.304
+Total T: 363876, Episode Num: 695, Episode T: 1000, Reward: 1456.001
+Total T: 364385, Episode Num: 696, Episode T: 509, Reward: 2664.157
+----------------------------------------
+Evaluation at 365000 time steps
+Average total reward over 10 episodes: 1672.997
+Total time passed: 435.25 minutes
+----------------------------------------
+Total T: 365385, Episode Num: 697, Episode T: 1000, Reward: 5112.358
+Total T: 365737, Episode Num: 698, Episode T: 352, Reward: 1691.306
+Total T: 366705, Episode Num: 699, Episode T: 968, Reward: 4600.939
+Total T: 366961, Episode Num: 700, Episode T: 256, Reward: 563.264
+Total T: 367047, Episode Num: 701, Episode T: 86, Reward: 383.402
+Total T: 368047, Episode Num: 702, Episode T: 1000, Reward: 1101.420
+Total T: 368144, Episode Num: 703, Episode T: 97, Reward: 461.418
+Total T: 368324, Episode Num: 704, Episode T: 180, Reward: 871.177
+Total T: 368543, Episode Num: 705, Episode T: 219, Reward: 1071.861
+Total T: 369543, Episode Num: 706, Episode T: 1000, Reward: 5311.640
+----------------------------------------
+Evaluation at 370000 time steps
+Average total reward over 10 episodes: 1767.759
+Total time passed: 441.1 minutes
+----------------------------------------
+Total T: 370045, Episode Num: 707, Episode T: 502, Reward: 2553.847
+Total T: 371045, Episode Num: 708, Episode T: 1000, Reward: 1100.721
+Total T: 371960, Episode Num: 709, Episode T: 915, Reward: 4829.258
+Total T: 372389, Episode Num: 710, Episode T: 429, Reward: 2292.760
+Total T: 372434, Episode Num: 711, Episode T: 45, Reward: 174.909
+Total T: 372920, Episode Num: 712, Episode T: 486, Reward: 2549.692
+Total T: 373274, Episode Num: 713, Episode T: 354, Reward: 1684.201
+Total T: 373517, Episode Num: 714, Episode T: 243, Reward: 1285.635
+Total T: 373944, Episode Num: 715, Episode T: 427, Reward: 2292.803
+Total T: 374944, Episode Num: 716, Episode T: 1000, Reward: 1106.794
+----------------------------------------
+Evaluation at 375000 time steps
+Average total reward over 10 episodes: 2975.263
+Total time passed: 447.02 minutes
+----------------------------------------
+Total T: 375243, Episode Num: 717, Episode T: 299, Reward: 1567.994
+Total T: 376243, Episode Num: 718, Episode T: 1000, Reward: 3202.014
+Total T: 376746, Episode Num: 719, Episode T: 503, Reward: 2437.123
+Total T: 377650, Episode Num: 720, Episode T: 904, Reward: 4838.053
+Total T: 377807, Episode Num: 721, Episode T: 157, Reward: 738.406
+Total T: 377943, Episode Num: 722, Episode T: 136, Reward: 631.722
+Total T: 378581, Episode Num: 723, Episode T: 638, Reward: 3490.789
+Total T: 378644, Episode Num: 724, Episode T: 63, Reward: 214.403
+Total T: 378832, Episode Num: 725, Episode T: 188, Reward: 893.039
+Total T: 379311, Episode Num: 726, Episode T: 479, Reward: 2565.947
+Total T: 379789, Episode Num: 727, Episode T: 478, Reward: 2514.263
+----------------------------------------
+Evaluation at 380000 time steps
+Average total reward over 10 episodes: 4482.252
+Total time passed: 452.75 minutes
+----------------------------------------
+Total T: 380057, Episode Num: 728, Episode T: 268, Reward: 1367.641
+Total T: 380679, Episode Num: 729, Episode T: 622, Reward: 3382.094
+Total T: 381433, Episode Num: 730, Episode T: 754, Reward: 3969.360
+Total T: 381934, Episode Num: 731, Episode T: 501, Reward: 2620.131
+Total T: 382934, Episode Num: 732, Episode T: 1000, Reward: 5388.157
+Total T: 382951, Episode Num: 733, Episode T: 17, Reward: 39.422
+Total T: 383473, Episode Num: 734, Episode T: 522, Reward: 2794.693
+Total T: 384473, Episode Num: 735, Episode T: 1000, Reward: 4415.040
+Total T: 384793, Episode Num: 736, Episode T: 320, Reward: 1103.279
+----------------------------------------
+Evaluation at 385000 time steps
+Average total reward over 10 episodes: 4876.176
+Total time passed: 458.58 minutes
+----------------------------------------
+Total T: 385194, Episode Num: 737, Episode T: 401, Reward: 2140.891
+Total T: 386194, Episode Num: 738, Episode T: 1000, Reward: 3024.063
+Total T: 386455, Episode Num: 739, Episode T: 261, Reward: 1345.777
+Total T: 387455, Episode Num: 740, Episode T: 1000, Reward: 3201.911
+Total T: 388455, Episode Num: 741, Episode T: 1000, Reward: 1403.188
+Total T: 388532, Episode Num: 742, Episode T: 77, Reward: 318.575
+Total T: 388645, Episode Num: 743, Episode T: 113, Reward: 424.023
+Total T: 388982, Episode Num: 744, Episode T: 337, Reward: 1703.582
+Total T: 389982, Episode Num: 745, Episode T: 1000, Reward: 4770.637
+----------------------------------------
+Evaluation at 390000 time steps
+Average total reward over 10 episodes: 4017.994
+Total time passed: 464.44 minutes
+----------------------------------------
+Total T: 390177, Episode Num: 746, Episode T: 195, Reward: 963.578
+Total T: 391177, Episode Num: 747, Episode T: 1000, Reward: 5085.429
+Total T: 391639, Episode Num: 748, Episode T: 462, Reward: 2175.179
+Total T: 391786, Episode Num: 749, Episode T: 147, Reward: 689.677
+Total T: 391836, Episode Num: 750, Episode T: 50, Reward: 217.118
+Total T: 392057, Episode Num: 751, Episode T: 221, Reward: 1155.292
+Total T: 392606, Episode Num: 752, Episode T: 549, Reward: 2825.073
+Total T: 393606, Episode Num: 753, Episode T: 1000, Reward: 1104.722
+Total T: 393738, Episode Num: 754, Episode T: 132, Reward: 613.134
+Total T: 394085, Episode Num: 755, Episode T: 347, Reward: 1811.330
+Total T: 394400, Episode Num: 756, Episode T: 315, Reward: 1663.166
+----------------------------------------
+Evaluation at 395000 time steps
+Average total reward over 10 episodes: 3804.950
+Total time passed: 470.23 minutes
+----------------------------------------
+Total T: 395400, Episode Num: 757, Episode T: 1000, Reward: 5560.604
+Total T: 395593, Episode Num: 758, Episode T: 193, Reward: 959.272
+Total T: 396593, Episode Num: 759, Episode T: 1000, Reward: 963.672
+Total T: 396938, Episode Num: 760, Episode T: 345, Reward: 1888.387
+Total T: 397639, Episode Num: 761, Episode T: 701, Reward: 3781.836
+Total T: 398291, Episode Num: 762, Episode T: 652, Reward: 3369.851
+Total T: 398749, Episode Num: 763, Episode T: 458, Reward: 2461.422
+Total T: 399749, Episode Num: 764, Episode T: 1000, Reward: 3149.193
+----------------------------------------
+Evaluation at 400000 time steps
+Average total reward over 10 episodes: 5351.840
+Total time passed: 476.15 minutes
+----------------------------------------
+Total T: 400535, Episode Num: 765, Episode T: 786, Reward: 4242.883
+Total T: 400690, Episode Num: 766, Episode T: 155, Reward: 759.397
+Total T: 401175, Episode Num: 767, Episode T: 485, Reward: 2496.108
+Total T: 402175, Episode Num: 768, Episode T: 1000, Reward: 3181.342
+Total T: 402622, Episode Num: 769, Episode T: 447, Reward: 2105.749
+Total T: 402758, Episode Num: 770, Episode T: 136, Reward: 672.155
+Total T: 403084, Episode Num: 771, Episode T: 326, Reward: 1819.588
+Total T: 403121, Episode Num: 772, Episode T: 37, Reward: 121.048
+Total T: 403218, Episode Num: 773, Episode T: 97, Reward: 393.010
+Total T: 404218, Episode Num: 774, Episode T: 1000, Reward: 1384.719
+Total T: 404549, Episode Num: 775, Episode T: 331, Reward: 1536.319
+Total T: 404643, Episode Num: 776, Episode T: 94, Reward: 392.758
+Total T: 404755, Episode Num: 777, Episode T: 112, Reward: 547.436
+----------------------------------------
+Evaluation at 405000 time steps
+Average total reward over 10 episodes: 5719.067
+Total time passed: 481.84 minutes
+----------------------------------------
+Total T: 405755, Episode Num: 778, Episode T: 1000, Reward: 3249.139
+Total T: 406755, Episode Num: 779, Episode T: 1000, Reward: 1828.399
+Total T: 407501, Episode Num: 780, Episode T: 746, Reward: 3880.019
+Total T: 407547, Episode Num: 781, Episode T: 46, Reward: 148.478
+Total T: 407651, Episode Num: 782, Episode T: 104, Reward: 400.812
+Total T: 408209, Episode Num: 783, Episode T: 558, Reward: 3002.744
+Total T: 408329, Episode Num: 784, Episode T: 120, Reward: 603.843
+Total T: 408687, Episode Num: 785, Episode T: 358, Reward: 1901.977
+Total T: 408899, Episode Num: 786, Episode T: 212, Reward: 1165.597
+Total T: 409119, Episode Num: 787, Episode T: 220, Reward: 1064.870
+----------------------------------------
+Evaluation at 410000 time steps
+Average total reward over 10 episodes: 2812.944
+Total time passed: 487.6 minutes
+----------------------------------------
+Total T: 410119, Episode Num: 788, Episode T: 1000, Reward: 951.636
+Total T: 410383, Episode Num: 789, Episode T: 264, Reward: 1381.875
+Total T: 410522, Episode Num: 790, Episode T: 139, Reward: 782.944
+Total T: 411522, Episode Num: 791, Episode T: 1000, Reward: 5477.631
+Total T: 412250, Episode Num: 792, Episode T: 728, Reward: 3900.567
+Total T: 412964, Episode Num: 793, Episode T: 714, Reward: 3931.144
+Total T: 413964, Episode Num: 794, Episode T: 1000, Reward: 1024.287
+Total T: 414964, Episode Num: 795, Episode T: 1000, Reward: 1307.201
+----------------------------------------
+Evaluation at 415000 time steps
+Average total reward over 10 episodes: 4614.181
+Total time passed: 493.42 minutes
+----------------------------------------
+Total T: 415964, Episode Num: 796, Episode T: 1000, Reward: 5406.465
+Total T: 416339, Episode Num: 797, Episode T: 375, Reward: 1853.396
+Total T: 416379, Episode Num: 798, Episode T: 40, Reward: 93.410
+Total T: 417379, Episode Num: 799, Episode T: 1000, Reward: 908.350
+Total T: 418379, Episode Num: 800, Episode T: 1000, Reward: 5258.332
+Total T: 418449, Episode Num: 801, Episode T: 70, Reward: 325.441
+Total T: 418671, Episode Num: 802, Episode T: 222, Reward: 1038.370
+Total T: 418965, Episode Num: 803, Episode T: 294, Reward: 1391.768
+Total T: 419333, Episode Num: 804, Episode T: 368, Reward: 1981.661
+Total T: 419693, Episode Num: 805, Episode T: 360, Reward: 1985.850
+----------------------------------------
+Evaluation at 420000 time steps
+Average total reward over 10 episodes: 3709.582
+Total time passed: 499.1 minutes
+----------------------------------------
+Total T: 420687, Episode Num: 806, Episode T: 994, Reward: 5232.807
+Total T: 420728, Episode Num: 807, Episode T: 41, Reward: 141.472
+Total T: 420871, Episode Num: 808, Episode T: 143, Reward: 725.803
+Total T: 421871, Episode Num: 809, Episode T: 1000, Reward: 1429.927
+Total T: 422745, Episode Num: 810, Episode T: 874, Reward: 4943.913
+Total T: 422934, Episode Num: 811, Episode T: 189, Reward: 896.924
+Total T: 423934, Episode Num: 812, Episode T: 1000, Reward: 3427.900
+Total T: 424093, Episode Num: 813, Episode T: 159, Reward: 868.333
+----------------------------------------
+Evaluation at 425000 time steps
+Average total reward over 10 episodes: 6340.173
+Total time passed: 504.88 minutes
+----------------------------------------
+Total T: 425093, Episode Num: 814, Episode T: 1000, Reward: 5509.561
+Total T: 425170, Episode Num: 815, Episode T: 77, Reward: 352.708
+Total T: 425282, Episode Num: 816, Episode T: 112, Reward: 561.977
+Total T: 426282, Episode Num: 817, Episode T: 1000, Reward: 3597.356
+Total T: 427282, Episode Num: 818, Episode T: 1000, Reward: 5563.914
+Total T: 427444, Episode Num: 819, Episode T: 162, Reward: 647.651
+Total T: 427886, Episode Num: 820, Episode T: 442, Reward: 2446.782
+Total T: 428886, Episode Num: 821, Episode T: 1000, Reward: -1411.303
+Total T: 429886, Episode Num: 822, Episode T: 1000, Reward: 1105.652
+----------------------------------------
+Evaluation at 430000 time steps
+Average total reward over 10 episodes: 5744.063
+Total time passed: 510.61 minutes
+----------------------------------------
+Total T: 430414, Episode Num: 823, Episode T: 528, Reward: 3015.960
+Total T: 430530, Episode Num: 824, Episode T: 116, Reward: 553.172
+Total T: 430562, Episode Num: 825, Episode T: 32, Reward: 134.164
+Total T: 430683, Episode Num: 826, Episode T: 121, Reward: 521.372
+Total T: 430717, Episode Num: 827, Episode T: 34, Reward: 88.596
+Total T: 430831, Episode Num: 828, Episode T: 114, Reward: 526.458
+Total T: 431343, Episode Num: 829, Episode T: 512, Reward: 2620.331
+Total T: 432173, Episode Num: 830, Episode T: 830, Reward: 4552.743
+Total T: 433173, Episode Num: 831, Episode T: 1000, Reward: 1810.875
+Total T: 433482, Episode Num: 832, Episode T: 309, Reward: 1514.496
+Total T: 433754, Episode Num: 833, Episode T: 272, Reward: 1474.426
+Total T: 433779, Episode Num: 834, Episode T: 25, Reward: 77.527
+Total T: 434167, Episode Num: 835, Episode T: 388, Reward: 2094.637
+----------------------------------------
+Evaluation at 435000 time steps
+Average total reward over 10 episodes: 4214.618
+Total time passed: 516.31 minutes
+----------------------------------------
+Total T: 435167, Episode Num: 836, Episode T: 1000, Reward: 2272.021
+Total T: 436167, Episode Num: 837, Episode T: 1000, Reward: 944.728
+Total T: 436267, Episode Num: 838, Episode T: 100, Reward: 475.137
+Total T: 437235, Episode Num: 839, Episode T: 968, Reward: 5504.516
+Total T: 437518, Episode Num: 840, Episode T: 283, Reward: 1562.254
+Total T: 438518, Episode Num: 841, Episode T: 1000, Reward: 5561.315
+Total T: 439184, Episode Num: 842, Episode T: 666, Reward: 3600.432
+----------------------------------------
+Evaluation at 440000 time steps
+Average total reward over 10 episodes: 3824.035
+Total time passed: 522.2 minutes
+----------------------------------------
+Total T: 440182, Episode Num: 843, Episode T: 998, Reward: 4691.792
+Total T: 440934, Episode Num: 844, Episode T: 752, Reward: 4213.640
+Total T: 440979, Episode Num: 845, Episode T: 45, Reward: 182.327
+Total T: 441044, Episode Num: 846, Episode T: 65, Reward: 238.308
+Total T: 442044, Episode Num: 847, Episode T: 1000, Reward: 5533.372
+Total T: 442099, Episode Num: 848, Episode T: 55, Reward: 238.737
+Total T: 442431, Episode Num: 849, Episode T: 332, Reward: 1818.822
+Total T: 443431, Episode Num: 850, Episode T: 1000, Reward: 1017.833
+Total T: 443979, Episode Num: 851, Episode T: 548, Reward: 2924.867
+Total T: 444305, Episode Num: 852, Episode T: 326, Reward: 1871.039
+----------------------------------------
+Evaluation at 445000 time steps
+Average total reward over 10 episodes: 4599.532
+Total time passed: 527.81 minutes
+----------------------------------------
+Total T: 445305, Episode Num: 853, Episode T: 1000, Reward: 5375.363
+Total T: 445385, Episode Num: 854, Episode T: 80, Reward: 387.140
+Total T: 446385, Episode Num: 855, Episode T: 1000, Reward: 1560.056
+Total T: 447385, Episode Num: 856, Episode T: 1000, Reward: 963.259
+Total T: 447688, Episode Num: 857, Episode T: 303, Reward: 1718.783
+Total T: 447838, Episode Num: 858, Episode T: 150, Reward: 835.890
+Total T: 448838, Episode Num: 859, Episode T: 1000, Reward: 1457.209
+Total T: 449099, Episode Num: 860, Episode T: 261, Reward: 1309.293
+Total T: 449138, Episode Num: 861, Episode T: 39, Reward: 112.570
+Total T: 449360, Episode Num: 862, Episode T: 222, Reward: 1207.307
+----------------------------------------
+Evaluation at 450000 time steps
+Average total reward over 10 episodes: 3351.796
+Total time passed: 533.51 minutes
+----------------------------------------
+Total T: 450214, Episode Num: 863, Episode T: 854, Reward: 4703.279
+Total T: 450481, Episode Num: 864, Episode T: 267, Reward: 604.453
+Total T: 450620, Episode Num: 865, Episode T: 139, Reward: 672.520
+Total T: 451620, Episode Num: 866, Episode T: 1000, Reward: 5542.169
+Total T: 452183, Episode Num: 867, Episode T: 563, Reward: 3187.838
+Total T: 452848, Episode Num: 868, Episode T: 665, Reward: 3790.610
+Total T: 453023, Episode Num: 869, Episode T: 175, Reward: 926.273
+Total T: 453102, Episode Num: 870, Episode T: 79, Reward: 432.762
+Total T: 453639, Episode Num: 871, Episode T: 537, Reward: 2911.759
+Total T: 453676, Episode Num: 872, Episode T: 37, Reward: 154.097
+Total T: 454438, Episode Num: 873, Episode T: 762, Reward: 4285.851
+----------------------------------------
+Evaluation at 455000 time steps
+Average total reward over 10 episodes: 5239.920
+Total time passed: 539.37 minutes
+----------------------------------------
+Total T: 455438, Episode Num: 874, Episode T: 1000, Reward: 5566.880
+Total T: 455457, Episode Num: 875, Episode T: 19, Reward: 44.284
+Total T: 455525, Episode Num: 876, Episode T: 68, Reward: 319.763
+Total T: 456307, Episode Num: 877, Episode T: 782, Reward: 4510.324
+Total T: 456535, Episode Num: 878, Episode T: 228, Reward: 1198.935
+Total T: 457535, Episode Num: 879, Episode T: 1000, Reward: 1600.251
+Total T: 457958, Episode Num: 880, Episode T: 423, Reward: 2332.857
+Total T: 458812, Episode Num: 881, Episode T: 854, Reward: 4698.114
+Total T: 459169, Episode Num: 882, Episode T: 357, Reward: 1934.759
+Total T: 459425, Episode Num: 883, Episode T: 256, Reward: 1348.813
+----------------------------------------
+Evaluation at 460000 time steps
+Average total reward over 10 episodes: 5607.482
+Total time passed: 545.01 minutes
+----------------------------------------
+Total T: 460425, Episode Num: 884, Episode T: 1000, Reward: 1045.233
+Total T: 460890, Episode Num: 885, Episode T: 465, Reward: 2652.758
+Total T: 461890, Episode Num: 886, Episode T: 1000, Reward: 933.185
+Total T: 461986, Episode Num: 887, Episode T: 96, Reward: 439.877
+Total T: 462119, Episode Num: 888, Episode T: 133, Reward: 560.930
+Total T: 462499, Episode Num: 889, Episode T: 380, Reward: 1961.102
+Total T: 462583, Episode Num: 890, Episode T: 84, Reward: 399.790
+Total T: 462807, Episode Num: 891, Episode T: 224, Reward: 1227.908
+Total T: 463170, Episode Num: 892, Episode T: 363, Reward: 2055.841
+Total T: 463445, Episode Num: 893, Episode T: 275, Reward: 1404.921
+Total T: 463510, Episode Num: 894, Episode T: 65, Reward: 284.915
+Total T: 463663, Episode Num: 895, Episode T: 153, Reward: 811.224
+Total T: 464663, Episode Num: 896, Episode T: 1000, Reward: 5584.502
+----------------------------------------
+Evaluation at 465000 time steps
+Average total reward over 10 episodes: 4757.924
+Total time passed: 550.74 minutes
+----------------------------------------
+Total T: 465196, Episode Num: 897, Episode T: 533, Reward: 3095.869
+Total T: 465590, Episode Num: 898, Episode T: 394, Reward: 2185.057
+Total T: 466590, Episode Num: 899, Episode T: 1000, Reward: 1790.686
+Total T: 467466, Episode Num: 900, Episode T: 876, Reward: 5140.661
+Total T: 468466, Episode Num: 901, Episode T: 1000, Reward: 1825.626
+Total T: 469466, Episode Num: 902, Episode T: 1000, Reward: 986.919
+----------------------------------------
+Evaluation at 470000 time steps
+Average total reward over 10 episodes: 3010.377
+Total time passed: 556.48 minutes
+----------------------------------------
+Total T: 470466, Episode Num: 903, Episode T: 1000, Reward: 2048.764
+Total T: 470486, Episode Num: 904, Episode T: 20, Reward: 41.268
+Total T: 471486, Episode Num: 905, Episode T: 1000, Reward: 4724.957
+Total T: 471603, Episode Num: 906, Episode T: 117, Reward: 609.173
+Total T: 472527, Episode Num: 907, Episode T: 924, Reward: 5283.097
+Total T: 473102, Episode Num: 908, Episode T: 575, Reward: 3339.072
+Total T: 473381, Episode Num: 909, Episode T: 279, Reward: 1561.452
+Total T: 474109, Episode Num: 910, Episode T: 728, Reward: 4065.795
+----------------------------------------
+Evaluation at 475000 time steps
+Average total reward over 10 episodes: 5074.076
+Total time passed: 562.06 minutes
+----------------------------------------
+Total T: 475109, Episode Num: 911, Episode T: 1000, Reward: 5389.886
+Total T: 475709, Episode Num: 912, Episode T: 600, Reward: 3407.194
+Total T: 476709, Episode Num: 913, Episode T: 1000, Reward: 5668.511
+Total T: 477709, Episode Num: 914, Episode T: 1000, Reward: 5571.764
+Total T: 477885, Episode Num: 915, Episode T: 176, Reward: 959.780
+Total T: 478885, Episode Num: 916, Episode T: 1000, Reward: 5720.941
+Total T: 478986, Episode Num: 917, Episode T: 101, Reward: 433.967
+Total T: 479913, Episode Num: 918, Episode T: 927, Reward: 4881.406
+----------------------------------------
+Evaluation at 480000 time steps
+Average total reward over 10 episodes: 2890.542
+Total time passed: 567.75 minutes
+----------------------------------------
+Total T: 480056, Episode Num: 919, Episode T: 143, Reward: 748.979
+Total T: 480134, Episode Num: 920, Episode T: 78, Reward: 412.175
+Total T: 480271, Episode Num: 921, Episode T: 137, Reward: 723.323
+Total T: 481271, Episode Num: 922, Episode T: 1000, Reward: 1774.767
+Total T: 481682, Episode Num: 923, Episode T: 411, Reward: 2325.567
+Total T: 481888, Episode Num: 924, Episode T: 206, Reward: 1123.641
+Total T: 482888, Episode Num: 925, Episode T: 1000, Reward: 5418.815
+Total T: 483118, Episode Num: 926, Episode T: 230, Reward: 1271.310
+Total T: 483543, Episode Num: 927, Episode T: 425, Reward: 2378.821
+Total T: 483734, Episode Num: 928, Episode T: 191, Reward: 1038.979
+Total T: 483956, Episode Num: 929, Episode T: 222, Reward: 1251.085
+Total T: 484238, Episode Num: 930, Episode T: 282, Reward: 1583.281
+Total T: 484785, Episode Num: 931, Episode T: 547, Reward: 2970.182
+----------------------------------------
+Evaluation at 485000 time steps
+Average total reward over 10 episodes: 5487.296
+Total time passed: 573.5 minutes
+----------------------------------------
+Total T: 485084, Episode Num: 932, Episode T: 299, Reward: 1620.211
+Total T: 485337, Episode Num: 933, Episode T: 253, Reward: 1447.470
+Total T: 485593, Episode Num: 934, Episode T: 256, Reward: 1418.837
+Total T: 485688, Episode Num: 935, Episode T: 95, Reward: 357.106
+Total T: 485773, Episode Num: 936, Episode T: 85, Reward: 464.888
+Total T: 486734, Episode Num: 937, Episode T: 961, Reward: 5544.045
+Total T: 487734, Episode Num: 938, Episode T: 1000, Reward: 3202.431
+Total T: 487822, Episode Num: 939, Episode T: 88, Reward: 490.892
+Total T: 488822, Episode Num: 940, Episode T: 1000, Reward: 1042.971
+Total T: 489579, Episode Num: 941, Episode T: 757, Reward: 4291.653
+Total T: 489851, Episode Num: 942, Episode T: 272, Reward: 1497.484
+Total T: 489901, Episode Num: 943, Episode T: 50, Reward: 185.367
+----------------------------------------
+Evaluation at 490000 time steps
+Average total reward over 10 episodes: 4104.791
+Total time passed: 579.06 minutes
+----------------------------------------
+Total T: 490029, Episode Num: 944, Episode T: 128, Reward: 351.705
+Total T: 490525, Episode Num: 945, Episode T: 496, Reward: 2801.274
+Total T: 491525, Episode Num: 946, Episode T: 1000, Reward: 5034.966
+Total T: 492525, Episode Num: 947, Episode T: 1000, Reward: 838.639
+Total T: 492779, Episode Num: 948, Episode T: 254, Reward: 1475.032
+Total T: 493779, Episode Num: 949, Episode T: 1000, Reward: 5286.603
+Total T: 493953, Episode Num: 950, Episode T: 174, Reward: 890.172
+Total T: 494276, Episode Num: 951, Episode T: 323, Reward: 1746.700
+Total T: 494640, Episode Num: 952, Episode T: 364, Reward: 2102.542
+Total T: 494772, Episode Num: 953, Episode T: 132, Reward: 674.967
+Total T: 494895, Episode Num: 954, Episode T: 123, Reward: 674.116
+----------------------------------------
+Evaluation at 495000 time steps
+Average total reward over 10 episodes: 4936.225
+Total time passed: 584.77 minutes
+----------------------------------------
+Total T: 495322, Episode Num: 955, Episode T: 427, Reward: 2448.403
+Total T: 495371, Episode Num: 956, Episode T: 49, Reward: 228.364
+Total T: 495434, Episode Num: 957, Episode T: 63, Reward: 265.653
+Total T: 495535, Episode Num: 958, Episode T: 101, Reward: 547.291
+Total T: 495728, Episode Num: 959, Episode T: 193, Reward: 1015.851
+Total T: 496728, Episode Num: 960, Episode T: 1000, Reward: 5598.209
+Total T: 496833, Episode Num: 961, Episode T: 105, Reward: 548.958
+Total T: 497115, Episode Num: 962, Episode T: 282, Reward: 1609.550
+Total T: 497310, Episode Num: 963, Episode T: 195, Reward: 1098.839
+Total T: 497435, Episode Num: 964, Episode T: 125, Reward: 489.758
+Total T: 498435, Episode Num: 965, Episode T: 1000, Reward: 5831.251
+Total T: 498528, Episode Num: 966, Episode T: 93, Reward: 511.258
+Total T: 499528, Episode Num: 967, Episode T: 1000, Reward: 5859.813
+Total T: 499834, Episode Num: 968, Episode T: 306, Reward: 1781.289
+----------------------------------------
+Evaluation at 500000 time steps
+Average total reward over 10 episodes: 5433.414
+Total time passed: 590.52 minutes
+----------------------------------------
+Total T: 500014, Episode Num: 969, Episode T: 180, Reward: 998.165
+Total T: 500328, Episode Num: 970, Episode T: 314, Reward: 1348.071
+Total T: 501328, Episode Num: 971, Episode T: 1000, Reward: 1255.797
+Total T: 501551, Episode Num: 972, Episode T: 223, Reward: 1219.389
+Total T: 501587, Episode Num: 973, Episode T: 36, Reward: 123.501
+Total T: 501850, Episode Num: 974, Episode T: 263, Reward: 1455.024
+Total T: 501979, Episode Num: 975, Episode T: 129, Reward: 763.778
+Total T: 502648, Episode Num: 976, Episode T: 669, Reward: 3931.628
+Total T: 502909, Episode Num: 977, Episode T: 261, Reward: 1406.802
+Total T: 503883, Episode Num: 978, Episode T: 974, Reward: 5379.527
+Total T: 504883, Episode Num: 979, Episode T: 1000, Reward: 5026.501
+----------------------------------------
+Evaluation at 505000 time steps
+Average total reward over 10 episodes: 4610.777
+Total time passed: 596.05 minutes
+----------------------------------------
+Total T: 505078, Episode Num: 980, Episode T: 195, Reward: 1056.071
+Total T: 505289, Episode Num: 981, Episode T: 211, Reward: 1236.822
+Total T: 506289, Episode Num: 982, Episode T: 1000, Reward: 5786.360
+Total T: 506925, Episode Num: 983, Episode T: 636, Reward: 3431.403
+Total T: 507925, Episode Num: 984, Episode T: 1000, Reward: 5929.547
+Total T: 508003, Episode Num: 985, Episode T: 78, Reward: 423.652
+Total T: 508820, Episode Num: 986, Episode T: 817, Reward: 4531.714
+Total T: 508947, Episode Num: 987, Episode T: 127, Reward: 711.396
+Total T: 509947, Episode Num: 988, Episode T: 1000, Reward: 5583.739
+----------------------------------------
+Evaluation at 510000 time steps
+Average total reward over 10 episodes: 5918.361
+Total time passed: 601.77 minutes
+----------------------------------------
+Total T: 510540, Episode Num: 989, Episode T: 593, Reward: 3462.242
+Total T: 510983, Episode Num: 990, Episode T: 443, Reward: 1562.446
+Total T: 511983, Episode Num: 991, Episode T: 1000, Reward: 5550.192
+Total T: 512054, Episode Num: 992, Episode T: 71, Reward: 307.004
+Total T: 513054, Episode Num: 993, Episode T: 1000, Reward: 4333.449
+Total T: 513099, Episode Num: 994, Episode T: 45, Reward: 189.500
+Total T: 514099, Episode Num: 995, Episode T: 1000, Reward: 5816.274
+----------------------------------------
+Evaluation at 515000 time steps
+Average total reward over 10 episodes: 3980.642
+Total time passed: 607.5 minutes
+----------------------------------------
+Total T: 515099, Episode Num: 996, Episode T: 1000, Reward: 4965.829
+Total T: 516099, Episode Num: 997, Episode T: 1000, Reward: 5688.900
+Total T: 517099, Episode Num: 998, Episode T: 1000, Reward: 2153.982
+Total T: 518099, Episode Num: 999, Episode T: 1000, Reward: 5759.439
+Total T: 519050, Episode Num: 1000, Episode T: 951, Reward: 5316.703
+----------------------------------------
+Evaluation at 520000 time steps
+Average total reward over 10 episodes: 3767.403
+Total time passed: 612.99 minutes
+----------------------------------------
+Total T: 520050, Episode Num: 1001, Episode T: 1000, Reward: 5897.713
+Total T: 520479, Episode Num: 1002, Episode T: 429, Reward: 2468.764
+Total T: 520738, Episode Num: 1003, Episode T: 259, Reward: 1371.634
+Total T: 521738, Episode Num: 1004, Episode T: 1000, Reward: 957.601
+Total T: 522433, Episode Num: 1005, Episode T: 695, Reward: 3504.117
+Total T: 522642, Episode Num: 1006, Episode T: 209, Reward: 1222.860
+Total T: 523642, Episode Num: 1007, Episode T: 1000, Reward: 1294.607
+Total T: 524642, Episode Num: 1008, Episode T: 1000, Reward: 5716.116
+----------------------------------------
+Evaluation at 525000 time steps
+Average total reward over 10 episodes: 6023.619
+Total time passed: 618.66 minutes
+----------------------------------------
+Total T: 525642, Episode Num: 1009, Episode T: 1000, Reward: 5792.369
+Total T: 526642, Episode Num: 1010, Episode T: 1000, Reward: 5611.907
+Total T: 527642, Episode Num: 1011, Episode T: 1000, Reward: 1868.274
+Total T: 528642, Episode Num: 1012, Episode T: 1000, Reward: 967.229
+Total T: 528732, Episode Num: 1013, Episode T: 90, Reward: 475.069
+Total T: 529137, Episode Num: 1014, Episode T: 405, Reward: 2274.021
+Total T: 529154, Episode Num: 1015, Episode T: 17, Reward: 36.578
+Total T: 529164, Episode Num: 1016, Episode T: 10, Reward: 13.578
+Total T: 529338, Episode Num: 1017, Episode T: 174, Reward: 989.347
+----------------------------------------
+Evaluation at 530000 time steps
+Average total reward over 10 episodes: 5491.530
+Total time passed: 624.42 minutes
+----------------------------------------
+Total T: 530338, Episode Num: 1018, Episode T: 1000, Reward: 4269.599
+Total T: 530702, Episode Num: 1019, Episode T: 364, Reward: 2129.340
+Total T: 531048, Episode Num: 1020, Episode T: 346, Reward: 1766.717
+Total T: 531755, Episode Num: 1021, Episode T: 707, Reward: 4059.690
+Total T: 532755, Episode Num: 1022, Episode T: 1000, Reward: 5592.356
+Total T: 533755, Episode Num: 1023, Episode T: 1000, Reward: 868.404
+Total T: 534755, Episode Num: 1024, Episode T: 1000, Reward: 1490.243
+----------------------------------------
+Evaluation at 535000 time steps
+Average total reward over 10 episodes: 5671.670
+Total time passed: 629.9 minutes
+----------------------------------------
+Total T: 535755, Episode Num: 1025, Episode T: 1000, Reward: 3430.219
+Total T: 535814, Episode Num: 1026, Episode T: 59, Reward: 270.450
+Total T: 536814, Episode Num: 1027, Episode T: 1000, Reward: 5696.595
+Total T: 537814, Episode Num: 1028, Episode T: 1000, Reward: 5598.875
+Total T: 538814, Episode Num: 1029, Episode T: 1000, Reward: 5438.341
+Total T: 539814, Episode Num: 1030, Episode T: 1000, Reward: 1458.912
+----------------------------------------
+Evaluation at 540000 time steps
+Average total reward over 10 episodes: 5408.336
+Total time passed: 635.53 minutes
+----------------------------------------
+Total T: 540814, Episode Num: 1031, Episode T: 1000, Reward: 5915.410
+Total T: 540825, Episode Num: 1032, Episode T: 11, Reward: 6.450
+Total T: 541083, Episode Num: 1033, Episode T: 258, Reward: 1544.340
+Total T: 541170, Episode Num: 1034, Episode T: 87, Reward: 413.849
+Total T: 542170, Episode Num: 1035, Episode T: 1000, Reward: 5723.532
+Total T: 543170, Episode Num: 1036, Episode T: 1000, Reward: 4980.950
+Total T: 544170, Episode Num: 1037, Episode T: 1000, Reward: 3822.593
+Total T: 544422, Episode Num: 1038, Episode T: 252, Reward: 1430.280
+Total T: 544455, Episode Num: 1039, Episode T: 33, Reward: 123.327
+----------------------------------------
+Evaluation at 545000 time steps
+Average total reward over 10 episodes: 4538.094
+Total time passed: 641.26 minutes
+----------------------------------------
+Total T: 545178, Episode Num: 1040, Episode T: 723, Reward: 4263.083
+Total T: 545341, Episode Num: 1041, Episode T: 163, Reward: 817.784
+Total T: 546341, Episode Num: 1042, Episode T: 1000, Reward: 1600.836
+Total T: 546739, Episode Num: 1043, Episode T: 398, Reward: 1950.917
+Total T: 547739, Episode Num: 1044, Episode T: 1000, Reward: 5917.605
+Total T: 548264, Episode Num: 1045, Episode T: 525, Reward: 3147.139
+Total T: 549264, Episode Num: 1046, Episode T: 1000, Reward: 5852.424
+Total T: 549337, Episode Num: 1047, Episode T: 73, Reward: 386.351
+Total T: 549763, Episode Num: 1048, Episode T: 426, Reward: 1974.859
+Total T: 549824, Episode Num: 1049, Episode T: 61, Reward: 280.708
+----------------------------------------
+Evaluation at 550000 time steps
+Average total reward over 10 episodes: 5375.213
+Total time passed: 646.76 minutes
+----------------------------------------
+Total T: 550824, Episode Num: 1050, Episode T: 1000, Reward: 1447.710
+Total T: 551091, Episode Num: 1051, Episode T: 267, Reward: 1664.095
+Total T: 551405, Episode Num: 1052, Episode T: 314, Reward: 1779.096
+Total T: 551664, Episode Num: 1053, Episode T: 259, Reward: 1460.551
+Total T: 551889, Episode Num: 1054, Episode T: 225, Reward: 711.367
+Total T: 552589, Episode Num: 1055, Episode T: 700, Reward: 3974.511
+Total T: 553589, Episode Num: 1056, Episode T: 1000, Reward: 5515.214
+Total T: 554409, Episode Num: 1057, Episode T: 820, Reward: 4892.850
+----------------------------------------
+Evaluation at 555000 time steps
+Average total reward over 10 episodes: 4122.540
+Total time passed: 652.33 minutes
+----------------------------------------
+Total T: 555208, Episode Num: 1058, Episode T: 799, Reward: 4304.716
+Total T: 555792, Episode Num: 1059, Episode T: 584, Reward: 3373.721
+Total T: 556222, Episode Num: 1060, Episode T: 430, Reward: 2525.017
+Total T: 557222, Episode Num: 1061, Episode T: 1000, Reward: 5327.006
+Total T: 557480, Episode Num: 1062, Episode T: 258, Reward: 1554.632
+Total T: 558245, Episode Num: 1063, Episode T: 765, Reward: 4221.846
+Total T: 558339, Episode Num: 1064, Episode T: 94, Reward: 473.895
+Total T: 559339, Episode Num: 1065, Episode T: 1000, Reward: 5444.508
+Total T: 559645, Episode Num: 1066, Episode T: 306, Reward: 1707.089
+Total T: 559677, Episode Num: 1067, Episode T: 32, Reward: 119.935
+----------------------------------------
+Evaluation at 560000 time steps
+Average total reward over 10 episodes: 5066.144
+Total time passed: 658.05 minutes
+----------------------------------------
+Total T: 560677, Episode Num: 1068, Episode T: 1000, Reward: 3699.460
+Total T: 560797, Episode Num: 1069, Episode T: 120, Reward: 713.713
+Total T: 561068, Episode Num: 1070, Episode T: 271, Reward: 1567.250
+Total T: 561318, Episode Num: 1071, Episode T: 250, Reward: 1385.848
+Total T: 562318, Episode Num: 1072, Episode T: 1000, Reward: 3405.788
+Total T: 563195, Episode Num: 1073, Episode T: 877, Reward: 4956.289
+Total T: 564194, Episode Num: 1074, Episode T: 999, Reward: 5705.178
+Total T: 564538, Episode Num: 1075, Episode T: 344, Reward: 1965.751
+Total T: 564768, Episode Num: 1076, Episode T: 230, Reward: 1398.049
+----------------------------------------
+Evaluation at 565000 time steps
+Average total reward over 10 episodes: 4917.378
+Total time passed: 663.59 minutes
+----------------------------------------
+Total T: 565112, Episode Num: 1077, Episode T: 344, Reward: 1721.043
+Total T: 565550, Episode Num: 1078, Episode T: 438, Reward: 2502.881
+Total T: 566550, Episode Num: 1079, Episode T: 1000, Reward: 5734.331
+Total T: 567550, Episode Num: 1080, Episode T: 1000, Reward: 2197.635
+Total T: 567581, Episode Num: 1081, Episode T: 31, Reward: 94.229
+Total T: 568581, Episode Num: 1082, Episode T: 1000, Reward: 5668.949
+Total T: 569581, Episode Num: 1083, Episode T: 1000, Reward: 4774.668
+----------------------------------------
+Evaluation at 570000 time steps
+Average total reward over 10 episodes: 5732.312
+Total time passed: 669.12 minutes
+----------------------------------------
+Total T: 570581, Episode Num: 1084, Episode T: 1000, Reward: 1154.306
+Total T: 571581, Episode Num: 1085, Episode T: 1000, Reward: 5902.875
+Total T: 571823, Episode Num: 1086, Episode T: 242, Reward: 1306.814
+Total T: 572823, Episode Num: 1087, Episode T: 1000, Reward: 1825.933
+Total T: 573657, Episode Num: 1088, Episode T: 834, Reward: 4974.385
+Total T: 573744, Episode Num: 1089, Episode T: 87, Reward: 470.744
+Total T: 573961, Episode Num: 1090, Episode T: 217, Reward: 1255.968
+Total T: 574026, Episode Num: 1091, Episode T: 65, Reward: 276.923
+Total T: 574117, Episode Num: 1092, Episode T: 91, Reward: 415.268
+----------------------------------------
+Evaluation at 575000 time steps
+Average total reward over 10 episodes: 6835.457
+Total time passed: 674.77 minutes
+----------------------------------------
+Total T: 575117, Episode Num: 1093, Episode T: 1000, Reward: 5848.646
+Total T: 575288, Episode Num: 1094, Episode T: 171, Reward: 861.350
+Total T: 576168, Episode Num: 1095, Episode T: 880, Reward: 4855.710
+Total T: 576949, Episode Num: 1096, Episode T: 781, Reward: 4506.992
+Total T: 577949, Episode Num: 1097, Episode T: 1000, Reward: 1035.604
+Total T: 578949, Episode Num: 1098, Episode T: 1000, Reward: 2613.684
+Total T: 579929, Episode Num: 1099, Episode T: 980, Reward: 5729.288
+----------------------------------------
+Evaluation at 580000 time steps
+Average total reward over 10 episodes: 6699.224
+Total time passed: 680.4 minutes
+----------------------------------------
+Total T: 580929, Episode Num: 1100, Episode T: 1000, Reward: 4982.233
+Total T: 581437, Episode Num: 1101, Episode T: 508, Reward: 3090.700
+Total T: 581630, Episode Num: 1102, Episode T: 193, Reward: 1051.814
+Total T: 582031, Episode Num: 1103, Episode T: 401, Reward: 2081.707
+Total T: 583031, Episode Num: 1104, Episode T: 1000, Reward: 5828.514
+Total T: 583144, Episode Num: 1105, Episode T: 113, Reward: 573.255
+Total T: 583739, Episode Num: 1106, Episode T: 595, Reward: 3565.758
+Total T: 584739, Episode Num: 1107, Episode T: 1000, Reward: 6017.702
+----------------------------------------
+Evaluation at 585000 time steps
+Average total reward over 10 episodes: 6411.471
+Total time passed: 685.87 minutes
+----------------------------------------
+Total T: 585739, Episode Num: 1108, Episode T: 1000, Reward: 1750.365
+Total T: 586739, Episode Num: 1109, Episode T: 1000, Reward: 1019.494
+Total T: 587429, Episode Num: 1110, Episode T: 690, Reward: 4070.634
+Total T: 587498, Episode Num: 1111, Episode T: 69, Reward: 328.531
+Total T: 588498, Episode Num: 1112, Episode T: 1000, Reward: 5908.235
+Total T: 588847, Episode Num: 1113, Episode T: 349, Reward: 2126.022
+Total T: 589847, Episode Num: 1114, Episode T: 1000, Reward: 5919.293
+----------------------------------------
+Evaluation at 590000 time steps
+Average total reward over 10 episodes: 6027.417
+Total time passed: 691.47 minutes
+----------------------------------------
+Total T: 590847, Episode Num: 1115, Episode T: 1000, Reward: 1196.794
+Total T: 591234, Episode Num: 1116, Episode T: 387, Reward: 2107.086
+Total T: 591698, Episode Num: 1117, Episode T: 464, Reward: 2725.390
+Total T: 592446, Episode Num: 1118, Episode T: 748, Reward: 4329.696
+Total T: 592750, Episode Num: 1119, Episode T: 304, Reward: 1711.094
+Total T: 593750, Episode Num: 1120, Episode T: 1000, Reward: 2665.256
+Total T: 593857, Episode Num: 1121, Episode T: 107, Reward: 586.912
+Total T: 594143, Episode Num: 1122, Episode T: 286, Reward: 1594.255
+Total T: 594240, Episode Num: 1123, Episode T: 97, Reward: 531.063
+----------------------------------------
+Evaluation at 595000 time steps
+Average total reward over 10 episodes: 7150.255
+Total time passed: 697.21 minutes
+----------------------------------------
+Total T: 595240, Episode Num: 1124, Episode T: 1000, Reward: 6059.971
+Total T: 596240, Episode Num: 1125, Episode T: 1000, Reward: 1105.733
+Total T: 596954, Episode Num: 1126, Episode T: 714, Reward: 3952.603
+Total T: 597932, Episode Num: 1127, Episode T: 978, Reward: 5927.875
+Total T: 598456, Episode Num: 1128, Episode T: 524, Reward: 3213.391
+Total T: 599456, Episode Num: 1129, Episode T: 1000, Reward: 2597.312
+Total T: 599665, Episode Num: 1130, Episode T: 209, Reward: 1086.705
+----------------------------------------
+Evaluation at 600000 time steps
+Average total reward over 10 episodes: 5357.857
+Total time passed: 702.62 minutes
+----------------------------------------
+Total T: 600655, Episode Num: 1131, Episode T: 990, Reward: 5994.935
+Total T: 600780, Episode Num: 1132, Episode T: 125, Reward: 715.406
+Total T: 601604, Episode Num: 1133, Episode T: 824, Reward: 4814.208
+Total T: 602348, Episode Num: 1134, Episode T: 744, Reward: 4544.285
+Total T: 602412, Episode Num: 1135, Episode T: 64, Reward: 308.198
+Total T: 603412, Episode Num: 1136, Episode T: 1000, Reward: 1410.255
+Total T: 604209, Episode Num: 1137, Episode T: 797, Reward: 4856.124
+Total T: 604365, Episode Num: 1138, Episode T: 156, Reward: 540.237
+----------------------------------------
+Evaluation at 605000 time steps
+Average total reward over 10 episodes: 6056.306
+Total time passed: 708.23 minutes
+----------------------------------------
+Total T: 605365, Episode Num: 1139, Episode T: 1000, Reward: 5899.583
+Total T: 606175, Episode Num: 1140, Episode T: 810, Reward: 4841.703
+Total T: 606315, Episode Num: 1141, Episode T: 140, Reward: 763.748
+Total T: 607002, Episode Num: 1142, Episode T: 687, Reward: 4024.830
+Total T: 607038, Episode Num: 1143, Episode T: 36, Reward: 145.516
+Total T: 607087, Episode Num: 1144, Episode T: 49, Reward: 234.494
+Total T: 608087, Episode Num: 1145, Episode T: 1000, Reward: 4019.631
+Total T: 608311, Episode Num: 1146, Episode T: 224, Reward: 1305.992
+Total T: 608586, Episode Num: 1147, Episode T: 275, Reward: 1417.989
+Total T: 608739, Episode Num: 1148, Episode T: 153, Reward: 888.701
+Total T: 608960, Episode Num: 1149, Episode T: 221, Reward: 1276.392
+Total T: 609103, Episode Num: 1150, Episode T: 143, Reward: 719.540
+----------------------------------------
+Evaluation at 610000 time steps
+Average total reward over 10 episodes: 5395.929
+Total time passed: 713.96 minutes
+----------------------------------------
+Total T: 610103, Episode Num: 1151, Episode T: 1000, Reward: 1259.879
+Total T: 611103, Episode Num: 1152, Episode T: 1000, Reward: 4088.891
+Total T: 612037, Episode Num: 1153, Episode T: 934, Reward: 4411.106
+Total T: 612201, Episode Num: 1154, Episode T: 164, Reward: 839.323
+Total T: 613201, Episode Num: 1155, Episode T: 1000, Reward: 2967.298
+Total T: 613602, Episode Num: 1156, Episode T: 401, Reward: 2314.457
+Total T: 614297, Episode Num: 1157, Episode T: 695, Reward: 4299.896
+Total T: 614789, Episode Num: 1158, Episode T: 492, Reward: 2825.798
+Total T: 614827, Episode Num: 1159, Episode T: 38, Reward: 138.250
+----------------------------------------
+Evaluation at 615000 time steps
+Average total reward over 10 episodes: 6544.889
+Total time passed: 719.37 minutes
+----------------------------------------
+Total T: 615753, Episode Num: 1160, Episode T: 926, Reward: 5720.432
+Total T: 615876, Episode Num: 1161, Episode T: 123, Reward: 636.499
+Total T: 616876, Episode Num: 1162, Episode T: 1000, Reward: 5910.065
+Total T: 617006, Episode Num: 1163, Episode T: 130, Reward: 666.486
+Total T: 617064, Episode Num: 1164, Episode T: 58, Reward: 302.830
+Total T: 617153, Episode Num: 1165, Episode T: 89, Reward: 487.160
+Total T: 618153, Episode Num: 1166, Episode T: 1000, Reward: 4209.275
+Total T: 618324, Episode Num: 1167, Episode T: 171, Reward: 871.234
+Total T: 619324, Episode Num: 1168, Episode T: 1000, Reward: 1070.499
+----------------------------------------
+Evaluation at 620000 time steps
+Average total reward over 10 episodes: 5597.312
+Total time passed: 724.92 minutes
+----------------------------------------
+Total T: 620324, Episode Num: 1169, Episode T: 1000, Reward: 5978.405
+Total T: 621324, Episode Num: 1170, Episode T: 1000, Reward: 1538.619
+Total T: 621669, Episode Num: 1171, Episode T: 345, Reward: 1914.773
+Total T: 622669, Episode Num: 1172, Episode T: 1000, Reward: 5976.282
+Total T: 623669, Episode Num: 1173, Episode T: 1000, Reward: 5951.066
+Total T: 624351, Episode Num: 1174, Episode T: 682, Reward: 3804.863
+----------------------------------------
+Evaluation at 625000 time steps
+Average total reward over 10 episodes: 6837.512
+Total time passed: 730.63 minutes
+----------------------------------------
+Total T: 625351, Episode Num: 1175, Episode T: 1000, Reward: 1074.117
+Total T: 625564, Episode Num: 1176, Episode T: 213, Reward: 1211.033
+Total T: 625659, Episode Num: 1177, Episode T: 95, Reward: 493.777
+Total T: 626139, Episode Num: 1178, Episode T: 480, Reward: 2765.670
+Total T: 627139, Episode Num: 1179, Episode T: 1000, Reward: 6196.718
+Total T: 628139, Episode Num: 1180, Episode T: 1000, Reward: 6094.577
+Total T: 629139, Episode Num: 1181, Episode T: 1000, Reward: 6140.488
+----------------------------------------
+Evaluation at 630000 time steps
+Average total reward over 10 episodes: 6087.485
+Total time passed: 736.12 minutes
+----------------------------------------
+Total T: 630139, Episode Num: 1182, Episode T: 1000, Reward: 2411.626
+Total T: 630957, Episode Num: 1183, Episode T: 818, Reward: 4562.411
+Total T: 631957, Episode Num: 1184, Episode T: 1000, Reward: 6305.264
+Total T: 632065, Episode Num: 1185, Episode T: 108, Reward: 563.326
+Total T: 632406, Episode Num: 1186, Episode T: 341, Reward: 1940.160
+Total T: 632778, Episode Num: 1187, Episode T: 372, Reward: 2164.250
+Total T: 633778, Episode Num: 1188, Episode T: 1000, Reward: 6364.224
+Total T: 633868, Episode Num: 1189, Episode T: 90, Reward: 432.874
+Total T: 633899, Episode Num: 1190, Episode T: 31, Reward: 86.331
+Total T: 634415, Episode Num: 1191, Episode T: 516, Reward: 2968.242
+----------------------------------------
+Evaluation at 635000 time steps
+Average total reward over 10 episodes: 5802.694
+Total time passed: 741.59 minutes
+----------------------------------------
+Total T: 635110, Episode Num: 1192, Episode T: 695, Reward: 4499.174
+Total T: 636110, Episode Num: 1193, Episode T: 1000, Reward: 1806.681
+Total T: 637110, Episode Num: 1194, Episode T: 1000, Reward: 5814.863
+Total T: 637553, Episode Num: 1195, Episode T: 443, Reward: 2570.274
+Total T: 638110, Episode Num: 1196, Episode T: 557, Reward: 2486.799
+Total T: 638794, Episode Num: 1197, Episode T: 684, Reward: 3978.587
+Total T: 639118, Episode Num: 1198, Episode T: 324, Reward: 2036.564
+Total T: 639665, Episode Num: 1199, Episode T: 547, Reward: 3219.974
+Total T: 639999, Episode Num: 1200, Episode T: 334, Reward: 1923.381
+----------------------------------------
+Evaluation at 640000 time steps
+Average total reward over 10 episodes: 2310.067
+Total time passed: 747.2 minutes
+----------------------------------------
+Total T: 640999, Episode Num: 1201, Episode T: 1000, Reward: 6044.817
+Total T: 641213, Episode Num: 1202, Episode T: 214, Reward: 1161.639
+Total T: 641323, Episode Num: 1203, Episode T: 110, Reward: 629.045
+Total T: 642316, Episode Num: 1204, Episode T: 993, Reward: 5966.389
+Total T: 643316, Episode Num: 1205, Episode T: 1000, Reward: 5664.679
+Total T: 643737, Episode Num: 1206, Episode T: 421, Reward: 2460.672
+Total T: 644105, Episode Num: 1207, Episode T: 368, Reward: 1761.227
+Total T: 644797, Episode Num: 1208, Episode T: 692, Reward: 4237.869
+----------------------------------------
+Evaluation at 645000 time steps
+Average total reward over 10 episodes: 4384.941
+Total time passed: 752.77 minutes
+----------------------------------------
+Total T: 645159, Episode Num: 1209, Episode T: 362, Reward: 2293.852
+Total T: 646159, Episode Num: 1210, Episode T: 1000, Reward: 1262.084
+Total T: 647159, Episode Num: 1211, Episode T: 1000, Reward: 2022.940
+Total T: 647592, Episode Num: 1212, Episode T: 433, Reward: 2577.163
+Total T: 648339, Episode Num: 1213, Episode T: 747, Reward: 4793.157
+Total T: 649339, Episode Num: 1214, Episode T: 1000, Reward: 6000.775
+----------------------------------------
+Evaluation at 650000 time steps
+Average total reward over 10 episodes: 5696.680
+Total time passed: 758.19 minutes
+----------------------------------------
+Total T: 650339, Episode Num: 1215, Episode T: 1000, Reward: 1047.462
+Total T: 650423, Episode Num: 1216, Episode T: 84, Reward: 353.830
+Total T: 650644, Episode Num: 1217, Episode T: 221, Reward: 1264.424
+Total T: 651396, Episode Num: 1218, Episode T: 752, Reward: 4628.308
+Total T: 652396, Episode Num: 1219, Episode T: 1000, Reward: 6211.987
+Total T: 653396, Episode Num: 1220, Episode T: 1000, Reward: 6258.850
+Total T: 653510, Episode Num: 1221, Episode T: 114, Reward: 594.809
+Total T: 654510, Episode Num: 1222, Episode T: 1000, Reward: 4019.361
+Total T: 654530, Episode Num: 1223, Episode T: 20, Reward: 26.964
+----------------------------------------
+Evaluation at 655000 time steps
+Average total reward over 10 episodes: 2010.603
+Total time passed: 763.78 minutes
+----------------------------------------
+Total T: 655530, Episode Num: 1224, Episode T: 1000, Reward: 6164.696
+Total T: 656530, Episode Num: 1225, Episode T: 1000, Reward: 5808.300
+Total T: 657123, Episode Num: 1226, Episode T: 593, Reward: 3643.881
+Total T: 657544, Episode Num: 1227, Episode T: 421, Reward: 2451.771
+Total T: 657689, Episode Num: 1228, Episode T: 145, Reward: 852.157
+Total T: 658689, Episode Num: 1229, Episode T: 1000, Reward: 5555.039
+Total T: 658786, Episode Num: 1230, Episode T: 97, Reward: 420.100
+Total T: 658868, Episode Num: 1231, Episode T: 82, Reward: 450.983
+Total T: 659074, Episode Num: 1232, Episode T: 206, Reward: 1192.771
+----------------------------------------
+Evaluation at 660000 time steps
+Average total reward over 10 episodes: 6639.143
+Total time passed: 769.45 minutes
+----------------------------------------
+Total T: 660074, Episode Num: 1233, Episode T: 1000, Reward: 6154.619
+Total T: 660387, Episode Num: 1234, Episode T: 313, Reward: 1787.875
+Total T: 661387, Episode Num: 1235, Episode T: 1000, Reward: 5730.180
+Total T: 661711, Episode Num: 1236, Episode T: 324, Reward: 1872.734
+Total T: 662711, Episode Num: 1237, Episode T: 1000, Reward: 6325.972
+Total T: 663711, Episode Num: 1238, Episode T: 1000, Reward: 1739.799
+Total T: 663912, Episode Num: 1239, Episode T: 201, Reward: 1252.673
+Total T: 664772, Episode Num: 1240, Episode T: 860, Reward: 5341.788
+Total T: 664945, Episode Num: 1241, Episode T: 173, Reward: 1115.632
+----------------------------------------
+Evaluation at 665000 time steps
+Average total reward over 10 episodes: 2439.505
+Total time passed: 774.8 minutes
+----------------------------------------
+Total T: 665491, Episode Num: 1242, Episode T: 546, Reward: 3250.804
+Total T: 666491, Episode Num: 1243, Episode T: 1000, Reward: 6294.021
+Total T: 667044, Episode Num: 1244, Episode T: 553, Reward: 3544.987
+Total T: 667983, Episode Num: 1245, Episode T: 939, Reward: 5745.785
+Total T: 668018, Episode Num: 1246, Episode T: 35, Reward: 105.596
+Total T: 668440, Episode Num: 1247, Episode T: 422, Reward: 2717.407
+Total T: 668945, Episode Num: 1248, Episode T: 505, Reward: 3093.770
+Total T: 669308, Episode Num: 1249, Episode T: 363, Reward: 1968.280
+Total T: 669463, Episode Num: 1250, Episode T: 155, Reward: 857.204
+Total T: 669636, Episode Num: 1251, Episode T: 173, Reward: 562.900
+Total T: 669682, Episode Num: 1252, Episode T: 46, Reward: 208.901
+Total T: 669794, Episode Num: 1253, Episode T: 112, Reward: 629.033
+Total T: 669995, Episode Num: 1254, Episode T: 201, Reward: 1185.241
+----------------------------------------
+Evaluation at 670000 time steps
+Average total reward over 10 episodes: 3315.093
+Total time passed: 780.33 minutes
+----------------------------------------
+Total T: 670776, Episode Num: 1255, Episode T: 781, Reward: 5075.169
+Total T: 670800, Episode Num: 1256, Episode T: 24, Reward: 75.536
+Total T: 671703, Episode Num: 1257, Episode T: 903, Reward: 5644.112
+Total T: 672703, Episode Num: 1258, Episode T: 1000, Reward: 1721.711
+Total T: 673652, Episode Num: 1259, Episode T: 949, Reward: 5896.059
+Total T: 673832, Episode Num: 1260, Episode T: 180, Reward: 1047.183
+Total T: 674210, Episode Num: 1261, Episode T: 378, Reward: 2209.557
+----------------------------------------
+Evaluation at 675000 time steps
+Average total reward over 10 episodes: 6195.025
+Total time passed: 786.03 minutes
+----------------------------------------
+Total T: 675210, Episode Num: 1262, Episode T: 1000, Reward: 6451.329
+Total T: 676210, Episode Num: 1263, Episode T: 1000, Reward: 6455.025
+Total T: 677013, Episode Num: 1264, Episode T: 803, Reward: 4845.361
+Total T: 678013, Episode Num: 1265, Episode T: 1000, Reward: 6237.687
+Total T: 678607, Episode Num: 1266, Episode T: 594, Reward: 3652.264
+Total T: 678693, Episode Num: 1267, Episode T: 86, Reward: 234.471
+Total T: 679198, Episode Num: 1268, Episode T: 505, Reward: 3122.256
+----------------------------------------
+Evaluation at 680000 time steps
+Average total reward over 10 episodes: 4336.533
+Total time passed: 791.45 minutes
+----------------------------------------
+Total T: 680198, Episode Num: 1269, Episode T: 1000, Reward: 6360.351
+Total T: 681112, Episode Num: 1270, Episode T: 914, Reward: 5546.549
+Total T: 682112, Episode Num: 1271, Episode T: 1000, Reward: 6289.024
+Total T: 682724, Episode Num: 1272, Episode T: 612, Reward: 3946.292
+Total T: 683392, Episode Num: 1273, Episode T: 668, Reward: 4045.706
+Total T: 683697, Episode Num: 1274, Episode T: 305, Reward: 1743.128
+Total T: 684697, Episode Num: 1275, Episode T: 1000, Reward: 5568.890
+----------------------------------------
+Evaluation at 685000 time steps
+Average total reward over 10 episodes: 4002.688
+Total time passed: 796.91 minutes
+----------------------------------------
+Total T: 685697, Episode Num: 1276, Episode T: 1000, Reward: 6321.044
+Total T: 686413, Episode Num: 1277, Episode T: 716, Reward: 4450.253
+Total T: 687083, Episode Num: 1278, Episode T: 670, Reward: 4081.116
+Total T: 687533, Episode Num: 1279, Episode T: 450, Reward: 2852.660
+Total T: 688118, Episode Num: 1280, Episode T: 585, Reward: 3579.507
+Total T: 689118, Episode Num: 1281, Episode T: 1000, Reward: 4022.325
+Total T: 689423, Episode Num: 1282, Episode T: 305, Reward: 1763.251
+Total T: 689450, Episode Num: 1283, Episode T: 27, Reward: 83.237
+----------------------------------------
+Evaluation at 690000 time steps
+Average total reward over 10 episodes: 3716.815
+Total time passed: 802.54 minutes
+----------------------------------------
+Total T: 690450, Episode Num: 1284, Episode T: 1000, Reward: 5730.837
+Total T: 691450, Episode Num: 1285, Episode T: 1000, Reward: 6390.888
+Total T: 692079, Episode Num: 1286, Episode T: 629, Reward: 4046.142
+Total T: 692622, Episode Num: 1287, Episode T: 543, Reward: 3165.836
+Total T: 692753, Episode Num: 1288, Episode T: 131, Reward: 767.944
+Total T: 693400, Episode Num: 1289, Episode T: 647, Reward: 4246.297
+Total T: 693635, Episode Num: 1290, Episode T: 235, Reward: 1374.462
+Total T: 693972, Episode Num: 1291, Episode T: 337, Reward: 2009.645
+Total T: 694280, Episode Num: 1292, Episode T: 308, Reward: 1915.713
+----------------------------------------
+Evaluation at 695000 time steps
+Average total reward over 10 episodes: 6152.557
+Total time passed: 808.08 minutes
+----------------------------------------
+Total T: 695280, Episode Num: 1293, Episode T: 1000, Reward: 6484.275
+Total T: 695755, Episode Num: 1294, Episode T: 475, Reward: 2985.780
+Total T: 696755, Episode Num: 1295, Episode T: 1000, Reward: 830.750
+Total T: 697755, Episode Num: 1296, Episode T: 1000, Reward: 6466.483
+Total T: 698755, Episode Num: 1297, Episode T: 1000, Reward: 6684.597
+Total T: 699755, Episode Num: 1298, Episode T: 1000, Reward: 2152.493
+----------------------------------------
+Evaluation at 700000 time steps
+Average total reward over 10 episodes: 4997.449
+Total time passed: 813.51 minutes
+----------------------------------------
+Total T: 700243, Episode Num: 1299, Episode T: 488, Reward: 2904.314
+Total T: 700434, Episode Num: 1300, Episode T: 191, Reward: 1015.911
+Total T: 701223, Episode Num: 1301, Episode T: 789, Reward: 4907.416
+Total T: 702223, Episode Num: 1302, Episode T: 1000, Reward: 1281.671
+Total T: 702409, Episode Num: 1303, Episode T: 186, Reward: 1124.247
+Total T: 702436, Episode Num: 1304, Episode T: 27, Reward: 92.524
+Total T: 703163, Episode Num: 1305, Episode T: 727, Reward: 4447.094
+Total T: 704163, Episode Num: 1306, Episode T: 1000, Reward: 6275.906
+Total T: 704213, Episode Num: 1307, Episode T: 50, Reward: 167.509
+----------------------------------------
+Evaluation at 705000 time steps
+Average total reward over 10 episodes: 5590.494
+Total time passed: 819.21 minutes
+----------------------------------------
+Total T: 705213, Episode Num: 1308, Episode T: 1000, Reward: 6507.811
+Total T: 705600, Episode Num: 1309, Episode T: 387, Reward: 2360.668
+Total T: 706600, Episode Num: 1310, Episode T: 1000, Reward: 1264.561
+Total T: 707186, Episode Num: 1311, Episode T: 586, Reward: 3879.217
+Total T: 707250, Episode Num: 1312, Episode T: 64, Reward: 320.920
+Total T: 707641, Episode Num: 1313, Episode T: 391, Reward: 2464.183
+Total T: 708641, Episode Num: 1314, Episode T: 1000, Reward: 6431.124
+Total T: 708678, Episode Num: 1315, Episode T: 37, Reward: 146.058
+Total T: 709678, Episode Num: 1316, Episode T: 1000, Reward: 6573.637
+----------------------------------------
+Evaluation at 710000 time steps
+Average total reward over 10 episodes: 5838.135
+Total time passed: 824.91 minutes
+----------------------------------------
+Total T: 710678, Episode Num: 1317, Episode T: 1000, Reward: 2230.277
+Total T: 710762, Episode Num: 1318, Episode T: 84, Reward: 521.565
+Total T: 711015, Episode Num: 1319, Episode T: 253, Reward: 1610.603
+Total T: 711398, Episode Num: 1320, Episode T: 383, Reward: 2386.097
+Total T: 711429, Episode Num: 1321, Episode T: 31, Reward: 121.866
+Total T: 712429, Episode Num: 1322, Episode T: 1000, Reward: 1001.280
+Total T: 712485, Episode Num: 1323, Episode T: 56, Reward: 277.498
+Total T: 713485, Episode Num: 1324, Episode T: 1000, Reward: 3614.467
+Total T: 714485, Episode Num: 1325, Episode T: 1000, Reward: 6640.668
+----------------------------------------
+Evaluation at 715000 time steps
+Average total reward over 10 episodes: 5863.995
+Total time passed: 830.37 minutes
+----------------------------------------
+Total T: 715485, Episode Num: 1326, Episode T: 1000, Reward: 6218.549
+Total T: 716366, Episode Num: 1327, Episode T: 881, Reward: 5479.155
+Total T: 717288, Episode Num: 1328, Episode T: 922, Reward: 5783.223
+Total T: 718288, Episode Num: 1329, Episode T: 1000, Reward: 6101.987
+Total T: 718762, Episode Num: 1330, Episode T: 474, Reward: 2459.618
+Total T: 718952, Episode Num: 1331, Episode T: 190, Reward: 1194.768
+Total T: 719544, Episode Num: 1332, Episode T: 592, Reward: 3515.153
+Total T: 719780, Episode Num: 1333, Episode T: 236, Reward: 1489.552
+----------------------------------------
+Evaluation at 720000 time steps
+Average total reward over 10 episodes: 6226.084
+Total time passed: 836.04 minutes
+----------------------------------------
+Total T: 720780, Episode Num: 1334, Episode T: 1000, Reward: 6311.380
+Total T: 721780, Episode Num: 1335, Episode T: 1000, Reward: 2636.948
+Total T: 722587, Episode Num: 1336, Episode T: 807, Reward: 5162.200
+Total T: 723587, Episode Num: 1337, Episode T: 1000, Reward: 6032.234
+Total T: 724567, Episode Num: 1338, Episode T: 980, Reward: 6383.422
+----------------------------------------
+Evaluation at 725000 time steps
+Average total reward over 10 episodes: 4403.231
+Total time passed: 841.81 minutes
+----------------------------------------
+Total T: 725567, Episode Num: 1339, Episode T: 1000, Reward: 5544.566
+Total T: 725693, Episode Num: 1340, Episode T: 126, Reward: 790.702
+Total T: 726048, Episode Num: 1341, Episode T: 355, Reward: 2177.846
+Total T: 726501, Episode Num: 1342, Episode T: 453, Reward: 2885.556
+Total T: 727501, Episode Num: 1343, Episode T: 1000, Reward: 1224.824
+Total T: 728501, Episode Num: 1344, Episode T: 1000, Reward: 6700.410
+Total T: 729501, Episode Num: 1345, Episode T: 1000, Reward: 1927.480
+----------------------------------------
+Evaluation at 730000 time steps
+Average total reward over 10 episodes: 5954.194
+Total time passed: 847.23 minutes
+----------------------------------------
+Total T: 730501, Episode Num: 1346, Episode T: 1000, Reward: 6123.860
+Total T: 731501, Episode Num: 1347, Episode T: 1000, Reward: 948.810
+Total T: 731906, Episode Num: 1348, Episode T: 405, Reward: 2525.961
+Total T: 732496, Episode Num: 1349, Episode T: 590, Reward: 3758.863
+Total T: 732874, Episode Num: 1350, Episode T: 378, Reward: 2473.983
+Total T: 733327, Episode Num: 1351, Episode T: 453, Reward: 2659.227
+Total T: 734327, Episode Num: 1352, Episode T: 1000, Reward: 4599.894
+Total T: 734377, Episode Num: 1353, Episode T: 50, Reward: 249.065
+----------------------------------------
+Evaluation at 735000 time steps
+Average total reward over 10 episodes: 6649.067
+Total time passed: 852.83 minutes
+----------------------------------------
+Total T: 735377, Episode Num: 1354, Episode T: 1000, Reward: 6518.113
+Total T: 735741, Episode Num: 1355, Episode T: 364, Reward: 2266.635
+Total T: 736018, Episode Num: 1356, Episode T: 277, Reward: 1029.186
+Total T: 736665, Episode Num: 1357, Episode T: 647, Reward: 4166.715
+Total T: 737472, Episode Num: 1358, Episode T: 807, Reward: 5103.856
+Total T: 737534, Episode Num: 1359, Episode T: 62, Reward: 367.564
+Total T: 738534, Episode Num: 1360, Episode T: 1000, Reward: 6014.087
+Total T: 739534, Episode Num: 1361, Episode T: 1000, Reward: 1694.513
+Total T: 739910, Episode Num: 1362, Episode T: 376, Reward: 2284.462
+----------------------------------------
+Evaluation at 740000 time steps
+Average total reward over 10 episodes: 4980.817
+Total time passed: 858.46 minutes
+----------------------------------------
+Total T: 740701, Episode Num: 1363, Episode T: 791, Reward: 5065.863
+Total T: 741181, Episode Num: 1364, Episode T: 480, Reward: 3098.427
+Total T: 741450, Episode Num: 1365, Episode T: 269, Reward: 1555.703
+Total T: 742450, Episode Num: 1366, Episode T: 1000, Reward: 6541.380
+Total T: 742940, Episode Num: 1367, Episode T: 490, Reward: 3304.890
+Total T: 743940, Episode Num: 1368, Episode T: 1000, Reward: 6148.419
+Total T: 744940, Episode Num: 1369, Episode T: 1000, Reward: 1485.074
+----------------------------------------
+Evaluation at 745000 time steps
+Average total reward over 10 episodes: 5261.921
+Total time passed: 863.83 minutes
+----------------------------------------
+Total T: 745940, Episode Num: 1370, Episode T: 1000, Reward: 6372.716
+Total T: 746731, Episode Num: 1371, Episode T: 791, Reward: 5022.241
+Total T: 747731, Episode Num: 1372, Episode T: 1000, Reward: 5982.959
+Total T: 748046, Episode Num: 1373, Episode T: 315, Reward: 1895.442
+Total T: 748589, Episode Num: 1374, Episode T: 543, Reward: 3622.560
+Total T: 749589, Episode Num: 1375, Episode T: 1000, Reward: 6437.077
+Total T: 749853, Episode Num: 1376, Episode T: 264, Reward: 1654.961
+----------------------------------------
+Evaluation at 750000 time steps
+Average total reward over 10 episodes: 4304.566
+Total time passed: 869.25 minutes
+----------------------------------------
+Total T: 750146, Episode Num: 1377, Episode T: 293, Reward: 1461.871
+Total T: 750405, Episode Num: 1378, Episode T: 259, Reward: 1548.112
+Total T: 751405, Episode Num: 1379, Episode T: 1000, Reward: 6474.168
+Total T: 752187, Episode Num: 1380, Episode T: 782, Reward: 4840.035
+Total T: 753187, Episode Num: 1381, Episode T: 1000, Reward: 5796.817
+Total T: 754187, Episode Num: 1382, Episode T: 1000, Reward: 6465.023
+Total T: 754875, Episode Num: 1383, Episode T: 688, Reward: 4425.876
+Total T: 754929, Episode Num: 1384, Episode T: 54, Reward: 238.009
+----------------------------------------
+Evaluation at 755000 time steps
+Average total reward over 10 episodes: 6667.363
+Total time passed: 874.89 minutes
+----------------------------------------
+Total T: 755056, Episode Num: 1385, Episode T: 127, Reward: 602.472
+Total T: 755577, Episode Num: 1386, Episode T: 521, Reward: 3488.802
+Total T: 755804, Episode Num: 1387, Episode T: 227, Reward: 1297.559
+Total T: 756473, Episode Num: 1388, Episode T: 669, Reward: 4382.706
+Total T: 756580, Episode Num: 1389, Episode T: 107, Reward: 507.956
+Total T: 756904, Episode Num: 1390, Episode T: 324, Reward: 1979.941
+Total T: 757904, Episode Num: 1391, Episode T: 1000, Reward: 6409.688
+Total T: 758114, Episode Num: 1392, Episode T: 210, Reward: 1322.914
+Total T: 758800, Episode Num: 1393, Episode T: 686, Reward: 4356.831
+Total T: 759798, Episode Num: 1394, Episode T: 998, Reward: 6557.403
+----------------------------------------
+Evaluation at 760000 time steps
+Average total reward over 10 episodes: 6929.828
+Total time passed: 880.41 minutes
+----------------------------------------
+Total T: 760169, Episode Num: 1395, Episode T: 371, Reward: 2370.632
+Total T: 761169, Episode Num: 1396, Episode T: 1000, Reward: 6585.060
+Total T: 762169, Episode Num: 1397, Episode T: 1000, Reward: 6557.806
+Total T: 763169, Episode Num: 1398, Episode T: 1000, Reward: 6410.496
+Total T: 763668, Episode Num: 1399, Episode T: 499, Reward: 3267.324
+Total T: 764461, Episode Num: 1400, Episode T: 793, Reward: 4993.103
+----------------------------------------
+Evaluation at 765000 time steps
+Average total reward over 10 episodes: 7166.530
+Total time passed: 885.86 minutes
+----------------------------------------
+Total T: 765461, Episode Num: 1401, Episode T: 1000, Reward: 1532.194
+Total T: 765696, Episode Num: 1402, Episode T: 235, Reward: 1322.488
+Total T: 766283, Episode Num: 1403, Episode T: 587, Reward: 3674.285
+Total T: 766349, Episode Num: 1404, Episode T: 66, Reward: 368.806
+Total T: 766805, Episode Num: 1405, Episode T: 456, Reward: 3170.071
+Total T: 767805, Episode Num: 1406, Episode T: 1000, Reward: 5846.183
+Total T: 768805, Episode Num: 1407, Episode T: 1000, Reward: 2192.967
+Total T: 768953, Episode Num: 1408, Episode T: 148, Reward: 826.286
+Total T: 769765, Episode Num: 1409, Episode T: 812, Reward: 5386.943
+----------------------------------------
+Evaluation at 770000 time steps
+Average total reward over 10 episodes: 5696.485
+Total time passed: 891.71 minutes
+----------------------------------------
+Total T: 770765, Episode Num: 1410, Episode T: 1000, Reward: 6402.905
+Total T: 771765, Episode Num: 1411, Episode T: 1000, Reward: 6495.503
+Total T: 771917, Episode Num: 1412, Episode T: 152, Reward: 992.169
+Total T: 772312, Episode Num: 1413, Episode T: 395, Reward: 2486.017
+Total T: 773312, Episode Num: 1414, Episode T: 1000, Reward: 5989.951
+Total T: 774312, Episode Num: 1415, Episode T: 1000, Reward: 6388.810
+Total T: 774553, Episode Num: 1416, Episode T: 241, Reward: 1655.562
+----------------------------------------
+Evaluation at 775000 time steps
+Average total reward over 10 episodes: 5585.025
+Total time passed: 897.41 minutes
+----------------------------------------
+Total T: 775168, Episode Num: 1417, Episode T: 615, Reward: 3699.366
+Total T: 776168, Episode Num: 1418, Episode T: 1000, Reward: 5324.164
+Total T: 776531, Episode Num: 1419, Episode T: 363, Reward: 2428.263
+Total T: 777531, Episode Num: 1420, Episode T: 1000, Reward: 6542.051
+Total T: 778531, Episode Num: 1421, Episode T: 1000, Reward: 3143.226
+Total T: 779531, Episode Num: 1422, Episode T: 1000, Reward: 5423.799
+Total T: 779999, Episode Num: 1423, Episode T: 468, Reward: 2997.110
+----------------------------------------
+Evaluation at 780000 time steps
+Average total reward over 10 episodes: 5951.242
+Total time passed: 902.95 minutes
+----------------------------------------
+Total T: 780095, Episode Num: 1424, Episode T: 96, Reward: 568.278
+Total T: 781095, Episode Num: 1425, Episode T: 1000, Reward: 6762.682
+Total T: 781893, Episode Num: 1426, Episode T: 798, Reward: 4931.253
+Total T: 782267, Episode Num: 1427, Episode T: 374, Reward: 2464.187
+Total T: 783008, Episode Num: 1428, Episode T: 741, Reward: 4717.065
+Total T: 784008, Episode Num: 1429, Episode T: 1000, Reward: 2309.834
+Total T: 784402, Episode Num: 1430, Episode T: 394, Reward: 2540.851
+Total T: 784665, Episode Num: 1431, Episode T: 263, Reward: 958.972
+Total T: 784690, Episode Num: 1432, Episode T: 25, Reward: 53.550
+----------------------------------------
+Evaluation at 785000 time steps
+Average total reward over 10 episodes: 3895.243
+Total time passed: 908.73 minutes
+----------------------------------------
+Total T: 785690, Episode Num: 1433, Episode T: 1000, Reward: 4745.187
+Total T: 786690, Episode Num: 1434, Episode T: 1000, Reward: 6506.010
+Total T: 787690, Episode Num: 1435, Episode T: 1000, Reward: 6185.088
+Total T: 788580, Episode Num: 1436, Episode T: 890, Reward: 5127.743
+Total T: 789580, Episode Num: 1437, Episode T: 1000, Reward: 6841.442
+Total T: 789914, Episode Num: 1438, Episode T: 334, Reward: 2127.718
+Total T: 789954, Episode Num: 1439, Episode T: 40, Reward: 135.546
+----------------------------------------
+Evaluation at 790000 time steps
+Average total reward over 10 episodes: 6117.249
+Total time passed: 914.46 minutes
+----------------------------------------
+Total T: 790954, Episode Num: 1440, Episode T: 1000, Reward: 6791.031
+Total T: 790963, Episode Num: 1441, Episode T: 9, Reward: 9.816
+Total T: 791113, Episode Num: 1442, Episode T: 150, Reward: 920.950
+Total T: 792113, Episode Num: 1443, Episode T: 1000, Reward: 6378.079
+Total T: 792456, Episode Num: 1444, Episode T: 343, Reward: 2241.349
+Total T: 793456, Episode Num: 1445, Episode T: 1000, Reward: 6635.067
+Total T: 794456, Episode Num: 1446, Episode T: 1000, Reward: 4185.584
+----------------------------------------
+Evaluation at 795000 time steps
+Average total reward over 10 episodes: 7702.880
+Total time passed: 920.06 minutes
+----------------------------------------
+Total T: 795456, Episode Num: 1447, Episode T: 1000, Reward: 6731.560
+Total T: 796456, Episode Num: 1448, Episode T: 1000, Reward: 1584.587
+Total T: 796847, Episode Num: 1449, Episode T: 391, Reward: 2457.684
+Total T: 796913, Episode Num: 1450, Episode T: 66, Reward: 345.034
+Total T: 797913, Episode Num: 1451, Episode T: 1000, Reward: 6628.388
+Total T: 798913, Episode Num: 1452, Episode T: 1000, Reward: 736.783
+Total T: 799913, Episode Num: 1453, Episode T: 1000, Reward: 6211.032
+----------------------------------------
+Evaluation at 800000 time steps
+Average total reward over 10 episodes: 6006.075
+Total time passed: 925.82 minutes
+----------------------------------------
+Total T: 800710, Episode Num: 1454, Episode T: 797, Reward: 5228.041
+Total T: 801710, Episode Num: 1455, Episode T: 1000, Reward: 6783.144
+Total T: 802710, Episode Num: 1456, Episode T: 1000, Reward: 4454.538
+Total T: 802996, Episode Num: 1457, Episode T: 286, Reward: 1839.583
+Total T: 803186, Episode Num: 1458, Episode T: 190, Reward: 1105.394
+Total T: 803463, Episode Num: 1459, Episode T: 277, Reward: 1633.957
+Total T: 803877, Episode Num: 1460, Episode T: 414, Reward: 2558.448
+Total T: 804877, Episode Num: 1461, Episode T: 1000, Reward: 3367.095
+----------------------------------------
+Evaluation at 805000 time steps
+Average total reward over 10 episodes: 5436.482
+Total time passed: 931.63 minutes
+----------------------------------------
+Total T: 805877, Episode Num: 1462, Episode T: 1000, Reward: 6328.091
+Total T: 805940, Episode Num: 1463, Episode T: 63, Reward: 256.457
+Total T: 806940, Episode Num: 1464, Episode T: 1000, Reward: 6589.714
+Total T: 807078, Episode Num: 1465, Episode T: 138, Reward: 767.060
+Total T: 807134, Episode Num: 1466, Episode T: 56, Reward: 246.778
+Total T: 808134, Episode Num: 1467, Episode T: 1000, Reward: 1117.924
+Total T: 808745, Episode Num: 1468, Episode T: 611, Reward: 3428.511
+Total T: 809745, Episode Num: 1469, Episode T: 1000, Reward: 6453.590
+----------------------------------------
+Evaluation at 810000 time steps
+Average total reward over 10 episodes: 5990.925
+Total time passed: 937.21 minutes
+----------------------------------------
+Total T: 810745, Episode Num: 1470, Episode T: 1000, Reward: 6919.000
+Total T: 810995, Episode Num: 1471, Episode T: 250, Reward: 1648.542
+Total T: 811372, Episode Num: 1472, Episode T: 377, Reward: 2544.660
+Total T: 811778, Episode Num: 1473, Episode T: 406, Reward: 2541.524
+Total T: 812669, Episode Num: 1474, Episode T: 891, Reward: 5663.434
+Total T: 812764, Episode Num: 1475, Episode T: 95, Reward: 359.980
+Total T: 813059, Episode Num: 1476, Episode T: 295, Reward: 1926.944
+Total T: 813177, Episode Num: 1477, Episode T: 118, Reward: 665.364
+Total T: 813627, Episode Num: 1478, Episode T: 450, Reward: 2728.365
+Total T: 814021, Episode Num: 1479, Episode T: 394, Reward: 2307.777
+Total T: 814154, Episode Num: 1480, Episode T: 133, Reward: 679.540
+Total T: 814259, Episode Num: 1481, Episode T: 105, Reward: 619.526
+Total T: 814393, Episode Num: 1482, Episode T: 134, Reward: 899.585
+Total T: 814475, Episode Num: 1483, Episode T: 82, Reward: 392.061
+Total T: 814586, Episode Num: 1484, Episode T: 111, Reward: 671.809
+Total T: 814935, Episode Num: 1485, Episode T: 349, Reward: 2078.191
+----------------------------------------
+Evaluation at 815000 time steps
+Average total reward over 10 episodes: 6790.620
+Total time passed: 942.95 minutes
+----------------------------------------
+Total T: 815031, Episode Num: 1486, Episode T: 96, Reward: 552.603
+Total T: 815502, Episode Num: 1487, Episode T: 471, Reward: 3016.343
+Total T: 816430, Episode Num: 1488, Episode T: 928, Reward: 5977.726
+Total T: 816958, Episode Num: 1489, Episode T: 528, Reward: 3461.343
+Total T: 817480, Episode Num: 1490, Episode T: 522, Reward: 3405.375
+Total T: 818480, Episode Num: 1491, Episode T: 1000, Reward: 6492.949
+Total T: 819068, Episode Num: 1492, Episode T: 588, Reward: 3816.011
+Total T: 819335, Episode Num: 1493, Episode T: 267, Reward: 1580.116
+----------------------------------------
+Evaluation at 820000 time steps
+Average total reward over 10 episodes: 5507.757
+Total time passed: 948.65 minutes
+----------------------------------------
+Total T: 820335, Episode Num: 1494, Episode T: 1000, Reward: 6483.547
+Total T: 821335, Episode Num: 1495, Episode T: 1000, Reward: 4154.901
+Total T: 821559, Episode Num: 1496, Episode T: 224, Reward: 1207.176
+Total T: 822042, Episode Num: 1497, Episode T: 483, Reward: 2790.570
+Total T: 822318, Episode Num: 1498, Episode T: 276, Reward: 1615.039
+Total T: 822423, Episode Num: 1499, Episode T: 105, Reward: 607.564
+Total T: 823423, Episode Num: 1500, Episode T: 1000, Reward: 6640.870
+Total T: 823511, Episode Num: 1501, Episode T: 88, Reward: 444.396
+Total T: 823569, Episode Num: 1502, Episode T: 58, Reward: 273.396
+Total T: 823863, Episode Num: 1503, Episode T: 294, Reward: 2005.705
+Total T: 824863, Episode Num: 1504, Episode T: 1000, Reward: 5738.442
+----------------------------------------
+Evaluation at 825000 time steps
+Average total reward over 10 episodes: 6219.870
+Total time passed: 954.29 minutes
+----------------------------------------
+Total T: 825863, Episode Num: 1505, Episode T: 1000, Reward: 6693.799
+Total T: 825999, Episode Num: 1506, Episode T: 136, Reward: 750.325
+Total T: 826318, Episode Num: 1507, Episode T: 319, Reward: 2015.920
+Total T: 826592, Episode Num: 1508, Episode T: 274, Reward: 1803.418
+Total T: 827592, Episode Num: 1509, Episode T: 1000, Reward: 6509.347
+Total T: 828592, Episode Num: 1510, Episode T: 1000, Reward: 4877.263
+Total T: 829592, Episode Num: 1511, Episode T: 1000, Reward: 2123.614
+----------------------------------------
+Evaluation at 830000 time steps
+Average total reward over 10 episodes: 5761.732
+Total time passed: 959.96 minutes
+----------------------------------------
+Total T: 830592, Episode Num: 1512, Episode T: 1000, Reward: 6473.095
+Total T: 830822, Episode Num: 1513, Episode T: 230, Reward: 1391.767
+Total T: 831822, Episode Num: 1514, Episode T: 1000, Reward: 5221.559
+Total T: 832822, Episode Num: 1515, Episode T: 1000, Reward: 6651.906
+Total T: 833822, Episode Num: 1516, Episode T: 1000, Reward: 5960.457
+Total T: 834471, Episode Num: 1517, Episode T: 649, Reward: 3649.048
+Total T: 834687, Episode Num: 1518, Episode T: 216, Reward: 1410.400
+----------------------------------------
+Evaluation at 835000 time steps
+Average total reward over 10 episodes: 4462.407
+Total time passed: 965.71 minutes
+----------------------------------------
+Total T: 835339, Episode Num: 1519, Episode T: 652, Reward: 4250.168
+Total T: 835500, Episode Num: 1520, Episode T: 161, Reward: 1001.110
+Total T: 836500, Episode Num: 1521, Episode T: 1000, Reward: 6706.602
+Total T: 836871, Episode Num: 1522, Episode T: 371, Reward: 2390.582
+Total T: 837037, Episode Num: 1523, Episode T: 166, Reward: 875.203
+Total T: 837268, Episode Num: 1524, Episode T: 231, Reward: 1475.338
+Total T: 838268, Episode Num: 1525, Episode T: 1000, Reward: 1981.838
+Total T: 838794, Episode Num: 1526, Episode T: 526, Reward: 3344.692
+Total T: 839287, Episode Num: 1527, Episode T: 493, Reward: 3222.051
+Total T: 839357, Episode Num: 1528, Episode T: 70, Reward: 408.566
+Total T: 839660, Episode Num: 1529, Episode T: 303, Reward: 2008.816
+----------------------------------------
+Evaluation at 840000 time steps
+Average total reward over 10 episodes: 5748.667
+Total time passed: 971.4 minutes
+----------------------------------------
+Total T: 840660, Episode Num: 1530, Episode T: 1000, Reward: 6629.364
+Total T: 841583, Episode Num: 1531, Episode T: 923, Reward: 5970.832
+Total T: 841688, Episode Num: 1532, Episode T: 105, Reward: 655.743
+Total T: 842328, Episode Num: 1533, Episode T: 640, Reward: 4370.878
+Total T: 843328, Episode Num: 1534, Episode T: 1000, Reward: 6661.239
+Total T: 844328, Episode Num: 1535, Episode T: 1000, Reward: 6754.149
+----------------------------------------
+Evaluation at 845000 time steps
+Average total reward over 10 episodes: 5066.584
+Total time passed: 976.89 minutes
+----------------------------------------
+Total T: 845328, Episode Num: 1536, Episode T: 1000, Reward: 2269.772
+Total T: 845542, Episode Num: 1537, Episode T: 214, Reward: 1368.511
+Total T: 846542, Episode Num: 1538, Episode T: 1000, Reward: 6692.397
+Total T: 847215, Episode Num: 1539, Episode T: 673, Reward: 4437.298
+Total T: 848215, Episode Num: 1540, Episode T: 1000, Reward: 6173.613
+Total T: 849215, Episode Num: 1541, Episode T: 1000, Reward: 6723.303
+----------------------------------------
+Evaluation at 850000 time steps
+Average total reward over 10 episodes: 7721.881
+Total time passed: 982.58 minutes
+----------------------------------------
+Total T: 850012, Episode Num: 1542, Episode T: 797, Reward: 5360.103
+Total T: 851012, Episode Num: 1543, Episode T: 1000, Reward: 6766.059
+Total T: 851712, Episode Num: 1544, Episode T: 700, Reward: 4741.391
+Total T: 852280, Episode Num: 1545, Episode T: 568, Reward: 3961.398
+Total T: 852907, Episode Num: 1546, Episode T: 627, Reward: 3773.282
+Total T: 853907, Episode Num: 1547, Episode T: 1000, Reward: 6835.749
+Total T: 853936, Episode Num: 1548, Episode T: 29, Reward: 78.597
+Total T: 854335, Episode Num: 1549, Episode T: 399, Reward: 2513.562
+----------------------------------------
+Evaluation at 855000 time steps
+Average total reward over 10 episodes: 7036.637
+Total time passed: 988.1 minutes
+----------------------------------------
+Total T: 855121, Episode Num: 1550, Episode T: 786, Reward: 5334.427
+Total T: 855548, Episode Num: 1551, Episode T: 427, Reward: 2909.549
+Total T: 856548, Episode Num: 1552, Episode T: 1000, Reward: 6588.644
+Total T: 857548, Episode Num: 1553, Episode T: 1000, Reward: 5957.363
+Total T: 858548, Episode Num: 1554, Episode T: 1000, Reward: 6444.385
+Total T: 858992, Episode Num: 1555, Episode T: 444, Reward: 2900.155
+Total T: 859826, Episode Num: 1556, Episode T: 834, Reward: 5530.972
+----------------------------------------
+Evaluation at 860000 time steps
+Average total reward over 10 episodes: 6581.984
+Total time passed: 993.59 minutes
+----------------------------------------
+Total T: 860826, Episode Num: 1557, Episode T: 1000, Reward: 2646.946
+Total T: 861217, Episode Num: 1558, Episode T: 391, Reward: 2500.793
+Total T: 862217, Episode Num: 1559, Episode T: 1000, Reward: 6514.356
+Total T: 863217, Episode Num: 1560, Episode T: 1000, Reward: 6717.565
+Total T: 863874, Episode Num: 1561, Episode T: 657, Reward: 3812.008
+Total T: 864153, Episode Num: 1562, Episode T: 279, Reward: 1724.337
+Total T: 864313, Episode Num: 1563, Episode T: 160, Reward: 983.865
+Total T: 864961, Episode Num: 1564, Episode T: 648, Reward: 4232.931
+----------------------------------------
+Evaluation at 865000 time steps
+Average total reward over 10 episodes: 3406.338
+Total time passed: 999.18 minutes
+----------------------------------------
+Total T: 865961, Episode Num: 1565, Episode T: 1000, Reward: 2282.766
+Total T: 866240, Episode Num: 1566, Episode T: 279, Reward: 1915.310
+Total T: 866833, Episode Num: 1567, Episode T: 593, Reward: 3867.998
+Total T: 867552, Episode Num: 1568, Episode T: 719, Reward: 4742.799
+Total T: 868552, Episode Num: 1569, Episode T: 1000, Reward: 6593.540
+Total T: 868797, Episode Num: 1570, Episode T: 245, Reward: 1674.323
+Total T: 868817, Episode Num: 1571, Episode T: 20, Reward: 34.499
+Total T: 869467, Episode Num: 1572, Episode T: 650, Reward: 4173.204
+----------------------------------------
+Evaluation at 870000 time steps
+Average total reward over 10 episodes: 3837.715
+Total time passed: 1004.67 minutes
+----------------------------------------
+Total T: 870055, Episode Num: 1573, Episode T: 588, Reward: 3794.914
+Total T: 870459, Episode Num: 1574, Episode T: 404, Reward: 2522.979
+Total T: 870584, Episode Num: 1575, Episode T: 125, Reward: 759.133
+Total T: 870654, Episode Num: 1576, Episode T: 70, Reward: 392.907
+Total T: 870737, Episode Num: 1577, Episode T: 83, Reward: 471.737
+Total T: 871056, Episode Num: 1578, Episode T: 319, Reward: 1981.329
+Total T: 872056, Episode Num: 1579, Episode T: 1000, Reward: 6544.682
+Total T: 872304, Episode Num: 1580, Episode T: 248, Reward: 1570.851
+Total T: 873304, Episode Num: 1581, Episode T: 1000, Reward: 2566.537
+Total T: 873675, Episode Num: 1582, Episode T: 371, Reward: 2266.287
+Total T: 874337, Episode Num: 1583, Episode T: 662, Reward: 4362.078
+Total T: 874800, Episode Num: 1584, Episode T: 463, Reward: 2983.119
+----------------------------------------
+Evaluation at 875000 time steps
+Average total reward over 10 episodes: 6199.529
+Total time passed: 1010.21 minutes
+----------------------------------------
+Total T: 875219, Episode Num: 1585, Episode T: 419, Reward: 2466.041
+Total T: 876219, Episode Num: 1586, Episode T: 1000, Reward: 6767.219
+Total T: 877219, Episode Num: 1587, Episode T: 1000, Reward: 6238.256
+Total T: 877941, Episode Num: 1588, Episode T: 722, Reward: 4779.021
+Total T: 878274, Episode Num: 1589, Episode T: 333, Reward: 2255.997
+Total T: 878368, Episode Num: 1590, Episode T: 94, Reward: 580.137
+Total T: 878414, Episode Num: 1591, Episode T: 46, Reward: 187.782
+Total T: 878568, Episode Num: 1592, Episode T: 154, Reward: 943.983
+Total T: 878734, Episode Num: 1593, Episode T: 166, Reward: 1068.475
+Total T: 878851, Episode Num: 1594, Episode T: 117, Reward: 658.477
+Total T: 878985, Episode Num: 1595, Episode T: 134, Reward: 697.790
+Total T: 879455, Episode Num: 1596, Episode T: 470, Reward: 3219.216
+----------------------------------------
+Evaluation at 880000 time steps
+Average total reward over 10 episodes: 7001.660
+Total time passed: 1015.81 minutes
+----------------------------------------
+Total T: 880033, Episode Num: 1597, Episode T: 578, Reward: 3800.258
+Total T: 880287, Episode Num: 1598, Episode T: 254, Reward: 1731.662
+Total T: 880725, Episode Num: 1599, Episode T: 438, Reward: 2794.483
+Total T: 881725, Episode Num: 1600, Episode T: 1000, Reward: 5017.824
+Total T: 882104, Episode Num: 1601, Episode T: 379, Reward: 1915.643
+Total T: 882402, Episode Num: 1602, Episode T: 298, Reward: 1890.702
+Total T: 882858, Episode Num: 1603, Episode T: 456, Reward: 2852.321
+Total T: 883466, Episode Num: 1604, Episode T: 608, Reward: 3931.077
+Total T: 883538, Episode Num: 1605, Episode T: 72, Reward: 412.570
+Total T: 884538, Episode Num: 1606, Episode T: 1000, Reward: 6426.772
+Total T: 884872, Episode Num: 1607, Episode T: 334, Reward: 2299.245
+----------------------------------------
+Evaluation at 885000 time steps
+Average total reward over 10 episodes: 5449.382
+Total time passed: 1021.46 minutes
+----------------------------------------
+Total T: 885581, Episode Num: 1608, Episode T: 709, Reward: 4673.899
+Total T: 886581, Episode Num: 1609, Episode T: 1000, Reward: 6810.894
+Total T: 887581, Episode Num: 1610, Episode T: 1000, Reward: 6728.504
+Total T: 888581, Episode Num: 1611, Episode T: 1000, Reward: 6428.658
+Total T: 889581, Episode Num: 1612, Episode T: 1000, Reward: 1828.348
+----------------------------------------
+Evaluation at 890000 time steps
+Average total reward over 10 episodes: 7246.266
+Total time passed: 1027.05 minutes
+----------------------------------------
+Total T: 890581, Episode Num: 1613, Episode T: 1000, Reward: 6503.371
+Total T: 890969, Episode Num: 1614, Episode T: 388, Reward: 2593.117
+Total T: 891969, Episode Num: 1615, Episode T: 1000, Reward: 7010.442
+Total T: 892453, Episode Num: 1616, Episode T: 484, Reward: 2997.814
+Total T: 892661, Episode Num: 1617, Episode T: 208, Reward: 1376.083
+Total T: 893661, Episode Num: 1618, Episode T: 1000, Reward: 5811.646
+Total T: 894087, Episode Num: 1619, Episode T: 426, Reward: 3115.801
+Total T: 894761, Episode Num: 1620, Episode T: 674, Reward: 4114.448
+----------------------------------------
+Evaluation at 895000 time steps
+Average total reward over 10 episodes: 7125.609
+Total time passed: 1032.73 minutes
+----------------------------------------
+Total T: 895307, Episode Num: 1621, Episode T: 546, Reward: 3642.080
+Total T: 896123, Episode Num: 1622, Episode T: 816, Reward: 5649.226
+Total T: 896852, Episode Num: 1623, Episode T: 729, Reward: 4874.783
+Total T: 897852, Episode Num: 1624, Episode T: 1000, Reward: 6724.090
+Total T: 898002, Episode Num: 1625, Episode T: 150, Reward: 891.015
+Total T: 898933, Episode Num: 1626, Episode T: 931, Reward: 6251.732
+Total T: 899096, Episode Num: 1627, Episode T: 163, Reward: 1076.397
+Total T: 899119, Episode Num: 1628, Episode T: 23, Reward: 47.371
+Total T: 899473, Episode Num: 1629, Episode T: 354, Reward: 2095.482
+Total T: 899549, Episode Num: 1630, Episode T: 76, Reward: 398.534
+----------------------------------------
+Evaluation at 900000 time steps
+Average total reward over 10 episodes: 6751.300
+Total time passed: 1038.42 minutes
+----------------------------------------
+Total T: 900549, Episode Num: 1631, Episode T: 1000, Reward: 6663.431
+Total T: 901549, Episode Num: 1632, Episode T: 1000, Reward: 6746.613
+Total T: 902549, Episode Num: 1633, Episode T: 1000, Reward: 2517.963
+Total T: 903549, Episode Num: 1634, Episode T: 1000, Reward: 6715.828
+Total T: 904549, Episode Num: 1635, Episode T: 1000, Reward: 6671.569
+----------------------------------------
+Evaluation at 905000 time steps
+Average total reward over 10 episodes: 6751.497
+Total time passed: 1043.81 minutes
+----------------------------------------
+Total T: 905549, Episode Num: 1636, Episode T: 1000, Reward: 6586.348
+Total T: 906216, Episode Num: 1637, Episode T: 667, Reward: 4486.708
+Total T: 906403, Episode Num: 1638, Episode T: 187, Reward: 1175.577
+Total T: 907021, Episode Num: 1639, Episode T: 618, Reward: 4279.683
+Total T: 907724, Episode Num: 1640, Episode T: 703, Reward: 4914.515
+Total T: 908724, Episode Num: 1641, Episode T: 1000, Reward: 924.387
+Total T: 909090, Episode Num: 1642, Episode T: 366, Reward: 2417.667
+Total T: 909397, Episode Num: 1643, Episode T: 307, Reward: 2019.068
+----------------------------------------
+Evaluation at 910000 time steps
+Average total reward over 10 episodes: 4422.791
+Total time passed: 1049.33 minutes
+----------------------------------------
+Total T: 910397, Episode Num: 1644, Episode T: 1000, Reward: 6459.229
+Total T: 910786, Episode Num: 1645, Episode T: 389, Reward: 2623.164
+Total T: 911786, Episode Num: 1646, Episode T: 1000, Reward: 820.951
+Total T: 912786, Episode Num: 1647, Episode T: 1000, Reward: 6681.033
+Total T: 913786, Episode Num: 1648, Episode T: 1000, Reward: 2517.593
+Total T: 913976, Episode Num: 1649, Episode T: 190, Reward: 1129.678
+Total T: 914873, Episode Num: 1650, Episode T: 897, Reward: 5902.499
+----------------------------------------
+Evaluation at 915000 time steps
+Average total reward over 10 episodes: 5908.939
+Total time passed: 1054.98 minutes
+----------------------------------------
+Total T: 915873, Episode Num: 1651, Episode T: 1000, Reward: 6763.952
+Total T: 916873, Episode Num: 1652, Episode T: 1000, Reward: 6877.845
+Total T: 917873, Episode Num: 1653, Episode T: 1000, Reward: 4736.203
+Total T: 918858, Episode Num: 1654, Episode T: 985, Reward: 6856.626
+Total T: 919278, Episode Num: 1655, Episode T: 420, Reward: 2781.519
+Total T: 919599, Episode Num: 1656, Episode T: 321, Reward: 2029.760
+----------------------------------------
+Evaluation at 920000 time steps
+Average total reward over 10 episodes: 7054.655
+Total time passed: 1060.45 minutes
+----------------------------------------
+Total T: 920172, Episode Num: 1657, Episode T: 573, Reward: 3968.887
+Total T: 921172, Episode Num: 1658, Episode T: 1000, Reward: 6836.732
+Total T: 922172, Episode Num: 1659, Episode T: 1000, Reward: 5847.739
+Total T: 923172, Episode Num: 1660, Episode T: 1000, Reward: 6764.347
+Total T: 923424, Episode Num: 1661, Episode T: 252, Reward: 1586.014
+Total T: 924424, Episode Num: 1662, Episode T: 1000, Reward: 2112.569
+----------------------------------------
+Evaluation at 925000 time steps
+Average total reward over 10 episodes: 6200.050
+Total time passed: 1065.92 minutes
+----------------------------------------
+Total T: 925424, Episode Num: 1663, Episode T: 1000, Reward: 1281.800
+Total T: 925931, Episode Num: 1664, Episode T: 507, Reward: 3452.916
+Total T: 926931, Episode Num: 1665, Episode T: 1000, Reward: 6720.446
+Total T: 927508, Episode Num: 1666, Episode T: 577, Reward: 3875.688
+Total T: 928508, Episode Num: 1667, Episode T: 1000, Reward: 6996.383
+Total T: 929508, Episode Num: 1668, Episode T: 1000, Reward: 6811.869
+Total T: 929575, Episode Num: 1669, Episode T: 67, Reward: 317.464
+----------------------------------------
+Evaluation at 930000 time steps
+Average total reward over 10 episodes: 6766.309
+Total time passed: 1071.56 minutes
+----------------------------------------
+Total T: 930044, Episode Num: 1670, Episode T: 469, Reward: 2962.984
+Total T: 930849, Episode Num: 1671, Episode T: 805, Reward: 5521.421
+Total T: 931288, Episode Num: 1672, Episode T: 439, Reward: 2914.724
+Total T: 932288, Episode Num: 1673, Episode T: 1000, Reward: 6594.308
+Total T: 933288, Episode Num: 1674, Episode T: 1000, Reward: 6671.156
+Total T: 934244, Episode Num: 1675, Episode T: 956, Reward: 6383.478
+Total T: 934472, Episode Num: 1676, Episode T: 228, Reward: 1537.834
+----------------------------------------
+Evaluation at 935000 time steps
+Average total reward over 10 episodes: 7840.858
+Total time passed: 1077.13 minutes
+----------------------------------------
+Total T: 935472, Episode Num: 1677, Episode T: 1000, Reward: 6806.408
+Total T: 936205, Episode Num: 1678, Episode T: 733, Reward: 5040.137
+Total T: 936705, Episode Num: 1679, Episode T: 500, Reward: 3380.887
+Total T: 937099, Episode Num: 1680, Episode T: 394, Reward: 2652.408
+Total T: 937926, Episode Num: 1681, Episode T: 827, Reward: 5629.474
+Total T: 938230, Episode Num: 1682, Episode T: 304, Reward: 2033.168
+Total T: 939230, Episode Num: 1683, Episode T: 1000, Reward: 864.202
+Total T: 939655, Episode Num: 1684, Episode T: 425, Reward: 2895.910
+----------------------------------------
+Evaluation at 940000 time steps
+Average total reward over 10 episodes: 7238.104
+Total time passed: 1082.64 minutes
+----------------------------------------
+Total T: 940655, Episode Num: 1685, Episode T: 1000, Reward: 2693.615
+Total T: 941372, Episode Num: 1686, Episode T: 717, Reward: 4806.073
+Total T: 942372, Episode Num: 1687, Episode T: 1000, Reward: 1486.728
+Total T: 942427, Episode Num: 1688, Episode T: 55, Reward: 286.244
+Total T: 942706, Episode Num: 1689, Episode T: 279, Reward: 1769.557
+Total T: 943060, Episode Num: 1690, Episode T: 354, Reward: 2281.963
+Total T: 943698, Episode Num: 1691, Episode T: 638, Reward: 4220.810
+Total T: 944373, Episode Num: 1692, Episode T: 675, Reward: 4627.287
+Total T: 944740, Episode Num: 1693, Episode T: 367, Reward: 2479.944
+----------------------------------------
+Evaluation at 945000 time steps
+Average total reward over 10 episodes: 6183.065
+Total time passed: 1088.14 minutes
+----------------------------------------
+Total T: 945740, Episode Num: 1694, Episode T: 1000, Reward: 2077.610
+Total T: 945978, Episode Num: 1695, Episode T: 238, Reward: 1591.062
+Total T: 946775, Episode Num: 1696, Episode T: 797, Reward: 5203.776
+Total T: 946930, Episode Num: 1697, Episode T: 155, Reward: 976.585
+Total T: 947394, Episode Num: 1698, Episode T: 464, Reward: 3140.492
+Total T: 948394, Episode Num: 1699, Episode T: 1000, Reward: 6602.726
+Total T: 948494, Episode Num: 1700, Episode T: 100, Reward: 628.261
+Total T: 948958, Episode Num: 1701, Episode T: 464, Reward: 3063.636
+Total T: 949677, Episode Num: 1702, Episode T: 719, Reward: 4842.312
+----------------------------------------
+Evaluation at 950000 time steps
+Average total reward over 10 episodes: 5092.429
+Total time passed: 1093.89 minutes
+----------------------------------------
+Total T: 950677, Episode Num: 1703, Episode T: 1000, Reward: 7088.115
+Total T: 951677, Episode Num: 1704, Episode T: 1000, Reward: 5175.419
+Total T: 952677, Episode Num: 1705, Episode T: 1000, Reward: 1779.205
+Total T: 953097, Episode Num: 1706, Episode T: 420, Reward: 2805.733
+Total T: 953500, Episode Num: 1707, Episode T: 403, Reward: 2486.631
+Total T: 953648, Episode Num: 1708, Episode T: 148, Reward: 865.122
+Total T: 954648, Episode Num: 1709, Episode T: 1000, Reward: 3053.228
+Total T: 954895, Episode Num: 1710, Episode T: 247, Reward: 1548.366
+----------------------------------------
+Evaluation at 955000 time steps
+Average total reward over 10 episodes: 6493.992
+Total time passed: 1099.75 minutes
+----------------------------------------
+Total T: 955056, Episode Num: 1711, Episode T: 161, Reward: 1012.157
+Total T: 956056, Episode Num: 1712, Episode T: 1000, Reward: 6969.150
+Total T: 956297, Episode Num: 1713, Episode T: 241, Reward: 1568.931
+Total T: 957133, Episode Num: 1714, Episode T: 836, Reward: 5724.023
+Total T: 958133, Episode Num: 1715, Episode T: 1000, Reward: 6773.439
+Total T: 959133, Episode Num: 1716, Episode T: 1000, Reward: 6704.427
+Total T: 959163, Episode Num: 1717, Episode T: 30, Reward: 106.427
+Total T: 959989, Episode Num: 1718, Episode T: 826, Reward: 5841.247
+----------------------------------------
+Evaluation at 960000 time steps
+Average total reward over 10 episodes: 7188.534
+Total time passed: 1105.73 minutes
+----------------------------------------
+Total T: 960358, Episode Num: 1719, Episode T: 369, Reward: 2548.187
+Total T: 960475, Episode Num: 1720, Episode T: 117, Reward: 742.243
+Total T: 961475, Episode Num: 1721, Episode T: 1000, Reward: 5355.151
+Total T: 962475, Episode Num: 1722, Episode T: 1000, Reward: 6854.209
+Total T: 963475, Episode Num: 1723, Episode T: 1000, Reward: 6792.473
+Total T: 964475, Episode Num: 1724, Episode T: 1000, Reward: 1516.408
+----------------------------------------
+Evaluation at 965000 time steps
+Average total reward over 10 episodes: 6208.491
+Total time passed: 1111.7 minutes
+----------------------------------------
+Total T: 965475, Episode Num: 1725, Episode T: 1000, Reward: 6780.874
+Total T: 966475, Episode Num: 1726, Episode T: 1000, Reward: 6941.729
+Total T: 967475, Episode Num: 1727, Episode T: 1000, Reward: 7088.636
+Total T: 968475, Episode Num: 1728, Episode T: 1000, Reward: 6811.535
+Total T: 969475, Episode Num: 1729, Episode T: 1000, Reward: 6682.454
+Total T: 969545, Episode Num: 1730, Episode T: 70, Reward: 409.810
+----------------------------------------
+Evaluation at 970000 time steps
+Average total reward over 10 episodes: 6855.710
+Total time passed: 1117.66 minutes
+----------------------------------------
+Total T: 970074, Episode Num: 1731, Episode T: 529, Reward: 3648.856
+Total T: 970555, Episode Num: 1732, Episode T: 481, Reward: 3330.540
+Total T: 971555, Episode Num: 1733, Episode T: 1000, Reward: 7054.344
+Total T: 971963, Episode Num: 1734, Episode T: 408, Reward: 2757.872
+Total T: 972615, Episode Num: 1735, Episode T: 652, Reward: 4518.539
+Total T: 973615, Episode Num: 1736, Episode T: 1000, Reward: 6730.371
+Total T: 974615, Episode Num: 1737, Episode T: 1000, Reward: 4430.883
+Total T: 974691, Episode Num: 1738, Episode T: 76, Reward: 422.515
+----------------------------------------
+Evaluation at 975000 time steps
+Average total reward over 10 episodes: 8101.108
+Total time passed: 1123.54 minutes
+----------------------------------------
+Total T: 975691, Episode Num: 1739, Episode T: 1000, Reward: 6883.669
+Total T: 975900, Episode Num: 1740, Episode T: 209, Reward: 1396.390
+Total T: 976900, Episode Num: 1741, Episode T: 1000, Reward: 6815.540
+Total T: 977900, Episode Num: 1742, Episode T: 1000, Reward: 6862.804
+Total T: 978042, Episode Num: 1743, Episode T: 142, Reward: 926.816
+Total T: 978896, Episode Num: 1744, Episode T: 854, Reward: 5638.621
+Total T: 979896, Episode Num: 1745, Episode T: 1000, Reward: 7039.770
+----------------------------------------
+Evaluation at 980000 time steps
+Average total reward over 10 episodes: 5976.764
+Total time passed: 1129.41 minutes
+----------------------------------------
+Total T: 980896, Episode Num: 1746, Episode T: 1000, Reward: 6517.935
+Total T: 981207, Episode Num: 1747, Episode T: 311, Reward: 1967.533
+Total T: 981534, Episode Num: 1748, Episode T: 327, Reward: 2166.425
+Total T: 982340, Episode Num: 1749, Episode T: 806, Reward: 5576.267
+Total T: 983304, Episode Num: 1750, Episode T: 964, Reward: 6728.930
+Total T: 983329, Episode Num: 1751, Episode T: 25, Reward: 68.639
+Total T: 983805, Episode Num: 1752, Episode T: 476, Reward: 3283.193
+Total T: 984805, Episode Num: 1753, Episode T: 1000, Reward: 3108.937
+----------------------------------------
+Evaluation at 985000 time steps
+Average total reward over 10 episodes: 5773.694
+Total time passed: 1135.38 minutes
+----------------------------------------
+Total T: 985805, Episode Num: 1754, Episode T: 1000, Reward: 7121.495
+Total T: 986805, Episode Num: 1755, Episode T: 1000, Reward: 6821.855
+Total T: 987046, Episode Num: 1756, Episode T: 241, Reward: 1568.941
+Total T: 988046, Episode Num: 1757, Episode T: 1000, Reward: 7110.798
+Total T: 989046, Episode Num: 1758, Episode T: 1000, Reward: 4261.258
+Total T: 989322, Episode Num: 1759, Episode T: 276, Reward: 1784.574
+----------------------------------------
+Evaluation at 990000 time steps
+Average total reward over 10 episodes: 7307.933
+Total time passed: 1141.33 minutes
+----------------------------------------
+Total T: 990322, Episode Num: 1760, Episode T: 1000, Reward: 7008.822
+Total T: 991322, Episode Num: 1761, Episode T: 1000, Reward: 6886.046
+Total T: 992322, Episode Num: 1762, Episode T: 1000, Reward: 6125.032
+Total T: 993322, Episode Num: 1763, Episode T: 1000, Reward: 6658.308
+Total T: 993441, Episode Num: 1764, Episode T: 119, Reward: 697.234
+Total T: 993741, Episode Num: 1765, Episode T: 300, Reward: 2087.864
+Total T: 994741, Episode Num: 1766, Episode T: 1000, Reward: 6843.457
+Total T: 994950, Episode Num: 1767, Episode T: 209, Reward: 1090.343
+Total T: 994967, Episode Num: 1768, Episode T: 17, Reward: 44.254
+----------------------------------------
+Evaluation at 995000 time steps
+Average total reward over 10 episodes: 6322.029
+Total time passed: 1147.32 minutes
+----------------------------------------
+Total T: 995967, Episode Num: 1769, Episode T: 1000, Reward: 7038.459
+Total T: 996967, Episode Num: 1770, Episode T: 1000, Reward: 6562.766
+Total T: 997193, Episode Num: 1771, Episode T: 226, Reward: 1473.564
+Total T: 997969, Episode Num: 1772, Episode T: 776, Reward: 5407.806
+Total T: 998305, Episode Num: 1773, Episode T: 336, Reward: 2253.822
+Total T: 998712, Episode Num: 1774, Episode T: 407, Reward: 2716.021
+Total T: 999712, Episode Num: 1775, Episode T: 1000, Reward: 7082.387
+----------------------------------------
+Evaluation at 1000000 time steps
+Average total reward over 10 episodes: 7445.908
+Total time passed: 1153.21 minutes
+----------------------------------------
+ (wandb timing) Trial took 1153.21 minutes.

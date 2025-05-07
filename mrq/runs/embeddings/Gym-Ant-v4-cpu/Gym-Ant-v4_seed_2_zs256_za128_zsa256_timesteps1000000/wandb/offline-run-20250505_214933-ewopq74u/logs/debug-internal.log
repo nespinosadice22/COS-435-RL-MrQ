@@ -1,0 +1,16 @@
+{"time":"2025-05-05T21:49:34.101980621-04:00","level":"INFO","msg":"stream: starting","core version":"0.19.9","symlink path":"logs/embeddings/Gym-Ant-v4_seed_2_zs256_za128_zsa256_timesteps1000000/wandb/offline-run-20250505_214933-ewopq74u/logs/debug-core.log"}
+{"time":"2025-05-05T21:49:34.211183242-04:00","level":"WARN","msg":"GraphQL client is nil, skipping feature loading"}
+{"time":"2025-05-05T21:49:34.211680916-04:00","level":"INFO","msg":"created new stream","id":"ewopq74u"}
+{"time":"2025-05-05T21:49:34.211699421-04:00","level":"INFO","msg":"stream: started","id":"ewopq74u"}
+{"time":"2025-05-05T21:49:34.211763197-04:00","level":"INFO","msg":"writer: Do: started","stream_id":"ewopq74u"}
+{"time":"2025-05-05T21:49:34.211836928-04:00","level":"INFO","msg":"sender: started","stream_id":"ewopq74u"}
+{"time":"2025-05-05T21:49:34.211846413-04:00","level":"INFO","msg":"handler: started","stream_id":"ewopq74u"}
+{"time":"2025-05-05T21:49:34.215829191-04:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-05-06T13:16:04.611329344-04:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-05-06T13:16:04.612086231-04:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-05-06T13:16:04.64739-04:00","level":"INFO","msg":"handler: operation stats","stats":{}}
+{"time":"2025-05-06T13:16:04.697614487-04:00","level":"INFO","msg":"stream: closing","id":"ewopq74u"}
+{"time":"2025-05-06T13:16:04.697655763-04:00","level":"INFO","msg":"handler: closed","stream_id":"ewopq74u"}
+{"time":"2025-05-06T13:16:04.697667265-04:00","level":"INFO","msg":"writer: Close: closed","stream_id":"ewopq74u"}
+{"time":"2025-05-06T13:16:04.69767557-04:00","level":"INFO","msg":"sender: closed","stream_id":"ewopq74u"}
+{"time":"2025-05-06T13:16:04.697938803-04:00","level":"INFO","msg":"stream: closed","id":"ewopq74u"}
