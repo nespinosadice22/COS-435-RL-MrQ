@@ -67,6 +67,8 @@ class Agent:
         self.training_steps = 0
         self.wandb_log_count = 0 
 
+        self.plan_discount = 0.99 
+
     def select_action(self, state: np.array, use_exploration: bool = True):
         # Random action if buffer isn't large enough yet --> random action (done in main)
         if (self.replay_buffer.size < self.buffer_size_before_training and use_exploration):
@@ -203,7 +205,7 @@ class Agent:
                 #here we're calculating the term E(Q(s', a'))
                 Q_expectation = self.value(zsa_next) 
             #Now we can approximate it as r + gamma * (not done) * E[Q(s', a')] 
-            Q_pi = scaled_reward_pred + self.planning_discount * not_done_pred * Q_expectation 
+            Q_pi = scaled_reward_pred + self.plan_discount * not_done_pred * Q_expectation 
 
         #get policy loss and do backward update the same
         policy_loss = compute_policy_loss(Q_pi, self.pre_activ_weight, pre_activ)
