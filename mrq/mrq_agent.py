@@ -18,7 +18,6 @@ import wandb
 class Agent:
     def __init__(self, obs_shape: tuple, action_dim: int, max_action: float, pixel_obs: bool,
         discrete: bool, device: torch.device, history: int = 1, hp: Dict = {}):
-        
         #-----same as original-------
         self.name = "MR.Q"
         self.hp = Hyperparameters(**hp) 
@@ -49,7 +48,6 @@ class Agent:
         self.value = models.Value(input_dim=self.zsa_dim, hidden_dim=self.value_hdim, activation_name=self.value_activ).to(self.device)
         self.value_optimizer = torch.optim.AdamW(self.value.parameters(), lr=self.value_lr, weight_decay=self.value_wd)
         self.value_target = copy.deepcopy(self.value)
-
         #-------------------REWARDS LOGIC-----------------# 
         self.two_hot = TwoHot(self.device, self.lower, self.upper, self.num_bins)
         self.gammas = torch.zeros(1, self.Q_horizon, 1, device=self.device)
@@ -59,7 +57,6 @@ class Agent:
             discount *= self.discount
         self.discount = discount
         self.reward_scale, self.target_reward_scale = 1, 0
-
         #-------------------ENVIRONMENT PROPERTIES-----------------# 
         self.pixel_obs = pixel_obs
         self.state_shape = self.replay_buffer.state_shape
@@ -111,14 +108,10 @@ class Agent:
                 encoder_loss = self.train_encoder(state, action, next_state, reward, not_done, self.replay_buffer.env_terminates)
                 encoder_losses.append(encoder_loss)
             log_data["loss/encoder"] = torch.stack(encoder_losses).mean().item()
-            
         #------------OTHERWISE, PRETTY STANDARD Q LEARNING UPDATE-------#
         state, action, next_state, reward, not_done = self.replay_buffer.sample(self.Q_horizon, include_intermediate=False)
         state, next_state = maybe_augment_state(state, next_state, self.pixel_obs, self.pixel_augs)
-        
-        # multi -step returns
         reward, not_done = multi_step_reward(reward, not_done, self.gammas)
-
         # compute targets
         Q_target, zs, zsa = self.compute_targets(state, action, next_state, reward, not_done, self.reward_scale, self.target_reward_scale)
         # update value
@@ -199,26 +192,27 @@ class Agent:
             zs_next, reward_pred, not_done_pred = self.encoder.get_dynamics(zs, a_pi)
             #we need a scalar reward for this 
             reward_pred = self.two_hot.inverse(reward_pred)
+            scaled_reward_pred = (reward_pred * self.target_reward_scale) / self.reward_scale
             #when we get the next a from pi(zs'), we detach gradient...
             with torch.no_grad(): 
                 a_next, _ = self.policy(zs_next)
             #get zsa embedding based on that a_next
             zsa_next = self.encoder.merge_state_action(zs_next, a_next)
-            #maybe without a gradient??
+            #i think without a gradient??
             with torch.no_grad(): 
                 #here we're calculating the term E(Q(s', a'))
-                #taking min here but not above because of gradient? 
-                #torch's min returns (values, tuple) - take values? 
-                #Q_expectation = self.value(zsa_next).min(dim=1, keepdim=True).values 
                 Q_expectation = self.value(zsa_next) 
             #Now we can approximate it as r + gamma * (not done) * E[Q(s', a')] 
-            Q_pi = reward_pred + self.plan_discount * not_done_pred * Q_expectation 
+            
+            Q_pi = scaled_reward_pred + self.discount * not_done_pred * Q_expectation 
 
         #get policy loss and do backward update the same
         policy_loss = compute_policy_loss(Q_pi, self.pre_activ_weight, pre_activ)
         self.policy_optimizer.zero_grad(set_to_none=True)
         policy_loss.backward()
         self.policy_optimizer.step()
-        #I think these might be two slightly different Q_pis, but I'm not sure if it matters 
         return Q_pi, policy_loss
 
+#taking min here but not above because of gradient? 
+#torch's min returns (values, tuple) - take values? 
+#Q_expectation = self.value(zsa_next).min(dim=1, keepdim=True).values 

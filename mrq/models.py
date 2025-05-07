@@ -157,7 +157,7 @@ class Encoder(nn.Module):
     def get_dynamics(self, zs, a): 
         done_pred, next_state_pred, reward_pred = self.predict_all(zs, a) 
         not_done_pred = 1.0 - torch.sigmoid(done_pred)
-        return next_state_pred, reward_pred, done_pred
+        return next_state_pred, reward_pred, not_done_pred
 
 
 # ---------------------------------------------------------------------------#
