@@ -1,1 +1,0 @@
-{"_runtime": 35410.89371254, "_step": 1000000, "train/step": 999779, "train/episode": 1588, "train/episode_length": 692, "train/episode_reward": 4360, "_timestamp": 1745397910.2729447, "eval/step": 1000000, "eval/avg_reward": 2790, "eval/elapsed_min": 590.1277011473974}
