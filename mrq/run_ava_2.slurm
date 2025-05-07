@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --job-name=R-Atari-2
+#SBATCH --job-name=R-Alien-2
 #SBATCH --partition=gpu            
 #SBATCH --qos=gpu-medium           
 #SBATCH --nodes=1
@@ -30,5 +30,4 @@ export WANDB_MODE=offline
 #python -c "import torch; print(torch.cuda.is_available(), torch.cuda.get_device_name(0))"
 #print("Using device:", torch.cuda.get_device_name(0) if torch.cuda.is_available() else "CPU")
 
-python new_new_main.py --env Atari-Alien-v5 --seed 2  --kind repVSplan --total_timesteps 2000000 --device cuda &
-python new_new_main.py --env Atari-Frostbite-v5 --seed 2  --kind repVSplan --total_timesteps 2000000 --device cuda
+python new_new_main.py --env Atari-Alien-v5 --seed 2  --kind repVSplan --total_timesteps 2000000 --device cuda 
