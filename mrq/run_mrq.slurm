@@ -26,6 +26,7 @@ conda activate mrq_gpu
 export WANDB_API_KEY=028b65afa7cbbb082902c650f03bfd3801495a70
 export WANDB_MODE=offline
 
+
 #python -c "import torch; print(torch.cuda.is_available(), torch.cuda.get_device_name(0))"
 #print("Using device:", torch.cuda.get_device_name(0) if torch.cuda.is_available() else "CPU")
 
