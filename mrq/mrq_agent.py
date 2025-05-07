@@ -68,6 +68,7 @@ class Agent:
         self.max_action = max_action
        
         self.training_steps = 0
+        self.wandb_log_count = 0 
 
     def select_action(self, state: np.array, use_exploration: bool = True):
         # Random action if buffer isn't large enough yet --> random action (done in main)
@@ -125,15 +126,17 @@ class Agent:
         # update policy
         Q_policy, policy_loss = self.train_policy(zs)
 
-        log_data["loss/value"]  = value_loss.item()
-        log_data["loss/policy"] = policy_loss.item()
-
         # priotized buffer thing (didn't touch)
         if self.prioritized:
             priority = (Q_current - Q_target.expand(-1, 2)).abs().max(dim=1).values
             priority = priority.clamp(min=self.min_priority).pow(self.alpha)
             self.replay_buffer.update_priority(priority)
+
+        if (self.training_steps - 1) % self.target_update_freq == 0:
+            log_data["loss/value"]  = value_loss.item()
+            log_data["loss/policy"] = policy_loss.item()
         return log_data 
+   
 
     def train_encoder(self, state: torch.Tensor, action: torch.Tensor, next_state: torch.Tensor, reward: torch.Tensor, not_done: torch.Tensor, env_terminates: bool):
         batch_size = state.shape[0]
@@ -204,10 +207,10 @@ class Agent:
             #maybe without a gradient??
             with torch.no_grad(): 
                 #here we're calculating the term E(Q(s', a'))
-                #referenced cleanrl's TD3 to double check this is correct 
                 #taking min here but not above because of gradient? 
                 #torch's min returns (values, tuple) - take values? 
-                Q_expectation = self.value(zsa_next).min(dim=1, keepdim=True).values 
+                #Q_expectation = self.value(zsa_next).min(dim=1, keepdim=True).values 
+                Q_expectation = self.value(zsa_next) 
             #Now we can approximate it as r + gamma * (not done) * E[Q(s', a')] 
             Q_pi = reward_pred + self.plan_discount * not_done_pred * Q_expectation 
 
