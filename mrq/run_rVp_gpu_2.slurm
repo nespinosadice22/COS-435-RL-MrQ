@@ -1,12 +1,12 @@
 #!/bin/bash
-#SBATCH --job-name=dmc-0
+#SBATCH --job-name=dmc-0  #CHANGE ME EACH TIME 
 #SBATCH --partition=gpu            
 #SBATCH --qos=gpu-medium           
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --gres=gpu:1               
 #SBATCH --cpus-per-task=8 # increase 
-#SBATCH --mem=32G # increase 
+#SBATCH --mem=32G # increase for dmc only (use at 16 otw )
 #SBATCH --time=23:59:59
 #SBATCH --output=slurm_logs/repVSplan/slurm-%j.out
 #SBATCH --error=slurm_logs/repVSplan/slurm-%j.err
@@ -20,6 +20,7 @@ source ~/.bashrc
 # activate environment (have to make on adroit first)
 conda activate mrq_gpu 
 
+#uncomment for dmc only - also see additional things to follow in readme 
 export MUJOCO_GL=egl
 unset DISPLAY
 
@@ -31,4 +32,4 @@ export WANDB_MODE=offline
 #print("Using device:", torch.cuda.get_device_name(0) if torch.cuda.is_available() else "CPU")
 
 
-python new_new_main.py --env  Dmc-visual-ball_in_cup-catch --seed 0  --kind repVSplan --total_timesteps 2000000 --device cuda
+python new_new_main.py --env  Dmc-visual-ball_in_cup-catch --seed 0  --kind repVSplan --total_timesteps 500000 --device cuda
