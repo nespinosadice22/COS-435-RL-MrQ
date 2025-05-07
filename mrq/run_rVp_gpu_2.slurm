@@ -1,12 +1,12 @@
 #!/bin/bash
-#SBATCH --job-name=dmc-0  #CHANGE ME EACH TIME 
+#SBATCH --job-name=R-frost-0  #*******************CHANGE ME EACH TIME 
 #SBATCH --partition=gpu            
 #SBATCH --qos=gpu-medium           
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --gres=gpu:1               
-#SBATCH --cpus-per-task=8 # increase 
-#SBATCH --mem=32G # increase for dmc only (use at 16 otw )
+#SBATCH --cpus-per-task=16 # increase 
+#SBATCH --mem=32G # *************increase for dmc only (use at 16 otw )
 #SBATCH --time=23:59:59
 #SBATCH --output=slurm_logs/repVSplan/slurm-%j.out
 #SBATCH --error=slurm_logs/repVSplan/slurm-%j.err
@@ -20,9 +20,9 @@ source ~/.bashrc
 # activate environment (have to make on adroit first)
 conda activate mrq_gpu 
 
-#uncomment for dmc only - also see additional things to follow in readme 
-export MUJOCO_GL=egl
-unset DISPLAY
+#uncomment for dmc only - also see additional things to follow in readme ******************
+#export MUJOCO_GL=egl
+#unset DISPLAY
 
 export WANDB_API_KEY=028b65afa7cbbb082902c650f03bfd3801495a70
 export WANDB_MODE=offline
@@ -32,4 +32,6 @@ export WANDB_MODE=offline
 #print("Using device:", torch.cuda.get_device_name(0) if torch.cuda.is_available() else "CPU")
 
 
-python new_new_main.py --env  Dmc-visual-ball_in_cup-catch --seed 0  --kind repVSplan --total_timesteps 500000 --device cuda
+#DMC - 500K TIMESTEPS. ATARI - 2M TIMESTEPS. GYM - 1M TIMESTEPS. 
+#TO TOGGLE PLANNING ON, USE --use-planning flag at end. thats all you need - no true/false after! Will default to regular if flag is omitted. 
+python new_new_main.py --env  Atari-Frostbite-v5 --seed 0  --kind repVSplan --total_timesteps 2000000 --device cuda
