@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --job-name=rVp-ant1
+#SBATCH --job-name=ant-P-01
 #SBATCH --partition=gpu            
 #SBATCH --qos=gpu-medium           
 #SBATCH --nodes=1
@@ -31,5 +31,5 @@ export WANDB_MODE=offline
 #print("Using device:", torch.cuda.get_device_name(0) if torch.cuda.is_available() else "CPU")
 
 
-python new_new_main.py --env Gym-Ant-v4 --seed 0  --kind repVSplan --total_timesteps 200000 --device cuda --use-planning &
-python new_new_main.py --env Gym-Ant-v4 --seed 0  --kind repVSplan --total_timesteps 200000 --device cuda
+python new_new_main.py --env Gym-Ant-v4 --seed 0  --kind repVSplan --total_timesteps 1000000 --device cuda --use-planning &
+python new_new_main.py --env Gym-Ant-v4 --seed 1  --kind repVSplan --total_timesteps 1000000 --device cuda  --use-planning
