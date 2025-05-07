@@ -6,6 +6,14 @@ currently the same - we should change!
 import torch
 import torch.nn.functional as F
 
+def enforce_dataclass_type(dataclass: dataclasses.dataclass):
+    for field in dataclasses.fields(dataclass):
+        setattr(dataclass, field.name, field.type(getattr(dataclass, field.name)))
+
+
+def set_instance_vars(hp: dataclasses.dataclass, c: object):
+    for field in dataclasses.fields(hp):
+        c.__dict__[field.name] = getattr(hp, field.name)
 
 def realign(x, discrete: bool):
     return F.one_hot(x.argmax(1), x.shape[1]).float() if discrete else x.clamp(-1, 1)
