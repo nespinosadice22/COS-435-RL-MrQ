@@ -3,8 +3,8 @@
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --gres=gpu:1               
-#SBATCH --cpus-per-task=8 # increase 
-#SBATCH --mem=16G # increase 
+#SBATCH --cpus-per-task=8
+#SBATCH --mem=16G 
 #SBATCH --time=23:59:59
 #SBATCH --output=slurm_logs/repVSplan/slurm-%j.out
 #SBATCH --error=slurm_logs/repVSplan/slurm-%j.err
