@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --job-name=P-ant12
+#SBATCH --job-name=P-ant01
 #SBATCH --partition=gpu            
 #SBATCH --qos=gpu-medium           
 #SBATCH --nodes=1
