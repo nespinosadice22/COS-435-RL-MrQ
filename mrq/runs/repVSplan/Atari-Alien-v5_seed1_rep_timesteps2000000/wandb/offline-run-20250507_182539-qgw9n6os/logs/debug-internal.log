@@ -1,0 +1,16 @@
+{"time":"2025-05-07T18:25:39.497515065-04:00","level":"INFO","msg":"stream: starting","core version":"0.19.11","symlink path":"runs/repVSplan/Atari-Alien-v5_seed1_rep_timesteps2000000/wandb/offline-run-20250507_182539-qgw9n6os/logs/debug-core.log"}
+{"time":"2025-05-07T18:25:39.611536024-04:00","level":"WARN","msg":"GraphQL client is nil, skipping feature loading"}
+{"time":"2025-05-07T18:25:39.612080703-04:00","level":"INFO","msg":"created new stream","id":"qgw9n6os"}
+{"time":"2025-05-07T18:25:39.612096084-04:00","level":"INFO","msg":"stream: started","id":"qgw9n6os"}
+{"time":"2025-05-07T18:25:39.612161789-04:00","level":"INFO","msg":"writer: Do: started","stream_id":"qgw9n6os"}
+{"time":"2025-05-07T18:25:39.612176221-04:00","level":"INFO","msg":"sender: started","stream_id":"qgw9n6os"}
+{"time":"2025-05-07T18:25:39.61217807-04:00","level":"INFO","msg":"handler: started","stream_id":"qgw9n6os"}
+{"time":"2025-05-07T18:25:39.615629443-04:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-05-08T09:57:15.885118477-04:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-05-08T09:57:15.885324167-04:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-05-08T09:57:15.886230379-04:00","level":"INFO","msg":"handler: operation stats","stats":{}}
+{"time":"2025-05-08T09:57:15.889302012-04:00","level":"INFO","msg":"stream: closing","id":"qgw9n6os"}
+{"time":"2025-05-08T09:57:15.88931372-04:00","level":"INFO","msg":"handler: closed","stream_id":"qgw9n6os"}
+{"time":"2025-05-08T09:57:15.889319772-04:00","level":"INFO","msg":"writer: Close: closed","stream_id":"qgw9n6os"}
+{"time":"2025-05-08T09:57:15.889381323-04:00","level":"INFO","msg":"sender: closed","stream_id":"qgw9n6os"}
+{"time":"2025-05-08T09:57:15.889498403-04:00","level":"INFO","msg":"stream: closed","id":"qgw9n6os"}

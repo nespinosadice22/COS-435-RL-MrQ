@@ -1,0 +1,91 @@
+{
+  "os": "Linux-4.18.0-553.34.1.el8_10.x86_64-x86_64-with-glibc2.28",
+  "python": "CPython 3.9.21",
+  "startedAt": "2025-05-07T22:27:59.341832Z",
+  "args": [
+    "--env",
+    "Atari-Alien-v5",
+    "--seed",
+    "2",
+    "--kind",
+    "repVSplan",
+    "--total_timesteps",
+    "2000000",
+    "--device",
+    "cuda"
+  ],
+  "program": "/home/ak5005/COS-435-RL-MrQ/mrq/new_new_main.py",
+  "codePath": "mrq/new_new_main.py",
+  "git": {
+    "remote": "https://github.com/nespinosadice22/COS-435-RL-MrQ.git",
+    "commit": "9e500a93c65b289111721c0ed37d860be68ab5e1"
+  },
+  "root": "runs/repVSplan/Atari-Alien-v5_seed2_rep_timesteps2000000",
+  "host": "adroit-h11g2",
+  "executable": "/scratch/network/ak5005/envs/mrq_gpu/bin/python",
+  "codePathLocal": "new_new_main.py",
+  "cpu_count": 48,
+  "cpu_count_logical": 48,
+  "gpu": "NVIDIA A100-PCIE-40GB",
+  "gpu_count": 1,
+  "disk": {
+    "/": {
+      "total": "169744465920",
+      "used": "87376994304"
+    }
+  },
+  "memory": {
+    "total": "1081097805824"
+  },
+  "cpu": {
+    "count": 48,
+    "countLogical": 48
+  },
+  "gpu_nvidia": [
+    {
+      "name": "NVIDIA A100-PCIE-40GB",
+      "memoryTotal": "42949672960",
+      "architecture": "Ampere"
+    }
+  ],
+  "slurm": {
+    "cluster_name": "adroit",
+    "conf": "/etc/slurm/slurm.conf",
+    "cpus_on_node": "8",
+    "cpus_per_task": "8",
+    "gpus_on_node": "1",
+    "gtids": "0",
+    "job_account": "student",
+    "job_cpus_per_node": "8",
+    "job_end_time": "1746743273",
+    "job_gid": "1035",
+    "job_gpus": "4",
+    "job_id": "2468592",
+    "job_name": "R-Alien-2",
+    "job_nodelist": "adroit-h11g2",
+    "job_num_nodes": "1",
+    "job_partition": "gpu",
+    "job_qos": "gpu-medium",
+    "job_start_time": "1746656873",
+    "job_uid": "339356",
+    "job_user": "ak5005",
+    "jobid": "2468592",
+    "localid": "0",
+    "mem_per_node": "32768",
+    "nnodes": "1",
+    "nodeid": "0",
+    "nodelist": "adroit-h11g2",
+    "nprocs": "1",
+    "ntasks": "1",
+    "oom_kill_step": "0",
+    "procid": "0",
+    "submit_dir": "/home/ak5005/COS-435-RL-MrQ/mrq",
+    "submit_host": "adroit5",
+    "task_pid": "2729299",
+    "tasks_per_node": "1",
+    "topology_addr": "adroit-h11g2",
+    "topology_addr_pattern": "node",
+    "tres_per_task": "cpu=8"
+  },
+  "cudaVersion": "12.6"
+}

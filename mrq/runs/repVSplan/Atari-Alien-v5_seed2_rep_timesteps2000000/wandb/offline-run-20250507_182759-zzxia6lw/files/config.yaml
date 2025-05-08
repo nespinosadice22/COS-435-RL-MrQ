@@ -1,0 +1,60 @@
+wandb_version: 1
+
+_wandb:
+  desc: null
+  value:
+    python_version: 3.9.21
+    cli_version: 0.19.11
+    framework: torch
+    is_jupyter_run: false
+    is_kaggle_kernel: false
+    start_time: 1746656879
+    t:
+      1:
+      - 1
+      - 55
+      3:
+      - 4
+      - 13
+      - 16
+      - 23
+      - 42
+      - 55
+      4: 3.9.21
+      5: 0.19.11
+      8:
+      - 5
+      13: linux-x86_64
+env:
+  desc: null
+  value: Atari-Alien-v5
+seed:
+  desc: null
+  value: 2
+total_timesteps:
+  desc: null
+  value: 2000000
+device:
+  desc: null
+  value: cuda
+eval_freq:
+  desc: null
+  value: 100000.0
+eval_eps:
+  desc: null
+  value: 10
+path:
+  desc: null
+  value: runs/repVSplan/Atari-Alien-v5_seed2_rep_timesteps2000000
+zs_dim:
+  desc: null
+  value: 512
+za_dim:
+  desc: null
+  value: 256
+zsa_dim:
+  desc: null
+  value: 512
+use_planning:
+  desc: null
+  value: false

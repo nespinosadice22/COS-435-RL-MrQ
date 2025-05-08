@@ -1,0 +1,1 @@
+{"train/step": 1999686, "train/episode": 2935, "train/episode_length": 913, "train/episode_reward": 1810, "_timestamp": 1746712635.8821788, "_runtime": 55896.418253753, "_step": 1999989, "loss/value": 9.127881050109863, "loss/encoder": 0.7302427291870117, "loss/policy": -68.74835205078125, "eval/step": 2000000, "eval/avg_reward": 2907, "trial_duration_seconds": 55894.07074570656}

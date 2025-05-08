@@ -1,0 +1,28 @@
+2025-05-07 18:25:39,231 INFO    MainThread:347349 [wandb_setup.py:_flush():70] Current SDK version is 0.19.11
+2025-05-07 18:25:39,231 INFO    MainThread:347349 [wandb_setup.py:_flush():70] Configure stats pid to 347349
+2025-05-07 18:25:39,231 INFO    MainThread:347349 [wandb_setup.py:_flush():70] Loading settings from /home/ak5005/.config/wandb/settings
+2025-05-07 18:25:39,231 INFO    MainThread:347349 [wandb_setup.py:_flush():70] Loading settings from /home/ak5005/COS-435-RL-MrQ/mrq/wandb/settings
+2025-05-07 18:25:39,232 INFO    MainThread:347349 [wandb_setup.py:_flush():70] Loading settings from environment variables
+2025-05-07 18:25:39,232 INFO    MainThread:347349 [wandb_init.py:setup_run_log_directory():724] Logging user logs to runs/repVSplan/Atari-Alien-v5_seed1_rep_timesteps2000000/wandb/offline-run-20250507_182539-qgw9n6os/logs/debug.log
+2025-05-07 18:25:39,232 INFO    MainThread:347349 [wandb_init.py:setup_run_log_directory():725] Logging internal logs to runs/repVSplan/Atari-Alien-v5_seed1_rep_timesteps2000000/wandb/offline-run-20250507_182539-qgw9n6os/logs/debug-internal.log
+2025-05-07 18:25:39,232 INFO    MainThread:347349 [wandb_init.py:init():852] calling init triggers
+2025-05-07 18:25:39,232 INFO    MainThread:347349 [wandb_init.py:init():857] wandb.init called with sweep_config: {}
+config: {'env': 'Atari-Alien-v5', 'seed': 1, 'total_timesteps': 2000000, 'device': 'cuda', 'eval_freq': 100000.0, 'eval_eps': 10, 'path': 'runs/repVSplan/Atari-Alien-v5_seed1_rep_timesteps2000000', 'zs_dim': 512, 'za_dim': 256, 'zsa_dim': 512, 'use_planning': False, '_wandb': {}}
+2025-05-07 18:25:39,232 INFO    MainThread:347349 [wandb_init.py:init():893] starting backend
+2025-05-07 18:25:39,448 INFO    MainThread:347349 [wandb_init.py:init():897] sending inform_init request
+2025-05-07 18:25:39,463 INFO    MainThread:347349 [backend.py:_multiprocessing_setup():101] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2025-05-07 18:25:39,463 INFO    MainThread:347349 [wandb_init.py:init():907] backend started and connected
+2025-05-07 18:25:39,466 INFO    MainThread:347349 [wandb_init.py:init():1005] updated telemetry
+2025-05-07 18:25:39,481 INFO    MainThread:347349 [wandb_init.py:init():1029] communicating run to backend with 90.0 second timeout
+2025-05-07 18:25:39,613 INFO    MainThread:347349 [wandb_init.py:init():1104] starting run threads in backend
+2025-05-07 18:25:39,686 INFO    MainThread:347349 [wandb_run.py:_console_start():2573] atexit reg
+2025-05-07 18:25:39,687 INFO    MainThread:347349 [wandb_run.py:_redirect():2421] redirect: wrap_raw
+2025-05-07 18:25:39,687 INFO    MainThread:347349 [wandb_run.py:_redirect():2490] Wrapping output streams.
+2025-05-07 18:25:39,687 INFO    MainThread:347349 [wandb_run.py:_redirect():2513] Redirects installed.
+2025-05-07 18:25:39,689 INFO    MainThread:347349 [wandb_init.py:init():1150] run started, returning control to user process
+2025-05-08 09:57:15,882 INFO    MainThread:347349 [wandb_run.py:_finish():2321] finishing run ak5005-princeton-university/MRQ-Rep-VS-Plan-Only/qgw9n6os
+2025-05-08 09:57:15,883 INFO    MainThread:347349 [wandb_run.py:_atexit_cleanup():2538] got exitcode: 0
+2025-05-08 09:57:15,884 INFO    MainThread:347349 [wandb_run.py:_restore():2520] restore
+2025-05-08 09:57:15,884 INFO    MainThread:347349 [wandb_run.py:_restore():2526] restore done
+2025-05-08 09:57:15,887 INFO    MainThread:347349 [wandb_run.py:_footer_history_summary_info():4188] rendering history
+2025-05-08 09:57:15,888 INFO    MainThread:347349 [wandb_run.py:_footer_history_summary_info():4220] rendering summary
