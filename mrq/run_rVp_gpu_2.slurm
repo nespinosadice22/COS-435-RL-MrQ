@@ -1,12 +1,12 @@
 #!/bin/bash
-#SBATCH --job-name=R-frost-0  #*******************CHANGE ME EACH TIME 
+#SBATCH --job-name=PAlien0  #*******************CHANGE ME EACH TIME 
 #SBATCH --partition=gpu            
 #SBATCH --qos=gpu-medium           
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --gres=gpu:1               
 #SBATCH --cpus-per-task=16 # increase 
-#SBATCH --mem=32G # *************increase for dmc only (use at 16 otw )
+#SBATCH --mem=16G # *************increase for dmc only (use at 16 otw )
 #SBATCH --time=23:59:59
 #SBATCH --output=slurm_logs/repVSplan/slurm-%j.out
 #SBATCH --error=slurm_logs/repVSplan/slurm-%j.err
@@ -34,4 +34,4 @@ export WANDB_MODE=offline
 
 #DMC - 500K TIMESTEPS. ATARI - 2M TIMESTEPS. GYM - 1M TIMESTEPS. 
 #TO TOGGLE PLANNING ON, USE --use-planning flag at end. thats all you need - no true/false after! Will default to regular if flag is omitted. 
-python new_new_main.py --env  Atari-Frostbite-v5 --seed 0  --kind repVSplan --total_timesteps 2000000 --device cuda
+python new_new_main.py --env Atari-Alien-v5 --seed 0  --kind repVSplan --total_timesteps 2000000 --device cuda --use-planning
