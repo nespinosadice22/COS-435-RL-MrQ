@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --job-name=Pdmc-0     
+#SBATCH --job-name=Pdmc-2     
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --gres=gpu:1               
@@ -29,4 +29,4 @@ export WANDB_MODE=offline
 #print("Using device:", torch.cuda.get_device_name(0) if torch.cuda.is_available() else "CPU")
 
 
-python new_new_main.py --env  Dmc-visual-ball_in_cup-catch --seed 0 --kind repVSplan --total_timesteps 500000 --device cuda --use-planning
+python new_new_main.py --env  Dmc-visual-ball_in_cup-catch --seed 2 --kind repVSplan --total_timesteps 500000 --device cuda --use-planning
