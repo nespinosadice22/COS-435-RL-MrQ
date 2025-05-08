@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --job-name=rVp-ant2      
+#SBATCH --job-name=Rfrost12    
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --gres=gpu:1               
@@ -29,5 +29,5 @@ export WANDB_MODE=offline
 #print("Using device:", torch.cuda.get_device_name(0) if torch.cuda.is_available() else "CPU")
 
 
-python new_new_main.py --env Gym-Ant-v4 --seed 2  --kind repVSplan --total_timesteps 1000000 --device cuda --use-planning
-#python new_new_main.py --env Gym-Ant-v4 --seed 2  --kind repVSplan --total_timesteps 1000000 --device cuda 
+python new_new_main.py --env  Atari-Frostbite-v5 --seed 1  --kind repVSplan --total_timesteps 2000000 --device cuda & 
+python new_new_main.py --env  Atari-Frostbite-v5 --seed 2  --kind repVSplan --total_timesteps 2000000 --device cuda
