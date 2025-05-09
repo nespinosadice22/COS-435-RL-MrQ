@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --job-name=H256_64_s2
+#SBATCH --job-name=HumAnt16_s2
 #SBATCH --partition=gpu            
 #SBATCH --qos=gpu-medium           
 #SBATCH --nodes=1
@@ -31,5 +31,5 @@ export WANDB_MODE=offline
 #print("Using device:", torch.cuda.get_device_name(0) if torch.cuda.is_available() else "CPU")
 
 #rep only for humanoid, seeds 0 and 1 
-python new_new_main.py --env Gym-Humanoid-v4 --seed 2 --kind embeddings --total_timesteps 1000000 --device cuda --zs-dim 64 --za-dim 32 --zsa-dim 64 & 
-python new_new_main.py --env Gym-Humanoid-v4 --seed 2 --kind embeddings --total_timesteps 1000000 --device cuda --zs-dim 256 --za-dim 128 --zsa-dim 256
+python new_new_main.py --env Gym-Humanoid-v4 --seed 2 --kind embeddings --total_timesteps 1000000 --device cuda --zs-dim 16 --za-dim 8 --zsa-dim 16 & 
+python new_new_main.py --env Gym-Ant-v4--seed 2 --kind embeddings --total_timesteps 1000000 --device cuda --zs-dim 16 --za-dim 8 --zsa-dim 16
