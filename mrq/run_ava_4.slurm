@@ -32,4 +32,4 @@ export WANDB_MODE=offline
 
 #rep only for humanoid, seeds 0 and 1
 python new_new_main.py --env Gym-Humanoid-v4 --seed 2 --kind embeddings --total_timesteps 1000000 --device cuda --zs-dim 16 --za-dim 8 --zsa-dim 16 &
-python new_new_main.py --env Gym-Ant-v4--seed 2 --kind embeddings --total_timesteps 1000000 --device cuda --zs-dim 16 --za-dim 8 --zsa-dim 16
+python new_new_main.py --env Gym-Ant-v4 --seed 2 --kind embeddings --total_timesteps 1000000 --device cuda --zs-dim 16 --za-dim 8 --zsa-dim 16
