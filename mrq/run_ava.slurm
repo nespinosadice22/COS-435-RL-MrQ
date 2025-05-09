@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --job-name=RFROST2
+#SBATCH --job-name=Hum256-01
 #SBATCH --partition=gpu
 #SBATCH --qos=gpu-medium
 #SBATCH --nodes=1
@@ -30,4 +30,5 @@ export WANDB_MODE=offline
 #python -c "import torch; print(torch.cuda.is_available(), torch.cuda.get_device_name(0))"
 #print("Using device:", torch.cuda.get_device_name(0) if torch.cuda.is_available() else "CPU")
 
-python new_new_main.py --env  Atari-Frostbite-v5 --seed 2  --kind repVSplan --total_timesteps 2000000 --device cuda
+python new_new_main.py --env Gym-Humanoid-v4 --seed 0 --kind embeddings --total_timesteps 1000000 --device cuda --zs-dim 256 --za-dim 128 --zsa-dim 256 & 
+python new_new_main.py --env Gym-Humanoid-v4 --seed 1 --kind embeddings --total_timesteps 1000000 --device cuda --zs-dim 256 --za-dim 128 --zsa-dim 256
