@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --job-name=Alien64-01
+#SBATCH --job-name=Alien256-1
 #SBATCH --partition=gpu            
 #SBATCH --qos=gpu-medium           
 #SBATCH --nodes=1
@@ -31,5 +31,4 @@ export WANDB_MODE=offline
 #print("Using device:", torch.cuda.get_device_name(0) if torch.cuda.is_available() else "CPU")
 
 #rep only for humanoid, seeds 1 and 2 
-python new_new_main.py --env  Atari-Alien-v5 --seed 0 --kind embeddings --total_timesteps 1000000 --device cuda --zs-dim 64 --za-dim 32 --zsa-dim 64 & 
-python new_new_main.py --env Atari-Alien-v5 --seed 1 --kind embeddings --total_timesteps 1000000 --device cuda --zs-dim 64 --za-dim 32 --zsa-dim 64
+python new_new_main.py --env Atari-Alien-v5 --seed 1 --kind embeddings --total_timesteps 2000000 --device cuda --zs-dim 256 --za-dim 128 --zsa-dim 256
