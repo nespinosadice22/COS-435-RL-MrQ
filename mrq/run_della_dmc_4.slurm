@@ -1,4 +1,3 @@
-
 #!/bin/bash
 #SBATCH --job-name=Dmc64-2  
 #SBATCH --nodes=1
