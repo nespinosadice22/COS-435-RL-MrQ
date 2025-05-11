@@ -33,8 +33,6 @@ def maybe_augment_state(state: torch.Tensor, next_state: torch.Tensor, pixel_obs
         if len(state.shape) != 5:
             state = state.unsqueeze(1)
         batch_size, horizon, history, height, width = state.shape
-
-        # Group states before augmenting.
         both_state = torch.concatenate([state.reshape(-1, history, height, width), next_state.reshape(-1, history, height, width), ], 0 )
         both_state = shift_aug(both_state)
 
@@ -72,11 +70,6 @@ def enforce_types(obj):
                 setattr(obj, name, type(val)(val))
             except Exception:
                 pass
-
-def set_instance_vars(hp: dataclasses.dataclass, c: object):
-    for field in dataclasses.fields(hp):
-        c.__dict__[field.name] = getattr(hp, field.name)
-
 
 # Takes the formatted results and returns a dictionary of env -> (timesteps, seed).
 def results_to_numpy(file: str = "../results/gym_results.txt"):
