@@ -96,8 +96,6 @@ class ReplayBuffer:
 
         if self.prioritized:
             self.priority[self.ind] = self.max_priority
-
-        # Tracking
         self.size = max(self.size, self.ind + 1)
         self.ep_timesteps += 1
         if terminated:
@@ -111,7 +109,7 @@ class ReplayBuffer:
 
         # History
         next_ind = (self.ind + 1) % self.max_size
-         # Track last x=history obs for the state.
+        # Track last x=history obs for the state.
         self.state_ind[self.ind] = np.array(self.history_queue, dtype=np.int32) 
         self.history_queue.append(next_ind) 
         self.next_ind[self.ind] = np.array(self.history_queue, dtype=np.int32)
@@ -125,13 +123,10 @@ class ReplayBuffer:
 
         self.mask[(self.ind + self.history - 1) % self.max_size] = 0
         past_ind = (self.ind - np.arange(min(self.ep_timesteps, self.horizon)) - 1) % self.max_size
-         # Mask out truncated subtrajectories.
+        # Mask out truncated subtrajectories.
         self.mask[past_ind] = (0 if truncated else 1 ) 
-
         self.ind = (self.ind + 1) % self.max_size
         self.ep_timesteps = 0
-
-        # Reset queue
         for _ in range(self.history):
             self.history_queue.append(self.ind)
 
@@ -151,9 +146,8 @@ class ReplayBuffer:
 
         ard = self.action_reward_notdone[ind]
 
-        # Sample subtrajectory (with horizon dimension) for unrolling dynamics.
+        # Sample subtrajectory (with horizon dimension) for unrolling dynamics
         if include_intermediate:
-            # Group (state, next_state) to speed up CPU -> GPU transfer.
             state_ind = np.concatenate([self.state_ind[ind], self.next_ind[ind[:, -1].reshape(-1, 1)]], 1 )
             both_state = ( self.obs[state_ind].reshape(self.batch_size, -1, *self.state_shape).to(self.device).type(torch.float))
             state = both_state[:, :-1] 
