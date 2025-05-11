@@ -1,8 +1,0 @@
-{"time":"2025-05-03T16:39:47.022993-04:00","level":"INFO","msg":"stream: starting","core version":"0.19.9","symlink path":"logs/Gym-Ant-v4_seed_0_4227pm_logs/wandb/offline-run-20250503_163946-j1r2sg1w/logs/debug-core.log"}
-{"time":"2025-05-03T16:39:47.130473-04:00","level":"WARN","msg":"GraphQL client is nil, skipping feature loading"}
-{"time":"2025-05-03T16:39:47.130612-04:00","level":"INFO","msg":"created new stream","id":"j1r2sg1w"}
-{"time":"2025-05-03T16:39:47.130631-04:00","level":"INFO","msg":"stream: started","id":"j1r2sg1w"}
-{"time":"2025-05-03T16:39:47.130646-04:00","level":"INFO","msg":"writer: Do: started","stream_id":"j1r2sg1w"}
-{"time":"2025-05-03T16:39:47.130662-04:00","level":"INFO","msg":"handler: started","stream_id":"j1r2sg1w"}
-{"time":"2025-05-03T16:39:47.130678-04:00","level":"INFO","msg":"sender: started","stream_id":"j1r2sg1w"}
-{"time":"2025-05-03T16:39:47.145711-04:00","level":"INFO","msg":"Starting system monitor"}

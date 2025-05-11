@@ -1,8 +1,0 @@
-{"time":"2025-05-03T15:58:04.493795-04:00","level":"INFO","msg":"stream: starting","core version":"0.19.9","symlink path":"logs/Gym-Ant-v4_seed_0_4227pm_logs/wandb/offline-run-20250503_155804-vujoota2/logs/debug-core.log"}
-{"time":"2025-05-03T15:58:04.603346-04:00","level":"WARN","msg":"GraphQL client is nil, skipping feature loading"}
-{"time":"2025-05-03T15:58:04.603608-04:00","level":"INFO","msg":"created new stream","id":"vujoota2"}
-{"time":"2025-05-03T15:58:04.603652-04:00","level":"INFO","msg":"stream: started","id":"vujoota2"}
-{"time":"2025-05-03T15:58:04.603747-04:00","level":"INFO","msg":"writer: Do: started","stream_id":"vujoota2"}
-{"time":"2025-05-03T15:58:04.603779-04:00","level":"INFO","msg":"sender: started","stream_id":"vujoota2"}
-{"time":"2025-05-03T15:58:04.603711-04:00","level":"INFO","msg":"handler: started","stream_id":"vujoota2"}
-{"time":"2025-05-03T15:58:04.607235-04:00","level":"INFO","msg":"Starting system monitor"}
