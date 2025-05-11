@@ -13,7 +13,7 @@ Within mrq/, this repository includes:
 8. two_hot.py: reward encoding logic 
 9. utils.py: miscellaneous functions 
 
-Some results can be found under mrq/runs (though we did not push all and used wandb logging instead) 
+Some results can be found under mrq/runs (though we did not push most and used wandb logging instead) 
 
 The original results can be found under original_results (from original repo)
 
