@@ -25,7 +25,7 @@ class Defaults:
         self.Gym_total_timesteps = 1e6
         self.Gym_eval_frequency = 5e3
         utils.enforce_types(self)
-
+# end @citation
 app = typer.Typer()
 
 @app.command() 
@@ -54,6 +54,7 @@ def main(
     np.random.seed(seed)
     torch.manual_seed(seed)
     device = torch.device("cuda" if torch.cuda.is_available() and device == "cuda" else "cpu")
+    #end @citation 
     #----------------------------------SAVE DIRECTORY LOGIC----------------------------------#
     #this is a little messy, but it was our way of organizing where our files save 
     if kind == "embeddings": 
