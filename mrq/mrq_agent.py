@@ -1,11 +1,17 @@
+'''
+    Our mrq_agent.py is rewritten from scratch based on our own understanding of MR.Q, but a lot of the code remains the same 
+    as in the original. We found the original MRQ.py file pretty difficult, but our understanding was clarified when we realized 
+    that we can think of MR.Q as integrating the embeddings into a classic TD3 backbone. To that end, we attempted to modularize
+    the code and rewrite train() to reflect this. Losses are included separately in losses.py 
+
+    @citation: mrq_agent.py adapted from https://github.com/facebookresearch/MRQ/tree/main. See comments throughout 
+'''
 import copy
 import dataclasses
 from typing import Dict
-
 import numpy as np
 import torch
 import torch.nn.functional as F
-
 import buffer
 import models
 import utils
@@ -13,34 +19,32 @@ from hyperparams import Hyperparameters
 from losses import (compute_encoder_loss, compute_policy_loss, compute_value_loss)
 from two_hot import TwoHot
 from utils import (masked_mse, maybe_augment_state, multi_step_reward, realign, shift_aug)
-
 import wandb 
+
 class Agent:
-    def __init__(self, obs_shape: tuple, action_dim: int, max_action: float, pixel_obs: bool,
-        discrete: bool, device: torch.device, history: int = 1, hp: Dict = {}):
-        #-----same as original-------
-        self.name = "MR.Q"
+    #--------------------------------------AGENT SET UP (same as original)---------------------------------------#
+    def __init__(self, obs_shape: tuple, action_dim: int, max_action: float, pixel_obs: bool, discrete: bool, device: torch.device, history: int = 1, hp: Dict = {}):
+        #set hyperparameters 
         self.hp = Hyperparameters(**hp) 
         utils.set_instance_vars(self.hp, self)
         self.device = device
 
-        # if discrete, we divide params by 2 
+        # if discrete, we divide default params by 2 
         if discrete:
             self.exploration_noise *= 0.5
             self.noise_clip *= 0.5
             self.target_policy_noise *= 0.5
 
-        # set up replay buffer
+        #----------------replay buffer ----------------#
         self.replay_buffer = buffer.ReplayBuffer(obs_shape, action_dim, max_action, pixel_obs, self.device, history, 
             max(self.enc_horizon, self.Q_horizon), self.buffer_size, self.batch_size, self.prioritized, initial_priority=self.min_priority,)
-
         # ------------------ encoder ------------------#
         self.encoder = models.Encoder(obs_channels_or_dim=obs_shape[0] * history, action_size=action_dim, pixel_based=pixel_obs, bins_for_reward=self.num_bins,
-            latent_dim_state=self.zs_dim, latent_dim_action=self.za_dim, latent_dim_joint=self.zsa_dim, hidden_dim=self.enc_hdim, activation_name=self.enc_activ).to(self.device)
+            zs_dim=self.zs_dim, za_dim=self.za_dim, zsa_dim=self.zsa_dim, hidden_dim=self.enc_hdim, activation_name=self.enc_activ).to(self.device)
         self.encoder_optimizer = torch.optim.AdamW(self.encoder.parameters(), lr=self.enc_lr, weight_decay=self.enc_wd)
         self.encoder_target = copy.deepcopy(self.encoder)
         # ------------------ policy ------------------#
-        self.policy = models.Policy(output_dim=action_dim, is_discrete=discrete, gumbel_temperature=self.gumbel_tau, latent_dim_state=self.zs_dim, 
+        self.policy = models.Policy(output_dim=action_dim, is_discrete=discrete, gumbel_temperature=self.gumbel_tau, zs_dim=self.zs_dim, 
             hidden_dim=self.policy_hdim, activation_name=self.policy_activ).to(self.device)
         self.policy_optimizer = torch.optim.AdamW(self.policy.parameters(), lr=self.policy_lr, weight_decay=self.policy_wd)
         self.policy_target = copy.deepcopy(self.policy)
@@ -63,12 +67,12 @@ class Agent:
         self.discrete = discrete
         self.action_dim = action_dim
         self.max_action = max_action
-       
         self.training_steps = 0
         self.wandb_log_count = 0 
+        self.plan_discount = 0.99 #one step --> use default gamma 
 
-        self.plan_discount = 0.99 
 
+     #--------------------------------------when replay buffer isn't yet full enough---------------------------------------#
     def select_action(self, state: np.array, use_exploration: bool = True):
         # Random action if buffer isn't large enough yet --> random action (done in main)
         if (self.replay_buffer.size < self.buffer_size_before_training and use_exploration):
@@ -79,23 +83,25 @@ class Agent:
             state_t = state_t.reshape(-1, *self.state_shape)
             # encode
             zs = self.encoder.encode_observation(state_t)
-            # get a from policy
+            # get action distribution from policy
             action = self.policy.select_action(zs)
             # add exploration 
             if use_exploration:
                 action += torch.randn_like(action) * self.exploration_noise
-            # get action (and clip continuous)
+            # return action (and clip continuous)
             if self.discrete:
                 return int(action.argmax()) 
             else:
                 return (action.clamp(-1, 1).cpu().data.numpy().flatten() * self.max_action)
-
+    #--------------------------------------CORE TRAINING LOGIC: encoder then TD3---------------------------------------#
     def train(self):
+        #wait until replay buffer is full enough 
         if self.replay_buffer.size <= self.buffer_size_before_training:
             return
         self.training_steps += 1
         log_data = {}
         #--------------IF WE NEED TO TRAIN ENCODER------------------#
+        #sync targets / update reward scales 
         if (self.training_steps - 1) % self.target_update_freq == 0:
             self.policy_target.load_state_dict(self.policy.state_dict())
             self.value_target.load_state_dict(self.value.state_dict())
@@ -110,7 +116,7 @@ class Agent:
                 encoder_loss = self.train_encoder(state, action, next_state, reward, not_done, self.replay_buffer.env_terminates)
                 encoder_losses.append(encoder_loss)
             log_data["loss/encoder"] = torch.stack(encoder_losses).mean().item()
-        #------------OTHERWISE, PRETTY STANDARD Q LEARNING UPDATE-------#
+        #------------OTHERWISE, PRETTY STANDARD TD3------------------#
         state, action, next_state, reward, not_done = self.replay_buffer.sample(self.Q_horizon, include_intermediate=False)
         state, next_state = maybe_augment_state(state, next_state, self.pixel_obs, self.pixel_augs)
         reward, not_done = multi_step_reward(reward, not_done, self.gammas)
@@ -120,30 +126,28 @@ class Agent:
         Q_current, value_loss = self.train_value(zsa, Q_target)
         # update policy
         Q_policy, policy_loss = self.train_policy(zs)
-
-        # priotized buffer thing (didn't touch)
+        # buffer logic 
         if self.prioritized:
             priority = (Q_current - Q_target.expand(-1, 2)).abs().max(dim=1).values
             priority = priority.clamp(min=self.min_priority).pow(self.alpha)
             self.replay_buffer.update_priority(priority)
-
+        #log losses 
         if (self.training_steps - 1) % self.target_update_freq == 0:
             log_data["loss/value"]  = value_loss.item()
             log_data["loss/policy"] = policy_loss.item()
         return log_data 
-   
-
+    #--------------------------------------MODULARIZED HELPER FUNCTIONS FOR TRAINING---------------------------------------#
     def train_encoder(self, state: torch.Tensor, action: torch.Tensor, next_state: torch.Tensor, reward: torch.Tensor, not_done: torch.Tensor, env_terminates: bool):
         batch_size = state.shape[0]
+        #get target_zs
         with torch.no_grad():
-            # flatten out horizon dimension
-            ns_flat = next_state.reshape(batch_size * self.enc_horizon, *self.state_shape)
-            target_zs = self.encoder_target.encode_observation(ns_flat)
+            zs_flat = next_state.reshape(batch_size * self.enc_horizon, *self.state_shape)
+            target_zs = self.encoder_target.encode_observation(zs_flat)
             target_zs = target_zs.reshape(batch_size, self.enc_horizon, -1)
-        # encode the initial state 
+        # encode 
         pred_zs = self.encoder.encode_observation(state[:, 0])
         # compute loss
-        encoder_loss = compute_encoder_loss(self.enc_horizon, pred_zs, target_zs, action, reward, self.encoder,self.two_hot,
+        encoder_loss = compute_encoder_loss(self.enc_horizon, pred_zs, target_zs, action, reward, self.encoder, self.two_hot,
             env_terminates, not_done, self.dyn_weight, self.reward_weight, self.done_weight)
         # backward update
         self.encoder_optimizer.zero_grad(set_to_none=True)
@@ -180,6 +184,7 @@ class Agent:
         self.value_optimizer.step()
         return Q_current, value_loss
 
+    #SIGNIFICANTLY MODIFIED TO ADD PLANNING LOGIC 
     def train_policy(self, zs):
         #get a from pi 
         a_pi, pre_activ = self.policy(zs)
@@ -199,13 +204,10 @@ class Agent:
             with torch.no_grad(): 
                 a_next, _ = self.policy(zs_next)
             #get zsa embedding based on that a_next
-            zsa_next = self.encoder.merge_state_action(zs_next, a_next)
-            #i think without a gradient??
-            #with torch.no_grad(): 
-                #here we're calculating the term E(Q(s', a'))
+            zsa_next = self.encoder.merge_state_action(zs_next, a_next) 
+            #here we're calculating the term E(Q(s', a'))
             Q_expectation = self.value(zsa_next) 
             #Now we can approximate it as r + gamma * (not done) * E[Q(s', a')] 
-            #just use single discount right?? 
             Q_pi = scaled_reward_pred + self.plan_discount * not_done_pred * Q_expectation 
 
         #get policy loss and do backward update the same
@@ -214,7 +216,3 @@ class Agent:
         policy_loss.backward()
         self.policy_optimizer.step()
         return Q_pi, policy_loss
-
-#taking min here but not above because of gradient? 
-#torch's min returns (values, tuple) - take values? 
-#Q_expectation = self.value(zsa_next).min(dim=1, keepdim=True).values 
