@@ -1,9 +1,18 @@
+# hyperparameters.py --> MRQ training hyperparameters
+# Source: FacebookResearch/MRQ MRQ.py (Hyperparameters)
+# Licensed under CC BY-NC 4.0
+"""
+Defines a dataclass for MRQ's training hyperparameters.
+"""
 import dataclasses
+# pylint: disable=too-many-instance-attributes
 
-
-# at some point we can rename these - or find a diff library to do this!
 @dataclasses.dataclass
 class Hyperparameters:
+    """
+    All tunable hyperparameters for MRQ.
+    """
+
     # Generic
     batch_size: int = 256
     buffer_size: int = 1e6
@@ -61,6 +70,6 @@ class Hyperparameters:
     upper: float = 10
 
     #planning ablation
-    use_planning : bool = False 
-    plan_discount : float = 0.99  
+    use_planning : bool = False
+    plan_discount : float = 0.99
 

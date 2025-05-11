@@ -1,5 +1,13 @@
+# two_hot.py--> MRQ TwoHot reward‐quantization utility
+# Source: FacebookResearch/MRQ MRQ.py (class TwoHot)
+# Licensed under CC BY-NC 4.0
 """
-currently the same - we should change!
+Provides a “two‐hot” encoding of scalar rewards into a categorical distribution
+over `num_bins` bins using symexp.
+Includes methods for:
+  • encoding continuous rewards to two‐hot vectors
+  • reconstructing scalars (softmax‐weighted sums)
+  • calculating cross‐entropy loss against two‐hot targets
 """
 
 import torch

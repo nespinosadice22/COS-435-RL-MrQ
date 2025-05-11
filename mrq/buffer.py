@@ -1,8 +1,13 @@
+# buffer.py --> MRQ Replay Buffer implementation
+# Source: FacebookResearch/MRQ buffer.py
+# Licensed under CC BY-NC 4.0 (https://creativecommons.org/licenses/by-nc/4.0/)
 """
-Replay buffer
-We could try it out with a simpler one to start
-
-currently the same - we should change!
+Implements a replay buffer supporting:
+  • fixed‐size circular storage of transitions
+  • optional prioritized sampling with updateable priorities
+  • frame‐history stacking for pixel or vector observations
+  • multi‐step returns (horizon) and masking of incomplete trajectories
+  • both uniform and prioritized sampling interfaces
 """
 
 from collections import deque

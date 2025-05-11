@@ -1,5 +1,9 @@
+# env_preprocessing.py--> MRQ environment‐wrappers
+# Source: FacebookResearch/MRQ env_preprocessing.py
+# Licensed under CC BY-NC 4.0 (https://creativecommons.org/licenses/by-nc/4.0/)
 """
-currently the same - we should change!
+Provides preprocessing wrappers for Gymnasium, DeepMind Control
+and Atari environments.
 """
 
 import dataclasses
@@ -25,6 +29,9 @@ import utils
 # 2. Unifies some basic attributes like action_dim, obs_shape.
 # 3. Tracks some basic information like episode timesteps and reward.
 class Env:
+    """
+    High-level wrapper around any `<Type>Preprocessing` class.
+    """
     def __init__(
         self,
         env_name: str,
@@ -65,6 +72,9 @@ class Env:
         self.ep_num = 1
 
     def reset(self):
+        """
+        Resets the underlying environment.
+        """
         self.ep_total_reward = 0
         self.ep_timesteps = 0
         self.ep_num += 1
@@ -73,6 +83,9 @@ class Env:
         return state if self.remove_info else (state, info)
 
     def step(self, action):
+        """
+        Takes an action in the env, accumulates reward & timestep count.
+        """
         next_state, reward, terminated, truncated, info = self.env.step(action)
 
         self.ep_total_reward += reward
@@ -86,6 +99,9 @@ class Env:
 
 
 class GymPreprocessing:
+    """
+    A wrapper for Gymnasium envs.
+    """
     def __init__(self, env_name: str, seed: int = 0, eval_env: bool = False):
         self.env = gym.make(env_name.replace("Gym-", ""))
         self.env.reset(seed=seed)
@@ -106,6 +122,9 @@ class GymPreprocessing:
 
 @dataclasses.dataclass
 class DmcHyperparameters:
+    """
+    Hyperparameters for DeepMind Control suite (DMC) preprocessing.
+    """
     action_repeat: int = 2
     # Proprioceptive tasks only
     history: int = 1
@@ -118,6 +137,9 @@ class DmcHyperparameters:
 
 
 class DmcPreprocessing:
+    """
+    Wraps a DM Control task.
+    """
     def __init__(
         self, env_name: str, seed: int = 0, eval_env: bool = False, hp: Dict = {}
     ):
@@ -202,6 +224,9 @@ class DmcPreprocessing:
 
 @dataclasses.dataclass
 class AtariHyperparameters:
+    """
+    Hyperparameters for Atari preprocessing.
+    """
     history: int = 4
     training_reward_clipping: bool = (
         False  # Only applied during training / not on eval environment.
@@ -221,6 +246,9 @@ class AtariHyperparameters:
 
 
 class AtariPreprocessing:
+    """
+    Wraps an ALE (Atari) environment.
+    """
     def __init__(
         self, env_name: str, seed: int = 0, eval_env: bool = False, hp: Dict = {}
     ):
