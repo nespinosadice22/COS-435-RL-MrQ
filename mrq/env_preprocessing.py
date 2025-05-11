@@ -1,9 +1,7 @@
 # env_preprocessing.py--> MRQ environment‐wrappers
-# Source: FacebookResearch/MRQ env_preprocessing.py
-# Licensed under CC BY-NC 4.0 (https://creativecommons.org/licenses/by-nc/4.0/)
+# @citation: buffer.py adapted from https://github.com/facebookresearch/MRQ/tree/main.
 """
-Provides preprocessing wrappers for Gymnasium, DeepMind Control
-and Atari environments.
+Provides preprocessing wrappers for Gymnasium, DeepMind Control and Atari environments.
 """
 
 import dataclasses
@@ -32,27 +30,12 @@ class Env:
     """
     High-level wrapper around any `<Type>Preprocessing` class.
     """
-    def __init__(
-        self,
-        env_name: str,
-        seed: int = 0,
-        eval_env: bool = False,
-        remove_info: bool = True,
-    ):
+    def __init__(self, env_name: str, seed: int = 0,  eval_env: bool = False, remove_info: bool = True):
         env_type = env_name.split("-", 1)[0]
-        self.env = globals()[f"{env_type}Preprocessing"](
-            env_name, seed, eval
-        )  # Calls the corresponding preprocessing class.
+        self.env = globals()[f"{env_type}Preprocessing"](env_name, seed, eval) 
 
-        # Copy instance variables
-        for k in [
-            "offline",
-            "pixel_obs",
-            "obs_shape",
-            "history",
-            "max_ep_timesteps",
-            "action_space",
-        ]:
+        # copy instance variables
+        for k in [ "offline", "pixel_obs", "obs_shape", "history", "max_ep_timesteps", "action_space" ]:
             self.__dict__[k] = self.env.__dict__[k]
 
         # Only used for printing
@@ -61,9 +44,7 @@ class Env:
 
         self.action_space.seed(seed)
         self.discrete = self.action_space.__class__.__name__ == "Discrete"
-        self.action_dim = (
-            self.action_space.n if self.discrete else self.action_space.shape[0]
-        )
+        self.action_dim = (self.action_space.n if self.discrete else self.action_space.shape[0] )
         self.max_action = 1 if self.discrete else float(self.action_space.high[0])
 
         self.remove_info = remove_info
@@ -72,9 +53,6 @@ class Env:
         self.ep_num = 1
 
     def reset(self):
-        """
-        Resets the underlying environment.
-        """
         self.ep_total_reward = 0
         self.ep_timesteps = 0
         self.ep_num += 1
@@ -83,9 +61,6 @@ class Env:
         return state if self.remove_info else (state, info)
 
     def step(self, action):
-        """
-        Takes an action in the env, accumulates reward & timestep count.
-        """
         next_state, reward, terminated, truncated, info = self.env.step(action)
 
         self.ep_total_reward += reward
@@ -99,9 +74,6 @@ class Env:
 
 
 class GymPreprocessing:
-    """
-    A wrapper for Gymnasium envs.
-    """
     def __init__(self, env_name: str, seed: int = 0, eval_env: bool = False):
         self.env = gym.make(env_name.replace("Gym-", ""))
         self.env.reset(seed=seed)
@@ -122,9 +94,6 @@ class GymPreprocessing:
 
 @dataclasses.dataclass
 class DmcHyperparameters:
-    """
-    Hyperparameters for DeepMind Control suite (DMC) preprocessing.
-    """
     action_repeat: int = 2
     # Proprioceptive tasks only
     history: int = 1
@@ -137,12 +106,7 @@ class DmcHyperparameters:
 
 
 class DmcPreprocessing:
-    """
-    Wraps a DM Control task.
-    """
-    def __init__(
-        self, env_name: str, seed: int = 0, eval_env: bool = False, hp: Dict = {}
-    ):
+    def __init__( self, env_name: str, seed: int = 0, eval_env: bool = False, hp: Dict = {}):
         from dm_control import suite
         from dm_control.suite.wrappers import action_scale
 
@@ -150,21 +114,13 @@ class DmcPreprocessing:
         utils.set_instance_vars(self.hp, self)
 
         self.pixel_obs = "-visual" in env_name
-        self.domain, task = (
-            env_name.replace("Dmc-", "").replace("visual-", "").split("-", 1)
-        )
-        self.env = suite.load(
-            self.domain, task, task_kwargs={"random": seed}, visualize_reward=False
-        )
+        self.domain, task = (env_name.replace("Dmc-", "").replace("visual-", "").split("-", 1))
+        self.env = suite.load(self.domain, task, task_kwargs={"random": seed}, visualize_reward=False)
         self.env = action_scale.Wrapper(self.env, minimum=-1.0, maximum=1.0)
         self.offline = False
 
         if self.pixel_obs:
-            self.obs_shape = (
-                3,
-                self.image_size,
-                self.image_size,
-            )  # The first dim (3) is color channels (RGB).
+            self.obs_shape = ( 3, self.image_size, self.image_size)  # The first dim (3) is color channels (RGB).
             self.history = self.visual_history
         else:
             self.obs_shape = 0
@@ -200,7 +156,7 @@ class DmcPreprocessing:
 
     def step(self, action: float):
         self.t += 1
-        action = action.astype(np.float32)  # This shouldn't matter but it can.
+        action = action.astype(np.float32)  
 
         reward = 0.0
         for _ in range(self.action_repeat):
@@ -209,13 +165,7 @@ class DmcPreprocessing:
 
         obs = self.get_obs(time_step)
         self.history_queue.append(obs)
-        return (
-            np.concatenate(self.history_queue),
-            reward,
-            False,
-            self.t == self.max_ep_timesteps,
-            {},
-        )
+        return (np.concatenate(self.history_queue), reward, False, self.t == self.max_ep_timesteps, {} )
 
     def render(self, size: int = 84, camera_id: int = 0):
         camera_id = dict(quadruped=2).get(self.domain, camera_id)
@@ -224,13 +174,9 @@ class DmcPreprocessing:
 
 @dataclasses.dataclass
 class AtariHyperparameters:
-    """
-    Hyperparameters for Atari preprocessing.
-    """
     history: int = 4
-    training_reward_clipping: bool = (
-        False  # Only applied during training / not on eval environment.
-    )
+    # Only applied during training / not on eval environment.
+    training_reward_clipping: bool =  False 
     max_ep_frames: int = 108e3
     max_noops: int = 0
     action_repeat: int = 4
@@ -246,12 +192,7 @@ class AtariHyperparameters:
 
 
 class AtariPreprocessing:
-    """
-    Wraps an ALE (Atari) environment.
-    """
-    def __init__(
-        self, env_name: str, seed: int = 0, eval_env: bool = False, hp: Dict = {}
-    ):
+    def __init__(self, env_name: str, seed: int = 0, eval_env: bool = False, hp: Dict = {}):
         self.hp = AtariHyperparameters(**hp)
         utils.set_instance_vars(self.hp, self)
 
@@ -264,11 +205,8 @@ class AtariPreprocessing:
 
         self.resize = partial(cv2.resize, interpolation=cv2.INTER_AREA)
 
-        self.env = gym.make(
-            env_name.replace("Atari-", "ALE/"),
-            frameskip=1,
-            obs_type="grayscale" if self.grayscale else "rgb",
-            repeat_action_probability=0.25 if self.sticky_actions else 0,
+        self.env = gym.make(env_name.replace("Atari-", "ALE/"), frameskip=1, 
+            obs_type="grayscale" if self.grayscale else "rgb", repeat_action_probability=0.25 if self.sticky_actions else 0,
         )
         self.env.reset(seed=seed)
         self.offline = False
@@ -335,10 +273,4 @@ class AtariPreprocessing:
 
         obs = self.get_obs()
         self.history_queue.append(obs)
-        return (
-            np.concatenate(self.history_queue),
-            reward,
-            terminal,
-            self.frames == self.max_ep_frames,
-            info,
-        )
+        return (np.concatenate(self.history_queue), reward, terminal, self.frames == self.max_ep_frames, info)
