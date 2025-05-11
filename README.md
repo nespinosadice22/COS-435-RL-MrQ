@@ -45,14 +45,6 @@ pip install -r requirements.txt
 
 pip install wandb typer
 
-sbatch run_mrq.slurm (or the right slurm file)
-
-To check status: squeue -u netid (max 2 gpus per user so will say PD until it starts, then R when running)
-
-To check output/error: cat slurm-{slurm job id}.out or  cat slurm-{slurm job id}.err
-
-After it finishes, cd to folder and run wandb sync --sync-all
-
 -----------------------------------------------------------------------------
 Debugging for dm_control: (should work after this)
 
