@@ -22,7 +22,7 @@ HOW TO RUN:
 
 cd mrq 
 
-python new_new_main.py --env [environment]--seed [seed] --kind [embeddings or repVSplan] --total_timesteps [timesteps] --device [cuda or cpu] \ 
+python new_new_main.py --env [environment]--seed [seed] --kind [embeddings or repVSplan] --total_timesteps [timesteps] --device [cuda or cpu]  
     (--use-planning) --zs-dim [zs_dim] --za-dim [za_dim] --zsa-dim [za_dim]  
 
 -----------------------------------------------------------------------------
