@@ -1,29 +1,24 @@
 # hyperparameters.py --> MRQ training hyperparameters
-# Source: FacebookResearch/MRQ MRQ.py (Hyperparameters)
-# Licensed under CC BY-NC 4.0
+# @citation: hyperparameters.py adapted from https://github.com/facebookresearch/MRQ/tree/main.
 """
 Defines a dataclass for MRQ's training hyperparameters.
 """
 import dataclasses
-# pylint: disable=too-many-instance-attributes
 
 @dataclasses.dataclass
 class Hyperparameters:
     """
     All tunable hyperparameters for MRQ.
     """
-
     # Generic
     batch_size: int = 256
     buffer_size: int = 1e6
     discount: float = 0.99
     target_update_freq: int = 250
-
-    # Exploration
     buffer_size_before_training: int = 10e3
     exploration_noise: float = 0.2
 
-    # TD3
+    # TD3 specific 
     target_policy_noise: float = 0.2
     noise_clip: float = 0.3
 
@@ -32,7 +27,7 @@ class Hyperparameters:
     reward_weight: float = 0.1
     done_weight: float = 0.1
 
-    # Replay Buffer (LAP)
+    # Replay Buffer 
     prioritized: bool = True
     alpha: float = 0.4
     min_priority: float = 1
@@ -64,7 +59,7 @@ class Hyperparameters:
     gumbel_tau: float = 10
     pre_activ_weight: float = 1e-5
 
-    # Reward model
+    # Reward encoding 
     num_bins: int = 65
     lower: float = -10
     upper: float = 10
