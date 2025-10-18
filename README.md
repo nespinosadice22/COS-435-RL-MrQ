@@ -7,6 +7,7 @@ Our contribution is a from-scratch reimplementation of MR.Q with explicit modula
 
 We evaluate on five representative benchmarks (Atari Alien & Frostbite, Gym Ant & Humanoid, and DMC-Visual Ball in Cup Catch) using multiple seeds, with training/evaluation tracked via Weights & Biases.
 
+
 Within mrq/, this repository includes: 
 1. models.py: contains the Encoder, Policy and Value networks 
 2. mrq_agent.py: the key ``Agent'' file that trains those networks 
@@ -18,47 +19,13 @@ Within mrq/, this repository includes:
 8. two_hot.py: reward encoding logic 
 9. utils.py: miscellaneous functions 
 
-Some results can be found under mrq/runs (though we did not push most and used wandb logging instead) 
+Some results can be found under mrq/runs (though we did not push most and used wandb logging instead). The original results can be found under original_results (from original repo)
 
-The original results can be found under original_results (from original repo)
-
------------------------------------------------------------------------------
 HOW TO RUN: 
 
 cd mrq 
 
 python new_new_main.py --env [environment]--seed [seed] --kind [embeddings or repVSplan] --total_timesteps [timesteps] --device [cuda or cpu]  (--use-planning) --zs-dim [zs_dim] --za-dim [za_dim] --zsa-dim [za_dim]  
 
------------------------------------------------------------------------------
-ADROIT GET STARTED: 
-
-module purge
-
-module load anaconda3/2021.11
-
-conda init bash
-
-source ~/.bashrc
-
-conda create -n mrq_gpu python=3.9 -y
-
-conda activate mrq_gpu
-
-conda install pytorch torchvision torchaudio pytorch-cuda=11.8 -c pytorch -c nvidia
-
-pip install -r requirements.txt
-
-pip install wandb typer
-
------------------------------------------------------------------------------
-Debugging for dm_control: (should work after this)
-
-pip uninstall dm-control mujoco
-
-pip install --upgrade pip
-
-pip install mujoco==2.3.7
-
-pip install dm-control
 
 
