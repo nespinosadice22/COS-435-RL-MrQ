@@ -22,9 +22,7 @@ Within mrq/, this repository includes:
 Some results can be found under mrq/runs (though we did not push most and used wandb logging instead). The original results can be found under original_results (from original repo)
 
 HOW TO RUN: 
-
-cd mrq 
-
+```python 
 python new_new_main.py --env [environment]--seed [seed] --kind [embeddings or repVSplan] --total_timesteps [timesteps] --device [cuda or cpu]  (--use-planning) --zs-dim [zs_dim] --za-dim [za_dim] --zsa-dim [za_dim]  
 
 
