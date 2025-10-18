@@ -1,6 +1,11 @@
 # COS-435-RL-MrQ
------------------------------------------------------------------------------
-OUR REIMPLEMENTATION: 
+This project investigates MR.Q, a recently proposed reinforcement learning algorithm designed to achieve general, lightweight, model-free performance across diverse domains such as Atari, Gym, and DMC environments. Unlike domain-specific specialists or heavyweight generalists (DreamerV3, TD-MPC2), MR.Q aims to combine representation learning with a TD3-style backbone to deliver competitive results without excessive compute.
+
+Our contribution is a from-scratch reimplementation of MR.Q with explicit modularity and logging, followed by two key experiments:
+- *Representation Only vs. Representation + Planning* — testing whether adding a one-step latent-space planner improves performance.
+- *Embedding Dimension Ablations* — examining how reducing the size of learned representations affects generalization across domains.
+
+We evaluate on five representative benchmarks (Atari Alien & Frostbite, Gym Ant & Humanoid, and DMC-Visual Ball in Cup Catch) using multiple seeds, with training/evaluation tracked via Weights & Biases.
 
 Within mrq/, this repository includes: 
 1. models.py: contains the Encoder, Policy and Value networks 
